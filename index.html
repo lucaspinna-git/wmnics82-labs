@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netcom Training — Cohort WMNICS82 Interactive Labs</title>
+    <style>
+        :root {
+            --netcom-dark: #1b0b41;
+            --netcom-dark-surface: #261259;
+            --netcom-dark-hover: #321872;
+            --netcom-lime: #73f54a;
+            --netcom-lime-dark: #58cc33;
+            --netcom-purple-subtle: #ebdffa;
+            --netcom-card-border: rgba(115, 245, 74, 0.25);
+            --bg-page: #0f0624;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--netcom-dark) 0%, var(--netcom-dark-surface) 100%);
+            border: 1px solid var(--netcom-card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 36px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(115, 245, 74, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(115, 245, 74, 0.15);
+            color: var(--netcom-lime);
+            border: 1px solid rgba(115, 245, 74, 0.4);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-alt {
+            background: rgba(235, 223, 250, 0.12);
+            color: var(--netcom-purple-subtle);
+            border: 1px solid rgba(235, 223, 250, 0.25);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: var(--netcom-lime);
+        }
+
+        .hero p {
+            color: var(--netcom-purple-subtle);
+            font-size: 16px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        /* Section Heading */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--netcom-lime);
+            box-shadow: 0 0 10px var(--netcom-lime);
+        }
+
+        /* Labs Grid */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .lab-card {
+            background: var(--netcom-dark-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--netcom-lime);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 15px rgba(115, 245, 74, 0.15);
+        }
+
+        .lab-header {
+            margin-bottom: 14px;
+        }
+
+        .lab-unit-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--netcom-lime);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .lab-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .lab-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .lab-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
+        }
+
+        .lab-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--netcom-lime);
+            font-weight: 600;
+        }
+
+        .btn-launch {
+            background: var(--netcom-lime);
+            color: #0b051b;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.15s ease;
+        }
+
+        .lab-card:hover .btn-launch {
+            background: #89ff65;
+        }
+
+        /* Coming soon card */
+        .lab-card.coming-soon {
+            opacity: 0.65;
+            border-style: dashed;
+            pointer-events: none;
+        }
+
+        .lab-card.coming-soon:hover {
+            transform: none;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer strong {
+            color: var(--netcom-purple-subtle);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Header -->
+        <header class="hero">
+            <div class="badge-row">
+                <span class="badge">Netcom Training</span>
+                <span class="badge-alt">Cohort WMNICS82</span>
+                <span class="badge-alt">IT Support Course</span>
+            </div>
+            <h1>Interactive <span>Simulation Labs</span> Hub</h1>
+            <p>Welcome to the WMNICS82 interactive learning portal. Access realistic workplace simulations, diagnostic sandboxes, troubleshooting practice tickets, and scenario challenges running fully in your browser.</p>
+        </header>
+
+        <!-- Current Available Labs -->
+        <section>
+            <div class="section-header">
+                <h2><span class="pulse"></span> Unit 1: CompTIA Tech+ Labs</h2>
+            </div>
+
+            <div class="labs-grid" id="labsGrid">
+                <!-- Today's Lab Slot -->
+                <div class="lab-card coming-soon" id="labSlotDay1">
+                    <div class="lab-header">
+                        <div class="lab-unit-tag">Unit 1: Day 1 • CompTIA Tech+</div>
+                        <h3 class="lab-title">Lesson 01 Interactive Lab</h3>
+                        <p class="lab-desc">Practice scenario covering the Computing Cycle and workplace Data Privacy considerations.</p>
+                    </div>
+                    <div class="lab-meta">
+                        <span class="lab-status">● Preparing Today's Lab</span>
+                        <span class="btn-launch" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Deploying Soon</span>
+                    </div>
+                </div>
+
+                <!-- Unit 1 Capstone Preview -->
+                <div class="lab-card coming-soon">
+                    <div class="lab-header">
+                        <div class="lab-unit-tag">Unit 1: Day 10 • CompTIA Tech+</div>
+                        <h3 class="lab-title">Troubleshooting Project Simulation</h3>
+                        <p class="lab-desc">Interactive diagnostic case study applying the 6-step CompTIA troubleshooting methodology to simulated user fault tickets.</p>
+                    </div>
+                    <div class="lab-meta">
+                        <span style="color: #94a3b8; font-size: 12px;">Scheduled for Day 10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Netcom Training</strong> • IT Support Course • Cohort WMNICS82 • Hosted on GitHub Pages</p>
+    </footer>
+</body>
+</html>
