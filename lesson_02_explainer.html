@@ -426,29 +426,29 @@
 </div>
 <!-- Input & Output Blocks -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Input Text Box -->
+        <!-- Left Box (Input) -->
         <div class="space-y-2">
             <div class="h-7 flex items-center justify-between">
-                <label class="block text-xs font-mono uppercase tracking-wider text-slate-300" id="caesarInputLabel">Plaintext Input (To Encrypt)</label>
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-300" id="caesarInputLabel">Plaintext Input</label>
                 <button class="text-[11px] font-mono text-slate-300 hover:text-white transition bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="caesarClearBtn" type="button">Clear</button>
             </div>
-            <textarea class="h-[88px] w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono resize-none focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="caesarInput" placeholder="Type message here...">ATTACK AT DAWN</textarea>
+            <textarea class="h-[88px] w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono resize-none focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="caesarInput" placeholder="Type or paste text here...">ATTACK AT DAWN</textarea>
         </div>
 
-        <!-- Output Box -->
+        <!-- Right Box (Output / Interactive Paste) -->
         <div class="space-y-2">
             <div class="h-7 flex items-center justify-between">
-                <label class="block text-xs font-mono uppercase tracking-wider text-white font-bold truncate" id="caesarOutputLabel">Ciphertext Output (Encrypted Result)</label>
-                <div class="flex items-center gap-2 shrink-0">
-                    <button class="text-[11px] font-mono text-slate-300 hover:text-netcom-lime transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="swapCaesarBtn" type="button">
-                        ⇄ Decrypt This
+                <label class="block text-xs font-mono uppercase tracking-wider text-white font-bold" id="caesarOutputLabel">Ciphertext Output</label>
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <button class="text-[11px] font-mono text-slate-300 hover:text-netcom-lime transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="swapCaesarBtn" type="button" title="Swap input and output text">
+                        ⇄ Swap
                     </button>
-                    <button class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="copyCipherBtn" type="button">
+                    <button class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="copyCipherBtn" type="button" title="Copy output text">
                         Copy
                     </button>
                 </div>
             </div>
-            <div class="h-[88px] w-full bg-[#120a26] border border-white/20 rounded-xl p-3 text-sm font-mono text-white select-all shadow-[inset_0_0_12px_rgba(255,255,255,0.05)] overflow-y-auto" id="caesarOutput">DWWDFN DW GDZQ</div>
+            <textarea class="h-[88px] w-full bg-[#120a26] border border-white/20 rounded-xl p-3 text-sm font-mono text-white placeholder-slate-500 resize-none focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition shadow-[inset_0_0_12px_rgba(255,255,255,0.05)]" id="caesarOutput" placeholder="Type or paste ciphertext here to decode...">DWWDFN DW GDZQ</textarea>
         </div>
     </div>
 
@@ -1398,8 +1398,8 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                 pwdInput.addEventListener('input', (e) => evaluatePassword(e.target.value));
             }
 
-            // =================================================================
-            // WIDGET 2: CAESAR SHIFT CIPHER (ENCODER & DECODER)
+                        // =================================================================
+            // WIDGET 2: CAESAR SHIFT CIPHER (BIDIRECTIONAL ENCODER & DECODER)
             // =================================================================
             const caesarInput = document.getElementById('caesarInput');
             const caesarOutput = document.getElementById('caesarOutput');
@@ -1416,14 +1416,8 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
             let currentCaesarMode = 'encode'; // 'encode' or 'decode'
             let currentShiftVal = 3;
 
-            function runCaesar() {
-                if (!caesarInput || !caesarOutput) return;
-                const text = caesarInput.value || '';
-                
-                const effectiveShift = currentCaesarMode === 'encode' 
-                    ? (currentShiftVal % 26) 
-                    : ((-currentShiftVal % 26) + 26) % 26;
-                
+            function applyCaesarShift(text, shift) {
+                const effectiveShift = ((shift % 26) + 26) % 26;
                 let result = '';
                 for (let i = 0; i < text.length; i++) {
                     const c = text[i];
@@ -1436,8 +1430,11 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                         result += c;
                     }
                 }
-                caesarOutput.textContent = result || '(output empty)';
+                return result;
+            }
 
+            function updateMappingDisplay() {
+                const effectiveShift = currentCaesarMode === 'encode' ? currentShiftVal : -currentShiftVal;
                 if (caesarShiftDisplay) {
                     const modeText = currentCaesarMode === 'encode' ? 'Encrypt (+)' : 'Decrypt (-)';
                     caesarShiftDisplay.textContent = `${modeText} Offset: ${currentShiftVal}`;
@@ -1447,11 +1444,37 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                     const samples = ['A', 'B', 'C', 'D', 'E', 'X', 'Y', 'Z'];
                     const mapped = samples.map(letter => {
                         const code = letter.charCodeAt(0);
-                        const shifted = String.fromCharCode(((code - 65 + effectiveShift) % 26) + 65);
+                        const shifted = String.fromCharCode((((code - 65 + effectiveShift) % 26) + 26) % 26 + 65);
                         return `${letter}&rarr;<span class="text-white font-bold">${shifted}</span>`;
                     });
                     caesarMapStrip.innerHTML = mapped.join(' &bull; ');
                 }
+            }
+
+            function updateFromLeft() {
+                if (!caesarInput || !caesarOutput) return;
+                const text = caesarInput.value;
+                const shift = currentCaesarMode === 'encode' ? currentShiftVal : -currentShiftVal;
+                caesarOutput.value = applyCaesarShift(text, shift);
+                updateMappingDisplay();
+            }
+
+            function updateFromRight() {
+                if (!caesarInput || !caesarOutput) return;
+                const text = caesarOutput.value;
+                const reverseShift = currentCaesarMode === 'encode' ? -currentShiftVal : currentShiftVal;
+                caesarInput.value = applyCaesarShift(text, reverseShift);
+                updateMappingDisplay();
+            }
+
+            // Left textarea listener
+            if (caesarInput) {
+                caesarInput.addEventListener('input', updateFromLeft);
+            }
+
+            // Right textarea listener (allows students to type or paste into the output box directly!)
+            if (caesarOutput) {
+                caesarOutput.addEventListener('input', updateFromRight);
             }
 
             caesarModeButtons.forEach(btn => {
@@ -1466,14 +1489,14 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                     
                     if (caesarInputLabel && caesarOutputLabel) {
                         if (currentCaesarMode === 'encode') {
-                            caesarInputLabel.textContent = 'Plaintext Input (To Encrypt)';
-                            caesarOutputLabel.textContent = 'Ciphertext Output (Encrypted Result)';
+                            caesarInputLabel.textContent = 'Plaintext Input';
+                            caesarOutputLabel.textContent = 'Ciphertext Output';
                         } else {
-                            caesarInputLabel.textContent = 'Ciphertext Input (To Decrypt)';
-                            caesarOutputLabel.textContent = 'Plaintext Output (Decrypted Result)';
+                            caesarInputLabel.textContent = 'Ciphertext Input';
+                            caesarOutputLabel.textContent = 'Plaintext Output';
                         }
                     }
-                    runCaesar();
+                    updateFromLeft();
                 });
             });
 
@@ -1486,45 +1509,52 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                     btn.classList.add('active', 'bg-netcom-lime', 'text-netcom-dark', 'shadow-[0_0_8px_#73f54a]');
                     btn.classList.remove('bg-white/10', 'text-slate-300');
                     currentShiftVal = parseInt(btn.getAttribute('data-shift'), 10) || 3;
-                    runCaesar();
+                    updateFromLeft();
                 });
             });
 
-            if (caesarInput) {
-                caesarInput.addEventListener('input', runCaesar);
-            }
-
-            if (caesarClearBtn && caesarInput) {
+            if (caesarClearBtn && caesarInput && caesarOutput) {
                 caesarClearBtn.addEventListener('click', () => {
                     caesarInput.value = '';
-                    runCaesar();
+                    caesarOutput.value = '';
                     caesarInput.focus();
+                    updateMappingDisplay();
                 });
             }
 
             if (swapCaesarBtn && caesarInput && caesarOutput) {
                 swapCaesarBtn.addEventListener('click', () => {
-                    const currentOut = caesarOutput.textContent;
-                    if (!currentOut || currentOut === '(output empty)') return;
+                    const leftVal = caesarInput.value;
+                    const rightVal = caesarOutput.value;
+                    caesarInput.value = rightVal;
+                    caesarOutput.value = leftVal;
                     
-                    caesarInput.value = currentOut;
-                    
-                    const decodeBtn = document.querySelector('.caesar-mode-btn[data-mode="decode"]');
-                    if (decodeBtn) decodeBtn.click();
+                    // Switch mode
+                    const targetMode = currentCaesarMode === 'encode' ? 'decode' : 'encode';
+                    const modeBtn = document.querySelector(`.caesar-mode-btn[data-mode="${targetMode}"]`);
+                    if (modeBtn) {
+                        modeBtn.click();
+                    } else {
+                        currentCaesarMode = targetMode;
+                        updateFromLeft();
+                    }
                 });
             }
 
             if (copyCipherBtn && caesarOutput) {
                 copyCipherBtn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(caesarOutput.textContent).then(() => {
+                    const textToCopy = caesarOutput.value || caesarInput.value || '';
+                    navigator.clipboard.writeText(textToCopy).then(() => {
                         copyCipherBtn.textContent = 'Copied!';
                         setTimeout(() => { copyCipherBtn.textContent = 'Copy'; }, 2000);
                     });
                 });
             }
 
-            runCaesar();
+            // Initial render
+            updateFromLeft();
 
+            
             // =================================================================
             // WIDGET 3: REAL LIVE DNS LOOKUP WIDGET (DNS-OVER-HTTPS)
             // =================================================================
