@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- PRIVACY & SEARCH ENGINE CLOAKING: Complete Disallow for Search & AI Scrapers -->
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
-    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="google-extended" content="noindex, nofollow">
-    <meta name="GPTBot" content="noindex, nofollow">
-    <meta name="ChatGPT-User" content="noindex, nofollow">
-    <meta name="anthropic-ai" content="noindex, nofollow">
-    <meta name="Claude-Web" content="noindex, nofollow">
-    <meta name="CCBot" content="noindex, nofollow">
-    <meta name="PerplexityBot" content="noindex, nofollow">
-    <meta name="referrer" content="no-referrer">
-    <title>Lesson 2: Passwords, Encryption &amp; Internet Basics &bull; Interactive Explainer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- PRIVACY & SEARCH ENGINE CLOAKING: Complete Disallow for Search & AI Scrapers -->
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" name="robots"/>
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" name="googlebot"/>
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex" name="bingbot"/>
+<meta content="noindex, nofollow" name="google-extended"/>
+<meta content="noindex, nofollow" name="GPTBot"/>
+<meta content="noindex, nofollow" name="ChatGPT-User"/>
+<meta content="noindex, nofollow" name="anthropic-ai"/>
+<meta content="noindex, nofollow" name="Claude-Web"/>
+<meta content="noindex, nofollow" name="CCBot"/>
+<meta content="noindex, nofollow" name="PerplexityBot"/>
+<meta content="no-referrer" name="referrer"/>
+<title>Lesson 2: Passwords, Encryption &amp; Internet Basics • Interactive Explainer</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -40,12 +41,11 @@
             }
         }
     </script>
-    <!-- Google Fonts: Plus Jakarta Sans for reading legibility + JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
+<!-- Google Fonts: Plus Jakarta Sans for reading legibility + JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0c061a;
@@ -83,1029 +83,829 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-netcom-lime selection:text-netcom-dark">
-
-    <!-- Top Mobile Header -->
-    <header class="lg:hidden sticky top-0 z-50 bg-netcom-dark/95 backdrop-blur border-b border-netcom-lime/20 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
-            <span class="font-extrabold text-sm tracking-wide text-white">NETCOM</span>
-            <span class="text-[11px] text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30 font-bold">WMNICS82</span>
-        </div>
-        <button id="mobileMenuBtn" class="text-white p-1.5 rounded-lg hover:bg-white/10 focus:outline-none" aria-label="Toggle Navigation">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </header>
-
-    <div class="flex-1 flex flex-col lg:flex-row">
-        <!-- ========================================================================= -->
-        <!-- COMPACT LEFT NAVIGATION RAIL (Modeled on Antigravity Dashboard)            -->
-        <!-- ========================================================================= -->
-        <aside id="sidebar" class="hidden lg:flex flex-col w-[210px] min-w-[210px] bg-[#0f0721] border-r border-white/10 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300">
-            <!-- Brand Capsule -->
-            <div class="p-4 border-b border-white/10 bg-gradient-to-b from-netcom-surface/50 to-transparent">
-                <div class="flex items-center gap-2 mb-1.5">
-                    <div class="w-6 h-6 rounded-md bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-black text-xs shadow-[0_0_8px_rgba(115,245,74,0.3)]">
+<!-- Top Mobile Header -->
+<header class="lg:hidden sticky top-0 z-50 bg-netcom-dark/95 backdrop-blur border-b border-netcom-lime/20 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
+<span class="font-extrabold text-sm tracking-wide text-white">NETCOM</span>
+<span class="text-[11px] text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30 font-bold">WMNICS82</span>
+</div>
+<button aria-label="Toggle Navigation" class="text-white p-1.5 rounded-lg hover:bg-white/10 focus:outline-none" id="mobileMenuBtn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</header>
+<div class="flex-1 flex flex-col lg:flex-row">
+<!-- ========================================================================= -->
+<!-- COMPACT LEFT NAVIGATION RAIL (Modeled on Antigravity Dashboard)            -->
+<!-- ========================================================================= -->
+<aside class="hidden lg:flex flex-col w-[240px] min-w-[240px] bg-[#0f0721] border-r border-white/10 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300" id="sidebar">
+<!-- Brand Capsule -->
+<div class="p-4 border-b border-white/10 bg-gradient-to-b from-netcom-surface/50 to-transparent">
+<div class="flex items-center gap-2 mb-1.5">
+<div class="w-6 h-6 rounded-md bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-black text-xs shadow-[0_0_8px_rgba(115,245,74,0.3)]">
                         N
                     </div>
-                    <div>
-                        <div class="text-xs font-black tracking-wide text-white leading-none">Netcom <span class="text-netcom-lime">Training</span></div>
-                        <div class="text-[10px] text-netcom-lime font-bold tracking-wider uppercase mt-0.5">WMNICS82</div>
-                    </div>
-                </div>
-                <div class="text-[11px] text-netcom-lavender font-medium mt-2">Lesson 02 Explainer</div>
-            </div>
-
-            <!-- Compact Navigation List (Single-Line Items, Zero Subheader Clutter) -->
-            <nav class="flex-1 px-2 py-3 space-y-1" id="navLinks">
-                <div class="px-2 pb-1.5 text-[10px] font-extrabold tracking-wider text-netcom-lavender/50 uppercase">Outcomes</div>
-                
-                <a href="#lo-2-1" class="nav-link active flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.1</span>
-                    <span class="truncate font-semibold">Passwords &amp; Crypto</span>
-                </a>
-
-                <a href="#lo-2-2" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.2</span>
-                    <span class="truncate font-semibold">Internet Basics</span>
-                </a>
-
-                <a href="#lo-2-3" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.3</span>
-                    <span class="truncate font-semibold">Web Browsers</span>
-                </a>
-
-                <a href="#lo-2-4" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.4</span>
-                    <span class="truncate font-semibold">ISP Technologies</span>
-                </a>
-            </nav>
-
-            <!-- Bottom Hub Link -->
-            <div class="p-3 border-t border-white/10 bg-[#0c061a] space-y-1">
-                <a href="index.html" class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+<div>
+<div class="text-xs font-black tracking-wide text-white leading-none">Netcom <span class="text-netcom-lime">Training</span></div>
+<div class="text-[10px] text-netcom-lime font-bold tracking-wider uppercase mt-0.5">WMNICS82</div>
+</div>
+</div>
+<div class="text-[11px] text-netcom-lavender font-medium mt-2">Lesson 02 Explainer</div>
+</div>
+<!-- Compact Navigation List (Single-Line Items, Zero Subheader Clutter) -->
+<nav class="flex-1 px-2 py-3 space-y-1" id="navLinks"><div class="px-2 pb-2 text-[10px] font-extrabold tracking-wider text-netcom-lavender/50 uppercase">Outcomes &amp; Subtopics</div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-2-1"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.1</span><span class="truncate font-bold">Passwords &amp; Encryption</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-1-auth"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.1.1</span><span class="truncate">Authentication &amp; Passwords</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-1-mgmt"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.1.2</span><span class="truncate">Password Management &amp; Hygiene</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-1-crypto-basics"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.1.3</span><span class="truncate">Encryption Basics &amp; Caesar Cipher</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-1-symmetric"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.1.4</span><span class="truncate">Symmetric vs Asymmetric Ciphers</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-1-careers"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.1.5</span><span class="truncate">Careers in Data Privacy</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-2-2"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.2</span><span class="truncate font-bold">Internet Basics</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-2-highway"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.2.1</span><span class="truncate">What is the Internet?</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-2-www"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.2.2</span><span class="truncate">Internet vs World Wide Web</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-2-urls"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.2.3</span><span class="truncate">Web Pages, URLs &amp; DNS</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-2-safe"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.2.4</span><span class="truncate">Safe Browsing &amp; HTTPS Padlock</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-2-3"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.3</span><span class="truncate font-bold">Web Browsers</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-3-profiles"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.3.1</span><span class="truncate">Profiles &amp; Personalisation</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-3-addons"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.3.2</span><span class="truncate">Extensions &amp; Security Risks</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-3-incognito"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.3.3</span><span class="truncate">Incognito Mode vs Anonymity</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-3-maintenance"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.3.4</span><span class="truncate">Cache, Cookies &amp; Updates</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-2-4"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">2.4</span><span class="truncate font-bold">Internet Providers</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-isp-basics"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.1</span><span class="truncate">ISP Fundamentals &amp; Equipment</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-cable"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.2</span><span class="truncate">Cable Internet (Coaxial)</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-dsl"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.3</span><span class="truncate">DSL Internet (Telephone)</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-fiber"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.4</span><span class="truncate">Fibre Optic (Total Reflection)</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-wireless"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.5</span><span class="truncate">Wireless &amp; Satellite Broadband</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo2-4-careers"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">2.4.6</span><span class="truncate">Careers in Internet Technologies</span></a></div></div></nav>
+<!-- Bottom Hub Link -->
+<div class="p-3 border-t border-white/10 bg-[#0c061a] space-y-1">
+<a class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10" href="index.html">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                     Portal Hub
                 </a>
-                <a href="schedule.html" class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<a class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10" href="schedule.html">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                     Programme Schedule
                 </a>
-                <div class="text-center text-[9px] text-slate-500">CompTIA Tech+ FC0-U71</div>
-            </div>
-        </aside>
-
-        <!-- ========================================================================= -->
-        <!-- MAIN ACCESSIBLE READING CANVAS                                            -->
-        <!-- ========================================================================= -->
-        <main class="flex-1 p-4 sm:p-8 lg:p-12 w-full max-w-7xl 2xl:max-w-[1650px] mx-auto space-y-14">
-            
-            <!-- Hero Header Banner -->
-            <section class="relative bg-gradient-to-br from-netcom-surface via-netcom-dark to-[#0c061a] border border-white/10 rounded-2xl p-6 sm:p-10 overflow-hidden shadow-2xl">
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="relative z-10 space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-xs font-mono font-bold">
-                        <span class="w-2 h-2 rounded-full bg-netcom-lime animate-pulse"></span>
-                        CompTIA Tech+ FC0-U71 &bull; Unit 1 &bull; Day 2
+<div class="text-center text-[9px] text-slate-500">CompTIA Tech+ FC0-U71</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN ACCESSIBLE READING CANVAS                                            -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-4 sm:p-8 lg:p-12 w-full max-w-7xl 2xl:max-w-[1650px] mx-auto space-y-14">
+<!-- Hero Header Banner -->
+<section class="relative bg-gradient-to-br from-netcom-surface via-netcom-dark to-[#0c061a] border border-white/10 rounded-2xl p-6 sm:p-10 overflow-hidden shadow-2xl">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-xs font-mono font-bold">
+<span class="w-2 h-2 rounded-full bg-netcom-lime animate-pulse"></span>
+                        CompTIA Tech+ FC0-U71 • Unit 1 • Day 2
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+<h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                         Lesson 2: Passwords, Encryption &amp; Internet Basics
                     </h1>
-                    <p class="text-base sm:text-lg text-netcom-lavender/90 max-w-4xl leading-relaxed">
+<p class="text-base sm:text-lg text-netcom-lavender/90 max-w-4xl leading-relaxed">
                         A comprehensive guided reading companion integrating the complete lesson slide deck with expanded technical explanations, real-world case studies, and practical IT support scenarios.</p>
-                    <div class="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> Full Curriculum Fidelity</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> 4 Core Learning Outcomes</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> British English Standard</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> Interactive Technical Explainers</div>
-                    </div>
-                </div>
-            </section>
+<div class="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> Full Curriculum Fidelity</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> 4 Core Learning Outcomes</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> British English Standard</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> Interactive Technical Explainers</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 1: LO 2.1 Passwords and Encryption                            -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-2-1">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.1</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 – 15</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Passwords and Encryption</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Authentication • Password Management • Cryptography</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 2.1 -->
 
-            <!-- ===================================================================== -->
-            <!-- SECTION 1: LO 2.1 Passwords and Encryption                            -->
-            <!-- ===================================================================== -->
-            <section id="lo-2-1" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.1</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 &ndash; 15</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Passwords and Encryption</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Authentication &bull; Password Management &bull; Cryptography</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 2.1 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo2-1">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-1-auth">
-                        2.1.1 Authentication &amp; Passwords
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-1-mgmt">
-                        2.1.2 Password Management &amp; Hygiene
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-1-crypto-basics">
-                        2.1.3 Encryption Basics &amp; Caesar Cipher
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-1-symmetric">
-                        2.1.4 Symmetric vs Asymmetric Ciphers
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-1-careers">
-                        2.1.5 Careers in Data Privacy
-                    </button>
-                </div>
-
-                
-                <div id="lo2-1-auth" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-auth"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Authentication &amp; Passwords</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Physical locks safeguard physical property such as vehicles and residences. In the digital world, where personal identities, bank accounts, and corporate confidential data exist as bits across networks, <strong>authentication</strong> and <strong>passwords</strong> provide the foundational boundary of cybersecurity.
                         </p>
-                        <p>
-                            <strong>Authentication</strong> is the process of verifying that an entity—a human user, a service account, or a networked device—is genuinely who or what it claims to be.
+<p>
+<strong>Authentication</strong> is the process of verifying that an entity—a human user, a service account, or a networked device—is genuinely who or what it claims to be.
                         </p>
-                    </div>
-
-                    <!-- The 5 Authentication Factors Grid -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+</div>
+<!-- The 5 Authentication Factors Grid -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             The Five Recognized Factors of Authentication
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">1. Something You Know</div>
-                                <div class="text-slate-400">Passwords, passphrases, personal identification numbers (PINs), security answers.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">2. Something You Have</div>
-                                <div class="text-slate-400">Physical smartcards, USB hardware tokens (YubiKey), time-based authenticator apps (TOTP).</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">3. Something You Are</div>
-                                <div class="text-slate-400">Biometric traits: fingerprint geometry, facial recognition scans, retinal patterns.</div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-cyan-300">4. Somewhere You Are (Location)</div>
-                                <div class="text-slate-400">IP address geofencing, GPS coordinates restricting access to authorized physical offices.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-cyan-300">5. Something You Do (Behavioural)</div>
-                                <div class="text-slate-400">Keystroke dynamics, touchscreen swipe velocity, and signature stylus pressure patterns.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">1. Something You Know</div>
+<div class="text-slate-400">Passwords, passphrases, personal identification numbers (PINs), security answers.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">2. Something You Have</div>
+<div class="text-slate-400">Physical smartcards, USB hardware tokens (YubiKey), time-based authenticator apps (TOTP).</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">3. Something You Are</div>
+<div class="text-slate-400">Biometric traits: fingerprint geometry, facial recognition scans, retinal patterns.</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-cyan-300">4. Somewhere You Are (Location)</div>
+<div class="text-slate-400">IP address geofencing, GPS coordinates restricting access to authorized physical offices.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-cyan-300">5. Something You Do (Behavioural)</div>
+<div class="text-slate-400">Keystroke dynamics, touchscreen swipe velocity, and signature stylus pressure patterns.</div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
                             Password Complexity &amp; Entropy Standards
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+<p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                             A strong password is mathematically difficult for automated attack scripts (brute force and dictionary attacks) to crack. Robust credentials mandate four character classes:
                         </p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
-                            <div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Uppercase:</span> A &ndash; Z</div>
-                            <div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Lowercase:</span> a &ndash; z</div>
-                            <div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Numbers:</span> 0 &ndash; 9</div>
-                            <div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Symbols:</span> ! @ # $ % ^ &amp; *</div>
-                        </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            <strong>Length vs Complexity:</strong> Increasing length exponentially increases cryptographic entropy. A 16-character passphrase composed of random words (e.g. <code class="text-netcom-lime">Cobalt#Meadow!Velvet9</code>) is significantly more resilient against GPU-accelerated hashing clusters than an 8-character string with complex symbols.
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+<div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Uppercase:</span> A – Z</div>
+<div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Lowercase:</span> a – z</div>
+<div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Numbers:</span> 0 – 9</div>
+<div class="bg-black/40 p-2.5 rounded border border-white/10 text-center"><span class="text-netcom-lime font-bold">Symbols:</span> ! @ # $ % ^ &amp; *</div>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+<strong>Length vs Complexity:</strong> Increasing length exponentially increases cryptographic entropy. A 16-character passphrase composed of random words (e.g. <code class="text-netcom-lime">Cobalt#Meadow!Velvet9</code>) is significantly more resilient against GPU-accelerated hashing clusters than an 8-character string with complex symbols.
                         </p>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-1-mgmt" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-mgmt"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Password Management &amp; Hygiene</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Modern digital citizens interact with hundreds of password-protected web platforms, enterprise applications, and cloud accounts. Reusing credentials across services creates extreme vulnerability: if one gaming forum suffers a data breach, cybercriminals automatically execute <strong>credential stuffing attacks</strong> against banking and email portals using the leaked username and password.
                         </p>
-                    </div>
-
-                    <!-- Password Managers vs Written Records -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Dedicated Password Managers</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<!-- Password Managers vs Written Records -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Dedicated Password Managers</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Software tools (e.g. Bitwarden, 1Password) that store credentials inside a zero-knowledge AES-256 encrypted vault. Generates unique 20+ character passwords for every website and auto-fills them securely.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Browser Password Vaults</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Browser Password Vaults</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Integrated password managers inside Chrome, Safari, or Edge. Convenient, but risks total account compromise if an unauthorized user gains physical access to an unlocked computer.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-2">
-                            <div class="text-red-400 font-bold text-xs uppercase tracking-wide">Insecure Plaintext Storage</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-2">
+<div class="text-red-400 font-bold text-xs uppercase tracking-wide">Insecure Plaintext Storage</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Writing passwords on sticky notes attached to monitor bezels, or saving them in unencrypted text files named <code class="text-red-300">passwords.txt</code> on the desktop. Completely exposes credentials to physical and malware theft.
                             </p>
-                        </div>
-                    </div>
-
-                    
-                    <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+</div>
+</div>
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Security Best Practice: When Should You Change a Password?
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Historically, IT departments forced mandatory 90-day password resets. Modern NIST (National Institute of Standards and Technology) standards have debunked this practice because frequent forced changes cause users to adopt predictable patterns (e.g. <code class="text-amber-200">Winter2026!</code> &rarr; <code class="text-amber-200">Spring2026!</code>).
+<p class="text-xs text-slate-300 leading-relaxed">
+                            Historically, IT departments forced mandatory 90-day password resets. Modern NIST (National Institute of Standards and Technology) standards have debunked this practice because frequent forced changes cause users to adopt predictable patterns (e.g. <code class="text-amber-200">Winter2026!</code> → <code class="text-amber-200">Spring2026!</code>).
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-red-300">Mandatory Change Triggers</div>
-                                <ul class="list-disc list-inside text-slate-300 space-y-1">
-                                    <li>When an organization or service notifies you of a data breach.</li>
-                                    <li>If you notice unauthorized account activity or unusual logins.</li>
-                                    <li>If you suspect your credentials have been seen or compromised.</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-netcom-lime">Proactive Hardening Triggers</div>
-                                <ul class="list-disc list-inside text-slate-300 space-y-1">
-                                    <li>Replacing old, short, or letter-only legacy passwords.</li>
-                                    <li>Eliminating repeated passwords shared across multiple accounts.</li>
-                                    <li>Upgrading an account containing highly sensitive financial or medical PII.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab 3: Encryption Basics & Caesar Cipher  -->
-                <div id="lo2-1-crypto-basics" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
-                            <strong>Encryption</strong> transforms clearly understood human writing, known as <strong>plaintext</strong>, into an indecipherable scramble called <strong>ciphertext</strong>. Encryption ensures that even if an unauthorized party intercepts a message or steals a physical hard drive, they cannot read the underlying information without the specific <strong>cryptographic key</strong>.
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-red-300">Mandatory Change Triggers</div>
+<ul class="list-disc list-inside text-slate-300 space-y-1">
+<li>When an organization or service notifies you of a data breach.</li>
+<li>If you notice unauthorized account activity or unusual logins.</li>
+<li>If you suspect your credentials have been seen or compromised.</li>
+</ul>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-netcom-lime">Proactive Hardening Triggers</div>
+<ul class="list-disc list-inside text-slate-300 space-y-1">
+<li>Replacing old, short, or letter-only legacy passwords.</li>
+<li>Eliminating repeated passwords shared across multiple accounts.</li>
+<li>Upgrading an account containing highly sensitive financial or medical PII.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Encryption Basics & Caesar Cipher  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-crypto-basics"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Encryption Basics &amp; Caesar Cipher</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
+<strong>Encryption</strong> transforms clearly understood human writing, known as <strong>plaintext</strong>, into an indecipherable scramble called <strong>ciphertext</strong>. Encryption ensures that even if an unauthorized party intercepts a message or steals a physical hard drive, they cannot read the underlying information without the specific <strong>cryptographic key</strong>.
                         </p>
-                    </div>
-
-                    <!-- Historical Roots: The Julius Caesar Cipher  -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+</div>
+<!-- Historical Roots: The Julius Caesar Cipher  -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Historical Cryptography: The Julius Caesar Shift Cipher 
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             One of the earliest recorded military uses of encryption occurred in ancient Rome. Roman Emperor Julius Caesar scrambled written battle orders sent to his frontline commanders to prevent Germanic and Gallic scouts from learning his tactical movements:
                         </p>
-                        <div class="bg-white/5 p-4 rounded-lg border border-white/10 text-xs font-mono space-y-2">
-                            <div><strong>Plaintext:</strong> ATTACK AT DAWN</div>
-                            <div class="text-netcom-lime"><strong>Algorithm:</strong> Shift every letter forward in alphabet by 3 positions (Key = +3)</div>
-                            <div class="text-cyan-300"><strong>Ciphertext:</strong> DWWDFN DW GDZQ</div>
-                        </div>
-                        <p class="text-xs text-slate-400 italic">
-                            Caesar&apos;s generals possessed the secret key (-3 offset) and could easily shift the characters backward to read the orders. To an interceptor lacking the key, the scroll appeared as total nonsense.
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 text-xs font-mono space-y-2">
+<div><strong>Plaintext:</strong> ATTACK AT DAWN</div>
+<div class="text-netcom-lime"><strong>Algorithm:</strong> Shift every letter forward in alphabet by 3 positions (Key = +3)</div>
+<div class="text-cyan-300"><strong>Ciphertext:</strong> DWWDFN DW GDZQ</div>
+</div>
+<p class="text-xs text-slate-400 italic">
+                            Caesar's generals possessed the secret key (-3 offset) and could easily shift the characters backward to read the orders. To an interceptor lacking the key, the scroll appeared as total nonsense.
                         </p>
-                    </div>
-
-                    <!-- Data in Transit vs Data at Rest  -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Data in Transit (Motion)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<!-- Data in Transit vs Data at Rest  -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Data in Transit (Motion)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Information travelling across public cables, wireless links, and routers. Protected using Transport Layer Security (HTTPS), SFTP, and VPN tunnels so packet-sniffers capture only ciphertext.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Data at Rest (Storage)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Data at Rest (Storage)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Inactive data residing on hard disk drives, SSDs, database records, and backup tapes. Protected using Full Disk Encryption (BitLocker, FileVault) so a stolen laptop cannot be accessed by removing its drive.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-1-symmetric" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-symmetric"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Symmetric vs Asymmetric Ciphers</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Modern computational cryptography is split into two primary architectures: <strong>Symmetric</strong> (shared secret) and <strong>Asymmetric</strong> (public key infrastructure).
                     </p>
-
-                    <!-- Comparison Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-amber-300">Symmetric Encryption</div>
-                                <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Single Secret Key</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<!-- Comparison Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-amber-300">Symmetric Encryption</div>
+<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Single Secret Key</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Both the sender and the receiver share the exact same cryptographic key to both encrypt and decrypt the payload.
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
-                                <li><strong>Primary Standard:</strong> AES (Advanced Encryption Standard - 128/256 bit).</li>
-                                <li><strong>Strengths:</strong> Extremely fast and computationally lightweight; ideal for bulk file encryption and streaming data.</li>
-                                <li><strong>Core Limitation:</strong> The Key Exchange Problem: How do you safely transmit the secret key to the receiver over an untrusted network?</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">Asymmetric Encryption</div>
-                                <span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Public/Private Key Pair</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+<li><strong>Primary Standard:</strong> AES (Advanced Encryption Standard - 128/256 bit).</li>
+<li><strong>Strengths:</strong> Extremely fast and computationally lightweight; ideal for bulk file encryption and streaming data.</li>
+<li><strong>Core Limitation:</strong> The Key Exchange Problem: How do you safely transmit the secret key to the receiver over an untrusted network?</li>
+</ul>
+</div>
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">Asymmetric Encryption</div>
+<span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Public/Private Key Pair</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Utilises mathematically linked key pairs: a <strong>Public Key</strong> (published openly) and a <strong>Private Key</strong> (kept secret by the owner).
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
-                                <li><strong>Primary Standards:</strong> RSA, Elliptic Curve Cryptography (ECC).</li>
-                                <li><strong>Mechanism:</strong> Anyone can encrypt a message using your Public Key, but ONLY your Private Key can decrypt it.</li>
-                                <li><strong>Strengths:</strong> Solves key distribution over public channels; powers SSL/TLS handshakes and digital signatures.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-1-careers" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+<li><strong>Primary Standards:</strong> RSA, Elliptic Curve Cryptography (ECC).</li>
+<li><strong>Mechanism:</strong> Anyone can encrypt a message using your Public Key, but ONLY your Private Key can decrypt it.</li>
+<li><strong>Strengths:</strong> Solves key distribution over public channels; powers SSL/TLS handshakes and digital signatures.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-careers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.5</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Careers in Data Privacy</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         With cyberattacks and regulatory enforcement expanding worldwide, specialization in data privacy and cryptography represents one of the highest-demand career trajectories in modern IT.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Data Privacy Attorney / Legal Counsel</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Data Privacy Attorney / Legal Counsel</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Legal specialists who advise corporations on compliance with statutory frameworks (UK GDPR, CCPA, HIPAA). They draft data processing agreements and defend against regulatory enforcement actions.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Data Privacy Specialist / DPO</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Data Privacy Specialist / DPO</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Technical compliance leads overseeing institutional data governance. They conduct Privacy Impact Assessments (PIAs), audit database access permissions, and manage Data Subject Access Requests (DSARs).
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Data Mining Analyst</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Data Mining Analyst</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Technical analysts examining vast enterprise datasets to discover patterns and business intelligence, ensuring data anonymisation and pseudo-anonymisation standards are maintained.
                             </p>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 8–15 (Passwords, Authentication, Encryption, Careers)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Authentication, Passwords &amp; Encryption</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 2: LO 2.2 Identify Internet Basics                            -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-2-2">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.2</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 16 – 22</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Identify Internet Basics</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Decentralised Network • WWW Architecture • Safe Browsing</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 2.2 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 8&ndash;15 (Passwords, Authentication, Encryption, Careers)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Authentication, Passwords &amp; Encryption</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 2: LO 2.2 Identify Internet Basics                            -->
-            <!-- ===================================================================== -->
-            <section id="lo-2-2" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.2</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 16 &ndash; 22</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Identify Internet Basics</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Decentralised Network &bull; WWW Architecture &bull; Safe Browsing</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 2.2 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo2-2">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-2-highway">
-                        2.2.1 What is the Internet?
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-2-www">
-                        2.2.2 Internet vs World Wide Web (WWW)
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-2-urls">
-                        2.2.3 Web Pages, URLs &amp; DNS
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-2-safe">
-                        2.2.4 Safe Browsing &amp; HTTPS Padlock
-                    </button>
-                </div>
-
-                <!-- Tab 1: What is the Internet?  -->
-                <div id="lo2-2-highway" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<!-- Tab 1: What is the Internet?  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-highway"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is the Internet?</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Prior to the digital age, humans accessed recorded knowledge through physical repositories: municipal libraries, paper encyclopaedias, microfiche projection reels, and postal correspondence. Sharing information across international borders took weeks.
                         </p>
-                        <p>
+<p>
                             The <strong>Internet</strong> revolutionized human connectivity by establishing a <strong>decentralised global network of interconnected computer networks</strong>. No single corporation, president, or nation-state controls the Internet. Instead, thousands of public and private networks communicate seamlessly by conforming to open, vendor-neutral communications protocols known as the <strong>TCP/IP suite</strong>.
                         </p>
-                    </div>
-
-                    <!-- CompTIA Analogy: The Information Superhighway  -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+</div>
+<!-- CompTIA Analogy: The Information Superhighway  -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             CompTIA Architecture Analogy: The Global Highway System 
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Think of the Internet as a vast international superhighway system spanning oceans and continents:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-white mb-1">1. The Roads &amp; Bridges</div>
-                                <div class="text-slate-400">Physical undersea fiber optic cables, satellite links, cell towers, and core enterprise routing switches.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-white mb-1">2. The Traffic &amp; Cargo</div>
-                                <div class="text-slate-400">Discrete packets carrying emails, streaming video chunks, video game telemetry, and financial wires.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">3. The Highway Code</div>
-                                <div class="text-slate-400">TCP/IP protocols governing addressing (IP) and guaranteed packet delivery (TCP) without collisions.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab 2: Internet vs WWW  -->
-                <div id="lo2-2-www" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-white mb-1">1. The Roads &amp; Bridges</div>
+<div class="text-slate-400">Physical undersea fiber optic cables, satellite links, cell towers, and core enterprise routing switches.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-white mb-1">2. The Traffic &amp; Cargo</div>
+<div class="text-slate-400">Discrete packets carrying emails, streaming video chunks, video game telemetry, and financial wires.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">3. The Highway Code</div>
+<div class="text-slate-400">TCP/IP protocols governing addressing (IP) and guaranteed packet delivery (TCP) without collisions.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 2: Internet vs WWW  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-www"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Internet vs World Wide Web</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             A frequent point of confusion for new technologists is treating the "Internet" and the "World Wide Web" as interchangeable synonyms. They are fundamentally distinct layers of computing architecture:
                         </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-white">The Internet (Underlying Infrastructure)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-white">The Internet (Underlying Infrastructure)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 The massive physical and logical networking infrastructure connecting billions of devices worldwide. Includes routers, switches, fiber cables, IP addressing schemes, and domain routing.
                             </p>
-                            <div class="bg-white/5 p-2.5 rounded text-xs text-netcom-lavender font-mono">
+<div class="bg-white/5 p-2.5 rounded text-xs text-netcom-lavender font-mono">
                                 Analogy: The Railway Tracks &amp; Signals
                             </div>
-                        </div>
-
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">The World Wide Web &bull; WWW (Service Layer)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">The World Wide Web • WWW (Service Layer)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 An application-layer information service invented by Sir Tim Berners-Lee in 1989. A collection of multimedia documents interconnected by clickable hyperlinks, accessed via HTTP/HTTPS.
                             </p>
-                            <div class="bg-white/5 p-2.5 rounded text-xs text-netcom-lime font-mono">
+<div class="bg-white/5 p-2.5 rounded text-xs text-netcom-lime font-mono">
                                 Analogy: One Passenger Train on the Tracks
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-black/40 border border-white/10 rounded-xl p-4 text-xs text-slate-300 space-y-1">
-                        <div class="font-bold text-white uppercase tracking-wider mb-1">Other Trains Running on the Internet Tracks:</div>
-                        <div>&bull; <strong>Email (SMTP / IMAP / POP3)</strong> &bull; <strong>Voice over IP (VoIP telephony)</strong> &bull; <strong>File Transfers (SFTP / FTPS)</strong> &bull; <strong>Video Streaming (RTSP)</strong> &bull; <strong>Online Multiplayer Gaming</strong></div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-2-urls" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+<div class="bg-black/40 border border-white/10 rounded-xl p-4 text-xs text-slate-300 space-y-1">
+<div class="font-bold text-white uppercase tracking-wider mb-1">Other Trains Running on the Internet Tracks:</div>
+<div>• <strong>Email (SMTP / IMAP / POP3)</strong> • <strong>Voice over IP (VoIP telephony)</strong> • <strong>File Transfers (SFTP / FTPS)</strong> • <strong>Video Streaming (RTSP)</strong> • <strong>Online Multiplayer Gaming</strong></div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-urls"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Web Pages, URLs &amp; DNS</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         To navigate web resources, every document possesses a standardized address: the <strong>Uniform Resource Locator (URL)</strong>.
                     </p>
-
-                    <!-- URL Anatomy Breakdown -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
+<!-- URL Anatomy Breakdown -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
                             Anatomy of a Uniform Resource Locator (URL)
                         </div>
-                        <div class="bg-black/50 p-3.5 rounded-lg border border-white/10 text-xs sm:text-sm font-mono text-center flex flex-wrap justify-center gap-1">
-                            <span class="text-amber-300">https://</span>
-                            <span class="text-netcom-lime">www.</span>
-                            <span class="text-white">netcomtraining.co.uk</span>
-                            <span class="text-cyan-300">/courses/tech-plus</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs text-center mt-2">
-                            <div class="bg-white/5 p-2 rounded"><strong class="text-amber-300">Scheme:</strong> HTTPS (Encrypted)</div>
-                            <div class="bg-white/5 p-2 rounded"><strong class="text-netcom-lime">Subdomain:</strong> World Wide Web</div>
-                            <div class="bg-white/5 p-2 rounded"><strong class="text-white">Domain:</strong> Server Hostname</div>
-                            <div class="bg-white/5 p-2 rounded"><strong class="text-cyan-300">Path:</strong> File / Resource Route</div>
-                        </div>
-                    </div>
-
-                    <!-- DNS Role -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
+<div class="bg-black/50 p-3.5 rounded-lg border border-white/10 text-xs sm:text-sm font-mono text-center flex flex-wrap justify-center gap-1">
+<span class="text-amber-300">https://</span>
+<span class="text-netcom-lime">www.</span>
+<span class="text-white">netcomtraining.co.uk</span>
+<span class="text-cyan-300">/courses/tech-plus</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs text-center mt-2">
+<div class="bg-white/5 p-2 rounded"><strong class="text-amber-300">Scheme:</strong> HTTPS (Encrypted)</div>
+<div class="bg-white/5 p-2 rounded"><strong class="text-netcom-lime">Subdomain:</strong> World Wide Web</div>
+<div class="bg-white/5 p-2 rounded"><strong class="text-white">Domain:</strong> Server Hostname</div>
+<div class="bg-white/5 p-2 rounded"><strong class="text-cyan-300">Path:</strong> File / Resource Route</div>
+</div>
+</div>
+<!-- DNS Role -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
                             Domain Name System (DNS): The Phonebook of the Internet
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Computers route data across the Internet using numerical IP addresses (e.g. <code class="text-netcom-lime">192.0.2.45</code>), but human brains remember names (e.g. <code class="text-white">netcomtraining.co.uk</code>). DNS servers resolve friendly domain names into machine-routable IP addresses within milliseconds.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Tab 4: Safe Browsing & HTTPS  -->
-                <div id="lo2-2-safe" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+<!-- Tab 4: Safe Browsing & HTTPS  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-safe"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Safe Browsing &amp; HTTPS Padlock</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         When navigating the public web, client devices transmit sensitive login tokens, banking credentials, and private messages. Ensuring transmission security prevents malicious eavesdropping and credential harvesting.
                     </p>
-
-                    <!-- Padlock Security Verification -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center gap-2 text-netcom-lime font-bold text-xs uppercase tracking-wide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+<!-- Padlock Security Verification -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center gap-2 text-netcom-lime font-bold text-xs uppercase tracking-wide">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 HTTPS &amp; The Browser Padlock Icon
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Hypertext Transfer Protocol Secure encrypts all HTTP traffic using TLS. Clicking the browser padlock reveals the digital certificate issued by a trusted Certificate Authority (CA), verifying server identity.
                             </p>
-                        </div>
-
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center gap-2 text-red-400 font-bold text-xs uppercase tracking-wide">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+</div>
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center gap-2 text-red-400 font-bold text-xs uppercase tracking-wide">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 Typosquatting &amp; Deceptive Domains
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Cybercriminals register misspelled domains (e.g. <code class="text-red-300">paypa1.com</code> instead of <code class="text-netcom-lime">paypal.com</code>) mimicking legitimate corporate portals to deceive users into disclosing passwords.
                             </p>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 16–22 (Internet Basics, WWW, URLs, Safe Browsing)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Internet Architecture &amp; Safe Browsing</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 3: LO 2.3 Using a Web Browser                                 -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-2-3">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.3</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 23 – 27</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Using a Web Browser</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Profiles • Extensions • Cache Maintenance</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 2.3 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 16&ndash;22 (Internet Basics, WWW, URLs, Safe Browsing)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Internet Architecture &amp; Safe Browsing</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 3: LO 2.3 Using a Web Browser                                 -->
-            <!-- ===================================================================== -->
-            <section id="lo-2-3" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.3</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 23 &ndash; 27</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Using a Web Browser</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Profiles &bull; Extensions &bull; Cache Maintenance</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 2.3 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo2-3">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-3-profiles">
-                        2.3.1 Profiles &amp; Personalisation
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-3-addons">
-                        2.3.2 Extensions &amp; Security Risks
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-3-incognito">
-                        2.3.3 Incognito Mode vs Anonymity
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-3-maintenance">
-                        2.3.4 Cache, Cookies &amp; Updates
-                    </button>
-                </div>
-
-                
-                <div id="lo2-3-profiles" class="tab-content space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-3-profiles"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.3.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Profiles &amp; Personalisation</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         A web browser is the primary portal through which users interact with cloud applications. Modern browsers allow extensive customization to optimize ergonomics, focus, and security.
                     </p>
-
-                    
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Browser Architecture: The Profile Sandbox
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             A <strong>Browser Profile</strong> is an isolated environment containing its own unique set of bookmarks, browser extensions, stored passwords, browsing history, and cookies:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-white mb-1">Work Profile</div>
-                                <div class="text-slate-400">Signed into corporate SSO, Microsoft 365, internal VPN bookmarks, enterprise security extensions.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">Study Profile (Netcom)</div>
-                                <div class="text-slate-400">Configured for Canvas LMS, CompTIA CertMaster, coding repos, and course-specific bookmarks.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-cyan-300 mb-1">Personal Profile</div>
-                                <div class="text-slate-400">Personal social media, streaming entertainment, and domestic utility account logins.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-3-addons" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
-                        <strong>Browser Extensions (Add-ons)</strong> are modular software packages that extend the native capabilities of a browser (e.g. ad-blockers, translation tools, grammar checkers, password managers).
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-white mb-1">Work Profile</div>
+<div class="text-slate-400">Signed into corporate SSO, Microsoft 365, internal VPN bookmarks, enterprise security extensions.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">Study Profile (Netcom)</div>
+<div class="text-slate-400">Configured for Canvas LMS, CompTIA CertMaster, coding repos, and course-specific bookmarks.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-cyan-300 mb-1">Personal Profile</div>
+<div class="text-slate-400">Personal social media, streaming entertainment, and domestic utility account logins.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-3-addons"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.3.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Extensions &amp; Security Risks</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
+<strong>Browser Extensions (Add-ons)</strong> are modular software packages that extend the native capabilities of a browser (e.g. ad-blockers, translation tools, grammar checkers, password managers).
                     </p>
-
-                    <!-- Elevated Permissions Warning -->
-                    <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+<!-- Elevated Permissions Warning -->
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Security Architecture: The Threat of Extension Privilege Bloat
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Many extensions request permission to <em>"Read and change all your data on the websites you visit"</em>. This gives the extension code access to inspect form inputs, capture credentials, read financial records, and monitor web browsing.
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-2">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-white">Supply Chain Attacks</div>
-                                <div class="text-slate-400">Benign extensions purchased by malicious entities can be updated with stealth keyloggers without user awareness.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-netcom-lime">Enterprise Best Practice</div>
-                                <div class="text-slate-400">Install only verified extensions from official stores; immediately remove unneeded or abandoned add-ons.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab 3: Incognito Mode vs Anonymity  -->
-                <div id="lo2-3-incognito" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mt-2">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-white">Supply Chain Attacks</div>
+<div class="text-slate-400">Benign extensions purchased by malicious entities can be updated with stealth keyloggers without user awareness.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-netcom-lime">Enterprise Best Practice</div>
+<div class="text-slate-400">Install only verified extensions from official stores; immediately remove unneeded or abandoned add-ons.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Incognito Mode vs Anonymity  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-3-incognito"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.3.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Incognito Mode vs Anonymity</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         A critical CompTIA exam objective is debunking common misconceptions regarding <strong>Private Browsing (Incognito Mode)</strong>.
                     </p>
-
-                    <!-- What Incognito Does vs Does Not Do -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">What Incognito Actually Does (Local Privacy)</div>
-                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                                <li>Does not write visited web URLs to your local browsing history.</li>
-                                <li>Deletes temporary cookies when the private window is closed.</li>
-                                <li>Discards temporary cache files and form auto-fill data upon exit.</li>
-                                <li>Prevents other users of the <em>same physical computer</em> from seeing your session.</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-2">
-                            <div class="text-red-400 font-bold text-xs uppercase tracking-wide">What Incognito Does NOT Do (Network Reality)</div>
-                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                                <li>Does NOT make you anonymous to your Internet Service Provider (ISP).</li>
-                                <li>Does NOT hide your traffic from employer network monitoring or firewalls.</li>
-                                <li>Does NOT prevent visited web servers from tracking your public IP address.</li>
-                                <li>Does NOT shield your computer from downloading malware or malicious files.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-3-maintenance" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<!-- What Incognito Does vs Does Not Do -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">What Incognito Actually Does (Local Privacy)</div>
+<ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+<li>Does not write visited web URLs to your local browsing history.</li>
+<li>Deletes temporary cookies when the private window is closed.</li>
+<li>Discards temporary cache files and form auto-fill data upon exit.</li>
+<li>Prevents other users of the <em>same physical computer</em> from seeing your session.</li>
+</ul>
+</div>
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-2">
+<div class="text-red-400 font-bold text-xs uppercase tracking-wide">What Incognito Does NOT Do (Network Reality)</div>
+<ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+<li>Does NOT make you anonymous to your Internet Service Provider (ISP).</li>
+<li>Does NOT hide your traffic from employer network monitoring or firewalls.</li>
+<li>Does NOT prevent visited web servers from tracking your public IP address.</li>
+<li>Does NOT shield your computer from downloading malware or malicious files.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-3-maintenance"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.3.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Cache, Cookies &amp; Updates</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Maintaining browser health is vital for system speed, stability, and safeguarding against zero-day exploit vulnerabilities.
                     </p>
-
-                    <!-- Cache vs Cookies vs History Matrix -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
+<!-- Cache vs Cookies vs History Matrix -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
                             Browser Maintenance: Cache vs. Cookies vs. History
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-cyan-300">Browser Cache</div>
-                                <div class="text-slate-400">Locally saved static web assets (images, CSS styles, JS files). Speeds up page loads. If a website renders broken or fails to update, clearing cache forces a fresh download.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-netcom-lime">HTTP Cookies</div>
-                                <div class="text-slate-400">Small key-value text tokens storing login authentication sessions and cart states. Clearing cookies logs you out of all active web sessions across all tabs.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-amber-300">Browsing History</div>
-                                <div class="text-slate-400">Chronological database of visited URLs. Clearing history removes search suggestions and visit timestamps from the local device.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-cyan-300">Browser Cache</div>
+<div class="text-slate-400">Locally saved static web assets (images, CSS styles, JS files). Speeds up page loads. If a website renders broken or fails to update, clearing cache forces a fresh download.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-netcom-lime">HTTP Cookies</div>
+<div class="text-slate-400">Small key-value text tokens storing login authentication sessions and cart states. Clearing cookies logs you out of all active web sessions across all tabs.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-amber-300">Browsing History</div>
+<div class="text-slate-400">Chronological database of visited URLs. Clearing history removes search suggestions and visit timestamps from the local device.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 23–27 (Profiles, Add-ons, Maintenance)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Browser Personalisation &amp; Maintenance</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 4: LO 2.4 What is an Internet Service Provider                -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-2-4">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.4</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 28 – 37</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">What is an Internet Service Provider (ISP)?</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Broadband Technologies • Equipment Ecosystem • Performance</span>
+</div>
+<!-- 4-Broadband Technology Comparison Cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="broadbandCardsContainer">
+<div aria-label="Select Cable Internet" class="broadband-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1" data-broadband-card="lo2-4-cable" role="button" tabindex="0">
+<div class="w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-xs shadow-[0_0_10px_#73f54a]">COAX</div>
+<div class="font-bold text-white text-sm">Cable</div>
+<div class="text-[11px] text-netcom-lime font-mono font-semibold">10M – 2Gbps</div>
+</div>
+<div aria-label="Select DSL Internet" class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-dsl" role="button" tabindex="0">
+<div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">PSTN</div>
+<div class="font-bold text-white text-sm">DSL</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">5M – 100Mbps</div>
+</div>
+<div aria-label="Select Fiber Internet" class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-fiber" role="button" tabindex="0">
+<div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">LIGHT</div>
+<div class="font-bold text-white text-sm">Fibre Optic</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">100M – 25Gbps</div>
+</div>
+<div aria-label="Select Wireless &amp; Satellite" class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-wireless" role="button" tabindex="0">
+<div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">RF</div>
+<div class="font-bold text-white text-sm">Wireless / LEO</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">40M – 300Mbps</div>
+</div>
+</div>
+<!-- Subtopic Tab Buttons for LO 2.4 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 23&ndash;27 (Profiles, Add-ons, Maintenance)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Browser Personalisation &amp; Maintenance</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 4: LO 2.4 What is an Internet Service Provider                -->
-            <!-- ===================================================================== -->
-            <section id="lo-2-4" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 2.4</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 28 &ndash; 37</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">What is an Internet Service Provider (ISP)?</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Broadband Technologies &bull; Equipment Ecosystem &bull; Performance</span>
-                </div>
-
-                <!-- 4-Broadband Technology Comparison Cards -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="broadbandCardsContainer">
-                    <div class="broadband-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1" data-broadband-card="lo2-4-cable" tabindex="0" role="button" aria-label="Select Cable Internet">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-xs shadow-[0_0_10px_#73f54a]">COAX</div>
-                        <div class="font-bold text-white text-sm">Cable</div>
-                        <div class="text-[11px] text-netcom-lime font-mono font-semibold">10M &ndash; 2Gbps</div>
-                    </div>
-
-                    <div class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-dsl" tabindex="0" role="button" aria-label="Select DSL Internet">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">PSTN</div>
-                        <div class="font-bold text-white text-sm">DSL</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">5M &ndash; 100Mbps</div>
-                    </div>
-
-                    <div class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-fiber" tabindex="0" role="button" aria-label="Select Fiber Internet">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">LIGHT</div>
-                        <div class="font-bold text-white text-sm">Fibre Optic</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">100M &ndash; 25Gbps</div>
-                    </div>
-
-                    <div class="broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-broadband-card="lo2-4-wireless" tabindex="0" role="button" aria-label="Select Wireless &amp; Satellite">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs">RF</div>
-                        <div class="font-bold text-white text-sm">Wireless / LEO</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">40M &ndash; 300Mbps</div>
-                    </div>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 2.4 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo2-4">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-isp-basics">
-                        2.4.1 ISP Fundamentals &amp; Equipment
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-cable">
-                        2.4.2 Cable Internet (Coaxial)
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-dsl">
-                        2.4.3 DSL Internet (Telephone)
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-fiber">
-                        2.4.4 Fibre Optic (Total Reflection)
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-wireless">
-                        2.4.5 Wireless &amp; Satellite (GEO vs LEO)
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo2-4-careers">
-                        2.4.6 Careers in Internet Technologies
-                    </button>
-                </div>
-
-                
-                <div id="lo2-4-isp-basics" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-isp-basics"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">ISP Fundamentals &amp; Equipment</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             An <strong>Internet Service Provider (ISP)</strong> is a telecommunications company that maintains direct physical connections to Tier 1 Internet backbones, routing subscriber data across municipal and international networks.
                         </p>
-                    </div>
-
-                    <!-- Equipment Ecosystem Grid -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+</div>
+<!-- Equipment Ecosystem Grid -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             The Customer Premises Equipment (CPE) Ecosystem
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">Modem</div>
-                                <div class="text-slate-400">Modulates/demodulates analog RF signals or telephone tones into digital binary Ethernet frames.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">ONT (Fibre Terminal)</div>
-                                <div class="text-slate-400">Optical Network Terminal converting incoming light pulses from optical fiber into electrical Ethernet signals.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">Router</div>
-                                <div class="text-slate-400">Routes IP packets between local home devices (LAN) and the ISP network (WAN) via NAT and DHCP.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">Integrated Gateway</div>
-                                <div class="text-slate-400">All-in-one box combining modem/ONT, router, multi-port Ethernet switch, and Wi-Fi access point.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-4-cable" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">Modem</div>
+<div class="text-slate-400">Modulates/demodulates analog RF signals or telephone tones into digital binary Ethernet frames.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">ONT (Fibre Terminal)</div>
+<div class="text-slate-400">Optical Network Terminal converting incoming light pulses from optical fiber into electrical Ethernet signals.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">Router</div>
+<div class="text-slate-400">Routes IP packets between local home devices (LAN) and the ISP network (WAN) via NAT and DHCP.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">Integrated Gateway</div>
+<div class="text-slate-400">All-in-one box combining modem/ONT, router, multi-port Ethernet switch, and Wi-Fi access point.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-cable"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Cable Internet (Coaxial)</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Cable broadband utilizes the existing <strong>coaxial copper cable</strong> infrastructure originally deployed to distribute analog television signals into neighbourhoods.
                     </p>
-
-                    <!-- Coaxial Anatomy Card (Slide 30) -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
+<!-- Coaxial Anatomy Card (Slide 30) -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
                             Anatomy of a Coaxial Cable (Slide 30)
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs text-center">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5">
-                                <div class="font-bold text-netcom-lime mb-1">1. Central Conductor</div>
-                                <div class="text-slate-400">Solid copper wire carrying high-frequency RF data signals.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5">
-                                <div class="font-bold text-white mb-1">2. Dielectric Insulator</div>
-                                <div class="text-slate-400">Foam polyethylene maintaining exact distance and electrical spacing.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5">
-                                <div class="font-bold text-white mb-1">3. Braided Shielding</div>
-                                <div class="text-slate-400">Metallic foil &amp; copper mesh blocking electromagnetic interference (EMI).</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5">
-                                <div class="font-bold text-white mb-1">4. Outer Jacket</div>
-                                <div class="text-slate-400">Durable plastic sheath protecting against weather and abrasion.</div>
-                            </div>
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs text-center">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<div class="font-bold text-netcom-lime mb-1">1. Central Conductor</div>
+<div class="text-slate-400">Solid copper wire carrying high-frequency RF data signals.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<div class="font-bold text-white mb-1">2. Dielectric Insulator</div>
+<div class="text-slate-400">Foam polyethylene maintaining exact distance and electrical spacing.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<div class="font-bold text-white mb-1">3. Braided Shielding</div>
+<div class="text-slate-400">Metallic foil &amp; copper mesh blocking electromagnetic interference (EMI).</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<div class="font-bold text-white mb-1">4. Outer Jacket</div>
+<div class="text-slate-400">Durable plastic sheath protecting against weather and abrasion.</div>
+</div>
+</div>
+</div>
+<!-- Shared Loop Architecture Warning -->
+<div class="bg-black/40 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs space-y-1">
+<div class="font-bold text-amber-300 uppercase tracking-wide">The Shared Neighbourhood Loop Reality:</div>
+<div class="text-slate-300 leading-relaxed">
+                            Cable broadband connects hundreds of homes to a shared local optical node. Because bandwidth is pooled across the street, subscriber throughput frequently drops during peak evening hours (7:00pm – 10:00pm) when neighbours stream 4K video simultaneously.
                         </div>
-                    </div>
-
-                    <!-- Shared Loop Architecture Warning -->
-                    <div class="bg-black/40 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs space-y-1">
-                        <div class="font-bold text-amber-300 uppercase tracking-wide">The Shared Neighbourhood Loop Reality:</div>
-                        <div class="text-slate-300 leading-relaxed">
-                            Cable broadband connects hundreds of homes to a shared local optical node. Because bandwidth is pooled across the street, subscriber throughput frequently drops during peak evening hours (7:00pm &ndash; 10:00pm) when neighbours stream 4K video simultaneously.
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-4-dsl" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
-                        <strong>Digital Subscriber Line (DSL)</strong> transmits high-speed data over traditional copper twisted-pair telephone lines (PSTN) that were installed decades ago for analog voice calls.
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-dsl"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">DSL Internet (Telephone)</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
+<strong>Digital Subscriber Line (DSL)</strong> transmits high-speed data over traditional copper twisted-pair telephone lines (PSTN) that were installed decades ago for analog voice calls.
                     </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Frequency Separation</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Frequency Separation</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Voice telephone calls use acoustic frequencies between 300Hz and 3.4kHz. DSL transmits high-frequency data signals (25kHz up to several MHz) on the same copper pair without causing interference, allowing voice calls and Internet to operate simultaneously.
                             </p>
-                        </div>
-
-                        <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-2">
-                            <div class="text-amber-300 font-bold text-xs uppercase tracking-wide">Distance Attenuation Limits</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-2">
+<div class="text-amber-300 font-bold text-xs uppercase tracking-wide">Distance Attenuation Limits</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 High frequencies deteriorate rapidly over copper wire. DSL speeds drop sharply the further your home is located from the telephone exchange or street cabinet (DSLAM). Customers beyond 3 miles experience significant degradation.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-4-fiber" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-fiber"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Fibre Optic (Total Reflection)</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Fibre optic broadband represents the pinnacle of transmission technology, replacing traditional copper electrical wiring with flexible strands of pure glass or plastic as thin as a human hair.
                         </p>
-                    </div>
-
-                    <!-- Total Internal Reflection Principle -->
-                    <div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+</div>
+<!-- Total Internal Reflection Principle -->
+<div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Physical Principle: Total Internal Reflection
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+<p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                             Data is converted by lasers into pulses of light. As light travels down the inner glass core, it strikes the outer glass cladding at an angle greater than the critical angle, bouncing endlessly forward without escaping:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
-                            <div class="bg-black/40 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">Blistering Speeds</div>
-                                <div class="text-slate-300">From 100 Mbps up to 25 Gbps, with identical symmetric upload and download bandwidth.</div>
-                            </div>
-                            <div class="bg-black/40 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">Immune to EMI</div>
-                                <div class="text-slate-300">Because light pulses carry no electrical charge, fibre is completely immune to radio interference, lightning, and electrical noise.</div>
-                            </div>
-                            <div class="bg-black/40 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">Ultra-Low Latency</div>
-                                <div class="text-slate-300">Ping times of 1ms &ndash; 10ms, delivering instant responsiveness for video conferencing and real-time operations.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-4-wireless" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
+<div class="bg-black/40 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">Blistering Speeds</div>
+<div class="text-slate-300">From 100 Mbps up to 25 Gbps, with identical symmetric upload and download bandwidth.</div>
+</div>
+<div class="bg-black/40 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">Immune to EMI</div>
+<div class="text-slate-300">Because light pulses carry no electrical charge, fibre is completely immune to radio interference, lightning, and electrical noise.</div>
+</div>
+<div class="bg-black/40 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">Ultra-Low Latency</div>
+<div class="text-slate-300">Ping times of 1ms – 10ms, delivering instant responsiveness for video conferencing and real-time operations.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-wireless"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.5</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Wireless &amp; Satellite Broadband</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Where laying physical street cabling is economically impractical or geographically impossible, wireless broadband provides essential connectivity.
                     </p>
-
-                    <!-- Cellular FWA vs Satellite -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-cyan-300">Fixed Wireless Access &bull; 4G/5G FWA</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Uses the same cellular towers that communicate with mobile phones. A home router fitted with a high-gain cellular antenna and SIM card receives broadband (40 &ndash; 300+ Mbps) without needing a street trench.
+<!-- Cellular FWA vs Satellite -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-cyan-300">Fixed Wireless Access • 4G/5G FWA</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+                                Uses the same cellular towers that communicate with mobile phones. A home router fitted with a high-gain cellular antenna and SIM card receives broadband (40 – 300+ Mbps) without needing a street trench.
                             </p>
-                        </div>
-
-                        <div class="bg-black/30 border border-purple-500/30 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-purple-300">Satellite: GEO vs LEO (Starlink)</div>
-                            <div class="text-xs text-slate-300 space-y-2 leading-relaxed">
-                                <div><strong>Geostationary (GEO - 35,786 km):</strong> High latency (~600ms) due to speed of light round-trip. Causes major lag during phone and video calls.</div>
-                                <div><strong>Low Earth Orbit (LEO - ~550 km):</strong> Megaconstellations (e.g. Starlink) providing 50 &ndash; 250 Mbps with low latency (25 &ndash; 45ms), transforming rural and maritime access.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo2-4-careers" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-purple-500/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-purple-300">Satellite: GEO vs LEO (Starlink)</div>
+<div class="text-xs text-slate-300 space-y-2 leading-relaxed">
+<div><strong>Geostationary (GEO - 35,786 km):</strong> High latency (~600ms) due to speed of light round-trip. Causes major lag during phone and video calls.</div>
+<div><strong>Low Earth Orbit (LEO - ~550 km):</strong> Megaconstellations (e.g. Starlink) providing 50 – 250 Mbps with low latency (25 – 45ms), transforming rural and maritime access.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-careers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.6</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Careers in Internet Technologies</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Internet infrastructure requires multidisciplinary engineering talent to build, splice, configure, and monitor global communications pipelines.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Broadband Field Engineer</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Broadband Field Engineer</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Deploys customer premises equipment, splices fiber optic pigtails, tests optical loss with OTDR meters, and certifies customer termination.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">NOC Analyst (Network Operations)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">NOC Analyst (Network Operations)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 24/7 telemetry monitoring of core ISP routing nodes, detecting fiber cuts, managing BGP route peering, and coordinating emergency response.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Web Infrastructure Developer</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Web Infrastructure Developer</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Software engineers programming DNS routing, CDN caching layers, and high-availability cloud application gateways.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 28&ndash;37 (ISPs, Coax, DSL, Fibre, Wireless, Satellite)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Internet Service Providers &amp; Broadband</div>
-                </div>
-            </section>
-
-            <!-- Bottom Navigation Bar & Completion Callout -->
-            <div class="flex items-center justify-between p-6 bg-netcom-card border border-white/10 rounded-2xl flex-wrap gap-4 shadow-lg">
-                <a href="index.html" class="flex items-center gap-2 text-xs font-semibold text-netcom-lavender hover:text-white transition">
-                    &larr; Return to Interactive Portal Hub
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 28–37 (ISPs, Coax, DSL, Fibre, Wireless, Satellite)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Internet Service Providers &amp; Broadband</div>
+</div>
+</section>
+<!-- Bottom Navigation Bar & Completion Callout -->
+<div class="flex items-center justify-between p-6 bg-netcom-card border border-white/10 rounded-2xl flex-wrap gap-4 shadow-lg">
+<a class="flex items-center gap-2 text-xs font-semibold text-netcom-lavender hover:text-white transition" href="index.html">
+                    ← Return to Interactive Portal Hub
                 </a>
-                <div class="text-xs text-slate-400">
-                    Lesson 2 Complete &bull; CompTIA Tech+ FC0-U71 Alignment: <span class="text-netcom-lime font-bold">100% Verified</span>
-                </div>
-                <a href="#lo-2-1" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition">
-                    Back to Top &uarr;
+<div class="text-xs text-slate-400">
+                    Lesson 2 Complete • CompTIA Tech+ FC0-U71 Alignment: <span class="text-netcom-lime font-bold">100% Verified</span>
+</div>
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition" href="#lo-2-1">
+                    Back to Top ↑
                 </a>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- ========================================================================= -->
-    <!-- INTERACTIVE SCRIPTS: Tabs, Broadband Cards Sync, & Responsive Navigation  -->
-    <!-- ========================================================================= -->
-    <script>
+</div>
+</main>
+</div>
+<!-- ========================================================================= -->
+<!-- INTERACTIVE SCRIPTS: Tabs, Broadband Cards Sync, & Responsive Navigation  -->
+<!-- ========================================================================= -->
+<script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Synchronize Broadband Technology Architecture Cards with Tabs
-            function syncBroadbandCard(targetId) {
-                const bCards = document.querySelectorAll('.broadband-card');
-                bCards.forEach(card => {
-                    const cardTarget = card.getAttribute('data-broadband-card');
-                    const numBadge = card.querySelector('.rounded-full');
-                    const subLabel = card.querySelector('.font-mono');
-                    
-                    if (cardTarget === targetId) {
-                        card.className = "broadband-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1";
-                        if (numBadge) {
-                            numBadge.className = "w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-xs shadow-[0_0_10px_#73f54a]";
-                        }
-                        if (subLabel) {
-                            subLabel.className = "text-[11px] text-netcom-lime font-mono font-semibold";
-                        }
-                    } else {
-                        card.className = "broadband-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition";
-                        if (numBadge) {
-                            numBadge.className = "w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-xs";
-                        }
-                        if (subLabel) {
-                            subLabel.className = "text-[11px] text-slate-400 font-mono font-semibold";
-                        }
-                    }
-                });
-            }
-
-            // Click listener for Broadband Technology Architecture Cards
+            
+            // Interactive Broadband Technology Cards Smooth Scroll & Visual Feedback
             document.querySelectorAll('.broadband-card').forEach(card => {
                 const handleCardClick = () => {
                     const targetId = card.getAttribute('data-broadband-card');
-                    const matchingTabBtn = document.querySelector(`[data-tab-group="lo2-4"] [data-target="${targetId}"]`);
-                    if (matchingTabBtn) {
-                        matchingTabBtn.click();
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
                     }
                 };
                 card.addEventListener('click', handleCardClick);
@@ -1116,41 +916,9 @@
                     }
                 });
             });
+        
 
-            // 1. Tab Group Switcher
-            document.querySelectorAll('[data-tab-group]').forEach(group => {
-                const buttons = group.querySelectorAll('.tab-btn');
-                buttons.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const targetId = btn.getAttribute('data-target');
-                        const parentSection = group.closest('section');
-                        
-                        // Set active button
-                        buttons.forEach(b => {
-                            b.classList.remove('active', 'bg-netcom-lime', 'text-netcom-dark');
-                            b.classList.add('bg-white/10', 'text-white');
-                        });
-                        btn.classList.add('active', 'bg-netcom-lime', 'text-netcom-dark');
-                        btn.classList.remove('bg-white/10', 'text-white');
-
-                        // Show target content
-                        parentSection.querySelectorAll('.tab-content').forEach(content => {
-                            content.classList.add('hidden');
-                        });
-                        const targetEl = document.getElementById(targetId);
-                        if (targetEl) {
-                            targetEl.classList.remove('hidden');
-                        }
-
-                        // If switching tabs in LO 2.4, synchronize broadband cards
-                        if (group.getAttribute('data-tab-group') === 'lo2-4') {
-                            syncBroadbandCard(targetId);
-                        }
-                    });
-                });
-            });
-
-            // 2. Mobile Sidebar Drawer Toggle
+            // 1. Mobile Sidebar Drawer Toggle
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const sidebar = document.getElementById('sidebar');
             if (mobileBtn && sidebar) {
@@ -1162,29 +930,67 @@
                 });
             }
 
-            // 3. Scrollspy for Compact Vertical Ribbon Navigation Highlighting
-            const sections = document.querySelectorAll('section[id^="lo-"]');
-            const navLinks = document.querySelectorAll('#navLinks .nav-link');
+            // Auto-close mobile drawer when any link is clicked
+            document.querySelectorAll('#navLinks a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 1024 && sidebar && !sidebar.classList.contains('hidden')) {
+                        sidebar.classList.add('hidden');
+                        sidebar.classList.remove('fixed', 'inset-0', 'w-full');
+                    }
+                });
+            });
 
-            const observer = new IntersectionObserver((entries) => {
+            // 2. Dual-Level Scrollspy for Sidebar Navigation (Parent LO & Nested Subtopics)
+            const loSections = document.querySelectorAll('section[id^="lo-"]');
+            const subBlocks = document.querySelectorAll('.subtopic-block');
+            const loLinks = document.querySelectorAll('.nav-lo-link');
+            const subLinks = document.querySelectorAll('.nav-sub-link');
+
+            // Subtopic Observer
+            const subObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
+                        subLinks.forEach(link => {
                             if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
+                                link.classList.add('text-netcom-lime', 'font-semibold', 'bg-netcom-lime/10');
+                                link.classList.remove('text-slate-400');
                             } else {
-                                link.classList.remove('active');
+                                link.classList.remove('text-netcom-lime', 'font-semibold', 'bg-netcom-lime/10');
+                                link.classList.add('text-slate-400');
                             }
                         });
                     }
                 });
             }, {
-                rootMargin: '-20% 0px -70% 0px',
+                rootMargin: '-15% 0px -70% 0px',
                 threshold: 0
             });
 
-            sections.forEach(sec => observer.observe(sec));
+            subBlocks.forEach(sb => subObserver.observe(sb));
+
+            // Parent LO Section Observer
+            const loObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        loLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('text-white', 'bg-white/10', 'border-netcom-lime');
+                                link.classList.remove('text-slate-300', 'border-transparent');
+                            } else {
+                                link.classList.remove('text-white', 'bg-white/10', 'border-netcom-lime');
+                                link.classList.add('text-slate-300', 'border-transparent');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-10% 0px -80% 0px',
+                threshold: 0
+            });
+
+            loSections.forEach(sec => loObserver.observe(sec));
         });
     </script>
 </body>

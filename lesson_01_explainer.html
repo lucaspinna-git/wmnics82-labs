@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- PRIVACY & SEARCH ENGINE CLOAKING: Complete Disallow for Search & AI Scrapers -->
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
-    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="google-extended" content="noindex, nofollow">
-    <meta name="GPTBot" content="noindex, nofollow">
-    <meta name="ChatGPT-User" content="noindex, nofollow">
-    <meta name="anthropic-ai" content="noindex, nofollow">
-    <meta name="Claude-Web" content="noindex, nofollow">
-    <meta name="CCBot" content="noindex, nofollow">
-    <meta name="PerplexityBot" content="noindex, nofollow">
-    <meta name="referrer" content="no-referrer">
-    <title>Lesson 1: IT Fundamentals &amp; Data Privacy &bull; Interactive Explainer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- PRIVACY & SEARCH ENGINE CLOAKING: Complete Disallow for Search & AI Scrapers -->
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" name="robots"/>
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" name="googlebot"/>
+<meta content="noindex, nofollow, noarchive, nosnippet, noimageindex" name="bingbot"/>
+<meta content="noindex, nofollow" name="google-extended"/>
+<meta content="noindex, nofollow" name="GPTBot"/>
+<meta content="noindex, nofollow" name="ChatGPT-User"/>
+<meta content="noindex, nofollow" name="anthropic-ai"/>
+<meta content="noindex, nofollow" name="Claude-Web"/>
+<meta content="noindex, nofollow" name="CCBot"/>
+<meta content="noindex, nofollow" name="PerplexityBot"/>
+<meta content="no-referrer" name="referrer"/>
+<title>Lesson 1: IT Fundamentals &amp; Data Privacy • Interactive Explainer</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -40,12 +41,11 @@
             }
         }
     </script>
-    <!-- Google Fonts: Plus Jakarta Sans for reading legibility + JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
+<!-- Google Fonts: Plus Jakarta Sans for reading legibility + JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0c061a;
@@ -83,1253 +83,1048 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-netcom-lime selection:text-netcom-dark">
-
-    <!-- Top Mobile Header -->
-    <header class="lg:hidden sticky top-0 z-50 bg-netcom-dark/95 backdrop-blur border-b border-netcom-lime/20 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
-            <span class="font-extrabold text-sm tracking-wide text-white">NETCOM</span>
-            <span class="text-[11px] text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30 font-bold">WMNICS82</span>
-        </div>
-        <button id="mobileMenuBtn" class="text-white p-1.5 rounded-lg hover:bg-white/10 focus:outline-none" aria-label="Toggle Navigation">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </header>
-
-    <div class="flex-1 flex flex-col lg:flex-row">
-        <!-- ========================================================================= -->
-        <!-- COMPACT LEFT NAVIGATION RAIL (Modeled on Antigravity Dashboard)            -->
-        <!-- ========================================================================= -->
-        <aside id="sidebar" class="hidden lg:flex flex-col w-[210px] min-w-[210px] bg-[#0f0721] border-r border-white/10 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300">
-            <!-- Brand Capsule -->
-            <div class="p-4 border-b border-white/10 bg-gradient-to-b from-netcom-surface/50 to-transparent">
-                <div class="flex items-center gap-2 mb-1.5">
-                    <div class="w-6 h-6 rounded-md bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-black text-xs shadow-[0_0_8px_rgba(115,245,74,0.3)]">
+<!-- Top Mobile Header -->
+<header class="lg:hidden sticky top-0 z-50 bg-netcom-dark/95 backdrop-blur border-b border-netcom-lime/20 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
+<span class="font-extrabold text-sm tracking-wide text-white">NETCOM</span>
+<span class="text-[11px] text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30 font-bold">WMNICS82</span>
+</div>
+<button aria-label="Toggle Navigation" class="text-white p-1.5 rounded-lg hover:bg-white/10 focus:outline-none" id="mobileMenuBtn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</header>
+<div class="flex-1 flex flex-col lg:flex-row">
+<!-- ========================================================================= -->
+<!-- COMPACT LEFT NAVIGATION RAIL (Modeled on Antigravity Dashboard)            -->
+<!-- ========================================================================= -->
+<aside class="hidden lg:flex flex-col w-[240px] min-w-[240px] bg-[#0f0721] border-r border-white/10 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300" id="sidebar">
+<!-- Brand Capsule -->
+<div class="p-4 border-b border-white/10 bg-gradient-to-b from-netcom-surface/50 to-transparent">
+<div class="flex items-center gap-2 mb-1.5">
+<div class="w-6 h-6 rounded-md bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-black text-xs shadow-[0_0_8px_rgba(115,245,74,0.3)]">
                         N
                     </div>
-                    <div>
-                        <div class="text-xs font-black tracking-wide text-white leading-none">Netcom <span class="text-netcom-lime">Training</span></div>
-                        <div class="text-[10px] text-netcom-lime font-bold tracking-wider uppercase mt-0.5">WMNICS82</div>
-                    </div>
-                </div>
-                <div class="text-[11px] text-netcom-lavender font-medium mt-2">Lesson 01 Explainer</div>
-            </div>
-
-            <!-- Compact Navigation List (Single-Line Items, Zero Subheader Clutter) -->
-            <nav class="flex-1 px-2 py-3 space-y-1" id="navLinks">
-                <div class="px-2 pb-1.5 text-[10px] font-extrabold tracking-wider text-netcom-lavender/50 uppercase">Outcomes</div>
-                
-                <a href="#lo-1-1" class="nav-link active flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.1</span>
-                    <span class="truncate font-semibold">Effective Tech</span>
-                </a>
-
-                <a href="#lo-1-2" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.2</span>
-                    <span class="truncate font-semibold">Computing Cycle</span>
-                </a>
-
-                <a href="#lo-1-3" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.3</span>
-                    <span class="truncate font-semibold">Device Types</span>
-                </a>
-
-                <a href="#lo-1-4" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.4</span>
-                    <span class="truncate font-semibold">Your Data</span>
-                </a>
-
-                <a href="#lo-1-5" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
-                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.5</span>
-                    <span class="truncate font-semibold">Data Privacy</span>
-                </a>
-            </nav>
-
-            <!-- Bottom Hub Link -->
-            <div class="p-3 border-t border-white/10 bg-[#0c061a] space-y-1">
-                <a href="index.html" class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+<div>
+<div class="text-xs font-black tracking-wide text-white leading-none">Netcom <span class="text-netcom-lime">Training</span></div>
+<div class="text-[10px] text-netcom-lime font-bold tracking-wider uppercase mt-0.5">WMNICS82</div>
+</div>
+</div>
+<div class="text-[11px] text-netcom-lavender font-medium mt-2">Lesson 01 Explainer</div>
+</div>
+<!-- Compact Navigation List (Single-Line Items, Zero Subheader Clutter) -->
+<nav class="flex-1 px-2 py-3 space-y-1" id="navLinks"><div class="px-2 pb-2 text-[10px] font-extrabold tracking-wider text-netcom-lavender/50 uppercase">Outcomes &amp; Subtopics</div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-1-1"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.1</span><span class="truncate font-bold">Effective Tech</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-1-tab1"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.1.1</span><span class="truncate">Technology as a Resource</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-1-tab2"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.1.2</span><span class="truncate">Digital Citizenship &amp; Ethics</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-1-tab3"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.1.3</span><span class="truncate">When Tech Goes Wrong</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-1-2"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.2</span><span class="truncate font-bold">Computing Cycle</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-2-input"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.2.1</span><span class="truncate">What is Input?</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-2-processing"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.2.2</span><span class="truncate">What is Processing?</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-2-storage"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.2.3</span><span class="truncate">What is Storage?</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-2-output"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.2.4</span><span class="truncate">What is Output?</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-1-3"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.3</span><span class="truncate font-bold">Device Types</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-3-computers"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.3.1</span><span class="truncate">Computers &amp; Servers</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-3-mobile"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.3.2</span><span class="truncate">Mobile Devices</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-3-gaming"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.3.3</span><span class="truncate">Gaming Devices</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-3-iot"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.3.4</span><span class="truncate">The Internet of Things (IoT)</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-1-4"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.4</span><span class="truncate font-bold">Your Data</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-4-pii"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.4.1</span><span class="truncate">Personal Data &amp; PII</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-4-monetisation"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.4.2</span><span class="truncate">Monetising User Data</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-4-cookies"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.4.3</span><span class="truncate">Browser Cookies &amp; Isolation</span></a></div></div><div class="nav-lo-group space-y-0.5 mb-2.5"><a class="nav-link nav-lo-link flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition border-l-2 border-transparent" href="#lo-1-5"><div class="flex items-center gap-2 truncate"><span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.5</span><span class="truncate font-bold">Data Privacy</span></div></a><div class="sub-nav-links ml-3 pl-2.5 border-l border-white/10 space-y-0.5 my-1"><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-5-social"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.5.1</span><span class="truncate">Social Media Privacy</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-5-comms"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.5.2</span><span class="truncate">Comms &amp; Encryption</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-5-ftp"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.5.3</span><span class="truncate">File Transfers: FTP vs SFTP</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-5-ai"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.5.4</span><span class="truncate">Privacy in AI &amp; ML</span></a><a class="nav-sub-link flex items-center gap-1.5 py-1 px-1.5 rounded text-[11px] text-slate-400 hover:text-netcom-lime hover:bg-white/5 transition truncate" href="#lo1-5-regs"><span class="font-mono text-[10px] text-netcom-lime/70 font-semibold shrink-0">1.5.5</span><span class="truncate">Global Regulations (GDPR/ICO)</span></a></div></div></nav>
+<!-- Bottom Hub Link -->
+<div class="p-3 border-t border-white/10 bg-[#0c061a] space-y-1">
+<a class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10" href="index.html">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                     Portal Hub
                 </a>
-                <a href="schedule.html" class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<a class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10" href="schedule.html">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                     Programme Schedule
                 </a>
-                <div class="text-center text-[9px] text-slate-500">CompTIA Tech+ FC0-U71</div>
-            </div>
-        </aside>
-
-        <!-- ========================================================================= -->
-        <!-- MAIN ACCESSIBLE READING CANVAS                                            -->
-        <!-- ========================================================================= -->
-        <main class="flex-1 p-4 sm:p-8 lg:p-12 w-full max-w-7xl 2xl:max-w-[1650px] mx-auto space-y-14">
-            
-            <!-- Hero Header Banner -->
-            <section class="relative bg-gradient-to-br from-netcom-surface via-netcom-dark to-[#0c061a] border border-white/10 rounded-2xl p-6 sm:p-10 overflow-hidden shadow-2xl">
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="relative z-10 space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-xs font-mono font-bold">
-                        <span class="w-2 h-2 rounded-full bg-netcom-lime animate-pulse"></span>
-                        CompTIA Tech+ FC0-U71 &bull; Unit 1
+<div class="text-center text-[9px] text-slate-500">CompTIA Tech+ FC0-U71</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN ACCESSIBLE READING CANVAS                                            -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-4 sm:p-8 lg:p-12 w-full max-w-7xl 2xl:max-w-[1650px] mx-auto space-y-14">
+<!-- Hero Header Banner -->
+<section class="relative bg-gradient-to-br from-netcom-surface via-netcom-dark to-[#0c061a] border border-white/10 rounded-2xl p-6 sm:p-10 overflow-hidden shadow-2xl">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-xs font-mono font-bold">
+<span class="w-2 h-2 rounded-full bg-netcom-lime animate-pulse"></span>
+                        CompTIA Tech+ FC0-U71 • Unit 1
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+<h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                         Lesson 1: IT Fundamentals &amp; Data Privacy
                     </h1>
-                    <p class="text-base sm:text-lg text-netcom-lavender/90 max-w-4xl leading-relaxed">
+<p class="text-base sm:text-lg text-netcom-lavender/90 max-w-4xl leading-relaxed">
                         A comprehensive guided reading companion integrating the complete lesson slide deck with expanded technical explanations, real-world case studies, and practical IT support scenarios.</p>
-                    <div class="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> Full Curriculum Fidelity</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> 5 Core Learning Outcomes</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> British English Standard</div>
-                        <div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">&check;</span> Interactive Technical Explainers</div>
-                    </div>
-                </div>
-            </section>
+<div class="flex flex-wrap gap-4 pt-2 text-xs text-slate-300">
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> Full Curriculum Fidelity</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> 5 Core Learning Outcomes</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> British English Standard</div>
+<div class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">✓</span> Interactive Technical Explainers</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 1: LO 1.1 Use Technology Effectively                          -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-1-1">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.1</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 – 10</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Use Technology Effectively</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Resource Roles • Digital Citizenship • Operational Resilience</span>
+</div>
+<!-- Subtopic Tab Buttons (Accessible touch targets) -->
 
-            <!-- ===================================================================== -->
-            <!-- SECTION 1: LO 1.1 Use Technology Effectively                          -->
-            <!-- ===================================================================== -->
-            <section id="lo-1-1" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.1</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 &ndash; 10</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Use Technology Effectively</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Resource Roles &bull; Digital Citizenship &bull; Operational Resilience</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons (Accessible touch targets) -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-1">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab1">
-                        1.1.1 Technology as a Resource
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab2">
-                        1.1.2 Digital Citizenship &amp; Ethics
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab3">
-                        1.1.3 When Tech Goes Wrong
-                    </button>
-                </div>
-
-                <!-- Tab 1: Technology as a Resource -->
-                <div id="lo1-1-tab1" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<!-- Tab 1: Technology as a Resource -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-1-tab1"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.1.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Technology as a Resource</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Many people today have grown up with touchscreens, smartphones, and social media as integral parts of everyday life, while others adapted to computing systems as adults. Regardless of familiarity, computing technology is not merely a collection of devices—it is an <strong>indispensable operational resource</strong> and a foundational career skill across all sectors.
                         </p>
-                        <p>
+<p>
                             Throughout history, established professions have continuously reinvented themselves by integrating technological tools. Ancient disciplines—such as teachers managing educational delivery, physicians monitoring vital metrics, librarians classifying vast repositories of human knowledge, and merchants conducting cross-border trade—have all seen their productivity transformed by modern computing infrastructure.
                         </p>
-                    </div>
-
-                    <!-- Visual Multi-Monitor Analytics Card -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
-                        <div class="flex items-center gap-2 text-netcom-lime font-bold text-xs uppercase tracking-wider">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+</div>
+<!-- Visual Multi-Monitor Analytics Card -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
+<div class="flex items-center gap-2 text-netcom-lime font-bold text-xs uppercase tracking-wider">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Modern Workplace Paradigm: Multi-Monitor Data Analytics
                         </div>
-                        <p class="text-[14.5px] text-slate-300 leading-relaxed">
+<p class="text-[14.5px] text-slate-300 leading-relaxed">
                             In a modern corporate setting, a data analyst or manager frequently operates across a multi-monitor workstation. Each display renders different visual telemetry dashboards:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                                <div class="font-bold text-netcom-lavender mb-1">Bar Charts</div>
-                                <div class="text-slate-400">Comparing discrete departmental volumes &amp; quarterly targets.</div>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                                <div class="font-bold text-netcom-lavender mb-1">Line Graphs</div>
-                                <div class="text-slate-400">Tracking temporal fluctuations and continuous real-time telemetry.</div>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                                <div class="font-bold text-netcom-lavender mb-1">Pie Charts</div>
-                                <div class="text-slate-400">Visualising proportional market share and budget allocations.</div>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                                <div class="font-bold text-netcom-lavender mb-1">Stacked Area</div>
-                                <div class="text-slate-400">Displaying cumulative volume trends over extended fiscal periods.</div>
-                            </div>
-                        </div>
-                        <p class="text-[13px] text-slate-400 italic">
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+<div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
+<div class="font-bold text-netcom-lavender mb-1">Bar Charts</div>
+<div class="text-slate-400">Comparing discrete departmental volumes &amp; quarterly targets.</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
+<div class="font-bold text-netcom-lavender mb-1">Line Graphs</div>
+<div class="text-slate-400">Tracking temporal fluctuations and continuous real-time telemetry.</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
+<div class="font-bold text-netcom-lavender mb-1">Pie Charts</div>
+<div class="text-slate-400">Visualising proportional market share and budget allocations.</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-lg p-3 text-center">
+<div class="font-bold text-netcom-lavender mb-1">Stacked Area</div>
+<div class="text-slate-400">Displaying cumulative volume trends over extended fiscal periods.</div>
+</div>
+</div>
+<p class="text-[13px] text-slate-400 italic">
                             These dashboards transform millions of raw transaction records into immediate visual intelligence, allowing organisations to respond swiftly to volatile market shifts.
                         </p>
-                    </div>
-
-                    <!-- Core Resilient Skills Callout -->
-                    <div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-2">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
+</div>
+<!-- Core Resilient Skills Callout -->
+<div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-2">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
                             The Two Core Pillars of Lifelong Employability
                         </div>
-                        <p class="text-[14.5px] text-slate-200 leading-relaxed">
+<p class="text-[14.5px] text-slate-200 leading-relaxed">
                             Hardware specifications and software interfaces evolve rapidly, but two reliable human capabilities ensure enduring professional success:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                            <div class="bg-black/30 p-3 rounded-lg border border-white/5">
-                                <div class="text-white font-bold text-sm mb-1 flex items-center gap-1.5">
-                                    <span class="text-netcom-lime">&bull;</span> Critical Thinking
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+<div class="bg-black/30 p-3 rounded-lg border border-white/5">
+<div class="text-white font-bold text-sm mb-1 flex items-center gap-1.5">
+<span class="text-netcom-lime">•</span> Critical Thinking
                                 </div>
-                                <div class="text-xs text-slate-300 leading-relaxed">
+<div class="text-xs text-slate-300 leading-relaxed">
                                     The capacity to logically evaluate raw data, assess conflicting source integrity, dissect complex technical issues, and determine effective root-cause remedies.
                                 </div>
-                            </div>
-                            <div class="bg-black/30 p-3 rounded-lg border border-white/5">
-                                <div class="text-white font-bold text-sm mb-1 flex items-center gap-1.5">
-                                    <span class="text-netcom-lime">&bull;</span> The Ability to Learn New Things
+</div>
+<div class="bg-black/30 p-3 rounded-lg border border-white/5">
+<div class="text-white font-bold text-sm mb-1 flex items-center gap-1.5">
+<span class="text-netcom-lime">•</span> The Ability to Learn New Things
                                 </div>
-                                <div class="text-xs text-slate-300 leading-relaxed">
+<div class="text-xs text-slate-300 leading-relaxed">
                                     Cultivating an active curiosity and adapting to emerging tooling paradigms without fear of obsolescence, maintaining technical agility throughout your career.
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- User Categorisation Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lavender font-bold text-xs uppercase tracking-wide">1. General Technology Users</div>
-                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+</div>
+</div>
+</div>
+<!-- User Categorisation Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lavender font-bold text-xs uppercase tracking-wide">1. General Technology Users</div>
+<p class="text-[13.5px] text-slate-300 leading-relaxed">
                                 Everyday employees leveraging technical applications as productivity levers: content creation (drafting reports), organisation (databases, spreadsheets), and team collaboration (email, video conferencing).
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">2. Information Technology Specialists</div>
-                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">2. Information Technology Specialists</div>
+<p class="text-[13.5px] text-slate-300 leading-relaxed">
                                 Professionals who deploy, configure, secure, and maintain computing infrastructure. They ensure high service availability, secure endpoints, manage identities, and maintain operational stability.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">3. Technologists &amp; Engineers</div>
-                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">3. Technologists &amp; Engineers</div>
+<p class="text-[13.5px] text-slate-300 leading-relaxed">
                                 Innovators who invent and program emerging systems. Software developers, network architects, and systems engineers building the digital platforms that general users rely upon.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab 2: Digital Citizenship & Ethics  -->
-                <div id="lo1-1-tab2" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
-                            Just as a citizen of a country must obey that nation&apos;s laws, act respectfully towards others, and contribute constructively to public spaces, <strong>digital citizenship</strong> governs how individuals operate within shared online and corporate environments. Digital citizenship is about using digital tools to <strong>empower yourself and others</strong> while maintaining empathy, integrity, and ethical conduct.
+</div>
+</div>
+</div>
+<!-- Tab 2: Digital Citizenship & Ethics  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-1-tab2"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.1.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Digital Citizenship &amp; Ethics</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
+                            Just as a citizen of a country must obey that nation's laws, act respectfully towards others, and contribute constructively to public spaces, <strong>digital citizenship</strong> governs how individuals operate within shared online and corporate environments. Digital citizenship is about using digital tools to <strong>empower yourself and others</strong> while maintaining empathy, integrity, and ethical conduct.
                         </p>
-                    </div>
-
-                    <!-- Civic Analogy Card -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+</div>
+<!-- Civic Analogy Card -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             The Civic Comparison: Physical vs. Digital Spaces
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-300">
-                            <div class="bg-white/5 p-4 rounded-lg border border-white/10 space-y-1.5">
-                                <div class="font-bold text-white text-sm">Physical Civic Duty</div>
-                                <p class="leading-relaxed">Obeying national and municipal statutes, treating public infrastructure with respect, engaging in courteous dialogue, and protecting community safety.</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-lg border border-white/10 space-y-1.5">
-                                <div class="font-bold text-netcom-lime text-sm">Digital Citizenship Duty</div>
-                                <p class="leading-relaxed">Upholding Acceptable Use Policies (AUP), treating intellectual property with respect, communicating empathetically across varied platforms, and protecting identity.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Online Discussions & Community Conduct -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
-                        <div class="flex items-center gap-2 text-netcom-lavender font-bold text-xs uppercase tracking-wider">
-                            <svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-300">
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 space-y-1.5">
+<div class="font-bold text-white text-sm">Physical Civic Duty</div>
+<p class="leading-relaxed">Obeying national and municipal statutes, treating public infrastructure with respect, engaging in courteous dialogue, and protecting community safety.</p>
+</div>
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 space-y-1.5">
+<div class="font-bold text-netcom-lime text-sm">Digital Citizenship Duty</div>
+<p class="leading-relaxed">Upholding Acceptable Use Policies (AUP), treating intellectual property with respect, communicating empathetically across varied platforms, and protecting identity.</p>
+</div>
+</div>
+</div>
+<!-- Online Discussions & Community Conduct -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
+<div class="flex items-center gap-2 text-netcom-lavender font-bold text-xs uppercase tracking-wider">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Navigating Online Discussions &amp; Conduct
                         </div>
-                        <p class="text-[14px] text-slate-300 leading-relaxed">
+<p class="text-[14px] text-slate-300 leading-relaxed">
                             Online discussions can sometimes get heated. Written messages, audio clips, and images can easily be distorted, misinterpreted, or taken out of context—whether intentionally or unintentionally. Left unchecked, this can hurt people deeply and lead to negative interactions:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
-                                <div class="font-bold text-white text-xs uppercase tracking-wide">Bullying</div>
-                                <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
+<div class="font-bold text-white text-xs uppercase tracking-wide">Bullying</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                     Repeated hostility, harassment, or intimidation targeted at an individual across digital communication platforms.
                                 </p>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
-                                <div class="font-bold text-white text-xs uppercase tracking-wide">Trolling</div>
-                                <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
+<div class="font-bold text-white text-xs uppercase tracking-wide">Trolling</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                     Posting deliberately provocative, inflammatory, or disruptive messages to derail constructive discourse.
                                 </p>
-                            </div>
-                            <div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
-                                <div class="font-bold text-white text-xs uppercase tracking-wide">Gaslighting</div>
-                                <p class="text-xs text-slate-300 leading-relaxed">
-                                    Manipulative behaviour where an individual distorts facts or denies events to undermine confidence in another&apos;s perceptions.
+</div>
+<div class="bg-white/5 border border-white/10 p-3.5 rounded-lg space-y-1">
+<div class="font-bold text-white text-xs uppercase tracking-wide">Gaslighting</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+                                    Manipulative behaviour where an individual distorts facts or denies events to undermine confidence in another's perceptions.
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Community Advocacy & Safety Protocols -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-netcom-surface/40 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-1.5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+</div>
+</div>
+</div>
+<!-- Community Advocacy & Safety Protocols -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-netcom-surface/40 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-1.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 Being an Active Advocate for Good
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 As a responsible digital citizen, you have an obligation to protect the integrity of online communities:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Step away early:</strong> Refuse to engage in escalating toxic flame wars before an argument goes too far.</li>
-                                <li><strong>Report misconduct:</strong> Utilize formal reporting tools to alert moderators and administrators to abusive or illegal conduct.</li>
-                                <li><strong>Platform awareness:</strong> Tailor your communication style and tone appropriately for the platform (professional email vs. team chat).</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-netcom-surface/40 border border-cyan-400/30 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+<ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+<li><strong>Step away early:</strong> Refuse to engage in escalating toxic flame wars before an argument goes too far.</li>
+<li><strong>Report misconduct:</strong> Utilize formal reporting tools to alert moderators and administrators to abusive or illegal conduct.</li>
+<li><strong>Platform awareness:</strong> Tailor your communication style and tone appropriately for the platform (professional email vs. team chat).</li>
+</ul>
+</div>
+<div class="bg-netcom-surface/40 border border-cyan-400/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 Deceptive Bad Actors &amp; Scam Awareness
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Not all digital participants are community-minded. Malicious actors deliberately deceive, threaten, and steal:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Scams &amp; Extortion:</strong> Recognizing fraudulent social engineering schemes designed to steal credentials or financial assets.</li>
-                                <li><strong>Identity Safeguarding:</strong> Protecting sensitive Personally Identifiable Information (PII) from social media harvesting.</li>
-                                <li><strong>Respecting Content:</strong> Never republishing or redistributing private communications or copyrighted media without authorisation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo1-1-tab3" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+<li><strong>Scams &amp; Extortion:</strong> Recognizing fraudulent social engineering schemes designed to steal credentials or financial assets.</li>
+<li><strong>Identity Safeguarding:</strong> Protecting sensitive Personally Identifiable Information (PII) from social media harvesting.</li>
+<li><strong>Respecting Content:</strong> Never republishing or redistributing private communications or copyrighted media without authorisation.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-1-tab3"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.1.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">When Tech Goes Wrong</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Every technology user inevitably encounters hardware failures, software bugs, lost connectivity, or misconfigured settings. Understanding the mechanics of your computing environment determines whether an issue becomes a minor nuisance or an operational disaster.
                         </p>
-                    </div>
-
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-slate-300">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-slate-300">
                                 Everyday Consumer Stakes
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">
+<p class="text-xs text-slate-400 leading-relaxed">
                                 For an individual using a personal smartphone or laptop at home:
                             </p>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="text-xs text-slate-200 font-semibold">&bull; Minimal Blast Radius:</div>
-                                <div class="text-xs text-slate-400">If you don&apos;t understand a setting or misconfigure a device, you might spend a bit of time searching forums or pay a professional repair shop to fix it. Annoying and inconvenient, but nothing catastrophic occurs.</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                            <div class="text-xs font-bold uppercase tracking-wide text-amber-300">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="text-xs text-slate-200 font-semibold">• Minimal Blast Radius:</div>
+<div class="text-xs text-slate-400">If you don't understand a setting or misconfigure a device, you might spend a bit of time searching forums or pay a professional repair shop to fix it. Annoying and inconvenient, but nothing catastrophic occurs.</div>
+</div>
+</div>
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wide text-amber-300">
                                 The Elevated Stakes of Enterprise Network Power
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 The stakes escalate dramatically in enterprise networked environments:
                             </p>
-                            <div class="bg-amber-500/10 p-3 rounded-lg border border-amber-500/20 space-y-1">
-                                <div class="text-xs text-amber-200 font-semibold">&bull; High-Impact Blast Radius:</div>
-                                <div class="text-xs text-slate-300">When an untrained employee holds elevated access permissions, a single mistake—such as executing an unauthorized script, misconfiguring access rights, or falling for a phishing attack—can bring down entire department workflows, corrupt enterprise databases, or result in severe regulatory fines.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IT Incident Escalation Framework -->
-                    <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
+<div class="bg-amber-500/10 p-3 rounded-lg border border-amber-500/20 space-y-1">
+<div class="text-xs text-amber-200 font-semibold">• High-Impact Blast Radius:</div>
+<div class="text-xs text-slate-300">When an untrained employee holds elevated access permissions, a single mistake—such as executing an unauthorized script, misconfiguring access rights, or falling for a phishing attack—can bring down entire department workflows, corrupt enterprise databases, or result in severe regulatory fines.</div>
+</div>
+</div>
+</div>
+<!-- IT Incident Escalation Framework -->
+<div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime">
                             Workplace Resilience &amp; Escalation Protocol
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">1. Identify Symptoms</div>
-                                <div class="text-slate-400">Record exact error codes, system prompts, and reproduction steps accurately.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">2. Isolate System</div>
-                                <div class="text-slate-400">Disconnect from network or pause execution to prevent data corruption spread.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">3. Escalate Properly</div>
-                                <div class="text-slate-400">Submit a detailed service ticket to IT Support adhering to SLAs.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-white">4. Post-Incident Review</div>
-                                <div class="text-slate-400">Document root cause to update operational knowledge bases.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slide 8 (Intro), Slide 9 (Resource), Slide 10 (Digital Citizen)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Workplace Technology &amp; Digital Ethics</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 2: LO 1.2 Explore the Computing Cycle                         -->
-            <!-- ===================================================================== -->
-            <section id="lo-1-2" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.2</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 11 &ndash; 15</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Explore the Computing Cycle</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Input &bull; Processing &bull; Storage &bull; Output</span>
-                </div>
-
-                <!-- Introduction & Car Engine Analogy -->
-                <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-3">
-                    <p>
-                        Just as a four-stroke internal combustion engine continuously repeats a mechanical sequence (intake, compression, combustion, exhaust) to propel a vehicle down the highway, every computing device repeats a continuous four-stage pipeline: <strong>Input &rarr; Processing &rarr; Storage &rarr; Output</strong>.
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">1. Identify Symptoms</div>
+<div class="text-slate-400">Record exact error codes, system prompts, and reproduction steps accurately.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">2. Isolate System</div>
+<div class="text-slate-400">Disconnect from network or pause execution to prevent data corruption spread.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">3. Escalate Properly</div>
+<div class="text-slate-400">Submit a detailed service ticket to IT Support adhering to SLAs.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-white">4. Post-Incident Review</div>
+<div class="text-slate-400">Document root cause to update operational knowledge bases.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slide 8 (Intro), Slide 9 (Resource), Slide 10 (Digital Citizen)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Workplace Technology &amp; Digital Ethics</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 2: LO 1.2 Explore the Computing Cycle                         -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-1-2">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.2</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 11 – 15</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Explore the Computing Cycle</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Input • Processing • Storage • Output</span>
+</div>
+<!-- Introduction & Car Engine Analogy -->
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-3">
+<p>
+                        Just as a four-stroke internal combustion engine continuously repeats a mechanical sequence (intake, compression, combustion, exhaust) to propel a vehicle down the highway, every computing device repeats a continuous four-stage pipeline: <strong>Input → Processing → Storage → Output</strong>.
                     </p>
-                </div>
+</div>
+<!-- 4-Stage Computing Architecture Synchronized Interactive Cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="cycleCardsContainer">
+<div aria-label="Select Stage 1 Input" class="cycle-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1" data-cycle-card="lo1-2-input" role="button" tabindex="0">
+<div class="cycle-num w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-sm shadow-[0_0_10px_#73f54a]">1</div>
+<div class="font-bold text-white text-sm">Input</div>
+<div class="text-[11px] text-netcom-lime font-mono font-semibold">Signals to Binary</div>
+</div>
+<div aria-label="Select Stage 2 Processing" class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-processing" role="button" tabindex="0">
+<div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">2</div>
+<div class="font-bold text-white text-sm">Processing</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">CPU Execution</div>
+</div>
+<div aria-label="Select Stage 3 Storage" class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-storage" role="button" tabindex="0">
+<div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">3</div>
+<div class="font-bold text-white text-sm">Storage</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">RAM &amp; Non-Volatile</div>
+</div>
+<div aria-label="Select Stage 4 Output" class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-output" role="button" tabindex="0">
+<div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">4</div>
+<div class="font-bold text-white text-sm">Output</div>
+<div class="text-[11px] text-slate-400 font-mono font-semibold">Sensory Delivery</div>
+</div>
+</div>
+<!-- Subtopic Tab Buttons for LO 1.2 -->
 
-                <!-- 4-Stage Computing Architecture Synchronized Interactive Cards -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="cycleCardsContainer">
-                    <div class="cycle-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1" data-cycle-card="lo1-2-input" tabindex="0" role="button" aria-label="Select Stage 1 Input">
-                        <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-sm shadow-[0_0_10px_#73f54a]">1</div>
-                        <div class="font-bold text-white text-sm">Input</div>
-                        <div class="text-[11px] text-netcom-lime font-mono font-semibold">Signals to Binary</div>
-                    </div>
-
-                    <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-processing" tabindex="0" role="button" aria-label="Select Stage 2 Processing">
-                        <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">2</div>
-                        <div class="font-bold text-white text-sm">Processing</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">CPU Execution</div>
-                    </div>
-
-                    <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-storage" tabindex="0" role="button" aria-label="Select Stage 3 Storage">
-                        <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">3</div>
-                        <div class="font-bold text-white text-sm">Storage</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">RAM &amp; Non-Volatile</div>
-                    </div>
-
-                    <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-output" tabindex="0" role="button" aria-label="Select Stage 4 Output">
-                        <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">4</div>
-                        <div class="font-bold text-white text-sm">Output</div>
-                        <div class="text-[11px] text-slate-400 font-mono font-semibold">Sensory Delivery</div>
-                    </div>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 1.2 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-2">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-input">
-                        1.2.1 / 1.2.2 What is Input?
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-processing">
-                        1.2.3 What is Processing?
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-storage">
-                        1.2.4 What is Storage?
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-output">
-                        1.2.5 What is Output?
-                    </button>
-                </div>
-
-                
-                <div id="lo1-2-input" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-2-input"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.2.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is Input?</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Computers cannot think independently; they require humans or external sensors to provide instructions and raw data. The <strong>Input stage</strong> translates physical phenomena (mechanical switch presses, finger capacitance, acoustic vibrations, optical reflections) into digital machine-readable binary code (<code class="text-netcom-lime">0</code>s and <code class="text-netcom-lime">1</code>s).
                         </p>
-                    </div>
-
-                    
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Scenario: The Mobile Video Notification Pipeline
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Your smartphone chimes with an SMS notification. You tap the message icon, see that a friend has sent a link to an exciting video, and tap the hyperlink. Those precise finger taps on your capacitive glass screen are the initial input event:
                         </p>
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-slate-300 font-mono">
-                            Physical Touch &rarr; Electrostatic Change &rarr; Touch Controller Digitiser &rarr; Interrupt Request (IRQ) &rarr; OS Input Buffer
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-slate-300 font-mono">
+                            Physical Touch → Electrostatic Change → Touch Controller Digitiser → Interrupt Request (IRQ) → OS Input Buffer
                         </div>
-                    </div>
-
-                    <!-- Hardware Input Taxonomy -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Manual / Mechanical</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<!-- Hardware Input Taxonomy -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Manual / Mechanical</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Keyboards (individual mechanical or membrane switches), mice and trackpads (optical movement sensors), and gaming controllers (analog sticks, triggers).
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Optical &amp; Imaging</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Optical &amp; Imaging</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Barcode and QR scanners (laser reflectivity decoding product IDs), webcams, and document flatbed scanners converting reflected light into raster pixels.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Acoustic &amp; Biometric</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1.5">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Acoustic &amp; Biometric</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Microphones (analog diaphragms converted by ADC chips into PCM digital audio) and fingerprint / facial scanners for biometric authentication.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Processing  -->
-                <div id="lo1-2-processing" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+</div>
+<!-- Tab: Processing  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-2-processing"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.2.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is Processing?</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Once the tap on your screen delivers an instruction to pull up the YouTube video, the computer must decipher that request. This calculation is executed by the <strong>Central Processing Unit (CPU)</strong>, often described as the "brain" of the computer.
                         </p>
-                    </div>
-
-                    <!-- Motherboard Socket & CPU Components -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+</div>
+<!-- Motherboard Socket & CPU Components -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-4">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Anatomy of the Central Processing Unit (CPU)
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">Control Unit (CU)</div>
-                                <div class="text-slate-400">Directs traffic and decodes incoming instructions, coordinating ALU and memory buses.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">Arithmetic Logic Unit</div>
-                                <div class="text-slate-400">Executes high-speed mathematical computations and Boolean comparisons (AND, OR, NOT).</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">Internal Registers</div>
-                                <div class="text-slate-400">Ultra-fast temporary storage locations holding active operands directly on the die.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
-                                <div class="font-bold text-netcom-lavender">L1/L2/L3 Cache</div>
-                                <div class="text-slate-400">High-speed SRAM buffering frequently requested data to prevent main memory bottlenecks.</div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            <strong>Clock Speed:</strong> Measured in Gigahertz (GHz), representing billions of machine fetch-decode-execute cycles per second.
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">Control Unit (CU)</div>
+<div class="text-slate-400">Directs traffic and decodes incoming instructions, coordinating ALU and memory buses.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">Arithmetic Logic Unit</div>
+<div class="text-slate-400">Executes high-speed mathematical computations and Boolean comparisons (AND, OR, NOT).</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">Internal Registers</div>
+<div class="text-slate-400">Ultra-fast temporary storage locations holding active operands directly on the die.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-1">
+<div class="font-bold text-netcom-lavender">L1/L2/L3 Cache</div>
+<div class="text-slate-400">High-speed SRAM buffering frequently requested data to prevent main memory bottlenecks.</div>
+</div>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+<strong>Clock Speed:</strong> Measured in Gigahertz (GHz), representing billions of machine fetch-decode-execute cycles per second.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Tab: Storage  -->
-                <div id="lo1-2-storage" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+<!-- Tab: Storage  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-2-storage"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.2.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is Storage?</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Continuing the YouTube example: while you watch the video streaming over the network, the CPU temporarily buffers video chunks into <strong>system memory (RAM)</strong> so playback remains smooth. But what happens if you lose your Internet connection or power down your device?
                         </p>
-                    </div>
-
-                    <!-- Volatile RAM vs Non-Volatile Persistent Storage  -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-amber-300">Volatile Memory (RAM)</div>
-                                <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Temporary</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<!-- Volatile RAM vs Non-Volatile Persistent Storage  -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-amber-300">Volatile Memory (RAM)</div>
+<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Temporary</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Random Access Memory provides ultra-fast read/write access for currently running operating systems, applications, and buffered video packets.
                             </p>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-amber-200/90 font-mono">
-                                Power Off &rarr; Transistor Capacitors Drain &rarr; ALL Data Immediately Lost
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-amber-200/90 font-mono">
+                                Power Off → Transistor Capacitors Drain → ALL Data Immediately Lost
                             </div>
-                        </div>
-
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">Non-Volatile Storage (SSD / Flash)</div>
-                                <span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Permanent</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">Non-Volatile Storage (SSD / Flash)</div>
+<span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Permanent</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 If you click "Download" to save the video for offline viewing, the bits are written into flash memory (NVMe SSD or embedded UFS storage).
                             </p>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-netcom-lime font-mono">
-                                Power Off &rarr; Floating-Gate Trapped Electrons Retained &rarr; Data Safe Indefinitely
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-netcom-lime font-mono">
+                                Power Off → Floating-Gate Trapped Electrons Retained → Data Safe Indefinitely
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Storage Tier Hierarchy -->
-                    <div class="bg-black/40 border border-white/10 rounded-xl p-4 space-y-2 text-xs">
-                        <div class="font-bold text-white uppercase tracking-wider">The Storage Performance &amp; Capacity Continuum</div>
-                        <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-center text-slate-300">
-                            <div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>CPU Registers &amp; Cache</strong><br><span class="text-[10px] text-netcom-lime">Sub-nanosecond / Kilobytes</span></div>
-                            <span class="text-slate-500">&rarr;</span>
-                            <div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>System RAM (DDR4/5)</strong><br><span class="text-[10px] text-netcom-lime">~10-20ns / 8GB&ndash;64GB</span></div>
-                            <span class="text-slate-500">&rarr;</span>
-                            <div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>NVMe SSD Storage</strong><br><span class="text-[10px] text-netcom-lime">~50-100&mu;s / 512GB&ndash;4TB</span></div>
-                            <span class="text-slate-500">&rarr;</span>
-                            <div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>Cloud Object Store</strong><br><span class="text-[10px] text-netcom-lime">~20-100ms / Petabytes</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Output  -->
-                <div id="lo1-2-output" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+<!-- Storage Tier Hierarchy -->
+<div class="bg-black/40 border border-white/10 rounded-xl p-4 space-y-2 text-xs">
+<div class="font-bold text-white uppercase tracking-wider">The Storage Performance &amp; Capacity Continuum</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-center text-slate-300">
+<div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>CPU Registers &amp; Cache</strong><br/><span class="text-[10px] text-netcom-lime">Sub-nanosecond / Kilobytes</span></div>
+<span class="text-slate-500">→</span>
+<div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>System RAM (DDR4/5)</strong><br/><span class="text-[10px] text-netcom-lime">~10-20ns / 8GB–64GB</span></div>
+<span class="text-slate-500">→</span>
+<div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>NVMe SSD Storage</strong><br/><span class="text-[10px] text-netcom-lime">~50-100μs / 512GB–4TB</span></div>
+<span class="text-slate-500">→</span>
+<div class="bg-white/5 p-2 rounded w-full sm:w-1/4"><strong>Cloud Object Store</strong><br/><span class="text-[10px] text-netcom-lime">~20-100ms / Petabytes</span></div>
+</div>
+</div>
+</div>
+<!-- Tab: Output  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-2-output"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.2.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is Output?</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Once the CPU has decoded the instruction and assembled the video stream from storage or the network interface, the final stage is <strong>Output</strong>. The computing device translates raw digital bits into sensory phenomena that human beings can perceive and enjoy:
                         </p>
-                    </div>
-
-                    <!-- Dual Output Sensory Experience  -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide flex items-center gap-1.5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+</div>
+<!-- Dual Output Sensory Experience  -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide flex items-center gap-1.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 Acoustic Output (Speakers / Headphones)
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 A Digital-to-Analog Converter (DAC) translates binary audio streams into continuous voltage fluctuations that vibrate speaker diaphragms, producing audible sound waves.
                             </p>
-                        </div>
-
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide flex items-center gap-1.5">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide flex items-center gap-1.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                                 Visual Output (Monitors / Displays)
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                                 The graphics processor (GPU) transforms framebuffer data into millions of illuminated pixels (OLED / LCD) refreshed dozens of times per second (e.g. 60Hz, 120Hz).
                             </p>
-                        </div>
-                    </div>
-
-                    <!-- Output-as-Input Pipeline -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
+</div>
+</div>
+<!-- Output-as-Input Pipeline -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
                             The Continuous Pipeline: Output Becoming New Input
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             The computing cycle does not end at output. Often, the output of one process serves directly as the input for another:
                         </p>
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-slate-300 space-y-1 font-mono">
-                            <div>1. User inputs query &rarr; CPU processes report &rarr; Output written to JSON file</div>
-                            <div>2. Analytics service ingests JSON as Input &rarr; Processes trends &rarr; Outputs visual dashboard</div>
-                        </div>
-                    </div>
-                </div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5 text-xs text-slate-300 space-y-1 font-mono">
+<div>1. User inputs query → CPU processes report → Output written to JSON file</div>
+<div>2. Analytics service ingests JSON as Input → Processes trends → Outputs visual dashboard</div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 11–15 (Input, Processing, Storage, Output)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: The Four-Stage Computing Cycle</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 3: LO 1.3 Recognise Computing Devices                         -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-1-3">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.3</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 16 – 20</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Recognise Computing Devices</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Computers • Mobile • Gaming • IoT</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 1.3 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 11&ndash;15 (Input, Processing, Storage, Output)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: The Four-Stage Computing Cycle</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 3: LO 1.3 Recognise Computing Devices                         -->
-            <!-- ===================================================================== -->
-            <section id="lo-1-3" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.3</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 16 &ndash; 20</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Recognise Computing Devices</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Computers &bull; Mobile &bull; Gaming &bull; IoT</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 1.3 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-3">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-computers">
-                        1.3.1 Computers &amp; Servers
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-mobile">
-                        1.3.2 Mobile Devices
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-gaming">
-                        1.3.3 Gaming Devices
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-iot">
-                        1.3.4 The Internet of Things (IoT)
-                    </button>
-                </div>
-
-                <!-- Tab: Computers  -->
-                <div id="lo1-3-computers" class="tab-content space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<!-- Tab: Computers  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-3-computers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.3.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Computers &amp; Servers</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Traditional general-purpose computers are engineered for maximum computational flexibility, capable of running diverse operating systems and heavy enterprise applications.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Desktop Computers</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Desktop Computers</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Stationary systems featuring modular components (ATX cases, motherboards, swappable PCIe cards, external displays). Designed for durability, easy maintenance, and high power capacity.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Laptops &amp; All-in-Ones</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Laptops &amp; All-in-Ones</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Portable, integrated form factors combining motherboard, screen, keyboard, and rechargeable battery into a single chassis. Sacrifices modular upgradability for field mobility.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Enterprise Rack Servers</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Enterprise Rack Servers</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 High-density computing blades mounted in 19-inch racks within air-conditioned datacentres. Feature multi-socket CPUs, Error-Correcting Code (ECC) RAM, and redundant hot-swappable power supplies.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Mobile Devices  -->
-                <div id="lo1-3-mobile" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+</div>
+<!-- Tab: Mobile Devices  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-3-mobile"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.3.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Mobile Devices</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Mobile devices are highly integrated, battery-powered computing platforms designed for portability and continuous wireless connectivity (cellular 4G/5G, Wi-Fi, Bluetooth).
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Smartphones</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Handheld devices combining cellular telephony with System-on-Chip (SoC) architectures running iOS or Android.</p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Tablets</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Larger touchscreen slates optimized for content consumption, digital illustration, and mobile enterprise point-of-sale.</p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">E-Readers (E-Ink)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Utilise electrophoretic electronic ink displays that reflect ambient light like physical paper, consuming zero power when static.</p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Wearables &amp; GPS</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Smartwatches, biometric fitness bands, and dedicated GPS satellite navigators with embedded micro-sensors.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Gaming Devices  -->
-                <div id="lo1-3-gaming" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Smartphones</div>
+<p class="text-xs text-slate-300 leading-relaxed">Handheld devices combining cellular telephony with System-on-Chip (SoC) architectures running iOS or Android.</p>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Tablets</div>
+<p class="text-xs text-slate-300 leading-relaxed">Larger touchscreen slates optimized for content consumption, digital illustration, and mobile enterprise point-of-sale.</p>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">E-Readers (E-Ink)</div>
+<p class="text-xs text-slate-300 leading-relaxed">Utilise electrophoretic electronic ink displays that reflect ambient light like physical paper, consuming zero power when static.</p>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Wearables &amp; GPS</div>
+<p class="text-xs text-slate-300 leading-relaxed">Smartwatches, biometric fitness bands, and dedicated GPS satellite navigators with embedded micro-sensors.</p>
+</div>
+</div>
+</div>
+<!-- Tab: Gaming Devices  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-3-gaming"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.3.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Gaming Devices</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Gaming hardware prioritizes rapid 3D graphics rendering, low-latency audio processing, and continuous thermal cooling under sustained heavy computational loads.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Home Living-Room Consoles</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Home Living-Room Consoles</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Standardized hardware platforms (PlayStation, Xbox) engineered for television connection and gamepad control, running locked-down proprietary operating systems.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Handheld Gaming Hybrid</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Handheld Gaming Hybrid</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Portable battery-powered units (Nintendo Switch, Steam Deck) featuring integrated displays, tactile thumbsticks, and low-wattage accelerated processing units (APUs).
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Dedicated VR / AR Headsets</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-cyan-300 font-bold text-xs uppercase tracking-wide">Dedicated VR / AR Headsets</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Head-mounted stereoscopic dual displays with six-degrees-of-freedom (6DoF) spatial tracking cameras and low-latency motion sensors.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: The Internet of Things (IoT)  -->
-                <div id="lo1-3-iot" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
-                        <strong>Embedded computers</strong> are dedicated microcontrollers engineered into non-traditional machinery to execute single, predefined functions reliably without a human operating system. When connected to networks, they form the <strong>Internet of Things (IoT)</strong>.
+</div>
+</div>
+</div>
+<!-- Tab: The Internet of Things (IoT)  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-3-iot"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.3.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">The Internet of Things (IoT)</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
+<strong>Embedded computers</strong> are dedicated microcontrollers engineered into non-traditional machinery to execute single, predefined functions reliably without a human operating system. When connected to networks, they form the <strong>Internet of Things (IoT)</strong>.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Smart Home &amp; Automation</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Smart Home &amp; Automation</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Connected thermostats, automated smart lighting, smart security doorbells, and domestic appliances communicating over Wi-Fi, Zigbee, or Thread.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Automotive Electronics</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Automotive Electronics</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Engine Control Units (ECUs), Anti-lock Braking Systems (ABS), and in-vehicle infotainment systems communicating over Controller Area Network (CAN bus).
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Industrial Telemetry</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Industrial Telemetry</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Supervisory Control and Data Acquisition (SCADA) sensors monitoring pipeline pressure, vibration in wind turbines, and hospital infusion pumps.
                             </p>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 16–20 (Computers, Mobile, Gaming, IoT)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Computing &amp; Embedded Device Taxonomy</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 4: LO 1.4 Understand Your Data                                -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-1-4">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.4</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 21 – 25</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Understand Your Data</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">PII • Monetisation • Cookie Mechanics</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 1.4 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 16&ndash;20 (Computers, Mobile, Gaming, IoT)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Computing &amp; Embedded Device Taxonomy</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 4: LO 1.4 Understand Your Data                                -->
-            <!-- ===================================================================== -->
-            <section id="lo-1-4" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.4</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 21 &ndash; 25</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Understand Your Data</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">PII &bull; Monetisation &bull; Cookie Mechanics</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 1.4 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-4">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-pii">
-                        2.1.1 &amp; 2.1.2 Personal Data &amp; PII
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-monetisation">
-                        2.1.3 &amp; 2.1.5 Monetising User Data
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-cookies">
-                        2.1.4 Browser Cookies &amp; Isolation
-                    </button>
-                </div>
-
-                
-                <div id="lo1-4-pii" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-4-pii"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.4.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Personal Data &amp; PII</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Imagine living in an isolated cabin in the woods without Internet access. You could still type notes on a computer or read downloaded books on a tablet without ever worrying about someone stealing your identity or tracking your habits. But for everyone participating in modern digital society, our data travels constantly across networked servers.
                         </p>
-                        <p>
+<p>
                             Protecting your information begins with understanding exactly what data exists. <strong>Personally Identifiable Information (PII)</strong> comprises any information that can be used alone or combined with other data to identify, contact, or locate a specific individual.
                         </p>
-                    </div>
-
-                    <!-- Direct Identifiers vs Quasi-Identifiers Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-red-300">Direct Identifiers (PII)</div>
-                                <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-mono font-bold">High Risk</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Data attributes that explicitly single out a unique individual without requiring correlation:</p>
-                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
-                                <li>Full Legal Name</li>
-                                <li>National Insurance Number / Social Security Number</li>
-                                <li>Passport or Driving Licence ID</li>
-                                <li>Biometric records (fingerprint scans, facial geometry)</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-amber-300">Quasi-Identifiers (Correlatable)</div>
-                                <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Correlated Risk</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">Attributes that appear harmless alone, but when combined can identify a person with high probability:</p>
-                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
-                                <li>Date of Birth + Gender + Full Postcode (identifies ~87% of UK/US population)</li>
-                                <li>IP Address + Browser User-Agent Fingerprint</li>
-                                <li>Purchasing history and frequent GPS geolocation stamps</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="lo1-4-monetisation" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+<!-- Direct Identifiers vs Quasi-Identifiers Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-red-300">Direct Identifiers (PII)</div>
+<span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-mono font-bold">High Risk</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">Data attributes that explicitly single out a unique individual without requiring correlation:</p>
+<ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+<li>Full Legal Name</li>
+<li>National Insurance Number / Social Security Number</li>
+<li>Passport or Driving Licence ID</li>
+<li>Biometric records (fingerprint scans, facial geometry)</li>
+</ul>
+</div>
+<div class="bg-black/30 border border-amber-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-amber-300">Quasi-Identifiers (Correlatable)</div>
+<span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Correlated Risk</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">Attributes that appear harmless alone, but when combined can identify a person with high probability:</p>
+<ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+<li>Date of Birth + Gender + Full Postcode (identifies ~87% of UK/US population)</li>
+<li>IP Address + Browser User-Agent Fingerprint</li>
+<li>Purchasing history and frequent GPS geolocation stamps</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-4-monetisation"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.4.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Monetising User Data</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             In the digital economy, user data is an <strong>intangible business asset</strong> of immense financial value. Commercial organisations collect data continuously because identifying customer behavioral patterns directly unlocks new revenue streams.
                         </p>
-                    </div>
-
-                    
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Commercial Case Study: The Customer Behavioral Pattern
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Consider visiting your favorite local coffee shop every Saturday at 9:00am. If hundreds of other patrons do the same, the business discovers a distinct behavioral pattern:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-white mb-1">1. Operational Optimisation</div>
-                                <div class="text-slate-400">The shop schedules extra baristas and orders fresh pastry supplies specifically for Saturday morning surges.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-white mb-1">2. Targeted Retention</div>
-                                <div class="text-slate-400">A mobile app pushes a personalized promotional voucher to your phone at 8:45am Saturday encouraging an upgrade.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                <div class="font-bold text-netcom-lime mb-1">3. Data Brokering</div>
-                                <div class="text-slate-400">Aggregated foot-traffic patterns are bundled and sold to commercial real estate developers evaluating nearby retail space.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Targeted Advertising & Recommendation Engines -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Targeted Advertising (AdTech)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mt-2">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-white mb-1">1. Operational Optimisation</div>
+<div class="text-slate-400">The shop schedules extra baristas and orders fresh pastry supplies specifically for Saturday morning surges.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-white mb-1">2. Targeted Retention</div>
+<div class="text-slate-400">A mobile app pushes a personalized promotional voucher to your phone at 8:45am Saturday encouraging an upgrade.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10">
+<div class="font-bold text-netcom-lime mb-1">3. Data Brokering</div>
+<div class="text-slate-400">Aggregated foot-traffic patterns are bundled and sold to commercial real estate developers evaluating nearby retail space.</div>
+</div>
+</div>
+</div>
+<!-- Targeted Advertising & Recommendation Engines -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Targeted Advertising (AdTech)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Ad networks observe search terms, product page visits, and click patterns. Instead of showing generic ads, they present highly relevant product campaigns with significantly higher conversion rates.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">Cross-Site Behavioral Profiling</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">Cross-Site Behavioral Profiling</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Data aggregators synthesize browsing activity from thousands of partner sites to construct comprehensive psychological and purchasing profiles of anonymous users.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Browser Cookies & Isolation  -->
-                <div id="lo1-4-cookies" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+</div>
+</div>
+</div>
+<!-- Tab: Browser Cookies & Isolation  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-4-cookies"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.4.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Browser Cookies &amp; Isolation</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             When browsing the web, most websites store small plain-text files on your local device called <strong>HTTP Cookies</strong>. Cookies allow stateless web servers to remember who you are across different web pages.
                         </p>
-                    </div>
-
-                    
-                    <div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+</div>
+<div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             CompTIA Core Rule: The "One Browser Only" Isolation Principle 
                         </div>
-                        <p class="text-[14px] text-slate-200 leading-relaxed">
+<p class="text-[14px] text-slate-200 leading-relaxed">
                             Web browsers enforce strict sandbox boundaries: <strong>cookies are never shared between different browser applications</strong>.
                         </p>
-                        <div class="bg-black/40 p-3.5 rounded-lg border border-white/10 text-xs text-slate-300 space-y-2 font-mono">
-                            <div class="text-white font-bold">&bull; Scenario:</div>
-                            <div>If you browse an online store in <span class="text-netcom-lime">Google Chrome</span> and add a pair of shoes to your shopping cart, the cart token is stored inside Chrome&apos;s cookie database.</div>
-                            <div>If you then open <span class="text-cyan-300">Apple Safari</span> or <span class="text-amber-300">Microsoft Edge</span> and visit the exact same store, your shopping cart will be completely empty! Safari has no access to Chrome&apos;s stored cookies.</div>
-                        </div>
-                    </div>
-
-                    <!-- Cookie Consent Persistence Mechanics  -->
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
+<div class="bg-black/40 p-3.5 rounded-lg border border-white/10 text-xs text-slate-300 space-y-2 font-mono">
+<div class="text-white font-bold">• Scenario:</div>
+<div>If you browse an online store in <span class="text-netcom-lime">Google Chrome</span> and add a pair of shoes to your shopping cart, the cart token is stored inside Chrome's cookie database.</div>
+<div>If you then open <span class="text-cyan-300">Apple Safari</span> or <span class="text-amber-300">Microsoft Edge</span> and visit the exact same store, your shopping cart will be completely empty! Safari has no access to Chrome's stored cookies.</div>
+</div>
+</div>
+<!-- Cookie Consent Persistence Mechanics  -->
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">
                             Cookie Consent Banner Persistence Mechanics 
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             Ever wondered why websites repeatedly prompt you with privacy banners? The banner behaviour is governed by cookies themselves:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-netcom-lime">When You Click "Accept All"</div>
-                                <div class="text-slate-300">The site writes a consent cookie (e.g. <code class="text-netcom-lime">consent=true</code>) to your browser. On subsequent visits, the server detects this cookie and suppresses the popup banner.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-amber-300">When You Clear Cookies or Use Incognito</div>
-                                <div class="text-slate-300">The consent cookie is purged or never saved. Because the server cannot detect proof of your prior choice, it is legally required to show the banner again on every single visit!</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- First-Party vs Third-Party Cookies -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">First-Party Cookies</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-netcom-lime">When You Click "Accept All"</div>
+<div class="text-slate-300">The site writes a consent cookie (e.g. <code class="text-netcom-lime">consent=true</code>) to your browser. On subsequent visits, the server detects this cookie and suppresses the popup banner.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-amber-300">When You Clear Cookies or Use Incognito</div>
+<div class="text-slate-300">The consent cookie is purged or never saved. Because the server cannot detect proof of your prior choice, it is legally required to show the banner again on every single visit!</div>
+</div>
+</div>
+</div>
+<!-- First-Party vs Third-Party Cookies -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">First-Party Cookies</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Generated directly by the domain you are visiting (e.g. netcom.co.uk). Essential for site functionality: persisting login sessions, active shopping cart items, and interface theme choices.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-amber-300 font-bold text-xs uppercase tracking-wide">Third-Party Tracking Cookies</div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-amber-300 font-bold text-xs uppercase tracking-wide">Third-Party Tracking Cookies</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                             Embedded by external advertising networks via iframes or tracking pixels. Tracks your browsing history across unrelated domains to build cross-site behavioural profiles.
                         </p>
-                    </div>
-                </div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 21–25 (Data Types, Monetisation, Cookies)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Data Classification &amp; Monetisation</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 5: LO 1.5 Data Privacy & Regulations                          -->
+<!-- ===================================================================== -->
+<section class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl" id="lo-1-5">
+<!-- Section Header -->
+<div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.5</span>
+<span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 26 – 32</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Data Privacy &amp; Regulations</h2>
+</div>
+<span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Social • Comms • SFTP • AI Privacy • Global Frameworks</span>
+</div>
+<!-- Subtopic Tab Buttons for LO 1.5 -->
 
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 21&ndash;25 (Data Types, Monetisation, Cookies)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Data Classification &amp; Monetisation</div>
-                </div>
-            </section>
-
-            <!-- ===================================================================== -->
-            <!-- SECTION 5: LO 1.5 Data Privacy & Regulations                          -->
-            <!-- ===================================================================== -->
-            <section id="lo-1-5" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
-                <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-1">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.5</span>
-                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 26 &ndash; 32</span>
-                        </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Data Privacy &amp; Regulations</h2>
-                    </div>
-                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Social &bull; Comms &bull; SFTP &bull; AI Privacy &bull; Global Frameworks</span>
-                </div>
-
-                <!-- Subtopic Tab Buttons for LO 1.5 -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-5">
-                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-social">
-                        2.2.1 Social Media Privacy
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-comms">
-                        2.2.2 Comms &amp; Encryption
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ftp">
-                        File Transfers: FTP vs SFTP
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ai">
-                        2.2.4 Privacy in AI &amp; ML
-                    </button>
-                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-regs">
-                        2.2.5 Global Regulations (GDPR/ICO)
-                    </button>
-                </div>
-
-                <!-- Tab: Social Media Privacy  -->
-                <div id="lo1-5-social" class="tab-content space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
+<!-- Tab: Social Media Privacy  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-5-social"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.5.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Social Media Privacy</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
                             Since emerging in the late 1990s, social media has expanded to over <strong>5 billion global users</strong>. While platforms facilitate instant connection and business growth, this massive user base generates unprecedented volumes of personal data.
                         </p>
-                    </div>
-
-                    <!-- Digital Permanence & Terms of Service -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-amber-300 font-bold text-xs uppercase tracking-wide">The Reality of Digital Permanence</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<!-- Digital Permanence & Terms of Service -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-amber-300 font-bold text-xs uppercase tracking-wide">The Reality of Digital Permanence</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Once content is uploaded to a social network, it is effectively permanent. Even if you subsequently delete a post or image, it may already have been screenshotted, downloaded, scraped by third-party search crawlers, or backed up in server archive logs.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lavender font-bold text-xs uppercase tracking-wide">Terms of Service &amp; Content Licencing</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lavender font-bold text-xs uppercase tracking-wide">Terms of Service &amp; Content Licencing</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 By signing up, users typically grant the platform a worldwide, royalty-free, transferable licence to host, copy, process, and distribute uploaded images and videos for commercial purposes and advertising algorithms.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Comms & Encryption  -->
-                <div id="lo1-5-comms" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+</div>
+<!-- Tab: Comms & Encryption  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-5-comms"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.5.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Comms &amp; Encryption</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         Modern communications occur across diverse electronic channels (SMS, direct messaging, email). Privacy expectations differ fundamentally depending on whether the transmission channel utilizes cryptographic encryption.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-red-300">Unencrypted Plaintext (SMS &amp; Email)</div>
-                                <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-mono font-bold">Insecure</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-red-300">Unencrypted Plaintext (SMS &amp; Email)</div>
+<span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-mono font-bold">Insecure</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Traditional SMS messages travel over cellular signaling channels in unencrypted plaintext. Cellular telco employees, rogue base stations (IMSI catchers), or telecom interceptors can read message contents directly.
                             </p>
-                        </div>
-
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">End-to-End Encryption (E2EE)</div>
-                                <span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Cryptographically Secure</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Protocols (such as Signal Protocol used in Signal and WhatsApp) encrypt plaintext payloads directly on the sender&apos;s handset. Only the designated recipient holds the private decryption key; intermediate server nodes see only indecipherable ciphertext.
+</div>
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">End-to-End Encryption (E2EE)</div>
+<span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Cryptographically Secure</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+                                Protocols (such as Signal Protocol used in Signal and WhatsApp) encrypt plaintext payloads directly on the sender's handset. Only the designated recipient holds the private decryption key; intermediate server nodes see only indecipherable ciphertext.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: FTP vs SFTP (Slide 29 Protocol Comparison) -->
-                <div id="lo1-5-ftp" class="tab-content hidden space-y-6">
-                    <p class="text-[15px] text-slate-200 leading-relaxed">
+</div>
+</div>
+</div>
+<!-- Tab: FTP vs SFTP (Slide 29 Protocol Comparison) -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-5-ftp"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.5.3</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">File Transfers: FTP vs SFTP</h3></div>
+<p class="text-[15px] text-slate-200 leading-relaxed">
                         When transferring enterprise data files across networks, selecting the correct transport protocol is vital for data security and regulatory compliance.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-red-400">Legacy FTP (Port 21)</div>
-                                <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-mono font-bold">Unencrypted</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-red-500/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-red-400">Legacy FTP (Port 21)</div>
+<span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-mono font-bold">Unencrypted</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 File Transfer Protocol developed in 1971. Transmits usernames, passwords, and file contents across the network in clear unencrypted text. Anyone capturing packets using Wireshark can read confidential payloads immediately.
                             </p>
-                            <div class="bg-red-500/10 p-2 rounded text-[11px] text-red-300 font-mono">
+<div class="bg-red-500/10 p-2 rounded text-[11px] text-red-300 font-mono">
                                 Verdict: Prohibited for sensitive corporate or PII data.
                             </div>
-                        </div>
-
-                        <div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">SSH File Transfer Protocol &bull; SFTP (Port 22)</div>
-                                <span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Secure Tunnel</span>
-                            </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="text-xs font-bold uppercase tracking-wide text-netcom-lime">SSH File Transfer Protocol • SFTP (Port 22)</div>
+<span class="text-[10px] bg-netcom-lime/20 text-netcom-lime px-2 py-0.5 rounded font-mono font-bold">Secure Tunnel</span>
+</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Operates entirely inside an encrypted Secure Shell (SSH) connection. All commands, credentials, and data payloads are scrambled using symmetric ciphers (e.g. AES-256), completely preventing sniffing and man-in-the-middle attacks.
                             </p>
-                            <div class="bg-netcom-lime/10 p-2 rounded text-[11px] text-netcom-lime font-mono">
+<div class="bg-netcom-lime/10 p-2 rounded text-[11px] text-netcom-lime font-mono">
                                 Verdict: Mandated standard for enterprise file sharing.
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Privacy in AI & ML  -->
-                <div id="lo1-5-ai" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
-                            <strong>Artificial Intelligence (AI)</strong> systems solve complex problems and generate novel content autonomously. However, AI begins with human guidance: technicians train models by feeding them vast datasets of text and media, a process called <strong>Machine Learning (ML)</strong>.
+</div>
+</div>
+</div>
+<!-- Tab: Privacy in AI & ML  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-5-ai"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.5.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Privacy in AI &amp; ML</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
+<strong>Artificial Intelligence (AI)</strong> systems solve complex problems and generate novel content autonomously. However, AI begins with human guidance: technicians train models by feeding them vast datasets of text and media, a process called <strong>Machine Learning (ML)</strong>.
                         </p>
-                    </div>
-
-                    <!-- AI Privacy Risks & Ingestion  -->
-                    <div class="bg-black/30 border border-purple-500/30 rounded-xl p-5 space-y-4">
-                        <div class="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+</div>
+<!-- AI Privacy Risks & Ingestion  -->
+<div class="bg-black/30 border border-purple-500/30 rounded-xl p-5 space-y-4">
+<div class="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Privacy Hazards in Machine Learning Training 
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
+<p class="text-xs text-slate-300 leading-relaxed">
                             During machine learning training, models analyze patterns and statistical relationships across billions of words. This introduces serious privacy vectors:
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-white">PII Ingestion</div>
-                                <div class="text-slate-400">If training corpora contain personal records, emails, or phone numbers, the model may memorize and reproduce them to external prompt users.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-white">Prompt Retention</div>
-                                <div class="text-slate-400">Commercial cloud LLMs often log user prompts for future model fine-tuning. Pasting proprietary source code or confidential patient records can cause enterprise data leaks.</div>
-                            </div>
-                            <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-                                <div class="font-bold text-white">Hallucinated Defamation</div>
-                                <div class="text-slate-400">Generative models can synthesize plausible but completely fabricated statements about real individuals, violating privacy and reputation rights.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Global Regulations  -->
-                <div id="lo1-5-regs" class="tab-content hidden space-y-6">
-                    <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
-                        <p>
-                            Data privacy regulations exist to safeguard citizen privacy, secure national financial infrastructure, ensure reliable commercial ecommerce, and defend against cybercrime. Whether a law applies depends on an organization&apos;s location, where its customers reside, and the types of data processed.
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-white">PII Ingestion</div>
+<div class="text-slate-400">If training corpora contain personal records, emails, or phone numbers, the model may memorize and reproduce them to external prompt users.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-white">Prompt Retention</div>
+<div class="text-slate-400">Commercial cloud LLMs often log user prompts for future model fine-tuning. Pasting proprietary source code or confidential patient records can cause enterprise data leaks.</div>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
+<div class="font-bold text-white">Hallucinated Defamation</div>
+<div class="text-slate-400">Generative models can synthesize plausible but completely fabricated statements about real individuals, violating privacy and reputation rights.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab: Global Regulations  -->
+<div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo1-5-regs"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">1.5.5</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Global Regulations (GDPR/ICO)</h3></div>
+<div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
+<p>
+                            Data privacy regulations exist to safeguard citizen privacy, secure national financial infrastructure, ensure reliable commercial ecommerce, and defend against cybercrime. Whether a law applies depends on an organization's location, where its customers reside, and the types of data processed.
                         </p>
-                    </div>
-
-                    
-                    <div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-2">
-                        <div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+<div class="bg-gradient-to-r from-netcom-surface/60 to-black/40 border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-2">
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                             Global Privacy Scope: 194 Countries
                         </div>
-                        <div class="flex flex-col sm:flex-row items-center gap-6 mt-2">
-                            <div class="text-4xl font-black text-netcom-lime font-mono shrink-0">
+<div class="flex flex-col sm:flex-row items-center gap-6 mt-2">
+<div class="text-4xl font-black text-netcom-lime font-mono shrink-0">
                                 &gt;65%
                             </div>
-                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+<p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                                 Out of <strong>194 countries globally</strong>, <strong>over 65% have enacted comprehensive data protection and privacy legislation</strong>. Most remaining nations currently have active draft bills progressing through their legislatures to enforce data sovereignty.
                             </p>
-                        </div>
-                    </div>
-
-                    <!-- Key Regulatory Frameworks Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">UK Data Protection Act 2018 &amp; UK GDPR</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Enforced by the Information Commissioner&apos;s Office (ICO). Mandates strict lawful basis for processing, rights to access/rectify/erase data ("Right to be Forgotten"), and statutory 72-hour notification for data breaches. Fines reach up to &pound;17.5m or 4% of global turnover.
+</div>
+</div>
+<!-- Key Regulatory Frameworks Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">UK Data Protection Act 2018 &amp; UK GDPR</div>
+<p class="text-xs text-slate-300 leading-relaxed">
+                                Enforced by the Information Commissioner's Office (ICO). Mandates strict lawful basis for processing, rights to access/rectify/erase data ("Right to be Forgotten"), and statutory 72-hour notification for data breaches. Fines reach up to £17.5m or 4% of global turnover.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">EU General Data Protection Regulation (GDPR)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">EU General Data Protection Regulation (GDPR)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 The gold standard for global data privacy. Applies extraterritorially to any international business serving EU residents. Enforces Privacy by Design, strict cookie consent, and data transfer safeguards.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">HIPAA (Healthcare Information)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">HIPAA (Healthcare Information)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Health Insurance Portability and Accountability Act. Sets strict national standards in the US for securing Protected Health Information (PHI) against unauthorised disclosure.
                             </p>
-                        </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-                            <div class="text-white font-bold text-xs uppercase tracking-wide">PCI-DSS (Payment Cards)</div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
+</div>
+<div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+<div class="text-white font-bold text-xs uppercase tracking-wide">PCI-DSS (Payment Cards)</div>
+<p class="text-xs text-slate-300 leading-relaxed">
                                 Payment Card Industry Data Security Standard. Technical operational standard mandating end-to-end encryption, network segmentation, and regular audits for cardholder transaction data.
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide Reference Callout Footer -->
-                <div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
-                    <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 26&ndash;32 (Social, Encryption, FTP, AI, Regulations)</span></div>
-                    <div class="text-netcom-lime font-mono font-semibold">Topic: Data Privacy &amp; Statutory Regulations</div>
-                </div>
-            </section>
-
-            <!-- Bottom Navigation Bar & Completion Callout -->
-            <div class="flex items-center justify-between p-6 bg-netcom-card border border-white/10 rounded-2xl flex-wrap gap-4 shadow-lg">
-                <a href="index.html" class="flex items-center gap-2 text-xs font-semibold text-netcom-lavender hover:text-white transition">
-                    &larr; Return to Interactive Portal Hub
+</div>
+</div>
+</div>
+<!-- Slide Reference Callout Footer -->
+<div class="bg-black/40 border border-white/5 rounded-xl p-4 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-400">
+<div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 26–32 (Social, Encryption, FTP, AI, Regulations)</span></div>
+<div class="text-netcom-lime font-mono font-semibold">Topic: Data Privacy &amp; Statutory Regulations</div>
+</div>
+</section>
+<!-- Bottom Navigation Bar & Completion Callout -->
+<div class="flex items-center justify-between p-6 bg-netcom-card border border-white/10 rounded-2xl flex-wrap gap-4 shadow-lg">
+<a class="flex items-center gap-2 text-xs font-semibold text-netcom-lavender hover:text-white transition" href="index.html">
+                    ← Return to Interactive Portal Hub
                 </a>
-                <div class="text-xs text-slate-400">
-                    Lesson 1 Complete &bull; CompTIA Tech+ FC0-U71 Alignment: <span class="text-netcom-lime font-bold">100% Verified</span>
-                </div>
-                <a href="#lo-1-1" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition">
-                    Back to Top &uarr;
+<div class="text-xs text-slate-400">
+                    Lesson 1 Complete • CompTIA Tech+ FC0-U71 Alignment: <span class="text-netcom-lime font-bold">100% Verified</span>
+</div>
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-white border border-white/10 transition" href="#lo-1-1">
+                    Back to Top ↑
                 </a>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- ========================================================================= -->
-    <!-- INTERACTIVE SCRIPTS: Tabs, Computing Cycle Sync, & Responsive Navigation   -->
-    <!-- ========================================================================= -->
-    <script>
+</div>
+</main>
+</div>
+<!-- ========================================================================= -->
+<!-- INTERACTIVE SCRIPTS: Tabs, Computing Cycle Sync, & Responsive Navigation   -->
+<!-- ========================================================================= -->
+<script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Synchronize Computing Cycle Architecture Cards with Tabs
-            function syncCycleCard(targetId) {
-                const cycleCards = document.querySelectorAll('.cycle-card');
-                cycleCards.forEach(card => {
-                    const cardTarget = card.getAttribute('data-cycle-card');
-                    const numBadge = card.querySelector('.cycle-num');
-                    const subLabel = card.querySelector('.font-mono');
-                    
-                    if (cardTarget === targetId) {
-                        card.className = "cycle-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1";
-                        if (numBadge) {
-                            numBadge.className = "cycle-num w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-sm shadow-[0_0_10px_#73f54a]";
-                        }
-                        if (subLabel) {
-                            subLabel.className = "text-[11px] text-netcom-lime font-mono font-semibold";
-                        }
-                    } else {
-                        card.className = "cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition";
-                        if (numBadge) {
-                            numBadge.className = "cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm";
-                        }
-                        if (subLabel) {
-                            subLabel.className = "text-[11px] text-slate-400 font-mono font-semibold";
-                        }
-                    }
-                });
-            }
-
-            // Click listener for Computing Cycle Architecture Cards
+            
+            // Interactive Computing Cycle Cards Smooth Scroll & Visual Feedback
             document.querySelectorAll('.cycle-card').forEach(card => {
                 const handleCardClick = () => {
                     const targetId = card.getAttribute('data-cycle-card');
-                    const matchingTabBtn = document.querySelector(`[data-tab-group="lo1-2"] [data-target="${targetId}"]`);
-                    if (matchingTabBtn) {
-                        matchingTabBtn.click();
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
                     }
                 };
                 card.addEventListener('click', handleCardClick);
@@ -1340,41 +1135,9 @@
                     }
                 });
             });
+        
 
-            // 1. Tab Group Switcher
-            document.querySelectorAll('[data-tab-group]').forEach(group => {
-                const buttons = group.querySelectorAll('.tab-btn');
-                buttons.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const targetId = btn.getAttribute('data-target');
-                        const parentSection = group.closest('section');
-                        
-                        // Set active button
-                        buttons.forEach(b => {
-                            b.classList.remove('active', 'bg-netcom-lime', 'text-netcom-dark');
-                            b.classList.add('bg-white/10', 'text-white');
-                        });
-                        btn.classList.add('active', 'bg-netcom-lime', 'text-netcom-dark');
-                        btn.classList.remove('bg-white/10', 'text-white');
-
-                        // Show target content
-                        parentSection.querySelectorAll('.tab-content').forEach(content => {
-                            content.classList.add('hidden');
-                        });
-                        const targetEl = document.getElementById(targetId);
-                        if (targetEl) {
-                            targetEl.classList.remove('hidden');
-                        }
-
-                        // If switching tabs in LO 1.2, synchronize architecture cards
-                        if (group.getAttribute('data-tab-group') === 'lo1-2') {
-                            syncCycleCard(targetId);
-                        }
-                    });
-                });
-            });
-
-            // 2. Mobile Sidebar Drawer Toggle
+            // 1. Mobile Sidebar Drawer Toggle
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const sidebar = document.getElementById('sidebar');
             if (mobileBtn && sidebar) {
@@ -1386,29 +1149,67 @@
                 });
             }
 
-            // 3. Scrollspy for Compact Vertical Ribbon Navigation Highlighting
-            const sections = document.querySelectorAll('section[id^="lo-"]');
-            const navLinks = document.querySelectorAll('#navLinks .nav-link');
+            // Auto-close mobile drawer when any link is clicked
+            document.querySelectorAll('#navLinks a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 1024 && sidebar && !sidebar.classList.contains('hidden')) {
+                        sidebar.classList.add('hidden');
+                        sidebar.classList.remove('fixed', 'inset-0', 'w-full');
+                    }
+                });
+            });
 
-            const observer = new IntersectionObserver((entries) => {
+            // 2. Dual-Level Scrollspy for Sidebar Navigation (Parent LO & Nested Subtopics)
+            const loSections = document.querySelectorAll('section[id^="lo-"]');
+            const subBlocks = document.querySelectorAll('.subtopic-block');
+            const loLinks = document.querySelectorAll('.nav-lo-link');
+            const subLinks = document.querySelectorAll('.nav-sub-link');
+
+            // Subtopic Observer
+            const subObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
+                        subLinks.forEach(link => {
                             if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
+                                link.classList.add('text-netcom-lime', 'font-semibold', 'bg-netcom-lime/10');
+                                link.classList.remove('text-slate-400');
                             } else {
-                                link.classList.remove('active');
+                                link.classList.remove('text-netcom-lime', 'font-semibold', 'bg-netcom-lime/10');
+                                link.classList.add('text-slate-400');
                             }
                         });
                     }
                 });
             }, {
-                rootMargin: '-20% 0px -70% 0px',
+                rootMargin: '-15% 0px -70% 0px',
                 threshold: 0
             });
 
-            sections.forEach(sec => observer.observe(sec));
+            subBlocks.forEach(sb => subObserver.observe(sb));
+
+            // Parent LO Section Observer
+            const loObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        loLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('text-white', 'bg-white/10', 'border-netcom-lime');
+                                link.classList.remove('text-slate-300', 'border-transparent');
+                            } else {
+                                link.classList.remove('text-white', 'bg-white/10', 'border-netcom-lime');
+                                link.classList.add('text-slate-300', 'border-transparent');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-10% 0px -80% 0px',
+                threshold: 0
+            });
+
+            loSections.forEach(sec => loObserver.observe(sec));
         });
     </script>
 </body>
