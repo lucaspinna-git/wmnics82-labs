@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMNICS82 | Netcom Training — IT Support Master Schedule</title>
+    <style>
+        :root {
+            /* Netcom Scheme Colors */
+            --netcom-dark: #1b0b41;
+            --netcom-dark-surface: #261259;
+            --netcom-dark-hover: #321872;
+            --netcom-lime: #73f54a;
+            --netcom-lime-dark: #58cc33;
+            --netcom-lime-soft: #f2fde8;
+            --netcom-lavender: #c6c2cf;
+            --netcom-lavender-light: #e4e1ea;
+
+            /* Category / Phase Accents */
+            --netcom-teal: #009ca6;
+            --netcom-teal-soft: #e6f8f9;
+            --netcom-blue: #005eb8;
+            --netcom-blue-soft: #edf4fc;
+            --netcom-green: #65b32e;
+            --netcom-green-soft: #f2faea;
+
+            /* Warm Amber Holiday Scheme */
+            --amber-primary: #d97706;
+            --amber-dark: #b45309;
+            --amber-deep: #92400e;
+            --amber-soft: #fffbeb;
+            --amber-border: #fde68a;
+            --amber-stripe: #f59e0b;
+
+            /* Neutrals */
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-500: #64748b;
+            --slate-700: #334155;
+            --slate-900: #0f172a;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+            --shadow-sm: 0 1px 3px rgba(27, 11, 65, 0.06);
+            --shadow-md: 0 8px 24px rgba(27, 11, 65, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f7f6fb;
+            color: var(--slate-900);
+            line-height: 1.5;
+            padding: 24px 16px 72px;
+        }
+
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           Top Hero Banner
+           ========================================================================== */
+        .hero {
+            background: var(--netcom-dark);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 38px 40px 34px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(115, 245, 74, 0.12) 0%, rgba(27, 11, 65, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-kicker {
+            color: var(--netcom-lime);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .netcom-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        .netcom-logo-wrap img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 2.35rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #ffffff;
+            line-height: 1.18;
+            margin-bottom: 14px;
+        }
+
+        .hero p.hero-desc {
+            color: var(--netcom-lavender);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-bottom: 24px;
+        }
+
+        .hero-bottom-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--netcom-lime);
+            color: var(--netcom-dark);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.01em;
+            box-shadow: 0 2px 8px rgba(115, 245, 74, 0.35);
+        }
+
+        .hero-badge-pill-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(198, 194, 207, 0.25);
+            color: var(--netcom-lavender-light);
+            padding: 7px 16px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.84rem;
+        }
+
+        /* ==========================================================================
+           4 Side-by-Side Unit Introduction Tiles (Replacing Filter Buttons Bar)
+           ========================================================================== */
+        .unit-tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        @media (max-width: 1180px) {
+            .unit-tiles-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .unit-tiles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .unit-tile {
+            background: var(--netcom-dark);
+            border-radius: var(--radius-md);
+            padding: 24px 22px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(198, 194, 207, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .unit-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .unit-tile-kicker {
+            color: var(--netcom-lime);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+        }
+
+        .unit-tile h2 {
+            color: #ffffff;
+            font-size: 1.38rem;
+            font-weight: 800;
+            line-height: 1.22;
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
+        }
+
+        .unit-tile h2 span {
+            display: block;
+        }
+
+        .unit-tile p.unit-tile-desc {
+            color: var(--netcom-lavender);
+            font-size: 0.86rem;
+            line-height: 1.52;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .unit-tile-pill {
+            background: var(--netcom-lime);
+            color: var(--netcom-dark);
+            font-weight: 700;
+            font-size: 0.74rem;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-self: flex-start;
+            letter-spacing: 0.01em;
+            box-shadow: 0 1px 4px rgba(115, 245, 74, 0.25);
+        }
+
+        /* ==========================================================================
+           Daily Schedule & Scheduled Breaks Banner
+           ========================================================================== */
+        .daily-schedule-banner {
+            background: var(--netcom-dark);
+            color: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            border-left: 6px solid var(--netcom-lime);
+        }
+
+        .daily-schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(198, 194, 207, 0.2);
+        }
+
+        .daily-schedule-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .daily-schedule-title-wrap h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        .daily-kicker {
+            color: var(--netcom-lime);
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(115, 245, 74, 0.12);
+            padding: 3px 9px;
+            border-radius: 9999px;
+            border: 1px solid rgba(115, 245, 74, 0.3);
+        }
+
+        .daily-schedule-meta {
+            font-size: 0.8rem;
+            color: var(--netcom-lavender);
+            font-weight: 600;
+        }
+
+        .daily-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .daily-slots-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .daily-slots-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .slot-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(198, 194, 207, 0.18);
+            border-radius: 10px;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .slot-card.is-break {
+            background: rgba(217, 119, 6, 0.16);
+            border-color: rgba(252, 211, 77, 0.4);
+        }
+
+        .slot-card.is-prep {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(198, 194, 207, 0.15);
+        }
+
+        .slot-time {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        .slot-card.is-break .slot-time {
+            color: #fde68a;
+        }
+
+        .slot-label {
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--netcom-lime);
+        }
+
+        .slot-card.is-break .slot-label {
+            color: #fbbf24;
+        }
+
+        .slot-card.is-prep .slot-label {
+            color: var(--netcom-lavender);
+        }
+
+        .slot-desc {
+            font-size: 0.75rem;
+            color: var(--netcom-lavender-light);
+            line-height: 1.32;
+            margin-top: 2px;
+        }
+
+        /* ==========================================================================
+           Week Sections & Day Cards
+           ========================================================================== */
+        .week-section {
+            margin-bottom: 26px;
+        }
+
+        .week-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 12px 18px;
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--slate-200);
+            border-left: 6px solid var(--netcom-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Break Weeks match other weeks with dark scheme */
+        .week-header.break-week {
+            border-left-color: var(--netcom-dark);
+            background: #ffffff;
+            border-color: var(--slate-200);
+        }
+
+        .week-header.break-week h2 {
+            color: var(--netcom-dark);
+        }
+
+        .week-header h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--netcom-dark);
+            letter-spacing: -0.01em;
+        }
+
+        .week-range {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--slate-500);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 1120px) {
+            .days-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 640px) {
+            .days-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Day Card */
+        .day-card {
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-stripe {
+            height: 6px;
+            width: 100%;
+        }
+
+        .phase-induction .card-stripe { background: var(--netcom-dark); }
+        .phase-1 .card-stripe { background: var(--netcom-teal); }
+        .phase-2 .card-stripe { background: var(--netcom-green); }
+        .phase-3 .card-stripe { background: var(--netcom-blue); }
+        
+        /* Softer Red Scheme for Holiday Days */
+        .phase-holiday .card-stripe { background: #e57373; }
+
+        .day-card.phase-holiday {
+            background: #fff8f8;
+            border-color: #f8d7da;
+        }
+
+        .day-card.phase-induction {
+            background: #fcfbfd;
+            border-color: #d8d3e2;
+        }
+
+        .card-head {
+            padding: 12px 14px 10px;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        .phase-holiday .card-head {
+            border-bottom-color: rgba(248, 215, 218, 0.6);
+        }
+
+        .date-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .day-name {
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--slate-500);
+        }
+
+        .tt-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+
+        .phase-induction .tt-badge { background: #e8e5f0; color: var(--netcom-dark); }
+        .phase-1 .tt-badge { background: var(--netcom-teal-soft); color: #006b73; }
+        .phase-2 .tt-badge { background: var(--netcom-green-soft); color: #366912; }
+        .phase-3 .tt-badge { background: var(--netcom-blue-soft); color: var(--netcom-blue); }
+        
+        /* Soft Red Badge for Holidays */
+        .phase-holiday .tt-badge {
+            background: #fdf2f2;
+            color: var(--netcom-dark);
+            border: 1px solid #f8d7da;
+        }
+
+        .date-str {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--netcom-dark);
+        }
+
+        .phase-holiday .date-str {
+            color: var(--netcom-dark);
+        }
+
+        .tt-ref {
+            font-size: 0.74rem;
+            color: var(--slate-500);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .phase-holiday .tt-ref {
+            color: var(--slate-500);
+        }
+
+        .card-body {
+            padding: 12px 14px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .milestone-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--amber-soft);
+            color: var(--amber-deep);
+            border: 1px solid var(--amber-border);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            align-self: flex-start;
+        }
+
+        .lesson-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .lesson-list li {
+            font-size: 0.82rem;
+            color: var(--slate-700);
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.38;
+        }
+
+        .lesson-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 800;
+        }
+
+        .phase-1 .lesson-list li::before { color: var(--netcom-teal); }
+        .phase-2 .lesson-list li::before { color: var(--netcom-green); }
+        .phase-3 .lesson-list li::before { color: var(--netcom-blue); }
+        .phase-induction .lesson-list li::before { color: var(--netcom-dark); }
+
+        .lesson-list li.is-project {
+            font-weight: 700;
+            color: var(--netcom-dark);
+        }
+
+
+
+        /* Holiday Box Soft Red Styling */
+        .holiday-box {
+            margin: auto 0;
+            text-align: center;
+            padding: 16px 8px;
+        }
+
+        .holiday-box .h-title {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--netcom-dark);
+            margin-bottom: 4px;
+        }
+
+        
+        @page {
+            size: 297mm 210mm;
+            margin: 8mm;
+        }
+        @media print {
+            body { 
+                background: #f7f6fb !important; 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                padding: 0 !important; 
+            }
+            .container { 
+                max-width: 100% !important; 
+                width: 100% !important; 
+            }
+            .hero { 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+            }
+            .unit-tiles-grid { 
+                display: grid !important;
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important; 
+                gap: 12px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .daily-schedule-banner { 
+                break-inside: avoid; 
+                page-break-inside: avoid; 
+                margin-bottom: 16px;
+            }
+            .daily-slots-grid {
+                display: grid !important;
+                grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+            }
+            .days-grid {
+                display: grid !important;
+                grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+            }
+            .week-section { 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+            }
+            .day-card { 
+                box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+        }
+
+        @media print_legacy {
+            body { background: #ffffff; padding: 0; }
+            .daily-schedule-banner, .unit-tiles-grid { break-inside: avoid; }
+            .day-card { break-inside: avoid; box-shadow: none; }
+            .week-section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Netcom Scheme Top Hero Banner -->
+    <header class="hero">
+        <div class="hero-top-bar">
+            <div class="hero-kicker">IT Support Course</div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="index.html" style="color: #fff; text-decoration: none; font-size: 12.5px; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.25); display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;">
+                    &larr; Interactive Hub
+                </a>
+            </div>
+            <div class="netcom-logo-wrap">
+                <img src="data:image/png;base64,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" alt="Netcom Training">
+            </div>
+        </div>
+        <h1>IT Support — WMNICS82</h1>
+        <p class="hero-desc">
+            Build a broad foundation in digital technology, data, cybersecurity, networking, software, operating systems, computer hardware, databases, coding, CompTIA A+ Core 1 &amp; Core 2, and structured ITIL/ITSM service desk troubleshooting.
+        </p>
+        <div class="hero-bottom-row">
+            <span class="hero-badge-pill">30 Lessons · 2 Induction Days · 10 Winter Break Days</span>
+            <span class="hero-badge-pill-outline">Target End Date: 12 Jan 2027</span>
+        </div>
+    </header>
+
+    <!-- 4 Side-by-Side Unit Introduction Tiles (Matching Scheme) -->
+    <section class="unit-tiles-grid">
+        <!-- Unit 1 -->
+        <article class="unit-tile">
+            <div>
+                <div class="unit-tile-kicker">IT Support Course</div>
+                <h2><span>Unit 1:</span>CompTIA Tech+</h2>
+                <p class="unit-tile-desc">
+                    Build a broad foundation in digital technology, data, cybersecurity, networking, software, operating systems, computer hardware, databases, coding and structured troubleshooting.
+                </p>
+            </div>
+            <span class="unit-tile-pill">8 Learning Areas · 10 Days · Lessons 1.1–16.3</span>
+        </article>
+
+        <!-- Unit 2 -->
+        <article class="unit-tile">
+            <div>
+                <div class="unit-tile-kicker">IT Support Course</div>
+                <h2><span>Unit 2:</span>CompTIA A+ Core 1</h2>
+                <p class="unit-tile-desc">
+                    Develop the technical knowledge needed to identify, install, configure and troubleshoot computer hardware, networks, mobile devices, virtual systems, cloud services and printers.
+                </p>
+            </div>
+            <span class="unit-tile-pill">7 Learning Areas · 6 Days · Lessons 17.1–28.3</span>
+        </article>
+
+        <!-- Unit 3 -->
+        <article class="unit-tile">
+            <div>
+                <div class="unit-tile-kicker">IT Support Course</div>
+                <h2><span>Unit 3:</span>CompTIA A+ Core 2</h2>
+                <p class="unit-tile-desc">
+                    Develop the practical knowledge needed to support operating systems, configure Windows devices, protect users and data, troubleshoot software problems and manage IT systems safely and professionally.
+                </p>
+            </div>
+            <span class="unit-tile-pill">8 Learning Areas · 9 Days · Lessons 29.1–40.3</span>
+        </article>
+
+        <!-- Unit 4 -->
+        <article class="unit-tile">
+            <div>
+                <div class="unit-tile-kicker">IT Support Course</div>
+                <h2><span>Unit 4:</span>Business Processes</h2>
+                <p class="unit-tile-desc">
+                    Explore how IT services are planned, delivered, supported and continually improved using IT service management principles based on the ITIL® Foundation framework.
+                </p>
+            </div>
+            <span class="unit-tile-pill">8 Learning Areas · 5 Days · Lessons 41.1–48.3</span>
+        </article>
+    </section>
+
+    <!-- Daily Schedule & Scheduled Breaks Banner -->
+    <section class="daily-schedule-banner">
+        <div class="daily-schedule-header">
+            <div class="daily-schedule-title-wrap">
+                <span class="daily-kicker">Daily Schedule</span>
+                <h3>Monday to Friday Delivery Timetable &amp; Scheduled Breaks</h3>
+            </div>
+            <div class="daily-schedule-meta">
+                Delivery Window: <strong>09:45–15:00</strong> (5 hrs 15 mins) · Total Breaks: <strong>45 mins</strong>
+            </div>
+        </div>
+        <div class="daily-slots-grid">
+            <div class="slot-card is-prep">
+                <span class="slot-label">PERSONAL SETUP</span>
+                <span class="slot-time">09:30 – 09:45</span>
+                <span class="slot-desc">Personal workspace setup &amp; prep</span>
+            </div>
+            <div class="slot-card">
+                <span class="slot-label">Morning Session</span>
+                <span class="slot-time">09:45 – 11:15</span>
+                <span class="slot-desc">Greeting, lesson recap, &amp; morning lessons</span>
+            </div>
+            <div class="slot-card is-break">
+                <span class="slot-label">Morning Break</span>
+                <span class="slot-time">11:15 – 11:30</span>
+                <span class="slot-desc">15 min morning screen &amp; comfort break</span>
+            </div>
+            <div class="slot-card">
+                <span class="slot-label">Midday Session</span>
+                <span class="slot-time">11:30 – 13:30</span>
+                <span class="slot-desc">Midday lessons</span>
+            </div>
+            <div class="slot-card is-break">
+                <span class="slot-label">Afternoon Break</span>
+                <span class="slot-time">13:30 – 14:00</span>
+                <span class="slot-desc">30 min afternoon screen &amp; lunch break</span>
+            </div>
+            <div class="slot-card">
+                <span class="slot-label">Afternoon Session</span>
+                <span class="slot-time">14:00 – 15:00</span>
+                <span class="slot-desc">Afternoon lessons, Daily Quiz, &amp; Timesheets</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rendered Schedule Root -->
+    <div id="scheduleRoot">
+
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 1 (16 Nov – 20 Nov 2026)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-induction">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Induction Day 1</span>
+                </div>
+                <div class="date-str">16 Nov 2026</div>
+                <div class="tt-ref">Induction: Day 1</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Cohort Start</div>
+                <ul class="lesson-list"><li>Learner Induction — Day 1</li><li>Canvas & Netcom Systems Onboarding</li><li>Programme Overview & Expectations</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-induction">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Induction Day 2</span>
+                </div>
+                <div class="date-str">17 Nov 2026</div>
+                <div class="tt-ref">Induction: Day 2</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Learner Induction — Day 2</li><li>Initial Assessments & Learning Plans</li><li>Digital Tools & Virtual Classroom Setup</li><li>Having a Growth Mindset</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 1</span>
+                </div>
+                <div class="date-str">18 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 1</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Use Technology Effectively</li><li>Explore the Computing Cycle</li><li>Recognise Computing Devices</li><li>Careers in Tech</li><li>Understand your Data</li><li>Data Privacy</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 2</span>
+                </div>
+                <div class="date-str">19 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 2</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Passwords and Encryption</li><li>Careers in Data and Privacy</li><li>Identify Internet Basics</li><li>Using a Web Browser</li><li>What is an Internet Service Provider</li><li>Careers in Internet Technologies</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 3</span>
+                </div>
+                <div class="date-str">20 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 3</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Basic Security Concepts</li><li>Identify Common Security Threats</li><li>Security Tools and Software</li><li>Binary and Other Numbering Systems</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 2 (23 Nov – 27 Nov 2026)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 4</span>
+                </div>
+                <div class="date-str">23 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 4</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Basic Networking Concepts</li><li>How Networks Work</li><li>Small Wireless Network Specifications</li><li>Virtualisation on the Network</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 5</span>
+                </div>
+                <div class="date-str">24 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 5</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Common Applications</li><li>Productivity Software</li><li>Safely Managing Software</li><li>The CompTIA Troubleshooting Methodology</li><li>Careers in Apps and Software</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 6</span>
+                </div>
+                <div class="date-str">25 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 6</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>What is an Operating System</li><li>What Does an Operating System Do?</li><li>File Management</li><li>Data Backup</li><li>Careers in Operating Systems</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 7</span>
+                </div>
+                <div class="date-str">26 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 7</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Units of Speed and Capacity</li><li>What's Inside a Computer?</li><li>Storage Types</li><li>What Can I Connect to My Device?</li><li>Installing Connected Devices</li><li>Careers in Computer Hardware</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 8</span>
+                </div>
+                <div class="date-str">27 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 8</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Database Basics</li><li>Types of Databases</li><li>Relational Databases</li><li>Careers in Databases</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 3 (30 Nov – 04 Dec 2026)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 9</span>
+                </div>
+                <div class="date-str">30 Nov 2026</div>
+                <div class="tt-ref">Unit 1: Day 9</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>What is Coding?</li><li class="is-project">Planning a Coding Project</li><li>Variables and Data Types</li><li>Coding Principles</li><li>Careers in Coding</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-1">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 10</span>
+                </div>
+                <div class="date-str">01 Dec 2026</div>
+                <div class="tt-ref">Unit 1: Day 10</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Troubleshooting Project</div>
+                <ul class="lesson-list"><li>Leading Technologies</li><li class="is-project">Troubleshooting Project</li><li class="is-project">Project Support & Peer Feedback</li><li>Module Reflection & looking ahead</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 11</span>
+                </div>
+                <div class="date-str">02 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 1</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Mid-Point ILP</div>
+                <ul class="lesson-list"><li>The Hero of Problem Solving</li><li>Cables and Connectors</li><li>Motherboards</li><li>Power Supplies and Cooling</li><li>Storage Devices</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 12</span>
+                </div>
+                <div class="date-str">03 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 2</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>System Memory</li><li>CPUs</li><li>BIOS and UEFI</li><li>Power and Disk Issues</li><li>System and Display Issues</li><li>Network Types</li><li>Networking Hardware</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 13</span>
+                </div>
+                <div class="date-str">04 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 3</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Network Cable Types</li><li>Wireless Networking Types</li><li>Internet Connection Types</li><li>TCP/IP Concepts</li><li>Network Communications</li><li>Network Configuration Concepts</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 4 (07 Dec – 11 Dec 2026)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 14</span>
+                </div>
+                <div class="date-str">07 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 4</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Networked Host Services</li><li>Troubleshoot Networks</li><li>Client-Side Virtualisation</li><li>Cloud Concepts</li><li>Mobile Devices and Peripherals</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 15</span>
+                </div>
+                <div class="date-str">08 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 5</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Mobile Apps and Data</li><li>Laptop Hardware</li><li>Troubleshoot Mobile Devices</li><li>Printers and Multifunction Devices</li><li>Print Device Maintenance</li><li>Troubleshoot Print Devices</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 16</span>
+                </div>
+                <div class="date-str">09 Dec 2026</div>
+                <div class="tt-ref">Unit 2: Day 6</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Motherboard Project</div>
+                <ul class="lesson-list"><li class="is-project">Motherboard Project</li><li class="is-project">Project Support & Peer Feedback</li><li>Module Reflection & looking ahead</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 17</span>
+                </div>
+                <div class="date-str">10 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 1</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Documentation</li><li>Professional Communication</li><li>Types of Operating Systems</li><li>Windows User Settings</li><li>Windows System Settings</li><li>Install and Configure Applications</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 18</span>
+                </div>
+                <div class="date-str">11 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 2</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Use Management Consoles</li><li>Command-Line Tools</li><li>Windows Networking</li><li>Troubleshoot Windows Networking</li><li>Remote Access Technologies</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 5 (14 Dec – 18 Dec 2026)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 19</span>
+                </div>
+                <div class="date-str">14 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 3</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Performance and Troubleshooting</li><li>Troubleshoot Windows OS Problems</li><li>Logical Security Concepts</li><li>Windows Security</li><li>Windows Shares</li><li>Windows Editions</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 20</span>
+                </div>
+                <div class="date-str">15 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 4</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>OS Installations and Upgrades</li><li>Linux Features</li><li>Package and Network Management</li><li>macOS Features</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 21</span>
+                </div>
+                <div class="date-str">16 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 5</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Attacks, Threats, and Vulnerabilities</li><li>Wireless Security Protocols</li><li>SOHO Router Security</li><li>Additional Security Measures</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 22</span>
+                </div>
+                <div class="date-str">17 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 6</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Account Security</li><li>Workstation Security</li><li>Browser Security</li><li>Troubleshoot Workstation Security</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 23</span>
+                </div>
+                <div class="date-str">18 Dec 2026</div>
+                <div class="tt-ref">Unit 3: Day 7</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Mobile OS Security</li><li>Troubleshoot Mobile OS and App Software</li><li>Troubleshoot Mobile OS and App Security</li><li>Data Backup and Recovery</li><li>Data Handling Best Practices</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header break-week">
+                    <h2>Calendar Week 6 (21 Dec – 25 Dec 2026) — Winter Break</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Monday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">21 Dec 2026</div>
+                    <div class="tt-ref">Winter Break (No Delivery)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Winter Break</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Tuesday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">22 Dec 2026</div>
+                    <div class="tt-ref">Winter Break (No Delivery)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Winter Break</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Wednesday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">23 Dec 2026</div>
+                    <div class="tt-ref">Winter Break (No Delivery)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Winter Break</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Thursday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">24 Dec 2026</div>
+                    <div class="tt-ref">Christmas Eve (Winter Break)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Christmas Eve</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Friday</span>
+                        <span class="tt-badge">Bank Holiday</span>
+                    </div>
+                    <div class="date-str">25 Dec 2026</div>
+                    <div class="tt-ref">UK Public Holiday — Christmas Day</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Christmas Day (Bank Holiday)</div>
+                    </div>
+                </div>
+            </article>
+        
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header break-week">
+                    <h2>Calendar Week 7 (28 Dec 2026 – 01 Jan 2027) — Winter Break</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Monday</span>
+                        <span class="tt-badge">Bank Holiday</span>
+                    </div>
+                    <div class="date-str">28 Dec 2026</div>
+                    <div class="tt-ref">UK Public Holiday — Boxing Day (Substitute)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Boxing Day Substitute (Bank Holiday)</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Tuesday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">29 Dec 2026</div>
+                    <div class="tt-ref">Winter Break (No Delivery)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Winter Break</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Wednesday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">30 Dec 2026</div>
+                    <div class="tt-ref">Winter Break (No Delivery)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">Winter Break</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Thursday</span>
+                        <span class="tt-badge">No Delivery</span>
+                    </div>
+                    <div class="date-str">31 Dec 2026</div>
+                    <div class="tt-ref">New Year's Eve (Winter Break)</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">New Year's Eve</div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="day-card phase-holiday">
+                <div class="card-stripe"></div>
+                <div class="card-head">
+                    <div class="date-row">
+                        <span class="day-name">Friday</span>
+                        <span class="tt-badge">Bank Holiday</span>
+                    </div>
+                    <div class="date-str">01 Jan 2027</div>
+                    <div class="tt-ref">UK Public Holiday — New Year's Day</div>
+                </div>
+                <div class="card-body">
+                    <div class="holiday-box">
+                        <div class="h-title">New Year's Day (Bank Holiday)</div>
+                    </div>
+                </div>
+            </article>
+        
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 8 (04 Jan – 08 Jan 2027)</h2>
+                    <span class="week-range">5 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 24</span>
+                </div>
+                <div class="date-str">04 Jan 2027</div>
+                <div class="tt-ref">Unit 3: Day 8</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Resumed Delivery</div>
+                <ul class="lesson-list"><li>Artificial Intelligence</li><li>Change and Inventory Management</li><li>Common Safety and Environmental Procedures</li><li>Scripting Basics</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-2">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 25</span>
+                </div>
+                <div class="date-str">05 Jan 2027</div>
+                <div class="tt-ref">Unit 3: Day 9</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Virtualisation Project</div>
+                <ul class="lesson-list"><li class="is-project">Virtualisation Project</li><li>Learner Explanation and Reflection</li><li>Module Reflection</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-3">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Wednesday</span>
+                    <span class="tt-badge">Lesson 26</span>
+                </div>
+                <div class="date-str">06 Jan 2027</div>
+                <div class="tt-ref">Unit 4: Day 1</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Phase 3 Kickoff</div>
+                <ul class="lesson-list"><li>Introduction to ITSM & ITIL</li><li>The Help Desk Role</li><li>ITIL Foundation</li><li>Incident Management Process</li><li>Prioritisation and Escalation</li><li>Communication and Documentation</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-3">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Thursday</span>
+                    <span class="tt-badge">Lesson 27</span>
+                </div>
+                <div class="date-str">07 Jan 2027</div>
+                <div class="tt-ref">Unit 4: Day 2</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Request Fulfilment Process</li><li>Service Catalogue & Self-Service</li><li>Automation & Efficiency</li><li>Introduction to Problem Management</li><li>Root Cause Analysis</li><li>Problem Solving Techniques</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-3">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Friday</span>
+                    <span class="tt-badge">Lesson 28</span>
+                </div>
+                <div class="date-str">08 Jan 2027</div>
+                <div class="tt-ref">Unit 4: Day 3</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>The Importance of Knowledge Management</li><li>Knowledge Capture and Creation</li><li>Knowledge Sharing and Improvement</li><li>Introduction to Standard Operating Procedures</li><li>Introduction to HRIS</li><li>Introduction to CRM</li><li>Daily Quiz</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+            <section class="week-section">
+                <div class="week-header">
+                    <h2>Calendar Week 9 (11 Jan – 12 Jan 2027)</h2>
+                    <span class="week-range">2 days</span>
+                </div>
+                <div class="days-grid">
+                    
+        <article class="day-card phase-3">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Monday</span>
+                    <span class="tt-badge">Lesson 29</span>
+                </div>
+                <div class="date-str">11 Jan 2027</div>
+                <div class="tt-ref">Unit 4: Day 4</div>
+            </div>
+            <div class="card-body">
+                
+                <ul class="lesson-list"><li>Help Desk Scenarios</li><li>Best Practices and Continuous Improvement</li><li>Recap of previous sessions</li></ul>
+            </div>
+        </article>
+    
+        <article class="day-card phase-3">
+            <div class="card-stripe"></div>
+            <div class="card-head">
+                <div class="date-row">
+                    <span class="day-name">Tuesday</span>
+                    <span class="tt-badge">Lesson 30</span>
+                </div>
+                <div class="date-str">12 Jan 2027</div>
+                <div class="tt-ref">Unit 4: Day 5</div>
+            </div>
+            <div class="card-body">
+                <div class="milestone-tag">★ Course Wrap-Up</div>
+                <ul class="lesson-list"><li class="is-project">Project prep time</li><li>Learner Explanation and Reflection</li><li>Course Wrap-Up & Next steps</li></ul>
+            </div>
+        </article>
+    
+                </div>
+            </section>
+        
+</div>
+</div>
+</body>
+</html>
