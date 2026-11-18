@@ -14,7 +14,8 @@
                         netcom: {
                             dark: '#1b0b41',
                             surface: '#261259',
-                            card: '#1f0e4d',
+                            card: '#181033',
+                            'card-elevated': '#1f1442',
                             hover: '#321872',
                             lime: '#73f54a',
                             'lime-hover': '#89ff65',
@@ -27,41 +28,43 @@
             }
         }
     </script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans for reading legibility + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0d051e;
+            background-color: #0c061a;
             color: #f8fafc;
         }
-        code, pre {
+        code, pre, .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
         
-        /* Custom scrollbar */
+        /* Accessible custom scrollbars */
         ::-webkit-scrollbar { width: 7px; height: 7px; }
-        ::-webkit-scrollbar-track { background: #13082a; }
+        ::-webkit-scrollbar-track { background: #0f0721; }
         ::-webkit-scrollbar-thumb { background: #3b1e7c; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #73f54a; }
 
-        /* Accordion transition */
+        /* Accordion transition markers */
         details summary::-webkit-details-marker { display: none; }
         details summary { list-style: none; }
         
+        /* Active Tab Styling with high contrast */
         .tab-btn.active {
             background-color: #73f54a;
-            color: #13082a;
+            color: #12072b;
             font-weight: 700;
-            box-shadow: 0 0 15px rgba(115, 245, 74, 0.35);
+            box-shadow: 0 0 16px rgba(115, 245, 74, 0.4);
         }
         
+        /* Compact Rail Active State */
         .nav-link.active {
-            background: linear-gradient(90deg, rgba(115, 245, 74, 0.18) 0%, rgba(115, 245, 74, 0.03) 100%);
-            border-left: 4px solid #73f54a;
+            background: linear-gradient(90deg, rgba(115, 245, 74, 0.16) 0%, rgba(115, 245, 74, 0.02) 100%);
+            border-left: 3px solid #73f54a;
             color: #73f54a;
             font-weight: 700;
         }
@@ -72,11 +75,11 @@
     <!-- Top Mobile Header -->
     <header class="lg:hidden sticky top-0 z-50 bg-netcom-dark/95 backdrop-blur border-b border-netcom-lime/20 px-4 py-3 flex items-center justify-between">
         <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
-            <span class="font-extrabold text-sm tracking-wide text-white">NETCOM TRAINING</span>
-            <span class="text-xs text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30">WMNICS82</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]"></span>
+            <span class="font-extrabold text-sm tracking-wide text-white">NETCOM</span>
+            <span class="text-[11px] text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30 font-bold">WMNICS82</span>
         </div>
-        <button id="mobileMenuBtn" class="text-white p-1 focus:outline-none" aria-label="Toggle Navigation">
+        <button id="mobileMenuBtn" class="text-white p-1.5 rounded-lg hover:bg-white/10 focus:outline-none" aria-label="Toggle Navigation">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -85,117 +88,107 @@
 
     <div class="flex-1 flex flex-col lg:flex-row">
         <!-- ========================================================================= -->
-        <!-- VERTICAL LEFT SIDE RIBBON NAVIGATION                                      -->
+        <!-- COMPACT LEFT NAVIGATION RAIL (Modeled on Antigravity Dashboard)            -->
         <!-- ========================================================================= -->
-        <aside id="sidebar" class="hidden lg:flex flex-col w-72 xl:w-80 bg-netcom-dark border-r border-netcom-lime/20 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300">
-            <!-- Brand & Course Banner -->
-            <div class="p-6 border-b border-white/10 bg-gradient-to-b from-netcom-surface/60 to-transparent">
-                <div class="flex items-center gap-2.5 mb-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a] animate-pulse"></span>
-                    <span class="text-xs font-black tracking-widest text-netcom-lime uppercase">Cohort WMNICS82</span>
+        <aside id="sidebar" class="hidden lg:flex flex-col w-[210px] min-w-[210px] bg-[#0f0721] border-r border-white/10 sticky top-0 h-screen overflow-y-auto shrink-0 z-40 transition-all duration-300">
+            <!-- Brand Capsule -->
+            <div class="p-4 border-b border-white/10 bg-gradient-to-b from-netcom-surface/50 to-transparent">
+                <div class="flex items-center gap-2 mb-1.5">
+                    <div class="w-6 h-6 rounded-md bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-black text-xs shadow-[0_0_8px_rgba(115,245,74,0.3)]">
+                        N
+                    </div>
+                    <div>
+                        <div class="text-xs font-black tracking-wide text-white leading-none">Netcom <span class="text-netcom-lime">Training</span></div>
+                        <div class="text-[10px] text-netcom-lime font-bold tracking-wider uppercase mt-0.5">WMNICS82</div>
+                    </div>
                 </div>
-                <h1 class="text-lg font-black text-white leading-tight">CompTIA Tech+ <span class="text-netcom-lime block text-sm font-semibold">Unit 1 &bull; Lesson 01</span></h1>
-                <p class="text-xs text-netcom-lavender mt-1">Interactive Learning Explainer</p>
+                <div class="text-[11px] text-netcom-lavender font-medium mt-2">Lesson 01 Explainer</div>
             </div>
 
-            <!-- Navigation Links -->
-            <nav class="flex-1 px-3 py-4 space-y-1.5" id="navLinks">
-                <div class="px-3 pb-2 text-[11px] font-bold tracking-wider text-netcom-lavender/60 uppercase">Learning Outcomes</div>
+            <!-- Compact Navigation List (Single-Line Items, Zero Subheader Clutter) -->
+            <nav class="flex-1 px-2 py-3 space-y-1" id="navLinks">
+                <div class="px-2 pb-1.5 text-[10px] font-extrabold tracking-wider text-netcom-lavender/50 uppercase">Outcomes</div>
                 
-                <a href="#lo-1-1" class="nav-link active flex items-start gap-3 px-3 py-3 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition border-l-4 border-transparent">
-                    <span class="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.1</span>
-                    <div class="leading-snug">
-                        <div class="font-semibold text-white">Use Technology Effectively</div>
-                        <div class="text-[11px] text-slate-400">Resource &bull; Digital Citizenship &bull; Resilience</div>
-                    </div>
+                <a href="#lo-1-1" class="nav-link active flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
+                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.1</span>
+                    <span class="truncate font-semibold">Effective Tech</span>
                 </a>
 
-                <a href="#lo-1-2" class="nav-link flex items-start gap-3 px-3 py-3 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition border-l-4 border-transparent">
-                    <span class="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.2</span>
-                    <div class="leading-snug">
-                        <div class="font-semibold text-white">The Computing Cycle</div>
-                        <div class="text-[11px] text-slate-400">Input &bull; Processing &bull; Storage &bull; Output</div>
-                    </div>
+                <a href="#lo-1-2" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
+                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.2</span>
+                    <span class="truncate font-semibold">Computing Cycle</span>
                 </a>
 
-                <a href="#lo-1-3" class="nav-link flex items-start gap-3 px-3 py-3 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition border-l-4 border-transparent">
-                    <span class="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.3</span>
-                    <div class="leading-snug">
-                        <div class="font-semibold text-white">Recognise Computing Devices</div>
-                        <div class="text-[11px] text-slate-400">Computers &bull; Mobile &bull; Gaming &bull; IoT</div>
-                    </div>
+                <a href="#lo-1-3" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
+                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.3</span>
+                    <span class="truncate font-semibold">Device Types</span>
                 </a>
 
-                <a href="#lo-1-4" class="nav-link flex items-start gap-3 px-3 py-3 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition border-l-4 border-transparent">
-                    <span class="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.4</span>
-                    <div class="leading-snug">
-                        <div class="font-semibold text-white">Understand Your Data</div>
-                        <div class="text-[11px] text-slate-400">PII Taxonomy &bull; Monetisation &bull; Cookies</div>
-                    </div>
+                <a href="#lo-1-4" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
+                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.4</span>
+                    <span class="truncate font-semibold">Your Data</span>
                 </a>
 
-                <a href="#lo-1-5" class="nav-link flex items-start gap-3 px-3 py-3 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition border-l-4 border-transparent">
-                    <span class="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.5</span>
-                    <div class="leading-snug">
-                        <div class="font-semibold text-white">Data Privacy &amp; Regulations</div>
-                        <div class="text-[11px] text-slate-400">Social Media &bull; SFTP &bull; AI &bull; GDPR</div>
-                    </div>
+                <a href="#lo-1-5" class="nav-link flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-300 hover:text-white hover:bg-white/5 transition border-l-3 border-transparent">
+                    <span class="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/10 text-netcom-lime shrink-0">1.5</span>
+                    <span class="truncate font-semibold">Data Privacy</span>
                 </a>
             </nav>
 
-            <!-- Bottom Quick Actions & Link Back -->
-            <div class="p-4 border-t border-white/10 bg-netcom-surface/40 space-y-2">
-                <a href="index.html" class="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    Back to Labs Portal
+            <!-- Bottom Hub Link -->
+            <div class="p-3 border-t border-white/10 bg-[#0c061a] space-y-1">
+                <a href="index.html" class="flex items-center justify-center gap-1.5 w-full py-1.5 px-2 rounded-md bg-white/5 hover:bg-white/10 text-[11px] font-semibold text-netcom-lavender hover:text-white transition border border-white/10">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Portal Hub
                 </a>
-                <div class="text-center text-[10px] text-slate-500">Netcom Training &bull; IT Support</div>
+                <div class="text-center text-[9px] text-slate-500">CompTIA Tech+ FC0-U71</div>
             </div>
         </aside>
 
         <!-- ========================================================================= -->
-        <!-- MAIN CONTENT AREA                                                         -->
+        <!-- MAIN ACCESSIBLE READING CANVAS                                            -->
         <!-- ========================================================================= -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-10 max-w-6xl mx-auto w-full space-y-12">
+        <main class="flex-1 p-4 sm:p-8 lg:p-12 max-w-5xl mx-auto w-full space-y-14">
             
             <!-- Hero Header Banner -->
-            <section class="bg-gradient-to-r from-netcom-dark via-netcom-surface to-netcom-card border border-netcom-lime/30 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-16 -top-16 w-64 h-64 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+            <section class="bg-gradient-to-r from-netcom-dark via-netcom-surface to-[#1d0e45] border border-netcom-lime/30 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-netcom-lime/10 rounded-full blur-3xl pointer-events-none"></div>
                 
-                <div class="flex flex-wrap items-center gap-2 mb-3">
+                <div class="flex flex-wrap items-center gap-2 mb-4">
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 uppercase tracking-wide">Unit 1 &bull; Day 1</span>
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-netcom-lavender/10 text-netcom-lavender border border-netcom-lavender/20">Lesson 1 Slide Companion</span>
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-300 border border-purple-500/30">FC0-U71 Grounded</span>
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-netcom-lavender/10 text-netcom-lavender border border-netcom-lavender/20">Lesson 1 Guided Reading</span>
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">CompTIA Tech+ FC0-U71</span>
                 </div>
                 
-                <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3 leading-tight">
                     IT Fundamentals, the Computing Cycle &amp; Data Privacy
                 </h1>
                 
-                <p class="text-sm sm:text-base text-netcom-lavender leading-relaxed max-w-4xl">
-                    This interactive guided explainer expands upon the core principles presented in today&apos;s slide deck. Review each numbered Learning Outcome below, explore the tabbed subtopic cards, examine the annotated diagrams, and expand the deep-dive technical notes to solidify your understanding.
+                <p class="text-[15px] sm:text-base text-netcom-lavender leading-relaxed max-w-3xl">
+                    Welcome to the foundational explainer for Lesson 1. This guided reading companion elaborates upon each concept introduced in today&apos;s slide deck with high-depth technical notes from the CompTIA Tech+ specification. Use the left ribbon to navigate between the five numbered Learning Outcomes.
                 </p>
 
-                <div class="mt-6 pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
-                    <a href="#lo-1-1" class="p-2 rounded-lg bg-black/20 hover:bg-netcom-lime/10 hover:border-netcom-lime/40 border border-white/5 transition">
-                        <div class="text-xs font-bold text-netcom-lime">LO 1.1</div>
-                        <div class="text-[11px] text-slate-300 truncate">Effective Tech</div>
+                <!-- Quick Jump Bar -->
+                <div class="mt-8 pt-5 border-t border-white/10 grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-center">
+                    <a href="#lo-1-1" class="p-2.5 rounded-lg bg-black/30 hover:bg-netcom-lime/15 hover:border-netcom-lime/50 border border-white/10 transition">
+                        <div class="text-xs font-bold text-netcom-lime font-mono">LO 1.1</div>
+                        <div class="text-xs text-slate-200 font-semibold truncate mt-0.5">Effective Tech</div>
                     </a>
-                    <a href="#lo-1-2" class="p-2 rounded-lg bg-black/20 hover:bg-netcom-lime/10 hover:border-netcom-lime/40 border border-white/5 transition">
-                        <div class="text-xs font-bold text-netcom-lime">LO 1.2</div>
-                        <div class="text-[11px] text-slate-300 truncate">Computing Cycle</div>
+                    <a href="#lo-1-2" class="p-2.5 rounded-lg bg-black/30 hover:bg-netcom-lime/15 hover:border-netcom-lime/50 border border-white/10 transition">
+                        <div class="text-xs font-bold text-netcom-lime font-mono">LO 1.2</div>
+                        <div class="text-xs text-slate-200 font-semibold truncate mt-0.5">Computing Cycle</div>
                     </a>
-                    <a href="#lo-1-3" class="p-2 rounded-lg bg-black/20 hover:bg-netcom-lime/10 hover:border-netcom-lime/40 border border-white/5 transition">
-                        <div class="text-xs font-bold text-netcom-lime">LO 1.3</div>
-                        <div class="text-[11px] text-slate-300 truncate">Device Types</div>
+                    <a href="#lo-1-3" class="p-2.5 rounded-lg bg-black/30 hover:bg-netcom-lime/15 hover:border-netcom-lime/50 border border-white/10 transition">
+                        <div class="text-xs font-bold text-netcom-lime font-mono">LO 1.3</div>
+                        <div class="text-xs text-slate-200 font-semibold truncate mt-0.5">Device Types</div>
                     </a>
-                    <a href="#lo-1-4" class="p-2 rounded-lg bg-black/20 hover:bg-netcom-lime/10 hover:border-netcom-lime/40 border border-white/5 transition">
-                        <div class="text-xs font-bold text-netcom-lime">LO 1.4</div>
-                        <div class="text-[11px] text-slate-300 truncate">Your Data</div>
+                    <a href="#lo-1-4" class="p-2.5 rounded-lg bg-black/30 hover:bg-netcom-lime/15 hover:border-netcom-lime/50 border border-white/10 transition">
+                        <div class="text-xs font-bold text-netcom-lime font-mono">LO 1.4</div>
+                        <div class="text-xs text-slate-200 font-semibold truncate mt-0.5">Your Data</div>
                     </a>
-                    <a href="#lo-1-5" class="p-2 rounded-lg bg-black/20 hover:bg-netcom-lime/10 hover:border-netcom-lime/40 border border-white/5 transition col-span-2 sm:col-span-1">
-                        <div class="text-xs font-bold text-netcom-lime">LO 1.5</div>
-                        <div class="text-[11px] text-slate-300 truncate">Data Privacy</div>
+                    <a href="#lo-1-5" class="p-2.5 rounded-lg bg-black/30 hover:bg-netcom-lime/15 hover:border-netcom-lime/50 border border-white/10 transition col-span-2 sm:col-span-1">
+                        <div class="text-xs font-bold text-netcom-lime font-mono">LO 1.5</div>
+                        <div class="text-xs text-slate-200 font-semibold truncate mt-0.5">Data Privacy</div>
                     </a>
                 </div>
             </section>
@@ -203,160 +196,155 @@
             <!-- ========================================================================= -->
             <!-- SECTION 1.1: USE TECHNOLOGY EFFECTIVELY                                   -->
             <!-- ========================================================================= -->
-            <section id="lo-1-1" class="scroll-mt-20 bg-netcom-surface/50 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section id="lo-1-1" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
                 <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-4 flex-wrap gap-3">
+                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark">LO 1.1</span>
-                            <span class="text-xs font-semibold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 &ndash; 10</span>
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.1</span>
+                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 8 &ndash; 10</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Use Technology Effectively</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Use Technology Effectively</h2>
                     </div>
-                    <span class="text-xs text-slate-400 bg-black/30 px-3 py-1.5 rounded-full border border-white/5">Focus: Resource Roles &bull; Ethics &bull; Future-Proofing</span>
+                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Resource Roles &bull; Digital Citizenship &bull; Resilience</span>
                 </div>
 
-                <!-- Subtopic Tab Buttons -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3" data-tab-group="lo1-1">
-                    <button class="tab-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab1">
+                <!-- Subtopic Tab Buttons (Accessible 44px touch targets) -->
+                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-1">
+                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab1">
                         1.1.1 Technology as a Resource
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab2">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab2">
                         1.1.2 Digital Citizenship &amp; Ethics
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab3">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-1-tab3">
                         1.1.3 When Tech Fails &amp; Future-Proofing
                     </button>
                 </div>
 
                 <!-- Tab 1: Technology as a Resource -->
-                <div id="lo1-1-tab1" class="tab-content space-y-5">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div id="lo1-1-tab1" class="tab-content space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <!-- Left: End-User Perspective -->
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center gap-2 text-netcom-lime font-bold text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-3.5">
+                            <div class="flex items-center gap-2 text-netcom-lime font-bold text-sm sm:text-base">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                                 General Technology Users
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                In modern organisations, technology acts as an essential operational lever. Everyday users rely on technology as a daily productivity instrument to create, communicate, and organise.
+                            <p class="text-[15px] text-slate-200 leading-relaxed">
+                                In modern enterprises, technology is an indispensable operational lever. Everyday employees consume technological services to execute their primary job functions:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Content Creation:</strong> Drafting documents, authoring technical reports, and generating media assets.</li>
-                                <li><strong>Organisation &amp; Management:</strong> Managing customer relationships, tracking spreadsheets, and coordinating project deadlines.</li>
-                                <li><strong>Collaboration &amp; Communication:</strong> Using email, instant messaging, and video conferencing to connect across distributed teams.</li>
+                            <ul class="text-[14px] text-slate-300 space-y-2 list-disc list-inside">
+                                <li><strong>Content Creation:</strong> Drafting legal contracts, authoring engineering documents, and compiling reports.</li>
+                                <li><strong>Organisation &amp; Management:</strong> Managing CRM databases, manipulating spreadsheets, and tracking inventory.</li>
+                                <li><strong>Team Communication:</strong> Collaborating synchronously over video links and asynchronously via email and messaging.</li>
                             </ul>
                         </div>
 
                         <!-- Right: IT Professional Perspective -->
-                        <div class="bg-netcom-card/80 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <div class="flex items-center gap-2 text-netcom-lime font-bold text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                                IT Administrators &amp; Technicians
+                        <div class="bg-netcom-card-elevated border border-netcom-lime/30 rounded-xl p-5 sm:p-6 space-y-3.5">
+                            <div class="flex items-center gap-2 text-netcom-lime font-bold text-sm sm:text-base">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                IT Administrators &amp; Support Technicians
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Rather than merely consuming software, IT support professionals design, deploy, maintain, and safeguard the underlying infrastructure that makes end-user productivity possible.
+                            <p class="text-[15px] text-slate-200 leading-relaxed">
+                                Instead of simply consuming software, IT professionals engineer and safeguard the underlying ecosystem that enables end-user productivity:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Application Deployment:</strong> Packaging, testing, installing, and updating software across corporate endpoints.</li>
-                                <li><strong>Network Configuration:</strong> Setting up switches, routers, and access points to ensure stable data flow.</li>
-                                <li><strong>System Security:</strong> Enforcing least privilege, managing firewalls, and patching known vulnerabilities.</li>
-                                <li><strong>Systematic Troubleshooting:</strong> Diagnosing root causes when hardware fails or software behaves abnormally.</li>
+                            <ul class="text-[14px] text-slate-300 space-y-2 list-disc list-inside">
+                                <li><strong>Application Provisioning:</strong> Packaging, testing, installing, and licensing client software.</li>
+                                <li><strong>Network Architecture:</strong> Configuring switches, wireless access points, and default gateways.</li>
+                                <li><strong>Cybersecurity Baselines:</strong> Enforcing least privilege, multi-factor authentication, and security patching.</li>
+                                <li><strong>Structured Troubleshooting:</strong> Methodically resolving hardware failures and operating system crashes.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Explainer Callout Card -->
-                    <div class="bg-netcom-dark/70 border-l-4 border-netcom-lime p-4 rounded-r-xl space-y-2">
-                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
-                            <span>💡</span> Key Concept: Technology as a Force Multiplier
-                        </h4>
-                        <p class="text-xs text-netcom-lavender leading-relaxed">
-                            Technology is neither purely hardware nor purely software; it is a unified resource designed to automate manual labor, reduce operational friction, and eliminate geographical constraints. The goal of an IT professional is to ensure this resource remains reliable, secure, and accessible 24/7.
+                    <!-- 3-Tier Callout: CompTIA Tech+ Exam Invariant -->
+                    <div class="bg-netcom-dark border-l-4 border-netcom-lime p-5 rounded-r-xl space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-extrabold text-netcom-lime uppercase tracking-wider">
+                            <span>📌</span> CompTIA Tech+ Exam Invariant
+                        </div>
+                        <p class="text-[14.5px] text-slate-200 leading-relaxed">
+                            Technology is defined by CompTIA as a <strong>force multiplier</strong>: it exists to automate manual processes, eliminate physical distance barriers, and accelerate data retrieval. Always remember: an IT technician&apos;s fundamental role is not just repairing machines, but sustaining the business workflow.
                         </p>
                     </div>
                 </div>
 
                 <!-- Tab 2: Digital Citizenship & Ethics -->
-                <div id="lo1-1-tab2" class="tab-content hidden space-y-5">
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        With technology permeating every aspect of modern enterprise, <strong>digital citizenship</strong> defines the quality of an individual&apos;s behaviour, ethics, and legal compliance in digital spaces.
+                <div id="lo1-1-tab2" class="tab-content hidden space-y-6">
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        With technology permeating every department, <strong>digital citizenship</strong> defines an individual&apos;s ethical, legal, and operational responsibilities in networked environments.
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase">Acceptable Use Policy (AUP)</div>
-                            <p class="text-xs text-slate-300">
-                                A formal contractual agreement established by an organisation governing what activities are permitted or prohibited on corporate computers, mobile devices, and networks.
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Acceptable Use Policy (AUP)</div>
+                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+                                A formal legal contract signed by employees governing permitted and prohibited activities on corporate endpoints, networks, and communication channels.
                             </p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase">Professional Netiquette</div>
-                            <p class="text-xs text-slate-300">
-                                Constructive, respectful, and transparent communication across corporate email and instant messaging. Avoiding abusive speech, harassment, and unauthorized disclosure of peer data.
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Workplace Netiquette</div>
+                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+                                Maintaining professional, clear, and respectful communication in virtual meetings and emails. Eliminating harassment, spam, and non-work disputes.
                             </p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="text-netcom-lime font-bold text-xs uppercase">Legal &amp; IP Respect</div>
-                            <p class="text-xs text-slate-300">
-                                Adhering to software licencing agreements, respecting copyrights, avoiding pirated media, and upholding confidentiality agreements (NDAs) protecting client assets.
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Intellectual Property &amp; Licencing</div>
+                            <p class="text-[13.5px] text-slate-300 leading-relaxed">
+                                Strict adherence to software copyright agreements, avoiding pirated media, protecting proprietary source code, and respecting non-disclosure agreements.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Deep-dive Accordion -->
-                    <details class="group bg-netcom-card/60 border border-white/10 rounded-xl overflow-hidden transition">
-                        <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 transition">
-                            <span class="text-xs font-bold text-white flex items-center gap-2">
-                                <span class="text-netcom-lime">▶</span> Why Digital Citizenship Matters to IT Support Specialists
-                            </span>
-                            <span class="text-xs text-slate-400 group-open:rotate-90 transition-transform">▼</span>
-                        </summary>
-                        <div class="p-4 pt-0 text-xs text-slate-300 leading-relaxed border-t border-white/5 space-y-2">
-                            <p>
-                                IT technicians often have elevated administrative privileges (&quot;root&quot; or &quot;Domain Admin&quot;). This level of access grants visibility into confidential user files, corporate communications, and server logs. Digital citizenship demands that technicians uphold zero-trust ethics: never inspect user files out of curiosity, always protect credentials, and document all system modifications.
-                            </p>
+                    <!-- 3-Tier Callout: Workplace IT Support Scenario -->
+                    <div class="bg-black/40 border-l-4 border-cyan-400 p-5 rounded-r-xl space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-extrabold text-cyan-300 uppercase tracking-wider">
+                            <span>💼</span> Workplace IT Support Scenario: The Privileged Access Dilemma
                         </div>
-                    </details>
+                        <p class="text-[14px] text-slate-200 leading-relaxed">
+                            Support technicians routinely operate with elevated administrative privileges (e.g. Domain Administrator or root access). This capability technically allows them to browse network directories containing confidential executive payroll sheets or employee disciplinary records. Digital citizenship dictates a strict <strong>Zero-Trust Ethical Code</strong>: technicians must never view private files out of curiosity, must never share administrative credentials, and must ensure all system modifications are logged in ticketing systems.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Tab 3: When Tech Fails & Future-Proofing -->
-                <div id="lo1-1-tab3" class="tab-content hidden space-y-5">
+                <div id="lo1-1-tab3" class="tab-content hidden space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-5 space-y-3">
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <span class="text-red-400">⚠️</span> Managing Technical Glitches
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-3.5">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <span class="text-red-400">⚠️</span> Managing Technical Failures (MD 1.1.3)
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                All complex systems experience unexpected downtime. When technology fails, human anxiety spikes. Professional tech support relies on a composed, methodical reaction:
+                            <p class="text-[14.5px] text-slate-200 leading-relaxed">
+                                All complex systems inevitably experience downtime. When mission-critical software crashes or networks drop, users experience acute frustration. Professional tech support relies on a disciplined, structured mindset:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Maintain Composure:</strong> Avoid panic or impulsive setting resets that destroy diagnostic logs.</li>
-                                <li><strong>Identify the Scope:</strong> Determine whether the issue is isolated to a single machine or affects the entire local network segment.</li>
-                                <li><strong>Communicate Transparently:</strong> Notify affected stakeholders with estimated resolution timeframes.</li>
+                            <ul class="text-[13.5px] text-slate-300 space-y-2 list-disc list-inside">
+                                <li><strong>Maintain Emotional Composure:</strong> Avoid impulsive reboots or random configuration adjustments that overwrite diagnostic logs.</li>
+                                <li><strong>Isolate the Blast Radius:</strong> Verify whether the failure is local to one machine or impacts an entire network subnet.</li>
+                                <li><strong>Transparent Stakeholder Communication:</strong> Keep users informed with realistic estimated time to repair (ETTR).</li>
                             </ul>
                         </div>
 
-                        <div class="bg-netcom-card/80 border border-netcom-lime/30 rounded-xl p-5 space-y-3">
-                            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                                <span class="text-netcom-lime">🚀</span> Future-Proofing Your Career (Slide 10)
+                        <div class="bg-netcom-card-elevated border border-netcom-lime/30 rounded-xl p-5 sm:p-6 space-y-3.5">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <span class="text-netcom-lime">🚀</span> Future-Proofing Your IT Career (Slide 10)
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Workplace tooling shifts rapidly. Technologies once considered cutting-edge become obsolete. To maintain long-term career resilience:
+                            <p class="text-[14.5px] text-slate-200 leading-relaxed">
+                                Software tools, operating systems, and infrastructure models evolve rapidly. To ensure your skills remain in continuous demand over a multi-decade IT career:
                             </p>
-                            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                                <li><strong>Find Your Passion:</strong> Identify whether your interests lean toward cybersecurity, systems administration, networking, cloud, or automation.</li>
-                                <li><strong>Continuous Skill Acquisition:</strong> Earn vendor-neutral industry certifications (CompTIA Tech+, A+, Network+, Security+).</li>
-                                <li><strong>Never Stop Learning:</strong> Experiment in sandbox environments and embrace technological shifts rather than resisting change.</li>
+                            <ul class="text-[13.5px] text-slate-300 space-y-2 list-disc list-inside">
+                                <li><strong>Discover Your Domain Passion:</strong> Direct your curiosity toward cybersecurity, systems administration, cloud architecture, or automation.</li>
+                                <li><strong>Acquire Certified Credentials:</strong> Validate competency with vendor-neutral benchmarks (CompTIA Tech+, A+, Network+, Security+).</li>
+                                <li><strong>Embrace Lifelong Learning:</strong> Build home labs, test unfamiliar operating systems, and treat technological shifts as opportunities.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section Summary Box -->
-                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400">
-                    <span>Summary: Technology is a critical organisational asset requiring responsible digital citizenship and proactive, continuous skill development.</span>
-                    <a href="#lo-1-2" class="text-netcom-lime hover:underline font-semibold flex items-center gap-1 shrink-0 ml-4">
+                <!-- Section Summary Footer -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400 flex-wrap gap-2">
+                    <span>Summary: Effective technology usage combines operational leverage with ethical digital citizenship and continuous skill acquisition.</span>
+                    <a href="#lo-1-2" class="text-netcom-lime hover:underline font-bold flex items-center gap-1">
                         Next: LO 1.2 The Computing Cycle &rarr;
                     </a>
                 </div>
@@ -365,185 +353,192 @@
             <!-- ========================================================================= -->
             <!-- SECTION 1.2: EXPLORE THE COMPUTING CYCLE                                  -->
             <!-- ========================================================================= -->
-            <section id="lo-1-2" class="scroll-mt-20 bg-netcom-surface/50 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section id="lo-1-2" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
                 <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-4 flex-wrap gap-3">
+                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark">LO 1.2</span>
-                            <span class="text-xs font-semibold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 11 &ndash; 14</span>
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.2</span>
+                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 11 &ndash; 14</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Explore the Computing Cycle</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Explore the Computing Cycle</h2>
                     </div>
-                    <span class="text-xs text-slate-400 bg-black/30 px-3 py-1.5 rounded-full border border-white/5">The Four Pillars: Input &bull; Processing &bull; Storage &bull; Output</span>
+                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">The Four Pillars: Input &bull; Processing &bull; Storage &bull; Output</span>
                 </div>
 
-                <!-- Visual Computing Cycle Diagram -->
-                <div class="bg-netcom-card border border-netcom-lime/30 rounded-xl p-5 shadow-xl">
-                    <div class="text-xs font-bold text-netcom-lime tracking-wider uppercase mb-4 text-center">Interactive Computing Cycle Architecture</div>
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 relative">
+                <!-- High-Contrast Computing Cycle Architecture Diagram -->
+                <div class="bg-netcom-card-elevated border border-netcom-lime/30 rounded-xl p-6 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div class="text-xs font-extrabold text-netcom-lime tracking-wider uppercase">Interactive Computing Cycle Architecture</div>
+                        <span class="text-[11px] text-slate-400 font-mono">Data (Raw) &rarr; Information (Meaningful)</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
                         <!-- Stage 1: Input -->
-                        <div class="bg-netcom-dark/80 border border-white/10 rounded-xl p-4 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-sm">1</div>
-                            <div class="font-bold text-sm text-white">INPUT</div>
-                            <p class="text-[11px] text-slate-300">Raw data &amp; user instructions entered into the system.</p>
-                            <div class="text-[10px] text-netcom-lavender font-mono">Keyboard, Mic, Sensors</div>
+                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
+                            <div class="w-10 h-10 mx-auto rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-sm">1</div>
+                            <div class="font-extrabold text-sm text-white tracking-wide">INPUT</div>
+                            <p class="text-xs text-slate-300">Raw electronic data, user gestures, and sensor signals enter the hardware boundary.</p>
+                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">Keyboard, Touch, Mic, Scanner</div>
                         </div>
 
                         <!-- Stage 2: Processing -->
-                        <div class="bg-netcom-dark/80 border border-netcom-lime/50 rounded-xl p-4 text-center space-y-2 shadow-[0_0_15px_rgba(115,245,74,0.15)]">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-netcom-lime/20 text-netcom-lime flex items-center justify-center font-bold text-sm">2</div>
-                            <div class="font-bold text-sm text-white">PROCESSING</div>
-                            <p class="text-[11px] text-slate-300">CPU transforms raw data into structured information.</p>
-                            <div class="text-[10px] text-netcom-lime font-mono">CPU (ALU, CU, Registers)</div>
+                        <div class="bg-black/40 border border-netcom-lime/60 rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.15)]">
+                            <div class="w-10 h-10 mx-auto rounded-full bg-netcom-lime/20 text-netcom-lime flex items-center justify-center font-black text-sm">2</div>
+                            <div class="font-extrabold text-sm text-white tracking-wide">PROCESSING</div>
+                            <p class="text-xs text-slate-300">The CPU executes machine instructions to transform raw data into structured information.</p>
+                            <div class="text-[11px] text-netcom-lime font-mono font-semibold">CPU (ALU, CU, Registers)</div>
                         </div>
 
                         <!-- Stage 3: Storage -->
-                        <div class="bg-netcom-dark/80 border border-white/10 rounded-xl p-4 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">3</div>
-                            <div class="font-bold text-sm text-white">STORAGE</div>
-                            <p class="text-[11px] text-slate-300">Persistent or temporary holding of instructions and data.</p>
-                            <div class="text-[10px] text-netcom-lavender font-mono">RAM (Volatile) / SSD (Persistent)</div>
+                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
+                            <div class="w-10 h-10 mx-auto rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-black text-sm">3</div>
+                            <div class="font-extrabold text-sm text-white tracking-wide">STORAGE</div>
+                            <p class="text-xs text-slate-300">Holding data and software instructions either temporarily (RAM) or permanently (SSD/HDD).</p>
+                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">RAM (Volatile) &bull; SSD (Persistent)</div>
                         </div>
 
                         <!-- Stage 4: Output -->
-                        <div class="bg-netcom-dark/80 border border-white/10 rounded-xl p-4 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">4</div>
-                            <div class="font-bold text-sm text-white">OUTPUT</div>
-                            <p class="text-[11px] text-slate-300">Presents results to humans or sends to downstream systems.</p>
-                            <div class="text-[10px] text-netcom-lavender font-mono">Display, Audio, Network Feed</div>
+                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
+                            <div class="w-10 h-10 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-sm">4</div>
+                            <div class="font-extrabold text-sm text-white tracking-wide">OUTPUT</div>
+                            <p class="text-xs text-slate-300">Presenting processed results to humans or forwarding them to downstream servers.</p>
+                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">Display, Audio, Network Feed</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic Tabs for Stage Deep-Dive -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3" data-tab-group="lo1-2">
-                    <button class="tab-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-input">
+                <!-- Subtopic Tabs -->
+                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-2">
+                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-input">
                         1.2.2 What is Input?
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-processing">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-processing">
                         1.2.3 What is Processing?
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-storage">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-storage">
                         1.2.4 What is Storage?
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-output">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-2-output">
                         1.2.5 Output &amp; The Pipeline
                     </button>
                 </div>
 
-                <!-- Subtopic: Input -->
-                <div id="lo1-2-input" class="tab-content space-y-4">
-                    <h3 class="text-sm font-bold text-white">Understanding Input Mechanisms</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Input is the gateway through which external data, signals, and user commands enter the computer. The system translates physical actions (keystrokes, sound vibrations, light photons, physical gestures) into binary electronic pulses (0s and 1s) that the CPU can manipulate.
+                <!-- Tab: Input -->
+                <div id="lo1-2-input" class="tab-content space-y-5">
+                    <h3 class="text-base font-bold text-white">Input: Translating Physical Signals into Binary</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Input is the intake port through which external data, signals, and commands enter the computer. Physical actions (finger presses, acoustic vibrations, optical photon reflections) are converted by input transducers into digital electronic binary pulses (0s and 1s).
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                        <div class="p-3 rounded-lg bg-black/30 border border-white/10">
-                            <span class="font-bold text-netcom-lime block mb-1">Human-Driven Input</span>
-                            <span class="text-slate-300">Keyboards, optical mice, trackpads, touchscreens, stylus pens, microphones, and game controllers.</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                        <div class="p-4 rounded-xl bg-black/30 border border-white/10 space-y-1.5">
+                            <span class="font-bold text-netcom-lime block text-sm">Human-Driven Input Peripherals</span>
+                            <span class="text-slate-300">Keyboards, optical mice, trackballs, capacitive touchscreens, gaming flightsticks, microphones, and stylus pens.</span>
                         </div>
-                        <div class="p-3 rounded-lg bg-black/30 border border-white/10">
-                            <span class="font-bold text-netcom-lime block mb-1">Automated / Sensor Input</span>
-                            <span class="text-slate-300">Barcode scanners, RFID readers, biometric fingerprint readers, ambient temperature sensors, and webcams.</span>
+                        <div class="p-4 rounded-xl bg-black/30 border border-white/10 space-y-1.5">
+                            <span class="font-bold text-netcom-lime block text-sm">Automated / Telemetry Input Devices</span>
+                            <span class="text-slate-300">Optical barcode readers, RFID scanners, biometric fingerprint/facial sensors, smart card readers, and IoT ambient temperature probes.</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Processing -->
-                <div id="lo1-2-processing" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">Inside the Central Processing Unit (CPU)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Processing represents the computational engine of the computer. The CPU executes software instructions through the sequential <strong>Machine Cycle</strong>: <em>Fetch</em> the instruction from memory, <em>Decode</em> the command into machine language, <em>Execute</em> the calculation, and <em>Store</em> the result.
+                <!-- Tab: Processing -->
+                <div id="lo1-2-processing" class="tab-content hidden space-y-5">
+                    <h3 class="text-base font-bold text-white">Inside the Central Processing Unit (CPU)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Processing is the computational core of the computing cycle. The CPU continually runs the <strong>Machine Instruction Cycle</strong>: Fetch the instruction from memory &rarr; Decode the instruction opcode &rarr; Execute the operation &rarr; Store the result back to memory or register.
                     </p>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3 space-y-1">
-                            <div class="text-xs font-bold text-netcom-lime">Control Unit (CU)</div>
-                            <p class="text-[11px] text-slate-300">Directs electrical signals and orchestrates the flow of data across system components.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+                            <div class="text-xs font-bold text-netcom-lime uppercase font-mono">Control Unit (CU)</div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">The internal manager of the CPU. Directs electrical traffic, synchronises clocks, and decodes incoming program instructions.</p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3 space-y-1">
-                            <div class="text-xs font-bold text-netcom-lime">Arithmetic Logic Unit (ALU)</div>
-                            <p class="text-[11px] text-slate-300">Executes all mathematical additions, subtractions, and logical evaluations (AND, OR, NOT, comparisons).</p>
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+                            <div class="text-xs font-bold text-netcom-lime uppercase font-mono">Arithmetic Logic Unit (ALU)</div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">The mathematical engine. Performs all arithmetic additions/subtractions and evaluates Boolean logic (AND, OR, NOT, comparisons).</p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3 space-y-1">
-                            <div class="text-xs font-bold text-netcom-lime">Internal Registers</div>
-                            <p class="text-[11px] text-slate-300">Micro-capacity, hyper-fast memory cells located directly inside the CPU core for instantaneous intermediate holding.</p>
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
+                            <div class="text-xs font-bold text-netcom-lime uppercase font-mono">Internal Registers</div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Hyper-fast, micro-capacity internal memory cells located directly inside the silicon core for immediate calculation steps.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Storage -->
-                <div id="lo1-2-storage" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">Volatile vs. Non-Volatile Storage Architecture</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Computers maintain a strict hierarchy between active working memory and persistent long-term storage to balance speed, capacity, and permanence.
+                <!-- Tab: Storage -->
+                <div id="lo1-2-storage" class="tab-content hidden space-y-6">
+                    <h3 class="text-base font-bold text-white">Volatile Memory vs. Non-Volatile Persistent Storage</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Computers maintain a strict hardware divide between high-speed temporary memory and persistent non-volatile media:
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div class="bg-netcom-card/80 border border-blue-500/30 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-blue-400 text-sm">Primary Storage &bull; Volatile Memory (RAM)</div>
-                            <p class="text-slate-300 leading-relaxed">
-                                Random Access Memory (RAM) serves as the CPU&apos;s active workspace. It holds operating system kernels, running application binaries, and active datasets currently in use.
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
+                        <!-- Primary Storage: RAM -->
+                        <div class="bg-netcom-card-elevated border border-blue-500/40 rounded-xl p-5 sm:p-6 space-y-3">
+                            <div class="font-extrabold text-blue-400 text-base">Primary Storage &bull; Volatile Memory (RAM)</div>
+                            <p class="text-slate-200 leading-relaxed">
+                                Random Access Memory (RAM) provides the CPU with a hyper-speed working canvas. It holds active OS kernel instructions, active applications, and in-flight user data.
                             </p>
-                            <div class="p-2 rounded bg-black/40 text-[11px] text-red-300 border border-red-500/20">
-                                <strong>Critical Rule:</strong> RAM is volatile. When electrical power is interrupted or the system reboots, all data in RAM is immediately erased.
+                            <!-- 3-Tier Callout: Warning -->
+                            <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/40 text-red-200 text-xs space-y-1">
+                                <strong class="block font-bold">⚠️ CompTIA Exam Pitfall: Volatility</strong>
+                                <span>RAM is <strong>strictly volatile</strong>. When power is shut down or suddenly lost, all unwritten data stored in RAM is immediately erased forever.</span>
                             </div>
                         </div>
 
-                        <div class="bg-netcom-card/80 border border-emerald-500/30 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-emerald-400 text-sm">Secondary Storage &bull; Non-Volatile Media</div>
-                            <p class="text-slate-300 leading-relaxed">
-                                Non-volatile storage permanently preserves files, software programs, and system logs even when the computer is completely powered off.
+                        <!-- Secondary Storage: SSD/HDD -->
+                        <div class="bg-netcom-card-elevated border border-emerald-500/40 rounded-xl p-5 sm:p-6 space-y-3">
+                            <div class="font-extrabold text-emerald-400 text-base">Secondary Storage &bull; Non-Volatile Media</div>
+                            <p class="text-slate-200 leading-relaxed">
+                                Non-volatile storage retains installed software, documents, and operating system images permanently, even when electrical current is removed.
                             </p>
-                            <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
-                                <li><strong>Solid State Drives (SSDs):</strong> High-speed flash memory without moving parts.</li>
-                                <li><strong>Hard Disk Drives (HDDs):</strong> Magnetic spinning platters offering cost-effective large capacity.</li>
-                                <li><strong>Optical &amp; Removable Media:</strong> CDs/DVDs and USB flash thumb drives.</li>
-                                <li><strong>Cloud Storage:</strong> Network-accessible remote server storage arrays.</li>
+                            <ul class="text-slate-300 space-y-1.5 list-disc list-inside text-xs sm:text-sm">
+                                <li><strong>Solid State Drives (SSDs):</strong> High-speed NAND flash memory with zero mechanical moving parts.</li>
+                                <li><strong>Hard Disk Drives (HDDs):</strong> Magnetic spinning platters offering high storage capacity at lower cost.</li>
+                                <li><strong>Removable Flash / Optical:</strong> USB flash thumb drives and archive DVDs.</li>
+                                <li><strong>Cloud Storage:</strong> Network-accessible remote server arrays across data centres.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Output & Pipeline -->
-                <div id="lo1-2-output" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">Output Systems &amp; The Output-as-Input Pipeline (Slide 14)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Output devices communicate processed data to human senses or to external machine consumers. Examples include visual display units (monitors), audio speakers, tactile haptic actuators, and physical document printers.
+                <!-- Tab: Output & Pipeline -->
+                <div id="lo1-2-output" class="tab-content hidden space-y-6">
+                    <h3 class="text-base font-bold text-white">Output Devices &amp; The Networked Pipeline (Slide 14)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Output devices communicate processed data to human senses (visual displays, audio speakers, haptic vibration) or machine actuators.
                     </p>
 
-                    <!-- Pipeline Deep Dive Card -->
-                    <div class="bg-gradient-to-r from-netcom-card to-netcom-dark border border-netcom-lime/40 rounded-xl p-5 space-y-3">
+                    <!-- Network Pipeline Diagram Card -->
+                    <div class="bg-gradient-to-r from-netcom-card-elevated to-netcom-dark border border-netcom-lime/40 rounded-xl p-6 space-y-4">
                         <div class="text-xs font-bold text-netcom-lime tracking-wide uppercase">The Networked Pipeline Concept (Slide 14 Activity)</div>
-                        <p class="text-xs text-slate-200 leading-relaxed">
-                            In enterprise IT, computing cycles do not exist in isolation. <strong>The output from one computer frequently becomes the direct input for another server.</strong>
+                        <p class="text-[14.5px] text-slate-200 leading-relaxed">
+                            In modern distributed systems, computing cycles are chained together: <strong>the output of one computing machine becomes the direct automated input of another server</strong>.
                         </p>
                         
-                        <!-- Mini visual pipeline -->
-                        <div class="p-3 bg-black/40 rounded-lg flex flex-col sm:flex-row items-center justify-between text-xs gap-3 text-center">
-                            <div class="p-2 rounded bg-white/5 border border-white/10 w-full sm:w-auto">
-                                <span class="font-bold text-white block">User Client</span>
-                                <span class="text-[10px] text-slate-400">User clicks &quot;Submit Ticket&quot; &rarr; Client processes &amp; outputs network packet</span>
+                        <div class="p-4 bg-black/40 rounded-xl flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm gap-3 text-center">
+                            <div class="p-3 rounded-lg bg-white/5 border border-white/10 w-full sm:w-auto">
+                                <span class="font-bold text-white block">Client Workstation</span>
+                                <span class="text-[11px] text-slate-400">User submits ticket &rarr; Workstation processes &amp; <strong>outputs</strong> network packet</span>
                             </div>
-                            <span class="text-netcom-lime font-bold text-base">&rarr;</span>
-                            <div class="p-2 rounded bg-netcom-lime/10 border border-netcom-lime/30 w-full sm:w-auto">
-                                <span class="font-bold text-netcom-lime block">Network / Server</span>
-                                <span class="text-[10px] text-slate-400">Packet arrives as <strong>INPUT</strong> to Help Desk Database Server</span>
+                            <span class="text-netcom-lime font-bold text-lg">&rarr;</span>
+                            <div class="p-3 rounded-lg bg-netcom-lime/10 border border-netcom-lime/30 w-full sm:w-auto">
+                                <span class="font-bold text-netcom-lime block">Help Desk Server</span>
+                                <span class="text-[11px] text-slate-400">Packet arrives as <strong>INPUT</strong> &rarr; Database processes &amp; stores record</span>
                             </div>
-                            <span class="text-netcom-lime font-bold text-base">&rarr;</span>
-                            <div class="p-2 rounded bg-white/5 border border-white/10 w-full sm:w-auto">
-                                <span class="font-bold text-white block">Technician Dashboard</span>
-                                <span class="text-[10px] text-slate-400">Database processes &amp; outputs ticket alert on Support desk monitor</span>
+                            <span class="text-netcom-lime font-bold text-lg">&rarr;</span>
+                            <div class="p-3 rounded-lg bg-white/5 border border-white/10 w-full sm:w-auto">
+                                <span class="font-bold text-white block">Technician Screen</span>
+                                <span class="text-[11px] text-slate-400">Server <strong>outputs</strong> ticket alert to technician display</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section Summary Box -->
-                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400">
-                    <span>Summary: The Computing Cycle converts raw input into processed information via CPU instructions, exchanges data with memory and storage, and delivers output to users and downstream systems.</span>
-                    <a href="#lo-1-3" class="text-netcom-lime hover:underline font-semibold flex items-center gap-1 shrink-0 ml-4">
+                <!-- Section Summary Footer -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400 flex-wrap gap-2">
+                    <span>Summary: The Computing Cycle converts input to information via CPU instructions, manages storage between volatile RAM and persistent SSDs, and pipes output across networks.</span>
+                    <a href="#lo-1-3" class="text-netcom-lime hover:underline font-bold flex items-center gap-1">
                         Next: LO 1.3 Device Recognition &rarr;
                     </a>
                 </div>
@@ -552,74 +547,74 @@
             <!-- ========================================================================= -->
             <!-- SECTION 1.3: RECOGNISE COMPUTING DEVICES                                  -->
             <!-- ========================================================================= -->
-            <section id="lo-1-3" class="scroll-mt-20 bg-netcom-surface/50 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section id="lo-1-3" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
                 <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-4 flex-wrap gap-3">
+                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark">LO 1.3</span>
-                            <span class="text-xs font-semibold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 15 &ndash; 18</span>
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.3</span>
+                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 15 &ndash; 18</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Recognise Computing Devices</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Recognise Computing Devices</h2>
                     </div>
-                    <span class="text-xs text-slate-400 bg-black/30 px-3 py-1.5 rounded-full border border-white/5">Classification: Traditional &bull; Mobile &bull; Gaming &bull; IoT &bull; Embedded</span>
+                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Classification: Traditional &bull; Mobile &bull; Gaming &bull; IoT &bull; Embedded</span>
                 </div>
 
-                <!-- Subtopic Tab Buttons -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3" data-tab-group="lo1-3">
-                    <button class="tab-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-computers">
+                <!-- Subtopic Tabs -->
+                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-3">
+                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-computers">
                         1.3.1 Traditional Computers
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-mobile">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-mobile">
                         1.3.2 Mobile &amp; Wearables
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-gaming">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-gaming">
                         1.3.3 Gaming Devices
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-iot">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-3-iot">
                         1.3.4 IoT &amp; Embedded Systems
                     </button>
                 </div>
 
-                <!-- Subtopic: Computers -->
-                <div id="lo1-3-computers" class="tab-content space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Desktop PCs</div>
-                            <p class="text-slate-300">Stationary modular systems with dedicated towers, external displays, and high upgradeability for enterprise desks.</p>
+                <!-- Tab: Computers -->
+                <div id="lo1-3-computers" class="tab-content space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="font-extrabold text-netcom-lime text-base">Desktop PCs</div>
+                            <p class="text-slate-300 leading-relaxed">Stationary modular systems with dedicated towers, external displays, and maximum upgradeability for enterprise office desks.</p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Laptops / Notebooks</div>
-                            <p class="text-slate-300">All-in-one portable computers integrating CPU, battery, keyboard, trackpad, and display into a clamshell chassis.</p>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="font-extrabold text-netcom-lime text-base">Laptops / Notebooks</div>
+                            <p class="text-slate-300 leading-relaxed">All-in-one portable computers integrating CPU, battery, keyboard, trackpad, and display into a clamshell chassis for mobile workers.</p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Workstations</div>
-                            <p class="text-slate-300">High-performance systems equipped with multi-core processors, error-correcting memory (ECC RAM), and enterprise GPUs for CAD and data analytics.</p>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <div class="font-extrabold text-netcom-lime text-base">Workstations</div>
+                            <p class="text-slate-300 leading-relaxed">Heavy-duty compute hardware featuring multi-core CPUs, Error-Correcting Code (ECC) RAM, and enterprise GPUs for CAD, video rendering, and 3D modeling.</p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-netcom-lime/40 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Enterprise Servers</div>
-                            <p class="text-slate-300">Headless, rack-mounted systems engineered for continuous 24/7 uptime, redundant power supplies, RAID storage, and multi-user network service delivery.</p>
+                        <div class="bg-netcom-card-elevated border border-netcom-lime/40 rounded-xl p-5 space-y-2">
+                            <div class="font-extrabold text-netcom-lime text-base">Enterprise Servers</div>
+                            <p class="text-slate-300 leading-relaxed">Headless, rack-mounted systems engineered for continuous 24/7/365 uptime, dual redundant power supplies, RAID arrays, and concurrent multi-user service delivery.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Mobile -->
-                <div id="lo1-3-mobile" class="tab-content hidden space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-white text-sm">Smartphones</div>
+                <!-- Tab: Mobile -->
+                <div id="lo1-3-mobile" class="tab-content hidden space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2.5">
+                            <div class="font-bold text-white text-base">Smartphones</div>
                             <p class="text-slate-300 leading-relaxed">
                                 Handheld multi-function devices featuring multi-touch capacitive screens, mobile cellular modems (4G/5G), integrated camera sensors, biometric unlocking, and sandboxed mobile operating systems (iOS/Android).
                             </p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-white text-sm">Tablets</div>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2.5">
+                            <div class="font-bold text-white text-base">Tablets</div>
                             <p class="text-slate-300 leading-relaxed">
                                 Larger touchscreen surfaces bridging the gap between smartphones and laptops, widely deployed in warehouse inventory management, medical charting, and mobile point-of-sale (POS) terminals.
                             </p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-white text-sm">Wearable Technology</div>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2.5">
+                            <div class="font-bold text-white text-base">Wearable Technology</div>
                             <p class="text-slate-300 leading-relaxed">
                                 Smartwatches and fitness trackers equipped with photoplethysmography (PPG) heart-rate sensors, accelerometers, and Bluetooth Low Energy (BLE) syncing directly with host smartphones.
                             </p>
@@ -627,66 +622,69 @@
                     </div>
                 </div>
 
-                <!-- Subtopic: Gaming -->
-                <div id="lo1-3-gaming" class="tab-content hidden space-y-4">
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Gaming hardware pushes the boundaries of computational graphics, thermal dissipation, and real-time sensory input processing.
+                <!-- Tab: Gaming -->
+                <div id="lo1-3-gaming" class="tab-content hidden space-y-5">
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Gaming hardware pushes the boundaries of computational graphics, thermal dissipation, and real-time sensory input processing:
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                        <div class="p-4 rounded-xl bg-black/30 border border-white/10">
-                            <span class="font-bold text-netcom-lime block mb-1">Dedicated Home Consoles</span>
-                            <span class="text-slate-300">Uniform hardware specifications (PlayStation, Xbox) engineered for living-room display throughput and standardized developer targets.</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div class="p-5 rounded-xl bg-black/30 border border-white/10 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Dedicated Home Consoles</span>
+                            <span class="text-slate-300 leading-relaxed">Uniform hardware specifications (PlayStation, Xbox) engineered for living-room display throughput and standardized developer targets.</span>
                         </div>
-                        <div class="p-4 rounded-xl bg-black/30 border border-white/10">
-                            <span class="font-bold text-netcom-lime block mb-1">Handheld Consoles</span>
-                            <span class="text-slate-300">Integrated display, battery, and controller units running custom low-wattage system-on-chips (SoCs) for mobile rendering.</span>
+                        <div class="p-5 rounded-xl bg-black/30 border border-white/10 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Handheld Consoles</span>
+                            <span class="text-slate-300 leading-relaxed">Integrated display, battery, and controller units running custom low-wattage system-on-chips (SoCs) for mobile rendering.</span>
                         </div>
-                        <div class="p-4 rounded-xl bg-black/30 border border-white/10">
-                            <span class="font-bold text-netcom-lime block mb-1">Virtual &amp; Augmented Reality</span>
-                            <span class="text-slate-300">Stereoscopic dual-lens head-mounted displays utilizing low-latency gyroscopic positional tracking to immerse users in 3D synthetic or overlaid environments.</span>
+                        <div class="p-5 rounded-xl bg-black/30 border border-white/10 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Virtual &amp; Augmented Reality</span>
+                            <span class="text-slate-300 leading-relaxed">Stereoscopic dual-lens head-mounted displays utilizing low-latency gyroscopic positional tracking to immerse users in 3D synthetic or overlaid environments.</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: IoT & Embedded Systems -->
-                <div id="lo1-3-iot" class="tab-content hidden space-y-5">
+                <!-- Tab: IoT & Embedded Systems -->
+                <div id="lo1-3-iot" class="tab-content hidden space-y-6">
                     <!-- Slide 17 Question Explainer -->
-                    <div class="bg-netcom-card border border-netcom-lime/40 rounded-xl p-5 space-y-3">
+                    <div class="bg-netcom-card-elevated border border-netcom-lime/40 rounded-xl p-6 space-y-4">
                         <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-netcom-lime text-netcom-dark">Slide 17 Question</span>
-                            <h3 class="text-sm font-bold text-white">What is an Embedded Computer?</h3>
+                            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-netcom-lime text-netcom-dark">Slide 17 Question</span>
+                            <h3 class="text-base font-bold text-white">What is an Embedded Computer?</h3>
                         </div>
-                        <p class="text-xs text-netcom-lavender leading-relaxed">
-                            An <strong>embedded system</strong> is a dedicated microcontroller or microprocessor integrated into a larger mechanical or electrical appliance designed to perform <em>one specific, dedicated task</em> repeatedly and reliably.
+                        <p class="text-[14.5px] text-netcom-lavender leading-relaxed">
+                            An <strong>embedded system</strong> is a dedicated microcontroller or microprocessor integrated into a larger mechanical or electrical appliance designed to perform <em>one specific, dedicated task</em> repeatedly and reliably without requiring end-user operating system maintenance.
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-2">
-                            <div class="p-3 bg-black/40 rounded-lg">
-                                <strong class="text-white block">Automotive ECUs:</strong>
-                                <span class="text-slate-300 text-[11px]">Controls anti-lock braking systems (ABS), fuel injection, and airbag deployment in milliseconds.</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm pt-2">
+                            <div class="p-4 bg-black/40 rounded-xl border border-white/5 space-y-1">
+                                <strong class="text-white block text-sm">Automotive ECUs:</strong>
+                                <span class="text-slate-300">Controls anti-lock braking systems (ABS), fuel injection timing, and airbag deployment in sub-milliseconds.</span>
                             </div>
-                            <div class="p-3 bg-black/40 rounded-lg">
-                                <strong class="text-white block">Medical Devices:</strong>
-                                <span class="text-slate-300 text-[11px]">Infusion pumps, pacemaker telemetry units, and heart monitors with zero margin for software crashes.</span>
+                            <div class="p-4 bg-black/40 rounded-xl border border-white/5 space-y-1">
+                                <strong class="text-white block text-sm">Medical Equipment:</strong>
+                                <span class="text-slate-300">Intravenous infusion pumps, pacemaker telemetry controllers, and blood gas monitors requiring zero OS crash tolerance.</span>
                             </div>
-                            <div class="p-3 bg-black/40 rounded-lg">
-                                <strong class="text-white block">Smart Appliances:</strong>
-                                <span class="text-slate-300 text-[11px]">Microwave oven timers, washing machine cycle controllers, and digital thermostatic switches.</span>
+                            <div class="p-4 bg-black/40 rounded-xl border border-white/5 space-y-1">
+                                <strong class="text-white block text-sm">Industrial Control:</strong>
+                                <span class="text-slate-300">Programmable logic controllers (PLCs) in manufacturing plants regulating assembly robot arms and fluid valves.</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-2">
-                        <h4 class="text-xs font-bold text-netcom-lime uppercase">The Internet of Things (IoT)</h4>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            When embedded computers are augmented with network connectivity (Wi-Fi, Zigbee, Cellular), they become part of the <strong>Internet of Things</strong>. While IoT devices provide automated climate management (smart thermostats) and facility surveillance (smart doorbells), they represent a major corporate security vulnerability if left on default passwords or unpatched firmware.
+                    <!-- 3-Tier Callout: Security Warning on IoT -->
+                    <div class="bg-black/40 border-l-4 border-amber-400 p-5 rounded-r-xl space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-extrabold text-amber-300 uppercase tracking-wider">
+                            <span>⚠️</span> CompTIA Security Trap: The Internet of Things (IoT)
+                        </div>
+                        <p class="text-[14px] text-slate-200 leading-relaxed">
+                            When embedded computers are augmented with network connectivity (Wi-Fi, Bluetooth, Zigbee), they become <strong>IoT devices</strong> (e.g. smart thermostats, IP surveillance cameras, smart lighting). In enterprise environments, IoT devices represent major attack vectors because they often ship with hardcoded manufacturer default credentials and lack automated firmware patching mechanisms. IT administrators must isolate all IoT devices onto dedicated virtual local area networks (VLANs).
                         </p>
                     </div>
                 </div>
 
-                <!-- Section Summary Box -->
-                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400">
-                    <span>Summary: Computing devices span general-purpose PCs and enterprise servers to mobile handhelds, immersion gaming systems, and dedicated single-function embedded IoT appliances.</span>
-                    <a href="#lo-1-4" class="text-netcom-lime hover:underline font-semibold flex items-center gap-1 shrink-0 ml-4">
+                <!-- Section Summary Footer -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400 flex-wrap gap-2">
+                    <span>Summary: Devices range from general-purpose desktop PCs and servers to mobile handhelds, gaming setups, and dedicated single-function embedded IoT microcontrollers.</span>
+                    <a href="#lo-1-4" class="text-netcom-lime hover:underline font-bold flex items-center gap-1">
                         Next: LO 1.4 Understand Your Data &rarr;
                     </a>
                 </div>
@@ -695,151 +693,155 @@
             <!-- ========================================================================= -->
             <!-- SECTION 1.4: UNDERSTAND YOUR DATA                                         -->
             <!-- ========================================================================= -->
-            <section id="lo-1-4" class="scroll-mt-20 bg-netcom-surface/50 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section id="lo-1-4" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
                 <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-4 flex-wrap gap-3">
+                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark">LO 1.4</span>
-                            <span class="text-xs font-semibold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 20 &ndash; 24</span>
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.4</span>
+                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 20 &ndash; 24</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Understand Your Data</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Understand Your Data</h2>
                     </div>
-                    <span class="text-xs text-slate-400 bg-black/30 px-3 py-1.5 rounded-full border border-white/5">PII Classification &bull; Data Monetisation &bull; Cookie Architecture</span>
+                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">PII Classification &bull; Corporate Monetisation &bull; Cookie Architecture</span>
                 </div>
 
-                <!-- Subtopic Tab Buttons -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3" data-tab-group="lo1-4">
-                    <button class="tab-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-pii">
+                <!-- Subtopic Tabs -->
+                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-4">
+                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-pii">
                         1.4.1 Direct vs. Indirect PII
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-monetisation">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-monetisation">
                         1.4.2 Corporate Monetisation
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-cookies">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-4-cookies">
                         1.4.3 Cookies: Good vs. Bad
                     </button>
                 </div>
 
-                <!-- Subtopic: Direct vs Indirect PII -->
-                <div id="lo1-4-pii" class="tab-content space-y-5">
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>Personally Identifiable Information (PII)</strong> refers to any information that can be used to distinguish or trace an individual&apos;s identity. In CompTIA Tech+, PII is divided into two vital regulatory classifications:
+                <!-- Tab: Direct vs Indirect PII -->
+                <div id="lo1-4-pii" class="tab-content space-y-6">
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        <strong>Personally Identifiable Information (PII)</strong> refers to any information that can be used to distinguish or trace an individual&apos;s identity. In CompTIA Tech+, PII is divided into two core regulatory classifications:
                     </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <!-- Direct PII -->
-                        <div class="bg-netcom-card/90 border border-emerald-500/40 rounded-xl p-5 space-y-3">
+                        <div class="bg-netcom-card-elevated border border-emerald-500/50 rounded-xl p-6 space-y-3.5">
                             <div class="flex items-center justify-between">
-                                <span class="font-bold text-sm text-emerald-400 flex items-center gap-2">
+                                <span class="font-extrabold text-base text-emerald-400 flex items-center gap-2">
                                     <span>🎯</span> Direct PII
                                 </span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">Single Identifier</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold uppercase">Standalone Identifier</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Information that can <strong>uniquely identify a specific person on its own</strong> without requiring any supporting contextual data.
+                            <p class="text-[14px] text-slate-200 leading-relaxed">
+                                Information that can <strong>uniquely identify a specific person on its own</strong> without requiring any supporting contextual data points.
                             </p>
-                            <div class="p-3 bg-black/40 rounded-lg space-y-1 text-xs">
-                                <div class="font-mono text-netcom-lime font-semibold">&bull; Full Legal Name</div>
-                                <div class="font-mono text-netcom-lime font-semibold">&bull; National Insurance / Social Security Number</div>
-                                <div class="font-mono text-netcom-lime font-semibold">&bull; Passport / Driver&apos;s Licence Number</div>
-                                <div class="font-mono text-netcom-lime font-semibold">&bull; Home Physical Address</div>
-                                <div class="font-mono text-netcom-lime font-semibold">&bull; Biometric Record (Fingerprint / Retina Scan)</div>
+                            <div class="p-4 bg-black/40 rounded-xl space-y-2 text-xs sm:text-sm">
+                                <div class="font-mono text-netcom-lime font-bold">&bull; Full Legal Name</div>
+                                <div class="font-mono text-netcom-lime font-bold">&bull; National Insurance / Social Security Number</div>
+                                <div class="font-mono text-netcom-lime font-bold">&bull; Passport / Driver&apos;s Licence Number</div>
+                                <div class="font-mono text-netcom-lime font-bold">&bull; Home Physical Street Address</div>
+                                <div class="font-mono text-netcom-lime font-bold">&bull; Biometric Record (Fingerprint / Retina Scan)</div>
                             </div>
                         </div>
 
                         <!-- Indirect PII -->
-                        <div class="bg-netcom-card/90 border border-amber-500/40 rounded-xl p-5 space-y-3">
+                        <div class="bg-netcom-card-elevated border border-amber-500/50 rounded-xl p-6 space-y-3.5">
                             <div class="flex items-center justify-between">
-                                <span class="font-bold text-sm text-amber-400 flex items-center gap-2">
+                                <span class="font-extrabold text-base text-amber-400 flex items-center gap-2">
                                     <span>🧩</span> Indirect PII (Quasi-Identifiers)
                                 </span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">Aggregate Linkage</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-bold uppercase">Aggregate Linkage</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Information that describes an individual&apos;s attributes but <strong>cannot identify them alone</strong>. However, when multiple indirect points are combined, they reliably pinpoint an individual.
+                            <p class="text-[14px] text-slate-200 leading-relaxed">
+                                Information that describes an individual&apos;s attributes but <strong>cannot identify them in isolation</strong>. When multiple indirect points are aggregated, they pinpoint an individual.
                             </p>
-                            <div class="p-3 bg-black/40 rounded-lg space-y-1 text-xs">
-                                <div class="font-mono text-amber-300 font-semibold">&bull; Postcode / Zip Code</div>
-                                <div class="font-mono text-amber-300 font-semibold">&bull; Gender / Biological Sex</div>
-                                <div class="font-mono text-amber-300 font-semibold">&bull; Date of Birth / Age Range</div>
-                                <div class="font-mono text-amber-300 font-semibold">&bull; Height, Weight, Eye Colour</div>
-                                <div class="font-mono text-amber-300 font-semibold">&bull; Job Title / Department</div>
+                            <div class="p-4 bg-black/40 rounded-xl space-y-2 text-xs sm:text-sm">
+                                <div class="font-mono text-amber-300 font-bold">&bull; Postcode / Zip Code</div>
+                                <div class="font-mono text-amber-300 font-bold">&bull; Gender / Biological Sex</div>
+                                <div class="font-mono text-amber-300 font-bold">&bull; Date of Birth / Age Range</div>
+                                <div class="font-mono text-amber-300 font-bold">&bull; Height, Weight, Eye Colour</div>
+                                <div class="font-mono text-amber-300 font-bold">&bull; Job Title / Department / IP Address</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Re-identification Warning Box -->
-                    <div class="bg-black/40 border-l-4 border-amber-400 p-4 rounded-r-xl text-xs text-slate-300 space-y-1">
-                        <strong class="text-white block font-bold">The Re-Identification Risk:</strong>
-                        <span>Statistical studies prove that combining just three indirect data points (5-digit postal code + gender + birth date) can uniquely re-identify over 87% of the total population!</span>
+                    <!-- 3-Tier Callout: CompTIA Tech+ Exam Invariant -->
+                    <div class="bg-netcom-dark border-l-4 border-amber-400 p-5 rounded-r-xl space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-extrabold text-amber-300 uppercase tracking-wider">
+                            <span>📌</span> The Re-Identification Hazard
+                        </div>
+                        <p class="text-[14px] text-slate-200 leading-relaxed">
+                            A classic CompTIA exam scenario explores whether &quot;anonymous&quot; data is genuinely anonymous. Academic studies famously proved that combining just three indirect data points (<strong>5-digit postal code + gender + date of birth</strong>) uniquely identifies up to <strong>87% of the total population</strong>. IT professionals must treat aggregated indirect PII with the same confidentiality as direct PII!
+                        </p>
                     </div>
                 </div>
 
-                <!-- Subtopic: Corporate Monetisation -->
-                <div id="lo1-4-monetisation" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">How Companies Monetise User Data (Slide 22)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        In commercial digital services, personal data is monetised through targeted marketing algorithms and secondary data exchange markets.
+                <!-- Tab: Corporate Monetisation -->
+                <div id="lo1-4-monetisation" class="tab-content hidden space-y-5">
+                    <h3 class="text-base font-bold text-white">How Companies Monetise User Data (Slide 22)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        In commercial digital platforms, user data is described as the currency of the modern web. Platforms monetise data through two primary commercial vectors:
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Targeted Marketing</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-2.5">
+                            <div class="font-extrabold text-netcom-lime text-base">Targeted Marketing Algorithms</div>
                             <p class="text-slate-300 leading-relaxed">
                                 Platforms track search queries, location check-ins, purchase history, and content engagement to construct detailed behavioral profiles. Advertisers bid dynamically to present hyper-specific commercial offerings directly tailored to individual psychological triggers.
                             </p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <div class="font-bold text-netcom-lime text-sm">Data Brokering</div>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-2.5">
+                            <div class="font-extrabold text-netcom-lime text-base">Data Brokering Syndicates</div>
                             <p class="text-slate-300 leading-relaxed">
-                                Specialised corporations known as <strong>Data Brokers</strong> crawl public records, purchase store loyalty datasets, and aggregate social telemetry to build massive demographic dossiers on consumers, reselling these profiles to insurers, loan underwriters, and marketers without direct consumer consent.
+                                Specialised corporations known as <strong>Data Brokers</strong> harvest public voter registrations, purchase supermarket loyalty records, and scrape social telemetry to build massive demographic dossiers on consumers, reselling these profiles to insurers, loan underwriters, and marketers without direct consumer consent.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Cookies -->
-                <div id="lo1-4-cookies" class="tab-content hidden space-y-5">
+                <!-- Tab: Cookies -->
+                <div id="lo1-4-cookies" class="tab-content hidden space-y-6">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-sm font-bold text-white">The Dual Nature of HTTP Cookies (Slide 24)</h3>
-                        <span class="text-xs text-netcom-lavender font-mono">Header: Set-Cookie</span>
+                        <h3 class="text-base font-bold text-white">The Dual Nature of HTTP Cookies (Slide 24)</h3>
+                        <span class="text-xs text-netcom-lime font-mono bg-netcom-lime/10 px-2.5 py-1 rounded border border-netcom-lime/30">Header: Set-Cookie</span>
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        A cookie is a lightweight string of state data stored in the client browser by web servers. Cookies enable stateless web protocols (HTTP) to remember user identity across page loads.
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        A cookie is a lightweight string of state data stored in the client browser by web servers. Cookies enable stateless web protocols (HTTP) to remember user identity across separate page loads.
                     </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <!-- Beneficial Cookies -->
-                        <div class="bg-netcom-card/80 border border-emerald-500/30 rounded-xl p-4 space-y-2 text-xs">
-                            <div class="font-bold text-emerald-400 text-sm flex items-center gap-1.5">
+                        <div class="bg-netcom-card-elevated border border-emerald-500/40 rounded-xl p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+                            <div class="font-extrabold text-emerald-400 text-base flex items-center gap-2">
                                 <span>🍪</span> Beneficial / Essential Functions
                             </div>
-                            <ul class="space-y-1.5 text-slate-300 list-disc list-inside">
-                                <li><strong>Session Continuity:</strong> Keeps you logged into web banking or Canvas as you click between tabs.</li>
-                                <li><strong>Shopping Cart Retention:</strong> Remembers items added to an online cart across multiple visits.</li>
-                                <li><strong>User Preferences:</strong> Preserves language selection, volume controls, and dark-mode display options.</li>
+                            <ul class="space-y-2 text-slate-300 list-disc list-inside">
+                                <li><strong>Session Continuity:</strong> Keeps you authenticated inside Canvas or web banking as you switch pages.</li>
+                                <li><strong>Shopping Cart Persistence:</strong> Preserves items in an e-commerce basket across separate sessions.</li>
+                                <li><strong>User Preferences:</strong> Remembers your language selection, audio volume, and dark-mode settings.</li>
                             </ul>
                         </div>
 
                         <!-- Risky / Bad Cookies -->
-                        <div class="bg-netcom-card/80 border border-red-500/30 rounded-xl p-4 space-y-2 text-xs">
-                            <div class="font-bold text-red-400 text-sm flex items-center gap-1.5">
+                        <div class="bg-netcom-card-elevated border border-red-500/40 rounded-xl p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+                            <div class="font-extrabold text-red-400 text-base flex items-center gap-2">
                                 <span>⚠️</span> Risky / Malicious Vectors (Slide 24)
                             </div>
-                            <ul class="space-y-1.5 text-slate-300 list-disc list-inside">
-                                <li><strong>Third-Party Tracking:</strong> Ad networks drop persistent tracking cookies to follow your browsing across unrelated external websites.</li>
-                                <li><strong>Session Hijacking:</strong> Attackers stealing an active authentication cookie can impersonate the victim without needing their password.</li>
-                                <li><strong>Cross-Site Scripting (XSS):</strong> Unsanitized web scripts stealing cookies and transferring sensitive tokens to attacker servers.</li>
+                            <ul class="space-y-2 text-slate-300 list-disc list-inside">
+                                <li><strong>Third-Party Tracking:</strong> Advertising trackers drop persistent cookies to stalk your browsing habits across hundreds of unrelated domains.</li>
+                                <li><strong>Session Hijacking:</strong> Malicious actors intercepting an active session cookie can clone your login without entering a password.</li>
+                                <li><strong>Cross-Site Scripting (XSS):</strong> Unsanitised web scripts executing in the browser to siphon authentication cookies to hacker servers.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section Summary Box -->
-                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400">
+                <!-- Section Summary Footer -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400 flex-wrap gap-2">
                     <span>Summary: Personal data consists of Direct and Indirect PII, which is monetised by commercial platforms and tracked via stateful HTTP cookies.</span>
-                    <a href="#lo-1-5" class="text-netcom-lime hover:underline font-semibold flex items-center gap-1 shrink-0 ml-4">
+                    <a href="#lo-1-5" class="text-netcom-lime hover:underline font-bold flex items-center gap-1">
                         Next: LO 1.5 Data Privacy &amp; Regulations &rarr;
                     </a>
                 </div>
@@ -848,214 +850,214 @@
             <!-- ========================================================================= -->
             <!-- SECTION 1.5: DATA PRIVACY & REGULATIONS                                  -->
             <!-- ========================================================================= -->
-            <section id="lo-1-5" class="scroll-mt-20 bg-netcom-surface/50 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+            <section id="lo-1-5" class="scroll-mt-12 bg-netcom-card border border-white/10 rounded-2xl p-6 sm:p-9 space-y-7 shadow-xl">
                 <!-- Section Header -->
-                <div class="flex items-start justify-between border-b border-white/10 pb-4 flex-wrap gap-3">
+                <div class="flex items-start justify-between border-b border-white/10 pb-5 flex-wrap gap-3">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark">LO 1.5</span>
-                            <span class="text-xs font-semibold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 26 &ndash; 32</span>
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <span class="px-2.5 py-0.5 rounded text-xs font-extrabold bg-netcom-lime text-netcom-dark font-mono">LO 1.5</span>
+                            <span class="text-xs font-bold text-netcom-lavender tracking-wider uppercase">Slide Reference: Slides 26 &ndash; 32</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Data Privacy &amp; Regulations</h2>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Data Privacy &amp; Regulations</h2>
                     </div>
-                    <span class="text-xs text-slate-400 bg-black/30 px-3 py-1.5 rounded-full border border-white/5">Communications &bull; FTP vs SFTP &bull; AI Risks &bull; GDPR &amp; HIPAA</span>
+                    <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Communications &bull; FTP vs SFTP &bull; AI Risks &bull; GDPR &amp; HIPAA</span>
                 </div>
 
-                <!-- Subtopic Tab Buttons -->
-                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3" data-tab-group="lo1-5">
-                    <button class="tab-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-social">
+                <!-- Subtopic Tabs -->
+                <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4" data-tab-group="lo1-5">
+                    <button class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-social">
                         1.5.1 Social Media &amp; Permanence
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-comms">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-comms">
                         1.5.2 Plaintext SMS vs. Encrypted IM
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ftp">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ftp">
                         1.5.3 File Transfers: FTP vs. SFTP
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ai">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-ai">
                         1.5.4 Privacy in Artificial Intelligence
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-regs">
+                    <button class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-white/10 text-white transition hover:bg-white/20" data-target="lo1-5-regs">
                         1.5.5 Privacy Regulations (GDPR &amp; Beyond)
                     </button>
                 </div>
 
-                <!-- Subtopic: Social Media -->
-                <div id="lo1-5-social" class="tab-content space-y-4">
-                    <h3 class="text-sm font-bold text-white">Content Ownership &amp; Digital Footprint Permanence (Slide 27)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        When users interact with social platforms, they enter into binding contractual Terms of Service agreements governing data sovereignty:
+                <!-- Tab: Social Media -->
+                <div id="lo1-5-social" class="tab-content space-y-5">
+                    <h3 class="text-base font-bold text-white">Content Ownership &amp; Digital Permanence (Slide 27)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        When users interact with social platforms, they enter into legally binding Terms of Service agreements governing digital sovereignty:
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-1">
-                            <span class="font-bold text-netcom-lime block">Who Owns the Content?</span>
-                            <span class="text-slate-300">While you hold creator copyright, platform terms usually grant the provider a broad, royalty-free, transferable worldwide licence to distribute, display, and analyze your media.</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Who Owns Social Content?</span>
+                            <span class="text-slate-300 leading-relaxed">While you technically retain creator copyright, platform terms grant the provider a broad, transferable, royalty-free worldwide licence to display, distribute, and analyse your media.</span>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-1">
-                            <span class="font-bold text-netcom-lime block">Digital Permanence</span>
-                            <span class="text-slate-300">Once published, content is mirrored across search caches, public archives, and peer screenshots. &quot;Deleting&quot; a post removes it from the feed, but rarely eliminates it from servers.</span>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Digital Permanence</span>
+                            <span class="text-slate-300 leading-relaxed">Once published, content is mirrored across search engine caches, public archives, and peer screenshots. &quot;Deleting&quot; a post removes it from the public feed, but rarely eliminates it from backup servers.</span>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-1">
-                            <span class="font-bold text-netcom-lime block">Visibility Scoping</span>
-                            <span class="text-slate-300">Technicians must understand permission boundary segmentation—ensuring private executive feeds or personal lives are not indexed by public scrapers.</span>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 space-y-2">
+                            <span class="font-bold text-netcom-lime block text-sm">Audience Segmentation</span>
+                            <span class="text-slate-300 leading-relaxed">IT technicians must enforce strict permission boundaries—ensuring personal social profiles do not inadvertently leak corporate internal data or facility layouts.</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: SMS vs Encrypted IM -->
-                <div id="lo1-5-comms" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">Communication Protocols: Plaintext vs. End-to-End Encryption (Slide 28)</h3>
+                <!-- Tab: SMS vs Encrypted IM -->
+                <div id="lo1-5-comms" class="tab-content hidden space-y-6">
+                    <h3 class="text-base font-bold text-white">Communication Security: Plaintext vs. End-to-End Encryption (Slide 28)</h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div class="bg-netcom-card/80 border border-red-500/30 rounded-xl p-5 space-y-3">
-                            <div class="font-bold text-red-400 text-sm flex items-center justify-between">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-red-500/40 rounded-xl p-6 space-y-3.5">
+                            <div class="font-extrabold text-red-400 text-base flex items-center justify-between">
                                 <span>Short Message Service (SMS)</span>
-                                <span class="text-[10px] bg-red-500/20 px-2 py-0.5 rounded text-red-300">Plaintext Protocol</span>
+                                <span class="text-[10px] bg-red-500/20 px-2 py-0.5 rounded text-red-300 font-bold uppercase">Plaintext Protocol</span>
                             </div>
                             <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                                <li>Transmitted over cellular signaling control channels without encryption.</li>
-                                <li>Telecommunications carriers log, store, and can inspect message contents.</li>
-                                <li>Vulnerable to rogue cell towers (IMSI-catchers) and SIM-swapping interception.</li>
-                                <li><strong>Never use plain SMS to transmit passwords, banking pins, or confidential PII!</strong></li>
+                                <li>Transmitted over cellular signaling control channels without native cryptographic encryption.</li>
+                                <li>Mobile network operators log, archive, and can inspect message payload contents.</li>
+                                <li>Vulnerable to rogue cellular towers (IMSI-catchers) and SIM-swapping account takeovers.</li>
+                                <li><strong>CompTIA Rule: Never transmit passwords, banking pins, or sensitive PII over unencrypted SMS!</strong></li>
                             </ul>
                         </div>
 
-                        <div class="bg-netcom-card/80 border border-emerald-500/30 rounded-xl p-5 space-y-3">
-                            <div class="font-bold text-emerald-400 text-sm flex items-center justify-between">
+                        <div class="bg-netcom-card-elevated border border-emerald-500/40 rounded-xl p-6 space-y-3.5">
+                            <div class="font-extrabold text-emerald-400 text-base flex items-center justify-between">
                                 <span>Instant Messaging (Signal, WhatsApp)</span>
-                                <span class="text-[10px] bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-300">End-to-End Encryption (E2EE)</span>
+                                <span class="text-[10px] bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-300 font-bold uppercase">End-to-End Encryption (E2EE)</span>
                             </div>
                             <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                                <li>Transmitted over internet data channels (TCP/IP).</li>
-                                <li>Messages are encrypted on the sender&apos;s device and decrypted strictly on the recipient&apos;s device.</li>
-                                <li>The service provider possesses no cryptographic private key and cannot read transit packets.</li>
-                                <li>Provides cryptographic integrity and protects against network sniffing.</li>
+                                <li>Transmitted over internet TCP/IP channels with strong asymmetric public-key cryptography.</li>
+                                <li>Messages are encrypted on the sender&apos;s handset and decrypted exclusively on the recipient&apos;s device.</li>
+                                <li>The service provider possesses no private key and cannot decipher transit packet streams.</li>
+                                <li>Guarantees mathematical payload confidentiality and immune to local Wi-Fi sniffing.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: FTP vs SFTP -->
-                <div id="lo1-5-ftp" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">File Transfers: Unsecure FTP vs. Secure SFTP (Slide 29)</h3>
+                <!-- Tab: FTP vs SFTP -->
+                <div id="lo1-5-ftp" class="tab-content hidden space-y-6">
+                    <h3 class="text-base font-bold text-white">File Transfers: Unsecure FTP vs. Secure SFTP (Slide 29)</h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
                         <!-- FTP -->
-                        <div class="bg-black/40 border border-red-500/40 rounded-xl p-5 space-y-2">
+                        <div class="bg-black/40 border border-red-500/40 rounded-xl p-6 space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="font-bold text-red-400 text-sm">FTP (File Transfer Protocol)</span>
-                                <span class="font-mono text-[10px] text-red-300">Port 21 &bull; UNSECURE</span>
+                                <span class="font-extrabold text-red-400 text-base">FTP (File Transfer Protocol)</span>
+                                <span class="font-mono text-xs text-red-300 font-bold">Port 21 &bull; UNSECURE</span>
                             </div>
                             <p class="text-slate-300 leading-relaxed">
                                 A legacy protocol designed in the 1970s. FTP transmits both authentication credentials (usernames, passwords) and payload files across the network in <strong>clear, unencrypted plaintext</strong>.
                             </p>
-                            <div class="p-2 rounded bg-red-950/40 border border-red-800/40 text-red-200 text-[11px]">
-                                Any attacker running a packet sniffer (e.g. Wireshark) on the local subnet can read your passwords and download your files in real time.
+                            <div class="p-3 rounded-lg bg-red-950/40 border border-red-800/40 text-red-200 text-xs">
+                                <strong>Vulnerability:</strong> Any adversary running a packet sniffer (e.g. Wireshark) on the local subnet can read your passwords and download your files in real time.
                             </div>
                         </div>
 
                         <!-- SFTP -->
-                        <div class="bg-black/40 border border-netcom-lime/40 rounded-xl p-5 space-y-2">
+                        <div class="bg-black/40 border border-netcom-lime/40 rounded-xl p-6 space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="font-bold text-netcom-lime text-sm">SFTP (SSH File Transfer Protocol)</span>
-                                <span class="font-mono text-[10px] text-netcom-lime">Port 22 &bull; ENCRYPTED</span>
+                                <span class="font-extrabold text-netcom-lime text-base">SFTP (SSH File Transfer Protocol)</span>
+                                <span class="font-mono text-xs text-netcom-lime font-bold">Port 22 &bull; ENCRYPTED</span>
                             </div>
                             <p class="text-slate-300 leading-relaxed">
                                 The modern enterprise standard. SFTP operates through an encrypted <strong>Secure Shell (SSH)</strong> transport tunnel. Both login credentials and data streams are cryptographically scrambled.
                             </p>
-                            <div class="p-2 rounded bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-[11px]">
-                                CompTIA Tech+ Golden Rule: <em>Always use SFTP for all file transfers across corporate and public networks.</em>
+                            <div class="p-3 rounded-lg bg-netcom-lime/10 border border-netcom-lime/30 text-netcom-lime text-xs">
+                                <strong>CompTIA Tech+ Golden Rule:</strong> <em>Always select SFTP for all file transfers across corporate and public network connections.</em>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: AI Privacy -->
-                <div id="lo1-5-ai" class="tab-content hidden space-y-4">
-                    <h3 class="text-sm font-bold text-white">Privacy Concerns in Artificial Intelligence (Slide 30)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Modern Generative Artificial Intelligence (AI) and Large Language Models (LLMs) present emerging data protection hazards that IT support staff must govern:
+                <!-- Tab: AI Privacy -->
+                <div id="lo1-5-ai" class="tab-content hidden space-y-5">
+                    <h3 class="text-base font-bold text-white">Privacy Considerations in Artificial Intelligence (Slide 30)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
+                        Modern Generative Artificial Intelligence (AI) and Large Language Models (LLMs) present emerging data protection hazards that IT technicians must govern:
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <strong class="text-netcom-lime block text-sm">Internet as Knowledge Source</strong>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs sm:text-sm">
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-2.5">
+                            <strong class="text-netcom-lime block text-base font-bold">The Internet as Knowledge Corpus</strong>
                             <p class="text-slate-300 leading-relaxed">
-                                Foundation models are trained by scraping vast quantities of publicly accessible web text, forums, and code repositories. This training ingestion frequently captures personal contact details, medical discussions, and intellectual property without owner consent.
+                                Foundation models are trained by scraping vast quantities of publicly accessible web text, forums, and code repositories. This scraping frequently ingests personal contact details, medical discussions, and copyrighted works without owner consent.
                             </p>
                         </div>
-                        <div class="bg-netcom-card/80 border border-white/10 rounded-xl p-4 space-y-2">
-                            <strong class="text-netcom-lime block text-sm">Prompt Telemetry &amp; Corporate Leakage</strong>
+                        <div class="bg-netcom-card-elevated border border-white/10 rounded-xl p-5 sm:p-6 space-y-2.5">
+                            <strong class="text-netcom-lime block text-base font-bold">Prompt Telemetry &amp; Corporate Leakage</strong>
                             <p class="text-slate-300 leading-relaxed">
-                                When employees paste proprietary software source code, customer records, or financial spreadsheets into public AI chatbots, that sensitive data is logged on vendor servers and may be regurgitated in response to queries from competing third parties.
+                                When employees paste proprietary software source code, customer records, or financial spreadsheets into public AI chatbots, that sensitive data is logged on vendor servers and may be recycled in response to queries from competing third parties.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Subtopic: Regulations -->
-                <div id="lo1-5-regs" class="tab-content hidden space-y-5">
-                    <h3 class="text-sm font-bold text-white">Global &amp; Sectoral Privacy Regulations (Slide 31)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
+                <!-- Tab: Regulations -->
+                <div id="lo1-5-regs" class="tab-content hidden space-y-6">
+                    <h3 class="text-base font-bold text-white">Global &amp; Sectoral Privacy Regulations (Slide 31)</h3>
+                    <p class="text-[15px] text-slate-200 leading-relaxed">
                         Organisations that process personal data are legally bound by regional and sectoral compliance mandates carrying severe legal and financial penalties for breaches.
                     </p>
 
                     <!-- GDPR Focus Card -->
-                    <div class="bg-gradient-to-r from-netcom-card to-netcom-dark border border-netcom-lime/50 rounded-xl p-5 space-y-3">
+                    <div class="bg-gradient-to-r from-netcom-card-elevated to-netcom-dark border border-netcom-lime/50 rounded-xl p-6 space-y-3.5">
                         <div class="flex items-center justify-between flex-wrap gap-2">
-                            <span class="font-extrabold text-white text-sm flex items-center gap-2">
+                            <span class="font-extrabold text-white text-base flex items-center gap-2">
                                 <span class="text-netcom-lime">🇪🇺 / 🇬🇧</span> General Data Protection Regulation (GDPR)
                             </span>
-                            <span class="text-[11px] font-bold text-netcom-lime bg-netcom-lime/10 px-2 py-0.5 rounded border border-netcom-lime/30">European &amp; UK Standard</span>
+                            <span class="text-xs font-bold text-netcom-lime bg-netcom-lime/10 px-2.5 py-0.5 rounded border border-netcom-lime/30">European &amp; UK Standard</span>
                         </div>
-                        <p class="text-xs text-netcom-lavender leading-relaxed">
-                            The gold standard of international privacy law. Establishes legal grounds for data processing, mandates data protection by design, and requires reporting major data breaches to authorities within <strong>72 hours</strong>.
+                        <p class="text-xs sm:text-sm text-netcom-lavender leading-relaxed">
+                            The gold standard of international privacy law. Establishes legal grounds for data processing, mandates privacy by design, and requires reporting major data breaches to authorities within <strong>72 hours</strong>.
                         </p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
-                            <div class="p-2 rounded bg-black/40 border border-white/5 text-slate-300">
-                                <strong>Right to Access:</strong> Request a copy of all held data (SAR).
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-xs">
+                            <div class="p-3 rounded-lg bg-black/40 border border-white/5 text-slate-300">
+                                <strong class="text-white block mb-0.5">Right to Access:</strong> Request a copy of all held personal data (SAR).
                             </div>
-                            <div class="p-2 rounded bg-black/40 border border-white/5 text-slate-300">
-                                <strong>Right to Erasure:</strong> &quot;Right to be Forgotten&quot; upon request.
+                            <div class="p-3 rounded-lg bg-black/40 border border-white/5 text-slate-300">
+                                <strong class="text-white block mb-0.5">Right to Erasure:</strong> The &quot;Right to be Forgotten&quot; upon request.
                             </div>
-                            <div class="p-2 rounded bg-black/40 border border-white/5 text-slate-300">
-                                <strong>Data Portability:</strong> Transfer data between service providers.
+                            <div class="p-3 rounded-lg bg-black/40 border border-white/5 text-slate-300">
+                                <strong class="text-white block mb-0.5">Data Portability:</strong> Transfer data between service providers freely.
                             </div>
-                            <div class="p-2 rounded bg-black/40 border border-white/5 text-red-300">
-                                <strong>Penalties:</strong> Fines up to <strong>&euro;20 Million or 4%</strong> of global turnover!
+                            <div class="p-3 rounded-lg bg-black/40 border border-white/5 text-red-300">
+                                <strong class="text-red-400 block mb-0.5">Hefty Penalties:</strong> Fines up to <strong>&euro;20 Million or 4%</strong> of global turnover!
                             </div>
                         </div>
                     </div>
 
                     <!-- Sectoral Regulations Matrix -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3.5 space-y-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1">
                             <div class="font-bold text-netcom-lime">HIPAA</div>
-                            <div class="text-[10px] text-slate-400">US Healthcare</div>
-                            <p class="text-slate-300 text-[11px]">Protects Protected Health Information (PHI) held by medical providers and insurers.</p>
+                            <div class="text-[10px] text-slate-400 font-mono">US Healthcare</div>
+                            <p class="text-slate-300 text-xs">Protects Protected Health Information (PHI) held by medical providers and insurers.</p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3.5 space-y-1">
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1">
                             <div class="font-bold text-netcom-lime">FERPA</div>
-                            <div class="text-[10px] text-slate-400">US Education</div>
-                            <p class="text-slate-300 text-[11px]">Guarantees the confidentiality of student academic and disciplinary records.</p>
+                            <div class="text-[10px] text-slate-400 font-mono">US Education</div>
+                            <p class="text-slate-300 text-xs">Guarantees the confidentiality of student academic and disciplinary records.</p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3.5 space-y-1">
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1">
                             <div class="font-bold text-netcom-lime">FTC Act</div>
-                            <div class="text-[10px] text-slate-400">US Federal</div>
-                            <p class="text-slate-300 text-[11px]">Enforces regulatory action against deceptive privacy policies and commercial scams.</p>
+                            <div class="text-[10px] text-slate-400 font-mono">US Federal</div>
+                            <p class="text-slate-300 text-xs">Enforces regulatory action against deceptive privacy policies and commercial scams.</p>
                         </div>
-                        <div class="bg-black/30 border border-white/10 rounded-xl p-3.5 space-y-1">
+                        <div class="bg-black/30 border border-white/10 rounded-xl p-4 space-y-1">
                             <div class="font-bold text-netcom-lime">CCPA / NY SHIELD</div>
-                            <div class="text-[10px] text-slate-400">US State Laws</div>
-                            <p class="text-slate-300 text-[11px]">Grants consumers rights to opt-out of data sale and mandates strict cybersecurity controls.</p>
+                            <div class="text-[10px] text-slate-400 font-mono">US State Laws</div>
+                            <p class="text-slate-300 text-xs">Grants consumers rights to opt-out of data sale and mandates strict cybersecurity controls.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section Summary Box -->
-                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400">
+                <!-- Section Summary Footer -->
+                <div class="p-4 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-xs text-slate-400 flex-wrap gap-2">
                     <span>Summary: Data privacy requires choosing secure transport protocols (SFTP over FTP, E2EE over plaintext SMS), guarding AI inputs, and enforcing GDPR/HIPAA compliance standards.</span>
-                    <a href="#lo-1-1" class="text-netcom-lime hover:underline font-semibold flex items-center gap-1 shrink-0 ml-4">
+                    <a href="#lo-1-1" class="text-netcom-lime hover:underline font-bold flex items-center gap-1">
                         &uarr; Back to Top (LO 1.1)
                     </a>
                 </div>
@@ -1109,7 +1111,7 @@
                 });
             }
 
-            // 3. Scrollspy for Vertical Ribbon Navigation Highlighting
+            // 3. Scrollspy for Compact Vertical Ribbon Navigation Highlighting
             const sections = document.querySelectorAll('section[id^="lo-"]');
             const navLinks = document.querySelectorAll('#navLinks .nav-link');
 
