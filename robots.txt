@@ -1,0 +1,85 @@
+# Comprehensive Crawler & AI Scraper Disallow
+# Instructs all search engines, archiving services, and AI training crawlers to stay away.
+
+User-agent: *
+Disallow: /
+
+# Google Search & Google Extended (Gemini AI Training)
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Googlebot-News
+Disallow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Disallow: /
+
+User-agent: BingPreview
+Disallow: /
+
+# OpenAI Crawlers (ChatGPT & GPT-4/5 Training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Common Crawl (Mass Foundation Model Training Scraper)
+User-agent: CCBot
+Disallow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Disallow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+# Meta / Facebook AI
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Apple (Applebot & Apple Intelligence Scraper)
+User-agent: Applebot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Amazon AI & Alexa
+User-agent: Amazonbot
+Disallow: /
+
+# Other Prominent AI & SEO Spiders
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Cohere-ai
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
