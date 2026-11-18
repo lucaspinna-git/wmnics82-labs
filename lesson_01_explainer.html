@@ -366,44 +366,47 @@
                     <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">The Four Pillars: Input &bull; Processing &bull; Storage &bull; Output</span>
                 </div>
 
-                <!-- High-Contrast Computing Cycle Architecture Diagram -->
+                <!-- Interactive Synchronized Computing Cycle Architecture Diagram -->
                 <div class="bg-netcom-card-elevated border border-netcom-lime/30 rounded-xl p-6 shadow-xl space-y-4">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <div class="text-xs font-extrabold text-netcom-lime tracking-wider uppercase">Interactive Computing Cycle Architecture</div>
+                        <div class="flex items-center gap-2">
+                            <div class="text-xs font-extrabold text-netcom-lime tracking-wider uppercase">Interactive Computing Cycle Architecture</div>
+                            <span class="text-[10px] bg-netcom-lime/10 text-netcom-lime border border-netcom-lime/30 px-2 py-0.5 rounded font-bold uppercase tracking-wide">Click to Select Stage</span>
+                        </div>
                         <span class="text-[11px] text-slate-400 font-mono">Data (Raw) &rarr; Information (Meaningful)</span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
-                        <!-- Stage 1: Input -->
-                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-sm">1</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative" id="cycleCardsContainer">
+                        <!-- Stage 1: Input (Active by default) -->
+                        <div class="cycle-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1" data-cycle-card="lo1-2-input" role="button" tabindex="0">
+                            <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-sm shadow-[0_0_10px_#73f54a]">1</div>
                             <div class="font-extrabold text-sm text-white tracking-wide">INPUT</div>
                             <p class="text-xs text-slate-300">Raw electronic data, user gestures, and sensor signals enter the hardware boundary.</p>
-                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">Keyboard, Touch, Mic, Scanner</div>
+                            <div class="text-[11px] text-netcom-lime font-mono font-semibold">Keyboard, Touch, Mic, Scanner</div>
                         </div>
 
-                        <!-- Stage 2: Processing -->
-                        <div class="bg-black/40 border border-netcom-lime/60 rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.15)]">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-netcom-lime/20 text-netcom-lime flex items-center justify-center font-black text-sm">2</div>
+                        <!-- Stage 2: Processing (Neutral by default) -->
+                        <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-processing" role="button" tabindex="0">
+                            <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">2</div>
                             <div class="font-extrabold text-sm text-white tracking-wide">PROCESSING</div>
                             <p class="text-xs text-slate-300">The CPU executes machine instructions to transform raw data into structured information.</p>
-                            <div class="text-[11px] text-netcom-lime font-mono font-semibold">CPU (ALU, CU, Registers)</div>
+                            <div class="text-[11px] text-slate-400 font-mono font-semibold">CPU (ALU, CU, Registers)</div>
                         </div>
 
-                        <!-- Stage 3: Storage -->
-                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-black text-sm">3</div>
+                        <!-- Stage 3: Storage (Neutral by default) -->
+                        <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-storage" role="button" tabindex="0">
+                            <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">3</div>
                             <div class="font-extrabold text-sm text-white tracking-wide">STORAGE</div>
                             <p class="text-xs text-slate-300">Holding data and software instructions either temporarily (RAM) or permanently (SSD/HDD).</p>
-                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">RAM (Volatile) &bull; SSD (Persistent)</div>
+                            <div class="text-[11px] text-slate-400 font-mono font-semibold">RAM (Volatile) &bull; SSD (Persistent)</div>
                         </div>
 
-                        <!-- Stage 4: Output -->
-                        <div class="bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 transition">
-                            <div class="w-10 h-10 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-sm">4</div>
+                        <!-- Stage 4: Output (Neutral by default) -->
+                        <div class="cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition" data-cycle-card="lo1-2-output" role="button" tabindex="0">
+                            <div class="cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm">4</div>
                             <div class="font-extrabold text-sm text-white tracking-wide">OUTPUT</div>
                             <p class="text-xs text-slate-300">Presenting processed results to humans or forwarding them to downstream servers.</p>
-                            <div class="text-[11px] text-netcom-lavender font-mono font-semibold">Display, Audio, Network Feed</div>
+                            <div class="text-[11px] text-slate-400 font-mono font-semibold">Display, Audio, Network Feed</div>
                         </div>
                     </div>
                 </div>
@@ -1071,6 +1074,52 @@
     <!-- ========================================================================= -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Synchronize Computing Cycle Architecture Cards with Tabs
+            function syncCycleCard(targetId) {
+                const cycleCards = document.querySelectorAll('.cycle-card');
+                cycleCards.forEach(card => {
+                    const cardTarget = card.getAttribute('data-cycle-card');
+                    const numBadge = card.querySelector('.cycle-num');
+                    const subLabel = card.querySelector('.font-mono');
+                    
+                    if (cardTarget === targetId) {
+                        card.className = "cycle-card active bg-[#1e133d] border-2 border-netcom-lime rounded-xl p-5 text-center space-y-2 shadow-[0_0_20px_rgba(115,245,74,0.25)] ring-2 ring-netcom-lime/30 cursor-pointer transition transform -translate-y-1";
+                        if (numBadge) {
+                            numBadge.className = "cycle-num w-10 h-10 mx-auto rounded-full bg-netcom-lime text-netcom-dark flex items-center justify-center font-black text-sm shadow-[0_0_10px_#73f54a]";
+                        }
+                        if (subLabel) {
+                            subLabel.className = "text-[11px] text-netcom-lime font-mono font-semibold";
+                        }
+                    } else {
+                        card.className = "cycle-card bg-black/40 border border-white/10 rounded-xl p-5 text-center space-y-2 hover:border-netcom-lime/50 hover:bg-black/60 cursor-pointer transition";
+                        if (numBadge) {
+                            numBadge.className = "cycle-num w-10 h-10 mx-auto rounded-full bg-white/10 text-slate-200 flex items-center justify-center font-bold text-sm";
+                        }
+                        if (subLabel) {
+                            subLabel.className = "text-[11px] text-slate-400 font-mono font-semibold";
+                        }
+                    }
+                });
+            }
+
+            // Click listener for Computing Cycle Architecture Cards
+            document.querySelectorAll('.cycle-card').forEach(card => {
+                const handleCardClick = () => {
+                    const targetId = card.getAttribute('data-cycle-card');
+                    const matchingTabBtn = document.querySelector(`[data-tab-group="lo1-2"] [data-target="${targetId}"]`);
+                    if (matchingTabBtn) {
+                        matchingTabBtn.click();
+                    }
+                };
+                card.addEventListener('click', handleCardClick);
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleCardClick();
+                    }
+                });
+            });
+
             // 1. Tab Group Switcher
             document.querySelectorAll('[data-tab-group]').forEach(group => {
                 const buttons = group.querySelectorAll('.tab-btn');
@@ -1094,6 +1143,11 @@
                         const targetEl = document.getElementById(targetId);
                         if (targetEl) {
                             targetEl.classList.remove('hidden');
+                        }
+
+                        // If switching tabs in LO 1.2, synchronize architecture cards
+                        if (group.getAttribute('data-tab-group') === 'lo1-2') {
+                            syncCycleCard(targetId);
                         }
                     });
                 });
