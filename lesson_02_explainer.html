@@ -170,7 +170,6 @@
 <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Authentication • Password Management • Cryptography</span>
 </div>
 <!-- Subtopic Tab Buttons for LO 2.1 -->
-
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-auth"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Authentication &amp; Passwords</h3></div>
 <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
 <p>
@@ -228,77 +227,70 @@
 <strong>Length vs Complexity:</strong> Increasing length exponentially increases cryptographic entropy. A 16-character passphrase composed of random words (e.g. <code class="text-netcom-lime">Cobalt#Meadow!Velvet9</code>) is significantly more resilient against GPU-accelerated hashing clusters than an 8-character string with complex symbols.
                         </p>
 </div>
-
 <!-- Interactive Widget: Live Password Strength & Entropy Evaluator -->
 <div class="bg-gradient-to-br from-[#1b0b41]/95 to-black/70 border border-white/15 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl">
-    <div class="flex items-start justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
-        <div>
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender mb-1">
-                <svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+<div class="flex items-start justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
+<div>
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender mb-1">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 Interactive Lab: Live Password Strength &amp; Entropy Meter
             </div>
-            <h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Test Password Complexity &amp; Brute-Force Resistance</h4>
-        </div>
-        <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">NIST 800-63B Standards</span>
-    </div>
-
-    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+<h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Test Password Complexity &amp; Brute-Force Resistance</h4>
+</div>
+<span class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">NIST 800-63B Standards</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
         Type any passphrase or password string below. The meter evaluates mathematical pool entropy, character set diversity, length thresholds, and estimated cracking time against high-performance offline brute-force rigs.
     </p>
-
-    <!-- Password Input Box -->
-    <div class="space-y-3">
-        <div class="relative">
-            <input type="password" id="livePwdInput" placeholder="Enter a test password or passphrase (e.g. Tr0ub4dor&amp;3 or correct-horse-battery)..." class="w-full bg-black/50 border border-white/20 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime font-mono transition pr-24" autocomplete="off" spellcheck="false">
-            <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
-                <button type="button" id="pwdToggleBtn" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 transition" aria-label="Toggle password visibility">
+<!-- Password Input Box -->
+<div class="space-y-3">
+<div class="relative">
+<input autocomplete="off" class="w-full bg-black/50 border border-white/20 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime font-mono transition pr-24" id="livePwdInput" placeholder="Enter a test password or passphrase (e.g. Tr0ub4dor&amp;3 or correct-horse-battery)..." spellcheck="false" type="password"/>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<button aria-label="Toggle password visibility" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 transition" id="pwdToggleBtn" type="button">
                     Show
                 </button>
-            </div>
-        </div>
-
-        <!-- Dynamic Strength Bar -->
-        <div class="space-y-1.5">
-            <div class="flex items-center justify-between text-xs font-mono">
-                <span class="text-slate-400">Strength Rating: <strong id="pwdRatingText" class="text-slate-400 font-bold">Awaiting Input</strong></span>
-                <span class="text-slate-400 font-mono" id="pwdEntropyText">0 bits</span>
-            </div>
-            <div class="w-full h-2.5 bg-black/60 rounded-full overflow-hidden border border-white/10">
-                <div id="pwdStrengthBar" class="h-full w-0 bg-slate-600 transition-all duration-300 ease-out"></div>
-            </div>
-        </div>
-
-        <!-- Real-Time Metrics & Crack Time Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-xs text-center font-mono">
-            <div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
-                <div class="text-[10px] text-slate-400 uppercase">Length</div>
-                <div id="pwdLenVal" class="text-sm font-bold text-white">0</div>
-            </div>
-            <div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
-                <div class="text-[10px] text-slate-400 uppercase">Pool Size</div>
-                <div id="pwdPoolVal" class="text-sm font-bold text-white">0</div>
-            </div>
-            <div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
-                <div class="text-[10px] text-slate-400 uppercase">Entropy</div>
-                <div id="pwdBitsVal" class="text-sm font-bold text-white">0 bits</div>
-            </div>
-            <div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
-                <div class="text-[10px] text-slate-400 uppercase">Crack Time</div>
-                <div id="pwdCrackVal" class="text-xs font-bold text-slate-400 truncate">Instant</div>
-            </div>
-        </div>
-
-        <!-- Character Criteria Validation Pills -->
-        <div class="flex flex-wrap gap-2 pt-1 text-xs">
-            <span id="critLen" class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition">&bull; 12+ Characters</span>
-            <span id="critUpper" class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition">&bull; Uppercase (A-Z)</span>
-            <span id="critLower" class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition">&bull; Lowercase (a-z)</span>
-            <span id="critNum" class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition">&bull; Number (0-9)</span>
-            <span id="critSym" class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition">&bull; Symbol (!@#$)</span>
-        </div>
-    </div>
 </div>
-
+</div>
+<!-- Dynamic Strength Bar -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-xs font-mono">
+<span class="text-slate-400">Strength Rating: <strong class="text-slate-400 font-bold" id="pwdRatingText">Awaiting Input</strong></span>
+<span class="text-slate-400 font-mono" id="pwdEntropyText">0 bits</span>
+</div>
+<div class="w-full h-2.5 bg-black/60 rounded-full overflow-hidden border border-white/10">
+<div class="h-full w-0 bg-slate-600 transition-all duration-300 ease-out" id="pwdStrengthBar"></div>
+</div>
+</div>
+<!-- Real-Time Metrics & Crack Time Cards -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-xs text-center font-mono">
+<div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
+<div class="text-[10px] text-slate-400 uppercase">Length</div>
+<div class="text-sm font-bold text-white" id="pwdLenVal">0</div>
+</div>
+<div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
+<div class="text-[10px] text-slate-400 uppercase">Pool Size</div>
+<div class="text-sm font-bold text-white" id="pwdPoolVal">0</div>
+</div>
+<div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
+<div class="text-[10px] text-slate-400 uppercase">Entropy</div>
+<div class="text-sm font-bold text-white" id="pwdBitsVal">0 bits</div>
+</div>
+<div class="bg-black/40 border border-white/10 rounded-lg p-2.5 space-y-0.5">
+<div class="text-[10px] text-slate-400 uppercase">Crack Time</div>
+<div class="text-xs font-bold text-slate-400 truncate" id="pwdCrackVal">Instant</div>
+</div>
+</div>
+<!-- Character Criteria Validation Pills -->
+<div class="flex flex-wrap gap-2 pt-1 text-xs">
+<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition" id="critLen">• 12+ Characters</span>
+<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition" id="critUpper">• Uppercase (A-Z)</span>
+<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition" id="critLower">• Lowercase (a-z)</span>
+<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition" id="critNum">• Number (0-9)</span>
+<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400 transition" id="critSym">• Symbol (!@#$)</span>
+</div>
+</div>
+</div>
 </div>
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-mgmt"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.2</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Password Management &amp; Hygiene</h3></div>
 <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
@@ -395,78 +387,77 @@
                             </p>
 </div>
 </div>
-
-<!-- Interactive Widget: Caesar Shift Cipher Simulator -->
+<!-- Interactive Widget: Caesar Shift Cipher Simulator (Encode & Decode) -->
 <div class="bg-gradient-to-br from-[#1b0b41]/95 to-black/70 border border-white/15 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl">
-    <div class="flex items-start justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
-        <div>
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender mb-1">
-                <svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-                Interactive Lab: Caesar Shift Cipher Simulator
+<div class="flex items-start justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
+<div>
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender mb-1">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Interactive Lab: Caesar Shift Cipher (Encoder &amp; Decoder)
             </div>
-            <h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Encode &amp; Decode Using Mathematical Letter Shifts</h4>
-        </div>
-        <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Modulo 26 Arithmetic</span>
-    </div>
-
-    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-        Type a message below, select the shift direction (+ forward or &minus; backward), and pick an offset from 1 to 5. The output transforms instantly, demonstrating how substitution ciphers operate without a shared asymmetric secret key.
-    </p>
-
-    <!-- Controls Row: Direction and Shift Amount -->
-    <div class="flex flex-wrap items-center gap-4 bg-black/40 p-3.5 rounded-xl border border-white/10">
-        <!-- Direction Toggle -->
-        <div class="space-y-1">
-            <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Shift Direction</span>
-            <div class="inline-flex rounded-lg border border-white/10 bg-black/40 p-0.5" id="caesarDirGroup">
-                <button type="button" data-dir="1" class="caesar-dir-btn active px-3 py-1.5 rounded-md text-xs font-bold bg-netcom-lime text-netcom-dark transition">Forward (+)</button>
-                <button type="button" data-dir="-1" class="caesar-dir-btn px-3 py-1.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition">Backward (&minus;)</button>
-            </div>
-        </div>
-
-        <!-- Shift Number Buttons (1 - 5) -->
-        <div class="space-y-1">
-            <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Shift Offset (1 &ndash; 5)</span>
-            <div class="inline-flex gap-1.5" id="caesarShiftGroup">
-                <button type="button" data-shift="1" class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition">1</button>
-                <button type="button" data-shift="2" class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition">2</button>
-                <button type="button" data-shift="3" class="caesar-shift-btn active px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-netcom-lime text-netcom-dark shadow-[0_0_8px_#73f54a] transition">3 (Caesar)</button>
-                <button type="button" data-shift="4" class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition">4</button>
-                <button type="button" data-shift="5" class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition">5</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Input & Output Blocks -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Plaintext Input -->
-        <div class="space-y-2">
-            <label class="block text-xs font-mono uppercase tracking-wider text-slate-300">Plaintext Input (Original Message)</label>
-            <textarea id="caesarInput" rows="3" class="w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" placeholder="Type message here (e.g. ATTACK AT DAWN or SECRET)...">ATTACK AT DAWN</textarea>
-        </div>
-
-        <!-- Ciphertext Output -->
-        <div class="space-y-2">
-            <div class="flex items-center justify-between">
-                <label class="block text-xs font-mono uppercase tracking-wider text-netcom-lime font-bold">Ciphertext Output (Encrypted)</label>
-                <button type="button" id="copyCipherBtn" class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    Copy
-                </button>
-            </div>
-            <div id="caesarOutput" class="w-full bg-[#120a26] border border-netcom-lime/40 rounded-xl p-3 text-sm font-mono text-netcom-lime min-h-[82px] flex items-center select-all shadow-[inset_0_0_12px_rgba(115,245,74,0.1)]">DWWDFN DW GDZQ</div>
-        </div>
-    </div>
-
-    <!-- Live Letter Substitution Strip -->
-    <div class="bg-black/40 border border-white/10 rounded-xl p-3 space-y-1.5 font-mono text-xs">
-        <div class="text-[10px] uppercase tracking-wider text-slate-400">Sample Letter Mapping for Current Shift (<span id="caesarShiftDisplay">+3</span>):</div>
-        <div id="caesarMapStrip" class="overflow-x-auto text-slate-300 whitespace-nowrap py-1">
-            A&rarr;<span class="text-netcom-lime font-bold">D</span> &bull; B&rarr;<span class="text-netcom-lime font-bold">E</span> &bull; C&rarr;<span class="text-netcom-lime font-bold">F</span> &bull; D&rarr;<span class="text-netcom-lime font-bold">G</span> &bull; E&rarr;<span class="text-netcom-lime font-bold">H</span> &bull; X&rarr;<span class="text-netcom-lime font-bold">A</span> &bull; Y&rarr;<span class="text-netcom-lime font-bold">B</span> &bull; Z&rarr;<span class="text-netcom-lime font-bold">C</span>
-        </div>
-    </div>
+<h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Encode or Decode Messages Using Mathematical Letter Shifts</h4>
 </div>
-
+<span class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Modulo 26 Arithmetic</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Choose whether you want to <strong>Encode (Encrypt)</strong> or <strong>Decode (Decrypt)</strong>, select your shift offset (1–5), and type a message. The engine applies or mathematically reverses the substitution cipher in real time.
+    </p>
+<!-- Controls Row: Mode, Direction, Shift Offset -->
+<div class="flex flex-wrap items-center gap-4 bg-black/40 p-3.5 rounded-xl border border-white/10">
+<!-- Mode: Encode vs Decode -->
+<div class="space-y-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Operation Mode</span>
+<div class="inline-flex rounded-lg border border-white/10 bg-black/40 p-0.5" id="caesarModeGroup">
+<button class="caesar-mode-btn active px-3 py-1.5 rounded-md text-xs font-bold bg-netcom-lime text-netcom-dark transition" data-mode="encode" type="button">Encode (Encrypt)</button>
+<button class="caesar-mode-btn px-3 py-1.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition" data-mode="decode" type="button">Decode (Decrypt)</button>
+</div>
+</div>
+<!-- Shift Number Buttons (1 - 5) -->
+<div class="space-y-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block">Shift Offset Key (1 – 5)</span>
+<div class="inline-flex gap-1.5" id="caesarShiftGroup">
+<button class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition" data-shift="1" type="button">1</button>
+<button class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition" data-shift="2" type="button">2</button>
+<button class="caesar-shift-btn active px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-netcom-lime text-netcom-dark shadow-[0_0_8px_#73f54a] transition" data-shift="3" type="button">3 (Caesar)</button>
+<button class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition" data-shift="4" type="button">4</button>
+<button class="caesar-shift-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-white/10 text-slate-300 hover:bg-white/20 transition" data-shift="5" type="button">5</button>
+</div>
+</div>
+</div>
+<!-- Input & Output Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Input Text Box -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="block text-xs font-mono uppercase tracking-wider text-slate-300" id="caesarInputLabel">Plaintext Input (To Encrypt)</label>
+<button class="text-[11px] font-mono text-slate-400 hover:text-white transition" id="caesarClearBtn" type="button">Clear</button>
+</div>
+<textarea class="w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="caesarInput" placeholder="Type message here..." rows="3">ATTACK AT DAWN</textarea>
+</div>
+<!-- Output Box -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="block text-xs font-mono uppercase tracking-wider text-white font-bold" id="caesarOutputLabel">Ciphertext Output (Encrypted Result)</label>
+<div class="flex items-center gap-2">
+<button class="text-[11px] font-mono text-slate-300 hover:text-netcom-lime transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="swapCaesarBtn" type="button">
+                        ⇄ Decrypt This
+                    </button>
+<button class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1" id="copyCipherBtn" type="button">
+                        Copy
+                    </button>
+</div>
+</div>
+<div class="w-full bg-[#120a26] border border-white/20 rounded-xl p-3 text-sm font-mono text-white min-h-[82px] flex items-center select-all shadow-[inset_0_0_12px_rgba(255,255,255,0.05)]" id="caesarOutput">DWWDFN DW GDZQ</div>
+</div>
+</div>
+<!-- Live Substitution Strip -->
+<div class="bg-black/40 border border-white/10 rounded-xl p-3 space-y-1.5 font-mono text-xs">
+<div class="text-[10px] uppercase tracking-wider text-slate-400">Active Mathematical Mapping (<span id="caesarShiftDisplay">Shift +3</span>):</div>
+<div class="overflow-x-auto text-slate-300 whitespace-nowrap py-1" id="caesarMapStrip">
+            A→<span class="text-white font-bold">D</span> • B→<span class="text-white font-bold">E</span> • C→<span class="text-white font-bold">F</span> • D→<span class="text-white font-bold">G</span> • E→<span class="text-white font-bold">H</span> • X→<span class="text-white font-bold">A</span> • Y→<span class="text-white font-bold">B</span> • Z→<span class="text-white font-bold">C</span>
+</div>
+</div>
+</div>
 </div>
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-symmetric"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Symmetric vs Asymmetric Ciphers</h3></div>
 <p class="text-[15px] text-slate-200 leading-relaxed">
@@ -510,7 +501,7 @@
                     </p>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Data Privacy Attorney / Legal Counsel</div>
+<div class="text-white font-bold text-xs uppercase tracking-wide">Data Privacy Attorney / Legal Counsel</div>
 <p class="text-xs text-slate-300 leading-relaxed">
                                 Legal specialists who advise corporations on compliance with statutory frameworks (UK GDPR, CCPA, HIPAA). They draft data processing agreements and defend against regulatory enforcement actions.
                             </p>
@@ -551,7 +542,6 @@
 <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Decentralised Network • WWW Architecture • Safe Browsing</span>
 </div>
 <!-- Subtopic Tab Buttons for LO 2.2 -->
-
 <!-- Tab 1: What is the Internet?  -->
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-highway"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">What is the Internet?</h3></div>
 <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
@@ -564,9 +554,9 @@
 </div>
 <!-- CompTIA Analogy: The Information Superhighway  -->
 <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
-<div class="text-xs font-bold uppercase tracking-wider text-netcom-lime flex items-center gap-2">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                            CompTIA Architecture Analogy: The Global Highway System 
+<div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender flex items-center gap-2">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                            Network Architecture Analogy: The Global Highway System
                         </div>
 <p class="text-xs text-slate-300 leading-relaxed">
                             Think of the Internet as a vast international superhighway system spanning oceans and continents:
@@ -581,7 +571,7 @@
 <div class="text-slate-400">Discrete packets carrying emails, streaming video chunks, video game telemetry, and financial wires.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-<div class="font-bold text-netcom-lime mb-1">3. The Highway Code</div>
+<div class="font-bold text-white mb-1">3. The Highway Code</div>
 <div class="text-slate-400">TCP/IP protocols governing addressing (IP) and guaranteed packet delivery (TCP) without collisions.</div>
 </div>
 </div>
@@ -650,6 +640,77 @@
                             Computers route data across the Internet using numerical IP addresses (e.g. <code class="text-netcom-lime">192.0.2.45</code>), but human brains remember names (e.g. <code class="text-white">netcomtraining.co.uk</code>). DNS servers resolve friendly domain names into machine-routable IP addresses within milliseconds.
                         </p>
 </div>
+<!-- Live Diagnostic Tool: Real DNS Resolver (DNS-over-HTTPS) -->
+<div class="bg-gradient-to-br from-[#1b0b41]/95 to-black/70 border border-white/15 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl mt-4">
+<div class="flex items-start justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
+<div>
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender mb-1">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Live Network Tool: Real-Time DNS Resolver (DNS-over-HTTPS)
+            </div>
+<h4 class="text-base sm:text-lg font-bold text-white tracking-tight">Resolve Live Public IP Addresses for Any Real Internet Domain</h4>
+</div>
+<span class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Live DoH Query (RFC 8484)</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Enter any public website URL or domain name below and click <strong>Lookup DNS</strong>. This is a <em>real network tool</em> querying live recursive DNS servers (Cloudflare 1.1.1.1 / Google Public DNS) directly from your browser to retrieve the authoritative A-record IP addresses.
+    </p>
+<!-- Input Form & Action Button -->
+<div class="space-y-3">
+<div class="flex flex-col sm:flex-row gap-2">
+<div class="relative flex-1">
+<input class="w-full bg-black/50 border border-white/20 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-slate-500 font-mono focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="dnsDomainInput" placeholder="Enter any URL or domain (e.g. google.com, bbc.co.uk, or https://github.com)..." type="text" value="google.com"/>
+</div>
+<button class="px-6 py-3 rounded-xl bg-netcom-lime hover:bg-netcom-lime-hover text-netcom-dark font-extrabold text-sm tracking-wide transition flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(115,245,74,0.3)] shrink-0" id="dnsLookupBtn" type="button">
+<svg class="w-4 h-4 hidden animate-spin" fill="none" id="dnsSpinner" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path></svg>
+<span>Lookup DNS</span>
+</button>
+</div>
+<!-- Quick Test Domain Pills -->
+<div class="flex flex-wrap items-center gap-2 text-xs">
+<span class="text-slate-400 font-mono text-[11px]">Quick Tests:</span>
+<button class="dns-preset-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs transition" type="button">google.com</button>
+<button class="dns-preset-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs transition" type="button">bbc.co.uk</button>
+<button class="dns-preset-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs transition" type="button">wikipedia.org</button>
+<button class="dns-preset-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs transition" type="button">github.com</button>
+<button class="dns-preset-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs transition" type="button">netcomtraining.co.uk</button>
+</div>
+</div>
+<!-- Live Results Output Display -->
+<div class="bg-black/50 border border-white/10 rounded-xl p-5 space-y-4" id="dnsResultCard">
+<div class="flex items-center justify-between flex-wrap gap-2 border-b border-white/10 pb-3">
+<div class="flex items-center gap-2 font-mono text-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-netcom-lime shadow-[0_0_8px_#73f54a]" id="dnsStatusIndicator"></span>
+<span class="text-slate-300" id="dnsStatusText">Ready to query live DNS</span>
+</div>
+<div class="text-[11px] font-mono text-slate-400" id="dnsLatencyText">—</div>
+</div>
+<!-- IP Address Results Box -->
+<div class="space-y-2">
+<div class="text-[11px] font-mono uppercase tracking-wider text-slate-400">Resolved Public IPv4 Address(es) [A Records]:</div>
+<div class="space-y-1.5 font-mono" id="dnsIpList">
+<div class="bg-white/5 border border-white/10 rounded-lg p-3 text-sm text-slate-400 italic">
+                    Click "Lookup DNS" to query the live domain resolution pipeline.
+                </div>
+</div>
+</div>
+<!-- Diagnostic Metadata Tags -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs font-mono text-slate-400">
+<div class="bg-black/30 p-2.5 rounded-lg border border-white/5">
+<div class="text-[10px] uppercase text-slate-500">Query Domain</div>
+<div class="text-white truncate" id="dnsQueriedDomain">—</div>
+</div>
+<div class="bg-black/30 p-2.5 rounded-lg border border-white/5">
+<div class="text-[10px] uppercase text-slate-500">Record Type &amp; TTL</div>
+<div class="text-white truncate" id="dnsRecordTtl">—</div>
+</div>
+<div class="bg-black/30 p-2.5 rounded-lg border border-white/5">
+<div class="text-[10px] uppercase text-slate-500">Resolver Protocol</div>
+<div class="text-white truncate" id="dnsResolverName">Cloudflare DNS-over-HTTPS</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!-- Tab 4: Safe Browsing & HTTPS  -->
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-2-safe"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.2.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Safe Browsing &amp; HTTPS Padlock</h3></div>
@@ -700,7 +761,6 @@
 <span class="text-xs text-slate-300 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-medium">Profiles • Extensions • Cache Maintenance</span>
 </div>
 <!-- Subtopic Tab Buttons for LO 2.3 -->
-
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-3-profiles"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.3.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Profiles &amp; Personalisation</h3></div>
 <p class="text-[15px] text-slate-200 leading-relaxed">
                         A web browser is the primary portal through which users interact with cloud applications. Modern browsers allow extensive customization to optimize ergonomics, focus, and security.
@@ -719,7 +779,7 @@
 <div class="text-slate-400">Signed into corporate SSO, Microsoft 365, internal VPN bookmarks, enterprise security extensions.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-<div class="font-bold text-netcom-lime mb-1">Study Profile (Netcom)</div>
+<div class="font-bold text-white mb-1">Study Profile (Netcom)</div>
 <div class="text-slate-400">Configured for Canvas LMS, CompTIA CertMaster, coding repos, and course-specific bookmarks.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/10">
@@ -796,7 +856,7 @@
 <div class="text-slate-400">Locally saved static web assets (images, CSS styles, JS files). Speeds up page loads. If a website renders broken or fails to update, clearing cache forces a fresh download.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
-<div class="font-bold text-netcom-lime">HTTP Cookies</div>
+<div class="font-bold text-white">HTTP Cookies</div>
 <div class="text-slate-400">Small key-value text tokens storing login authentication sessions and cart states. Clearing cookies logs you out of all active web sessions across all tabs.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/10 space-y-1">
@@ -847,7 +907,6 @@
 </div>
 </div>
 <!-- Subtopic Tab Buttons for LO 2.4 -->
-
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-isp-basics"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.1</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">ISP Fundamentals &amp; Equipment</h3></div>
 <div class="prose prose-invert max-w-none text-[15px] text-slate-200 leading-relaxed space-y-4">
 <p>
@@ -891,7 +950,7 @@
                         </div>
 <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs text-center">
 <div class="bg-white/5 p-3 rounded-lg border border-white/5">
-<div class="font-bold text-netcom-lime mb-1">1. Central Conductor</div>
+<div class="font-bold text-white mb-1">1. Central Conductor</div>
 <div class="text-slate-400">Solid copper wire carrying high-frequency RF data signals.</div>
 </div>
 <div class="bg-white/5 p-3 rounded-lg border border-white/5">
@@ -987,144 +1046,74 @@
 </div>
 </div>
 </div>
-
-<!-- Real-World Work Examples: Where You See Physical Broadband Connections -->
-<div class="bg-gradient-to-br from-[#1b0b41]/90 to-black/70 border border-white/15 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl">
-    <div class="flex items-center gap-2.5 border-b border-white/10 pb-4">
-        <div class="w-8 h-8 rounded-lg bg-netcom-lime/20 text-netcom-lime border border-netcom-lime/40 flex items-center justify-center font-bold shadow-[0_0_8px_rgba(115,245,74,0.25)]">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-        </div>
-        <div>
-            <div class="text-xs font-bold uppercase tracking-wider text-netcom-lavender">Practical IT Support &amp; Field Engineering</div>
-            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Real-World Examples: Where You Encounter These Cables &amp; Connections</h3>
-        </div>
+<!-- Real-World Field Summary: Where You Encounter These Connections -->
+<div class="bg-black/30 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4">
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-netcom-lavender border-b border-white/10 pb-3">
+<svg class="w-4 h-4 text-netcom-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Field Engineering Quick Guide: Where You Encounter Each Cable
     </div>
-
-    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-        As an IT support technician, systems engineer, or field technician, you will frequently troubleshoot connectivity right at the physical boundary. Here is where you encounter each specific connection type across homes, streets, and enterprise premises:
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-        <!-- 1. Coaxial Cable in the Real World -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">COAXIAL (CABLE)</span>
-                    <span class="text-slate-400 font-mono text-[10px]">F-Connector / RG-6</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Where You Find It:</h5>
-                <ul class="text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Street Pavements:</strong> Brown or black plastic street access boxes (known as "Toby boxes" or omni-boxes) flush with the pavement outside houses (e.g. Virgin Media networks).</li>
-                    <li><strong>Building Entrance:</strong> Thick black RG-6 cable clamped along outside brickwork and drilled through external walls.</li>
-                    <li><strong>Customer Premises:</strong> Screwed into the back of a Virgin Media Hub (Hub 3, 4, or 5) using a threaded metal <em>F-type connector</em>.</li>
-                    <li><strong>Behind Televisions:</strong> Coaxial RF flyleads running from a white wall plate to TV tuner inputs for Freeview aerial signals.</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Field Tip: Always ensure the threaded F-connector collar is fingertight plus a quarter turn—loose collars introduce RF noise.
-            </div>
-        </div>
-
-        <!-- 2. DSL (Copper Twisted Pair) in the Real World -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">DSL (PSTN COPPER)</span>
-                    <span class="text-slate-400 font-mono text-[10px]">RJ11 / NTE5 Socket</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Where You Find It:</h5>
-                <ul class="text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Hallway Skirting Boards:</strong> The ubiquitous white Openreach master telephone socket (NTE5a or NTE5c) near the front door or hallway floor.</li>
-                    <li><strong>Street Corners:</strong> Large dark green metal street cabinets (PCP cabinets) on the pavement, housing copper cross-connect punch blocks.</li>
-                    <li><strong>Overhead Poles:</strong> Black overhead copper drop-wire running from a wooden telegraph pole down to a house bracket.</li>
-                    <li><strong>Behind the Router:</strong> The narrow grey RJ11 telephone cord (smaller than an RJ45 Ethernet lead) plugging into the broadband port.</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Field Tip: Older installations require a microfilter plugged into the wall socket to prevent telephone voice calls dropping internet sessions.
-            </div>
-        </div>
-
-        <!-- 3. Fibre Optic (FTTP) in the Real World -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">FULL FIBRE (FTTP)</span>
-                    <span class="text-slate-400 font-mono text-[10px]">SC-APC / Optical ONT</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Where You Find It:</h5>
-                <ul class="text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Wall-Mounted Indoors:</strong> The white Openreach or CityFibre <strong>ONT (Optical Network Terminal)</strong> box mounted on the wall, with green LEDs for <em>Power</em>, <em>PON</em>, and <em>LAN</em>.</li>
-                    <li><strong>Optical Connector:</strong> Ultra-thin yellow or white fibre cable terminating in a distinct green square <em>SC-APC</em> connector plugged into the ONT.</li>
-                    <li><strong>External Walls:</strong> A small grey Customer Splice Point (CSP) box on the external brickwork where tough outdoor drop-cable joins delicate indoor fibre.</li>
-                    <li><strong>Overhead Telegraph Poles:</strong> Circular black weatherproof distribution manifolds (CBT boxes) mounted high on telephone poles.</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Field Tip: Never look directly into an uncapped fibre connector—the infrared laser light is invisible to human eyes but causes permanent retinal damage.
-            </div>
-        </div>
-
-        <!-- 4. Fixed Wireless Access (4G/5G) in the Real World -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">4G / 5G FWA</span>
-                    <span class="text-slate-400 font-mono text-[10px]">SIM Slot / Window Router</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Where You Find It:</h5>
-                <ul class="text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Windowsills:</strong> Cylindrical white or black home hubs (e.g. Three 5G Hub, EE Smart 5G Hub) positioned on upstairs windowsills with direct line-of-sight to the nearest mobile mast.</li>
-                    <li><strong>No Street Trench:</strong> Zero street cabling or external holes drilled—simply plugged into a standard 13A mains plug socket with an activated data SIM card.</li>
-                    <li><strong>Rural Barns / Farms:</strong> Directional flat-panel antennas mounted to chimney stacks or poles aimed at distant cellular base stations.</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Field Tip: Moving a 5G home router from the back of a ground floor room to an upstairs south-facing window can double download speeds.
-            </div>
-        </div>
-
-        <!-- 5. Satellite (GEO vs LEO Starlink) in the Real World -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">SATELLITE BROADBAND</span>
-                    <span class="text-slate-400 font-mono text-[10px]">Starlink / Sky Dish</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Where You Find It:</h5>
-                <ul class="text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Traditional GEO:</strong> Dark grey oval satellite dishes (e.g. Sky dish) bolted to chimney breasts or exterior walls pointed precisely 28.2&deg; East towards geostationary orbit.</li>
-                    <li><strong>LEO Starlink "Dishy":</strong> Modern flat rectangular white phased-array antennas mounted on rural roof ridges, scaffold poles, or campervan roofs with completely unobstructed 360&deg; views of the sky.</li>
-                    <li><strong>PoE Cabling:</strong> A single ruggedised Power-over-Ethernet cable carrying both DC electric power and high-speed data between the dish and indoor power supply.</li>
-                </ul>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Field Tip: Overhanging tree branches or chimney stacks that cause even 2% obstruction can result in micro-dropouts on Starlink video calls.
-            </div>
-        </div>
-
-        <!-- 6. Summary Comparison Table -->
-        <div class="bg-black/40 border border-white/10 rounded-xl p-5 space-y-3 flex flex-col justify-between">
-            <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                    <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-white">QUICK FIELD AUDIT</span>
-                    <span class="text-slate-400 font-mono text-[10px]">Diagnostic Cheat Sheet</span>
-                </div>
-                <h5 class="text-sm font-bold text-white">Identification at a Glance:</h5>
-                <div class="space-y-1.5 text-slate-300">
-                    <div class="flex justify-between border-b border-white/5 pb-1"><span>Screw-in Metal Thread:</span> <strong class="text-white">Coaxial (Cable)</strong></div>
-                    <div class="flex justify-between border-b border-white/5 pb-1"><span>Small Flat 4-Pin Lead:</span> <strong class="text-white">RJ11 (DSL)</strong></div>
-                    <div class="flex justify-between border-b border-white/5 pb-1"><span>Square Green Click Plug:</span> <strong class="text-white">SC-APC (Fibre)</strong></div>
-                    <div class="flex justify-between border-b border-white/5 pb-1"><span>Mains Plug + SIM Only:</span> <strong class="text-white">4G/5G Cellular</strong></div>
-                    <div class="flex justify-between pb-1"><span>Roof Antenna / Dish:</span> <strong class="text-white">Satellite (GEO/LEO)</strong></div>
-                </div>
-            </div>
-            <div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+<!-- Coaxial -->
+<div class="bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+<span class="font-bold text-white uppercase">Coaxial (Cable)</span>
+<span class="font-mono text-[10px] text-slate-400">F-Connector</span>
+</div>
+<p class="text-slate-300 text-[11.5px] leading-relaxed">
+                Pavement "Toby boxes" &amp; exterior wall drops $
+ightarrow$ screwed into Virgin Media Hubs &amp; TV set-top boxes with a threaded metal collar.
+            </p>
+</div>
+<!-- DSL -->
+<div class="bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+<span class="font-bold text-white uppercase">DSL (Telephone)</span>
+<span class="font-mono text-[10px] text-slate-400">RJ11 / NTE5</span>
+</div>
+<p class="text-slate-300 text-[11.5px] leading-relaxed">
+                Green street cabinets &amp; telegraph drop-wires $
+ightarrow$ hallway Openreach master telephone sockets plugged in with a narrow 4-pin lead.
+            </p>
+</div>
+<!-- Fibre Optic -->
+<div class="bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+<span class="font-bold text-white uppercase">Fibre (FTTP)</span>
+<span class="font-mono text-[10px] text-slate-400">SC-APC / ONT</span>
+</div>
+<p class="text-slate-300 text-[11.5px] leading-relaxed">
+                Pavement sub-ducts &amp; overhead pole manifolds $
+ightarrow$ wall-mounted indoor ONT power terminal with a green square optical click connector.
+            </p>
+</div>
+<!-- 4G/5G Wireless -->
+<div class="bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+<span class="font-bold text-white uppercase">4G / 5G FWA</span>
+<span class="font-mono text-[10px] text-slate-400">SIM Router</span>
+</div>
+<p class="text-slate-300 text-[11.5px] leading-relaxed">
+                Cylindrical home router on an upstairs windowsill with a data SIM card $
+ightarrow$ mains plug only, zero street trenches or external holes.
+            </p>
+</div>
+<!-- Satellite -->
+<div class="bg-white/5 border border-white/10 rounded-xl p-3.5 space-y-2">
+<div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+<span class="font-bold text-white uppercase">Satellite (LEO)</span>
+<span class="font-mono text-[10px] text-slate-400">PoE Dish</span>
+</div>
+<p class="text-slate-300 text-[11.5px] leading-relaxed">
+                Flat motorized Starlink dish on a rural roof or campervan $
+ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
+            </p>
+</div>
+</div>
+</div>
+<div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
                 Core CompTIA Rule: Know the connector types and transmission media for each broadband delivery technology.
             </div>
-        </div>
-    </div>
-</div>
+</section></main></div>
 
 
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-careers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.6</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Careers in Internet Technologies</h3></div>
@@ -1133,7 +1122,7 @@
                     </p>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-2">
-<div class="text-netcom-lime font-bold text-xs uppercase tracking-wide">Broadband Field Engineer</div>
+<div class="text-white font-bold text-xs uppercase tracking-wide">Broadband Field Engineer</div>
 <p class="text-xs text-slate-300 leading-relaxed">
                                 Deploys customer premises equipment, splices fiber optic pigtails, tests optical loss with OTDR meters, and certifies customer termination.
                             </p>
@@ -1157,7 +1146,7 @@
 <div>Referenced from Slide Deck: <span class="text-white font-mono font-bold">Slides 28–37 (ISPs, Coax, DSL, Fibre, Wireless, Satellite)</span></div>
 <div class="text-netcom-lime font-mono font-semibold">Topic: Internet Service Providers &amp; Broadband</div>
 </div>
-</section>
+
 <!-- Bottom Navigation Bar & Completion Callout -->
 <div class="flex items-center justify-between p-6 bg-netcom-card border border-white/10 rounded-2xl flex-wrap gap-4 shadow-lg">
 <a class="flex items-center gap-2 text-xs font-semibold text-netcom-lavender hover:text-white transition" href="index.html">
@@ -1170,15 +1159,14 @@
                     Back to Top ↑
                 </a>
 </div>
-</main>
-</div>
+
+
 <!-- ========================================================================= -->
 <!-- INTERACTIVE SCRIPTS: Tabs, Broadband Cards Sync, & Responsive Navigation  -->
 <!-- ========================================================================= -->
 <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // Interactive Broadband Technology Cards Smooth Scroll & Visual Feedback
+            // 1. Broadband Technology Cards Smooth Scroll & Visual Feedback
             document.querySelectorAll('.broadband-card').forEach(card => {
                 const handleCardClick = () => {
                     const targetId = card.getAttribute('data-broadband-card');
@@ -1195,9 +1183,8 @@
                     }
                 });
             });
-        
 
-            // 1. Mobile Sidebar Drawer Toggle
+            // 2. Mobile Sidebar Drawer Toggle & Auto-Close
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const sidebar = document.getElementById('sidebar');
             if (mobileBtn && sidebar) {
@@ -1209,7 +1196,6 @@
                 });
             }
 
-            // Auto-close mobile drawer when any link is clicked
             document.querySelectorAll('#navLinks a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (window.innerWidth < 1024 && sidebar && !sidebar.classList.contains('hidden')) {
@@ -1219,13 +1205,12 @@
                 });
             });
 
-            // 2. Dual-Level Scrollspy for Sidebar Navigation (Parent LO & Nested Subtopics)
+            // 3. Dual-Level Scrollspy for Sidebar Navigation (Parent LO & Nested Subtopics)
             const loSections = document.querySelectorAll('section[id^="lo-"]');
             const subBlocks = document.querySelectorAll('.subtopic-block');
             const loLinks = document.querySelectorAll('.nav-lo-link');
             const subLinks = document.querySelectorAll('.nav-sub-link');
 
-            // Subtopic Observer
             const subObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1248,7 +1233,6 @@
 
             subBlocks.forEach(sb => subObserver.observe(sb));
 
-            // Parent LO Section Observer
             const loObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1333,7 +1317,6 @@
 
                 pwdPoolVal.textContent = poolSize;
 
-                // Update criteria badges
                 const updatePill = (el, passed) => {
                     if (!el) return;
                     if (passed) {
@@ -1349,12 +1332,10 @@
                 updatePill(critNum, hasNum);
                 updatePill(critSym, hasSym);
 
-                // Calculate bits of entropy: E = L * log2(Pool)
                 const entropy = Math.round(len * (Math.log2(poolSize || 1)));
                 pwdBitsVal.textContent = `${entropy} bits`;
                 pwdEntropyText.textContent = `${entropy} bits entropy`;
 
-                // Calculate crack time estimate (assuming 10 billion guesses/sec offline hashcat rig)
                 const combinations = Math.pow(poolSize, len);
                 const seconds = combinations / 10000000000;
                 let crackTime = "Instant";
@@ -1387,7 +1368,6 @@
                 pwdCrackVal.textContent = crackTime;
                 pwdCrackVal.className = `text-xs font-bold ${crackColor} truncate`;
 
-                // Determine strength score (0 to 100)
                 let score = Math.min(100, Math.round((entropy / 90) * 100));
                 pwdBar.style.width = `${Math.max(8, score)}%`;
 
@@ -1419,65 +1399,80 @@
             }
 
             // =================================================================
-            // WIDGET 2: CAESAR SHIFT CIPHER ENCODER / DECODER
+            // WIDGET 2: CAESAR SHIFT CIPHER (ENCODER & DECODER)
             // =================================================================
             const caesarInput = document.getElementById('caesarInput');
             const caesarOutput = document.getElementById('caesarOutput');
             const copyCipherBtn = document.getElementById('copyCipherBtn');
-            const caesarDirButtons = document.querySelectorAll('.caesar-dir-btn');
+            const swapCaesarBtn = document.getElementById('swapCaesarBtn');
+            const caesarClearBtn = document.getElementById('caesarClearBtn');
+            const caesarModeButtons = document.querySelectorAll('.caesar-mode-btn');
             const caesarShiftButtons = document.querySelectorAll('.caesar-shift-btn');
             const caesarShiftDisplay = document.getElementById('caesarShiftDisplay');
             const caesarMapStrip = document.getElementById('caesarMapStrip');
+            const caesarInputLabel = document.getElementById('caesarInputLabel');
+            const caesarOutputLabel = document.getElementById('caesarOutputLabel');
 
-            let currentShiftDir = 1;
+            let currentCaesarMode = 'encode'; // 'encode' or 'decode'
             let currentShiftVal = 3;
 
             function runCaesar() {
                 if (!caesarInput || !caesarOutput) return;
                 const text = caesarInput.value || '';
-                const effectiveShift = ((currentShiftDir * currentShiftVal) % 26 + 26) % 26;
                 
-                let encoded = '';
+                const effectiveShift = currentCaesarMode === 'encode' 
+                    ? (currentShiftVal % 26) 
+                    : ((-currentShiftVal % 26) + 26) % 26;
+                
+                let result = '';
                 for (let i = 0; i < text.length; i++) {
                     const c = text[i];
                     const code = text.charCodeAt(i);
                     if (code >= 65 && code <= 90) {
-                        encoded += String.fromCharCode(((code - 65 + effectiveShift) % 26) + 65);
+                        result += String.fromCharCode(((code - 65 + effectiveShift) % 26) + 65);
                     } else if (code >= 97 && code <= 122) {
-                        encoded += String.fromCharCode(((code - 97 + effectiveShift) % 26) + 97);
+                        result += String.fromCharCode(((code - 97 + effectiveShift) % 26) + 97);
                     } else {
-                        encoded += c;
+                        result += c;
                     }
                 }
-                caesarOutput.textContent = encoded || '(output empty)';
+                caesarOutput.textContent = result || '(output empty)';
 
-                // Update display indicator e.g. "+3" or "-2"
-                const sign = currentShiftDir === 1 ? '+' : '-';
                 if (caesarShiftDisplay) {
-                    caesarShiftDisplay.textContent = `${sign}${currentShiftVal}`;
+                    const modeText = currentCaesarMode === 'encode' ? 'Encrypt (+)' : 'Decrypt (-)';
+                    caesarShiftDisplay.textContent = `${modeText} Offset: ${currentShiftVal}`;
                 }
 
-                // Update alphabet sample strip
                 if (caesarMapStrip) {
                     const samples = ['A', 'B', 'C', 'D', 'E', 'X', 'Y', 'Z'];
                     const mapped = samples.map(letter => {
                         const code = letter.charCodeAt(0);
                         const shifted = String.fromCharCode(((code - 65 + effectiveShift) % 26) + 65);
-                        return `${letter}&rarr;<span class="text-netcom-lime font-bold">${shifted}</span>`;
+                        return `${letter}&rarr;<span class="text-white font-bold">${shifted}</span>`;
                     });
                     caesarMapStrip.innerHTML = mapped.join(' &bull; ');
                 }
             }
 
-            caesarDirButtons.forEach(btn => {
+            caesarModeButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    caesarDirButtons.forEach(b => {
+                    caesarModeButtons.forEach(b => {
                         b.classList.remove('active', 'bg-netcom-lime', 'text-netcom-dark');
                         b.classList.add('text-slate-300');
                     });
                     btn.classList.add('active', 'bg-netcom-lime', 'text-netcom-dark');
                     btn.classList.remove('text-slate-300');
-                    currentShiftDir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
+                    currentCaesarMode = btn.getAttribute('data-mode') || 'encode';
+                    
+                    if (caesarInputLabel && caesarOutputLabel) {
+                        if (currentCaesarMode === 'encode') {
+                            caesarInputLabel.textContent = 'Plaintext Input (To Encrypt)';
+                            caesarOutputLabel.textContent = 'Ciphertext Output (Encrypted Result)';
+                        } else {
+                            caesarInputLabel.textContent = 'Ciphertext Input (To Decrypt)';
+                            caesarOutputLabel.textContent = 'Plaintext Output (Decrypted Result)';
+                        }
+                    }
                     runCaesar();
                 });
             });
@@ -1499,6 +1494,26 @@
                 caesarInput.addEventListener('input', runCaesar);
             }
 
+            if (caesarClearBtn && caesarInput) {
+                caesarClearBtn.addEventListener('click', () => {
+                    caesarInput.value = '';
+                    runCaesar();
+                    caesarInput.focus();
+                });
+            }
+
+            if (swapCaesarBtn && caesarInput && caesarOutput) {
+                swapCaesarBtn.addEventListener('click', () => {
+                    const currentOut = caesarOutput.textContent;
+                    if (!currentOut || currentOut === '(output empty)') return;
+                    
+                    caesarInput.value = currentOut;
+                    
+                    const decodeBtn = document.querySelector('.caesar-mode-btn[data-mode="decode"]');
+                    if (decodeBtn) decodeBtn.click();
+                });
+            }
+
             if (copyCipherBtn && caesarOutput) {
                 copyCipherBtn.addEventListener('click', () => {
                     navigator.clipboard.writeText(caesarOutput.textContent).then(() => {
@@ -1508,7 +1523,6 @@
                 });
             }
 
-            // Run initial Caesar pass
             runCaesar();
 
             // =================================================================
@@ -1528,11 +1542,8 @@
 
             function cleanHostname(rawInput) {
                 let cleaned = (rawInput || '').trim();
-                // Strip protocol
                 cleaned = cleaned.replace(/^https?:\/\//i, '');
-                // Strip port
                 cleaned = cleaned.replace(/:\d+/, '');
-                // Strip path & query params
                 cleaned = cleaned.split('/')[0];
                 cleaned = cleaned.split('?')[0];
                 cleaned = cleaned.split('#')[0];
@@ -1547,7 +1558,6 @@
                     return;
                 }
 
-                // UI loading state
                 if (dnsSpinner) dnsSpinner.classList.remove('hidden');
                 if (dnsLookupBtn) dnsLookupBtn.disabled = true;
                 if (dnsStatusIndicator) dnsStatusIndicator.className = 'w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping';
@@ -1561,13 +1571,11 @@
                 let resolverUsed = 'Cloudflare 1.1.1.1 (DoH)';
 
                 try {
-                    // 1. Try Cloudflare DoH endpoint
                     let response = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`, {
                         headers: { 'Accept': 'application/dns-json' },
                         signal: AbortSignal.timeout(6000)
                     });
 
-                    // Fallback to Google Public DNS DoH if Cloudflare fails
                     if (!response.ok) {
                         resolverUsed = 'Google Public DNS 8.8.8.8 (DoH)';
                         response = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`, {
@@ -1579,7 +1587,6 @@
                     const data = await response.json();
 
                     if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
-                        // Filter A records (type 1)
                         const aRecords = data.Answer.filter(ans => ans.type === 1);
                         const cnameRecords = data.Answer.filter(ans => ans.type === 5);
 
@@ -1663,8 +1670,7 @@
                     performDnsLookup(preset);
                 });
             });
-    
         });
-    </script>
+</script>
 </body>
 </html>
