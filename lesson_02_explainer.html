@@ -426,31 +426,33 @@
 </div>
 <!-- Input & Output Blocks -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<!-- Input Text Box -->
-<div class="space-y-2">
-<div class="flex items-center justify-between">
-<label class="block text-xs font-mono uppercase tracking-wider text-slate-300" id="caesarInputLabel">Plaintext Input (To Encrypt)</label>
-<button class="text-[11px] font-mono text-slate-400 hover:text-white transition" id="caesarClearBtn" type="button">Clear</button>
-</div>
-<textarea class="w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="caesarInput" placeholder="Type message here..." rows="3">ATTACK AT DAWN</textarea>
-</div>
-<!-- Output Box -->
-<div class="space-y-2">
-<div class="flex items-center justify-between">
-<label class="block text-xs font-mono uppercase tracking-wider text-white font-bold" id="caesarOutputLabel">Ciphertext Output (Encrypted Result)</label>
-<div class="flex items-center gap-2">
-<button class="text-[11px] font-mono text-slate-300 hover:text-netcom-lime transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="swapCaesarBtn" type="button">
+        <!-- Input Text Box -->
+        <div class="space-y-2">
+            <div class="h-7 flex items-center justify-between">
+                <label class="block text-xs font-mono uppercase tracking-wider text-slate-300" id="caesarInputLabel">Plaintext Input (To Encrypt)</label>
+                <button class="text-[11px] font-mono text-slate-300 hover:text-white transition bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="caesarClearBtn" type="button">Clear</button>
+            </div>
+            <textarea class="h-[88px] w-full bg-black/50 border border-white/20 rounded-xl p-3 text-sm text-white placeholder-slate-500 font-mono resize-none focus:outline-none focus:border-netcom-lime focus:ring-1 focus:ring-netcom-lime transition" id="caesarInput" placeholder="Type message here...">ATTACK AT DAWN</textarea>
+        </div>
+
+        <!-- Output Box -->
+        <div class="space-y-2">
+            <div class="h-7 flex items-center justify-between">
+                <label class="block text-xs font-mono uppercase tracking-wider text-white font-bold truncate" id="caesarOutputLabel">Ciphertext Output (Encrypted Result)</label>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button class="text-[11px] font-mono text-slate-300 hover:text-netcom-lime transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="swapCaesarBtn" type="button">
                         ⇄ Decrypt This
                     </button>
-<button class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1" id="copyCipherBtn" type="button">
+                    <button class="text-[11px] font-mono text-slate-400 hover:text-white transition flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/10" id="copyCipherBtn" type="button">
                         Copy
                     </button>
-</div>
-</div>
-<div class="w-full bg-[#120a26] border border-white/20 rounded-xl p-3 text-sm font-mono text-white min-h-[82px] flex items-center select-all shadow-[inset_0_0_12px_rgba(255,255,255,0.05)]" id="caesarOutput">DWWDFN DW GDZQ</div>
-</div>
-</div>
-<!-- Live Substitution Strip -->
+                </div>
+            </div>
+            <div class="h-[88px] w-full bg-[#120a26] border border-white/20 rounded-xl p-3 text-sm font-mono text-white select-all shadow-[inset_0_0_12px_rgba(255,255,255,0.05)] overflow-y-auto" id="caesarOutput">DWWDFN DW GDZQ</div>
+        </div>
+    </div>
+
+    <!-- Live Substitution Strip -->
 <div class="bg-black/40 border border-white/10 rounded-xl p-3 space-y-1.5 font-mono text-xs">
 <div class="text-[10px] uppercase tracking-wider text-slate-400">Active Mathematical Mapping (<span id="caesarShiftDisplay">Shift +3</span>):</div>
 <div class="overflow-x-auto text-slate-300 whitespace-nowrap py-1" id="caesarMapStrip">
@@ -1110,10 +1112,7 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
 </div>
 </div>
 </div>
-<div class="bg-white/5 p-2 rounded text-[11px] text-slate-400 font-mono">
-                Core CompTIA Rule: Know the connector types and transmission media for each broadband delivery technology.
-            </div>
-</section></main></div>
+
 
 
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-4-careers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.4.6</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Careers in Internet Technologies</h3></div>
@@ -1159,8 +1158,9 @@ ightarrow$ single Power-over-Ethernet cable carrying data and power inside.
                     Back to Top ↑
                 </a>
 </div>
-
-
+</section>
+</main>
+</div>
 <!-- ========================================================================= -->
 <!-- INTERACTIVE SCRIPTS: Tabs, Broadband Cards Sync, & Responsive Navigation  -->
 <!-- ========================================================================= -->
