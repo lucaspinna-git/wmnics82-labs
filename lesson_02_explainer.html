@@ -504,6 +504,28 @@
 <li><strong>Strengths:</strong> Extremely fast and computationally lightweight; ideal for bulk file encryption and streaming data.</li>
 <li><strong>Core Limitation:</strong> The Key Exchange Problem: How do you safely transmit the secret key to the receiver over an untrusted network?</li>
 </ul>
+                        <!-- Common Real-World Use Cases -->
+                        <div class="bg-black/40 border border-white/10 rounded-lg p-3 space-y-2">
+                            <div class="text-[11px] font-mono uppercase tracking-wider text-netcom-lime font-bold flex items-center justify-between">
+                                <span>Common Real-World Examples</span>
+                                <span class="text-[10px] text-slate-400 font-normal">Everyday IT</span>
+                            </div>
+                            <ul class="text-xs text-slate-300 space-y-1.5">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">💾</span>
+                                    <div><strong>Full Disk &amp; OS Encryption:</strong> Windows BitLocker, macOS FileVault, and encrypted USB drives protect stored data at rest using AES-256.</div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">📦</span>
+                                    <div><strong>Encrypted File Archives:</strong> Password-protected ZIP, 7-Zip, and KeePass/Bitwarden local credential databases.</div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">☁️</span>
+                                    <div><strong>High-Volume Cloud Storage:</strong> Server-side encryption on AWS S3, Google Cloud, and large relational databases.</div>
+                                </li>
+                            </ul>
+                        </div>
+
                         <!-- Symmetric Visual Workflow Diagram -->
                         <div class="mt-4 pt-3.5 border-t border-white/10 space-y-2.5">
                             <div class="text-[11px] font-mono uppercase tracking-wider text-netcom-lime font-bold flex items-center justify-between">
@@ -577,6 +599,28 @@
 <li><strong>Mechanism:</strong> Anyone can encrypt a message using your Public Key, but ONLY your Private Key can decrypt it.</li>
 <li><strong>Strengths:</strong> Solves key distribution over public channels; powers SSL/TLS handshakes and digital signatures.</li>
 </ul>
+                        <!-- Common Real-World Use Cases -->
+                        <div class="bg-black/40 border border-white/10 rounded-lg p-3 space-y-2">
+                            <div class="text-[11px] font-mono uppercase tracking-wider text-netcom-lime font-bold flex items-center justify-between">
+                                <span>Common Real-World Examples</span>
+                                <span class="text-[10px] text-slate-400 font-normal">Everyday IT</span>
+                            </div>
+                            <ul class="text-xs text-slate-300 space-y-1.5">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">🌐</span>
+                                    <div><strong>HTTPS &amp; SSL/TLS Web Browsing:</strong> Digital server certificates authenticate website identity before any confidential user data is transmitted.</div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">✍️</span>
+                                    <div><strong>Digital Signatures &amp; Contracts:</strong> Authenticating legal agreements (DocuSign), PDF sign-offs, and verified operating system software updates.</div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-netcom-lime shrink-0">🔑</span>
+                                    <div><strong>Secure Remote Administration:</strong> SSH key pairs for authenticating cloud server engineers and routers without sending raw passwords.</div>
+                                </li>
+                            </ul>
+                        </div>
+
                         <!-- Asymmetric Visual Workflow Diagram -->
                         <div class="mt-4 pt-3.5 border-t border-white/10 space-y-2.5">
                             <div class="text-[11px] font-mono uppercase tracking-wider text-netcom-lime font-bold flex items-center justify-between">
@@ -637,6 +681,34 @@
                             </div>
                         </div>
 </div>
+</div>
+
+
+
+<!-- Enterprise Hybrid Reality Callout -->
+<div class="bg-black/40 border-l-4 border-netcom-lime p-4 sm:p-5 rounded-r-xl space-y-2">
+    <div class="font-bold text-white text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-netcom-lime/20 text-netcom-lime font-mono text-[10px] font-extrabold border border-netcom-lime/30">Industry Best Practice</span>
+        <span>The Enterprise Reality: Hybrid Encryption in Action</span>
+    </div>
+    <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-1.5">
+        <p>
+            Why do we need both? <strong>Asymmetric encryption is secure over public networks but mathematically resource-heavy</strong>, whereas <strong>Symmetric encryption is blisteringly fast but cannot safely exchange keys across the open internet</strong>.
+        </p>
+        <p>
+            Modern internet security solves this by combining them into a <strong>Hybrid Cryptosystem</strong> (the foundation of <strong>HTTPS / TLS</strong>). When you visit an encrypted website:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="p-3 rounded-lg bg-black/50 border border-white/10 space-y-1">
+                <div class="text-netcom-lime font-mono text-[11px] font-bold">Phase 1: Asymmetric Handshake (~2ms)</div>
+                <div class="text-xs text-slate-300">Your browser and the server use RSA/ECC public/private keys to verify identity and securely negotiate a temporary <strong>session key</strong>.</div>
+            </div>
+            <div class="p-3 rounded-lg bg-black/50 border border-white/10 space-y-1">
+                <div class="text-netcom-lime font-mono text-[11px] font-bold">Phase 2: Symmetric Data Transfer</div>
+                <div class="text-xs text-slate-300">Once agreed, both sides switch to symmetric <strong>AES-256</strong>, streaming gigabytes of video, audio, and web content with zero CPU lag.</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Computing History: The Enigma Machine, Alan Turing & The Bletchley Park Bombe -->
