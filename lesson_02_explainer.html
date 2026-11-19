@@ -460,6 +460,30 @@
 </div>
 </div>
 </div>
+
+                <!-- Computing History: Al-Khwarizmi & The Origin of Algorithms -->
+                <div class="bg-black/40 border-l-4 border-amber-500 p-4 sm:p-5 rounded-r-xl space-y-2.5">
+                    <div class="font-bold text-amber-300 text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-extrabold border border-amber-500/30">Computing History</span>
+                        <span>Muhammad ibn Musa al-Khwarizmi &amp; The Origin of Algorithms</span>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                        <p>
+                            While the Caesar Shift cipher above demonstrates an early intuitive substitution rule, the fundamental principle of computing—solving complex mathematical problems through structured, finite, step-by-step procedures—originated with 9th-century Persian scholar <strong>Muhammad ibn Musa al-Khwarizmi</strong> (c. 780–850 CE) at the famed <strong>House of Wisdom</strong> (<em>Bayt al-Hikma</em>) in Baghdad.
+                        </p>
+                        <p>
+                            When al-Khwarizmi's foundational mathematical treatises were translated into Latin during the 12th century, his name was transliterated as <strong><em>Algoritmi</em></strong> (or <em>Algorismus</em>), directly giving modern computing the word <strong>"Algorithm"</strong>. Furthermore, his landmark mathematical text <em>Al-Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābala</em> gave the world the word <strong>"Algebra"</strong> (from <em>al-jabr</em>, meaning "the reunion or restoration of broken parts").
+                        </p>
+                        <div class="p-3 rounded-lg bg-black/50 border border-white/10 text-xs text-slate-300 space-y-1">
+                            <div class="text-amber-300 font-bold font-mono text-[11px] uppercase tracking-wider">The Cryptographic Connection:</div>
+                            <p>
+                                Al-Khwarizmi established that computation should not rely on intuition or trial and error, but on repeatable, deterministic rules. Every modern cipher—from Caesar's simple modulo arithmetic \((P + K) \pmod{26}\) to 256-bit AES and 4096-bit RSA—is fundamentally an <strong>algorithm</strong> executing rigorous mathematical transformations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
 </div>
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-symmetric"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.4</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Symmetric vs Asymmetric Ciphers</h3></div>
 <p class="text-[15px] text-slate-200 leading-relaxed">
@@ -480,6 +504,64 @@
 <li><strong>Strengths:</strong> Extremely fast and computationally lightweight; ideal for bulk file encryption and streaming data.</li>
 <li><strong>Core Limitation:</strong> The Key Exchange Problem: How do you safely transmit the secret key to the receiver over an untrusted network?</li>
 </ul>
+                        <!-- Symmetric Visual Workflow Diagram -->
+                        <div class="mt-4 pt-3.5 border-t border-white/10 space-y-2.5">
+                            <div class="text-[11px] font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span>Visual Workflow</span>
+                                    <span class="text-slate-400 font-normal">| Single Shared Secret Key</span>
+                                </span>
+                                <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">AES-256</span>
+                            </div>
+                            <div class="bg-black/50 border border-white/10 rounded-xl p-3 sm:p-4 space-y-2">
+                                <div class="grid grid-cols-5 gap-1.5 sm:gap-2 items-center text-center">
+                                    <!-- 1. Sender (Plaintext) -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">1. Sender</div>
+                                        <div class="p-2 rounded-lg bg-white/5 border border-white/15 text-white font-mono text-xs font-bold truncate">"HELLO"</div>
+                                        <div class="text-[9px] text-slate-400 uppercase font-semibold">Plaintext</div>
+                                    </div>
+                                    <!-- 2. Encrypt with Shared Key -->
+                                    <div class="space-y-1">
+                                        <div class="text-amber-400 text-xs sm:text-sm font-bold">➔</div>
+                                        <div class="p-1 sm:p-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1 shadow-[0_0_8px_rgba(245,158,11,0.2)]">
+                                            <span>🔑</span>
+                                            <span class="hidden sm:inline">Shared</span>
+                                        </div>
+                                        <div class="text-[9px] text-amber-300 font-medium">Encrypt</div>
+                                    </div>
+                                    <!-- 3. Ciphertext in Transit -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">2. Transit</div>
+                                        <div class="p-2 rounded-lg bg-[#120a26] border border-amber-500/30 text-amber-200 font-mono text-xs font-bold truncate shadow-[inset_0_0_8px_rgba(245,158,11,0.15)]">"%#8!X"</div>
+                                        <div class="text-[9px] text-amber-400 uppercase font-semibold">Ciphertext</div>
+                                    </div>
+                                    <!-- 4. Decrypt with Same Shared Key -->
+                                    <div class="space-y-1">
+                                        <div class="text-amber-400 text-xs sm:text-sm font-bold">➔</div>
+                                        <div class="p-1 sm:p-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1 shadow-[0_0_8px_rgba(245,158,11,0.2)]">
+                                            <span>🔑</span>
+                                            <span class="hidden sm:inline">Shared</span>
+                                        </div>
+                                        <div class="text-[9px] text-amber-300 font-medium">Decrypt</div>
+                                    </div>
+                                    <!-- 5. Receiver (Plaintext) -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">3. Receiver</div>
+                                        <div class="p-2 rounded-lg bg-white/5 border border-white/15 text-white font-mono text-xs font-bold truncate">"HELLO"</div>
+                                        <div class="text-[9px] text-slate-400 uppercase font-semibold">Plaintext</div>
+                                    </div>
+                                </div>
+                                <div class="pt-2 border-t border-white/5 text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-1">
+                                    <span class="flex items-center gap-1">
+                                        <span class="text-amber-400 font-bold">Notice:</span> The exact same secret key 🔑 is shared and required on both sides.
+                                    </span>
+                                    <span class="text-[10px] font-mono text-amber-400/90 bg-amber-400/10 px-1.5 py-0.5 rounded">High Speed &bull; Bulk Data</span>
+                                </div>
+                            </div>
+                        </div>
+
+
 </div>
 <div class="bg-black/30 border border-white/10 rounded-xl p-5 space-y-3">
 <div class="flex items-center justify-between">
@@ -494,9 +576,138 @@
 <li><strong>Mechanism:</strong> Anyone can encrypt a message using your Public Key, but ONLY your Private Key can decrypt it.</li>
 <li><strong>Strengths:</strong> Solves key distribution over public channels; powers SSL/TLS handshakes and digital signatures.</li>
 </ul>
-</div>
-</div>
-</div>
+                        <!-- Asymmetric Visual Workflow Diagram -->
+                        <div class="mt-4 pt-3.5 border-t border-white/10 space-y-2.5">
+                            <div class="text-[11px] font-mono uppercase tracking-wider text-netcom-lime font-bold flex items-center justify-between">
+                                <span class="flex items-center gap-1.5">
+                                    <span>Visual Workflow</span>
+                                    <span class="text-slate-400 font-normal">| Public &amp; Private Key Pair</span>
+                                </span>
+                                <span class="text-[10px] px-1.5 py-0.5 rounded bg-netcom-lime/10 text-netcom-lime border border-netcom-lime/20">RSA / ECC</span>
+                            </div>
+                            <div class="bg-black/50 border border-white/10 rounded-xl p-3 sm:p-4 space-y-2">
+                                <div class="grid grid-cols-5 gap-1.5 sm:gap-2 items-center text-center">
+                                    <!-- 1. Sender (Plaintext) -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">1. Sender</div>
+                                        <div class="p-2 rounded-lg bg-white/5 border border-white/15 text-white font-mono text-xs font-bold truncate">"HELLO"</div>
+                                        <div class="text-[9px] text-slate-400 uppercase font-semibold">Plaintext</div>
+                                    </div>
+                                    <!-- 2. Encrypt with Bob's Public Key -->
+                                    <div class="space-y-1">
+                                        <div class="text-netcom-lime text-xs sm:text-sm font-bold">➔</div>
+                                        <div class="p-1 sm:p-1.5 rounded-lg bg-netcom-lime/20 border border-netcom-lime/40 text-netcom-lime text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1 shadow-[0_0_8px_rgba(115,245,74,0.2)]">
+                                            <span>🔓</span>
+                                            <span class="hidden sm:inline">Public</span>
+                                        </div>
+                                        <div class="text-[9px] text-netcom-lime font-medium">Encrypt</div>
+                                    </div>
+                                    <!-- 3. Ciphertext in Transit -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">2. Transit</div>
+                                        <div class="p-2 rounded-lg bg-[#120a26] border border-netcom-lime/30 text-lime-200 font-mono text-xs font-bold truncate shadow-[inset_0_0_8px_rgba(115,245,74,0.15)]">"9$K#2"</div>
+                                        <div class="text-[9px] text-netcom-lime uppercase font-semibold">Ciphertext</div>
+                                    </div>
+                                    <!-- 4. Decrypt with Bob's Private Key -->
+                                    <div class="space-y-1">
+                                        <div class="text-purple-400 text-xs sm:text-sm font-bold">➔</div>
+                                        <div class="p-1 sm:p-1.5 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1 shadow-[0_0_8px_rgba(168,85,247,0.2)]">
+                                            <span>🗝️</span>
+                                            <span class="hidden sm:inline">Private</span>
+                                        </div>
+                                        <div class="text-[9px] text-purple-300 font-medium">Decrypt</div>
+                                    </div>
+                                    <!-- 5. Receiver (Plaintext) -->
+                                    <div class="space-y-1">
+                                        <div class="text-[10px] text-slate-400 font-mono">3. Receiver</div>
+                                        <div class="p-2 rounded-lg bg-white/5 border border-white/15 text-white font-mono text-xs font-bold truncate">"HELLO"</div>
+                                        <div class="text-[9px] text-slate-400 uppercase font-semibold">Plaintext</div>
+                                    </div>
+                                </div>
+                                <div class="pt-2 border-t border-white/5 text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-1">
+                                    <span class="flex items-center gap-1">
+                                        <span class="text-netcom-lime font-bold">Notice:</span> Anyone can encrypt with 🔓 Public Key, but <strong>only Bob's 🗝️ Private Key</strong> can decrypt.
+                                    </span>
+                                    <span class="text-[10px] font-mono text-netcom-lime/90 bg-netcom-lime/10 px-1.5 py-0.5 rounded">Key Exchange &bull; Digital Signatures</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                <!-- Computing History: The Enigma Machine, Alan Turing & The Bletchley Park Bombe -->
+                <div class="bg-black/40 border-l-4 border-amber-500 p-4 sm:p-5 rounded-r-xl space-y-3">
+                    <div class="font-bold text-amber-300 text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-extrabold border border-amber-500/30">Computing History</span>
+                        <span>The Enigma Machine, Alan Turing &amp; The Bletchley Park 'Bombe'</span>
+                    </div>
+                    <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2.5">
+                        <p>
+                            During the Second World War, the German military relied on the electro-mechanical <strong>Enigma cipher machine</strong> to encrypt top-secret communications. The machine used a system of rotating wheels (rotors) and a front plugboard (<em>Steckerbrett</em>) that physically swapped pairs of letters before and after electrical current passed through the rotors.
+                        </p>
+                        
+                        <!-- Mathematical Keyspace Callout Box with user formula -->
+                        <div class="bg-black/60 border border-amber-500/30 rounded-xl p-3.5 sm:p-4 space-y-2.5">
+                            <div class="text-[11px] font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center justify-between">
+                                <span>The Astronomical Enigma Keyspace</span>
+                                <span class="text-[10px] text-slate-400 font-mono">10 Plugboard Pairs Chosen from 26 Letters</span>
+                            </div>
+                            
+                            <!-- Responsive Mathematical Formula Block -->
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-black/40 border border-white/10 rounded-lg p-3">
+                                <div class="flex items-center gap-2 font-mono text-xs sm:text-sm text-white">
+                                    <div class="flex flex-col items-center">
+                                        <div class="border-b border-white/30 pb-1 px-1.5 flex items-center gap-1 text-[11px] sm:text-xs text-amber-200">
+                                            <span>(&thinsp;<sup>26</sup><sub>2</sub>&thinsp;)</span>
+                                            <span>&sdot;</span>
+                                            <span>(&thinsp;<sup>24</sup><sub>2</sub>&thinsp;)</span>
+                                            <span>&sdot;</span>
+                                            <span>(&thinsp;<sup>22</sup><sub>2</sub>&thinsp;)</span>
+                                            <span>&hellip;</span>
+                                            <span>(&thinsp;<sup>8</sup><sub>2</sub>&thinsp;)</span>
+                                        </div>
+                                        <div class="pt-1 font-bold text-amber-300 text-xs sm:text-sm">10!</div>
+                                    </div>
+                                    <span class="text-slate-400 font-bold text-base">=</span>
+                                    <div>
+                                        <div class="font-bold text-amber-300 text-sm sm:text-base font-mono">150,738,274,937,250</div>
+                                        <div class="text-[10px] text-slate-400">combinations (approx. 151 trillion)</div>
+                                    </div>
+                                </div>
+                                <div class="w-full sm:w-auto shrink-0 border-t sm:border-t-0 sm:border-l border-white/10 pt-2 sm:pt-0 sm:pl-3 text-right">
+                                    <div class="text-[10px] text-slate-400 uppercase font-mono">Total Combined Daily States</div>
+                                    <div class="text-xs sm:text-sm font-bold text-white font-mono">~158,962,555,217,826,360,000</div>
+                                    <div class="text-[10px] text-netcom-lime font-mono">Over 158 Quintillion Possibilities</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap items-center gap-2.5 text-[11px] text-slate-400 font-mono pt-1">
+                                <span>Reference Historical Plugboard Formula:</span>
+                                <img src="assets/enigma_combinations.png" alt="Enigma plugboard calculation formula" class="h-6 rounded px-1.5 py-0.5 bg-white/95 object-contain shadow-sm border border-white/20 inline-block">
+                            </div>
+                            
+                            <p class="text-xs text-slate-300">
+                                When this plugboard pairing was combined with 3 rotor selections from 5 available wheels (60 permutations), 26 ring settings, and 17,576 rotor starting positions, the total daily keyspace exceeded <strong>158 quintillion</strong> possible setups. German military intelligence considered the cipher mathematically unbreakable by human operators.
+                            </p>
+                        </div>
+
+                        <p>
+                            At <strong>Bletchley Park</strong> in Buckinghamshire, British mathematician <strong>Alan Turing</strong>, building upon crucial mathematical foundations laid by Polish cryptanalysts (Marian Rejewski, Jerzy Różycki, and Henryk Zygalski) and collaborating with Gordon Welchman, recognized that testing 159 quintillion configurations by manual brute force was impossible before German keys reset each midnight.
+                        </p>
+                        <p>
+                            Instead, Turing exploited a fatal engineering flaw in the Enigma's electrical reflector: <strong>an Enigma machine could never encrypt a letter as itself</strong> (e.g. an "A" could become any letter except "A"). Combining this flaw with predictable plaintext fragments known as <strong>"cribs"</strong> (such as the daily 06:00 AM weather report beginning with <em>"Wettervorhersage"</em>), Turing designed the electromechanical <strong>'Bombe'</strong>.
+                        </p>
+                        <div class="p-3 rounded-lg bg-black/50 border border-white/10 text-xs text-slate-300 space-y-1">
+                            <div class="text-amber-300 font-bold font-mono text-[11px] uppercase tracking-wider">Historical Significance &amp; Legacy:</div>
+                            <p>
+                                The Bombe used dozens of synchronized, spinning cylindrical drums to test multiple electrical hypotheses simultaneously, discarding millions of impossible rotor combinations in minutes. This intelligence (codenamed <strong>Ultra</strong>) gave the Allies advance warning of Axis submarine and troop movements, shortened the war by an estimated <strong>two to four years</strong>, saved over <strong>14 million lives</strong>, and directly gave birth to modern programmable computational machines.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
 <div class="space-y-6 subtopic-block scroll-mt-24 pt-7 border-t border-white/10 first:border-0 first:pt-1" id="lo2-1-careers"><div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10 subtopic-header"><span class="px-2.5 py-1 rounded text-xs font-extrabold bg-netcom-lime/15 text-netcom-lime font-mono border border-netcom-lime/30 shadow-[0_0_8px_rgba(115,245,74,0.15)]">2.1.5</span><h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Careers in Data Privacy</h3></div>
 <p class="text-[15px] text-slate-200 leading-relaxed">
                         With cyberattacks and regulatory enforcement expanding worldwide, specialization in data privacy and cryptography represents one of the highest-demand career trajectories in modern IT.
