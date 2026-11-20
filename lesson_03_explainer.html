@@ -372,36 +372,36 @@
                         
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
                             <!-- Visual Triangle Canvas -->
-                            <div class="lg:col-span-6 flex flex-col items-center justify-center p-4 bg-black/40 rounded-xl border border-white/10 relative min-h-[300px]">
+                            <div class="lg:col-span-6 flex flex-col items-center justify-center p-4 bg-black/40 rounded-xl border border-white/10 relative min-h-[350px]">
                                 <!-- Central Core -->
-                                <div class="w-24 h-24 rounded-full bg-netcom-surface border-2 border-netcom-lime/50 flex flex-col items-center justify-center text-center p-2 shadow-[0_0_20px_rgba(115,245,74,0.2)] z-10">
+                                <div class="w-24 h-24 rounded-full bg-netcom-surface border-2 border-netcom-lime/50 flex flex-col items-center justify-center text-center p-2 shadow-[0_0_20px_rgba(115,245,74,0.2)] z-10 -mt-6">
                                     <span class="text-xs font-black text-white">SECURE</span>
                                     <span class="text-[10px] text-netcom-lime font-mono font-bold">SYSTEM</span>
                                 </div>
 
                                 <!-- Node: Confidentiality (Top) -->
-                                <button onclick="selectCiaNode('confidentiality')" id="btnCiaConf" class="cia-node-btn absolute top-4 px-3 py-1.5 rounded-lg bg-blue-900/60 border border-blue-400 text-blue-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
+                                <button onclick="selectCiaNode('confidentiality')" id="btnCiaConf" class="cia-node-btn absolute top-5 px-3.5 py-1.5 rounded-lg bg-blue-900/60 border border-blue-400 text-blue-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
                                     <span>🔒</span> Confidentiality
                                 </button>
 
                                 <!-- Node: Integrity (Bottom Right) -->
-                                <button onclick="selectCiaNode('integrity')" id="btnCiaInteg" class="cia-node-btn absolute bottom-14 right-4 sm:right-8 px-3 py-1.5 rounded-lg bg-emerald-900/60 border border-emerald-400 text-emerald-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
+                                <button onclick="selectCiaNode('integrity')" id="btnCiaInteg" class="cia-node-btn absolute bottom-20 right-4 sm:right-8 px-3.5 py-1.5 rounded-lg bg-emerald-900/60 border border-emerald-400 text-emerald-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
                                     <span>🛡️</span> Integrity
                                 </button>
 
                                 <!-- Node: Availability (Bottom Left) -->
-                                <button onclick="selectCiaNode('availability')" id="btnCiaAvail" class="cia-node-btn absolute bottom-14 left-4 sm:left-8 px-3 py-1.5 rounded-lg bg-amber-900/60 border border-amber-400 text-amber-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
+                                <button onclick="selectCiaNode('availability')" id="btnCiaAvail" class="cia-node-btn absolute bottom-20 left-4 sm:left-8 px-3.5 py-1.5 rounded-lg bg-amber-900/60 border border-amber-400 text-amber-200 text-xs font-bold hover:scale-105 transition shadow-lg flex items-center gap-1.5">
                                     <span>⚡</span> Availability
                                 </button>
 
-                                <!-- Base Plate: Non-Repudiation -->
-                                <button onclick="selectCiaNode('nonrepudiation')" id="btnCiaNonRep" class="cia-node-btn absolute bottom-2 w-11/12 py-1.5 rounded-lg bg-purple-900/60 border border-purple-400 text-purple-200 text-xs font-bold hover:scale-[1.02] transition shadow-lg flex items-center justify-center gap-2">
+                                <!-- Base Plate: Non-Repudiation (Lowered with generous clear spacing) -->
+                                <button onclick="selectCiaNode('nonrepudiation')" id="btnCiaNonRep" class="cia-node-btn absolute bottom-3 w-11/12 py-2 rounded-lg bg-purple-900/60 border border-purple-400 text-purple-200 text-xs font-bold hover:scale-[1.02] transition shadow-lg flex items-center justify-center gap-2">
                                     <span>📜</span> Non-Repudiation (Cryptographic Accountability Anchor)
                                 </button>
                             </div>
 
                             <!-- Dynamic Inspector Panel -->
-                            <div class="lg:col-span-6 bg-netcom-card-elevated p-5 rounded-xl border border-white/10 space-y-3 min-h-[300px] flex flex-col justify-between" id="ciaInspectorPanel">
+                            <div class="lg:col-span-6 bg-netcom-card-elevated p-5 rounded-xl border border-white/10 space-y-3 min-h-[350px] flex flex-col justify-between" id="ciaInspectorPanel">
                                 <div class="space-y-2">
                                     <div class="flex items-center gap-2">
                                         <span id="ciaInspectorBadge" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/40">Confidentiality Pillar</span>
@@ -727,36 +727,36 @@
                             <span class="text-[11px] font-mono text-rose-200 bg-rose-500/20 px-2.5 py-0.5 rounded border border-rose-500/30">Scattered Spider (UNC3944 / Octo Tempest)</span>
                         </div>
                         <h4 class="text-base font-bold text-white">How Scattered Spider Targeted Marks &amp; Spencer (M&amp;S) via Subcontractor Credentials</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs pt-1">
-                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs pt-1 items-stretch">
+                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5 h-full flex flex-col justify-start">
                                 <span class="text-[11px] font-mono font-bold text-amber-300 uppercase">1. Threat Actor &amp; Motives</span>
                                 <p class="text-slate-300 leading-relaxed">
                                     <strong>Threat Actor:</strong> Organised Cybercrime syndicate (operating as a BlackCat/ALPHV ransomware affiliate).<br>
-                                    <strong>Primary Motive:</strong> Pure financial extortion through corporate data theft and extortion threats.
+                                    <strong>Primary Motive:</strong> Pure financial extortion through corporate data theft and ransom demands.
                                 </p>
                             </div>
-                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5">
+                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5 h-full flex flex-col justify-start">
                                 <span class="text-[11px] font-mono font-bold text-netcom-lime uppercase">2. Initial Foothold via Subcontractor</span>
                                 <p class="text-slate-300 leading-relaxed">
-                                    The adversaries did not breach M&amp;S network firewalls directly. Instead, they targeted an external <strong>third-party IT subcontractor</strong>. Using targeted <em>voice phishing ("vishing")</em> against the IT helpdesk, they tricked support staff into issuing an MFA reset and password reset for a legitimate subcontractor user account.
+                                    Adversaries targeted an external <strong>third-party IT subcontractor</strong>. Using targeted <em>voice phishing ("vishing")</em> against the IT helpdesk, they tricked support operators into performing an MFA reset and password re-provisioning for a legitimate contractor account.
                                 </p>
                             </div>
-                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5">
-                                <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase">3. Privilege Escalation &amp; Lateral Movement</span>
+                            <div class="p-3.5 bg-black/40 rounded-lg border border-white/10 space-y-1.5 h-full flex flex-col justify-start">
+                                <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase">3. Privilege Escalation &amp; Pivot</span>
                                 <p class="text-slate-300 leading-relaxed">
-                                    Once inside the subcontractor's trusted boundary, the attackers leveraged over-privileged service roles, escalated permissions across identity directories (Active Directory and cloud identity federation), and pivoted laterally toward internal retail systems.
+                                    Armed with valid contractor credentials, attackers abused over-privileged service roles, escalated permissions across federated identity directories (Active Directory and cloud SSO), and moved laterally toward core retail databases.
                                 </p>
                             </div>
-                            <div class="p-3.5 bg-black/40 rounded-lg border border-purple-500/40 space-y-1.5">
-                                <span class="text-[11px] font-mono font-bold text-purple-300 uppercase">4. Active Directory Exfiltration &amp; Offline Brute Force</span>
+                            <div class="p-3.5 bg-black/40 rounded-lg border border-purple-500/40 space-y-1.5 h-full flex flex-col justify-start">
+                                <span class="text-[11px] font-mono font-bold text-purple-300 uppercase">4. Active Directory Exfiltration &amp; Cracking</span>
                                 <p class="text-slate-300 leading-relaxed">
-                                    After achieving Domain Admin rights, they executed Volume Shadow Copies to steal a complete copy of the encrypted Active Directory database (<code class="text-netcom-lime">NTDS.dit</code>) and the <code class="text-netcom-lime">SYSTEM</code> registry key. Holding this database <strong>offline</strong> on external GPU cracking clusters allowed them to run unlimited dictionary and brute-force attacks without rate limits, account lockouts, or triggering SOC alarms—successfully extracting plaintext credentials for every account on the domain.
+                                    With Domain Admin rights, they stole a complete copy of the encrypted Active Directory database (<code class="text-netcom-lime">NTDS.dit</code>) and <code class="text-netcom-lime">SYSTEM</code> hive. Cracking the hashes <strong>offline</strong> on GPU rigs bypassed all lockout policies, rate limits, and SOC alarms—exposing credentials for every domain account.
                                 </p>
                             </div>
                         </div>
-                        <div class="p-3 rounded-lg bg-black/30 border border-white/10 text-xs text-slate-300 flex items-start gap-2">
-                            <span class="text-rose-400 font-bold font-mono">CRITICAL DEFENCE LESSON:</span>
-                            <span>A fortress enterprise perimeter is only as secure as the weakest third-party subcontractor account allowed inside the network. Identity management and supply-chain vetting are critical core defences.</span>
+                        <div class="p-3.5 rounded-lg bg-black/40 border border-white/10 text-xs text-slate-300 flex flex-col sm:flex-row items-start sm:items-center gap-2.5">
+                            <span class="text-rose-400 font-bold font-mono shrink-0 whitespace-nowrap px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/30">CRITICAL DEFENCE LESSON:</span>
+                            <span class="text-slate-200">A fortress enterprise perimeter is only as secure as the weakest third-party subcontractor account allowed inside the network. Identity management and supply-chain vetting are critical core defences.</span>
                         </div>
                     </div>
                 </div>
