@@ -754,10 +754,15 @@
                         </div>
 
                         <!-- Diagram Display Frame -->
-                        <div class="rounded-xl bg-white p-4 sm:p-6 shadow-inner flex flex-col items-center justify-center overflow-hidden border border-slate-200">
-                            <img src="images/rj45_t568a_t568b_standards.png" alt="RJ-45 Port, RJ-45 Connector, and EIA/TIA 568A vs EIA/TIA 568B Colour Standards Diagram" class="max-h-[360px] w-auto object-contain mx-auto transition-transform hover:scale-[1.01] duration-200" />
-                            <div class="w-full text-center mt-3 pt-2 border-t border-slate-200 text-[11px] text-slate-500 font-mono">
-                                Figure 4.2.4: RJ-45 female port receptacle, male connector modular plug, and T568A vs T568B pin assignment standards
+                        <div class="space-y-2">
+                            <div class="relative rounded-xl bg-white p-4 sm:p-6 shadow-inner flex flex-col items-center justify-center overflow-hidden border border-slate-200 cursor-zoom-in group transition-all hover:border-netcom-lime/60" onclick="openDiagramLightbox('images/rj45_t568a_t568b_standards.png', 'RJ-45 Physical Interface &amp; EIA/TIA 568A vs 568B Colour Standards (Slide 20)', 'Figure 4.2.4: RJ-45 female port receptacle, male connector modular plug, and T568A vs T568B pin assignment standards.')" title="Click to enlarge for closer inspection">
+                                <img src="images/rj45_t568a_t568b_standards.png" alt="RJ-45 Port, RJ-45 Connector, and EIA/TIA 568A vs EIA/TIA 568B Colour Standards Diagram" class="max-h-[360px] w-auto object-contain mx-auto transition-transform hover:scale-[1.02] duration-200" />
+                                <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-white/20 text-[10.5px] font-mono text-netcom-lime flex items-center gap-1 shadow group-hover:bg-netcom-lime group-hover:text-black transition-all">
+                                    <span>🔍</span> Click to Enlarge
+                                </div>
+                            </div>
+                            <div class="w-full text-center text-[11px] text-slate-400 font-mono">
+                                Figure 4.2.4: RJ-45 female port receptacle, male connector modular plug, and T568A vs T568B pin assignment standards &bull; <span class="text-netcom-lime underline cursor-pointer hover:text-white" onclick="openDiagramLightbox('images/rj45_t568a_t568b_standards.png', 'RJ-45 Physical Interface &amp; EIA/TIA 568A vs 568B Colour Standards (Slide 20)')">Click to enlarge</span>
                             </div>
                         </div>
 
@@ -1396,11 +1401,18 @@
                             <span class="text-[11px] font-mono text-slate-300 bg-white/5 px-2.5 py-1 rounded border border-white/10 font-medium">3D Floorplan Model</span>
                         </div>
 
-                        <!-- Diagram Display Frame -->
-                        <div class="rounded-xl bg-white p-3 sm:p-5 shadow-inner flex flex-col items-center justify-center overflow-hidden border border-slate-200">
-                            <img src="images/wifi_attenuation_interference_model.jpg" alt="Wi-Fi and Microwave Signals: Propagation, Attenuation, and Interference Architectural Diagram" class="w-full max-h-[480px] object-contain mx-auto transition-transform hover:scale-[1.01] duration-200" />
-                            <div class="w-full text-center mt-3 pt-2 border-t border-slate-200 text-[11px] text-slate-500 font-mono">
-                                Figure 4.3.2: Real-world signal propagation, structural wall absorption, low-E coated glass loss, and kitchen microwave RF interference
+                        <!-- Diagram Display Frame (Expanded to fill space, zero white desk border, click to enlarge) -->
+                        <div class="space-y-2.5">
+                            <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl group cursor-zoom-in transition-all duration-300 hover:border-netcom-lime/60 hover:shadow-[0_0_24px_rgba(115,245,74,0.15)]" onclick="openDiagramLightbox('images/wifi_attenuation_interference_model.jpg', 'Wi-Fi &amp; Microwave Signals: Propagation, Attenuation, and Interference (Slide 26)', 'Figure 4.3.2: 3D architectural floorplan showing real-world signal propagation, plasterboard penetration, masonry/glass absorption, and microwave oven RF interference.')" title="Click to enlarge for closer inspection">
+                                <img src="images/wifi_attenuation_interference_model.jpg" alt="Wi-Fi and Microwave Signals: Propagation, Attenuation, and Interference Architectural Diagram" class="w-full h-auto block object-contain transition-transform duration-300 group-hover:scale-[1.01]" />
+                                <!-- Interactive Hover Inspection Pill -->
+                                <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/20 text-[11px] font-mono text-netcom-lime flex items-center gap-1.5 shadow-xl transition-all group-hover:bg-netcom-lime group-hover:text-black">
+                                    <span class="text-xs">🔍</span>
+                                    <span class="font-bold">Click for Closer Inspection</span>
+                                </div>
+                            </div>
+                            <div class="w-full text-center text-[11px] text-slate-400 font-mono">
+                                Figure 4.3.2: Real-world signal propagation, structural wall absorption, low-E coated glass loss, and kitchen microwave RF interference &bull; <span class="text-netcom-lime underline cursor-pointer hover:text-white" onclick="openDiagramLightbox('images/wifi_attenuation_interference_model.jpg', 'Wi-Fi &amp; Microwave Signals: Propagation, Attenuation, and Interference (Slide 26)')">Click image to enlarge</span>
                             </div>
                         </div>
 
@@ -2560,7 +2572,74 @@
 
         updateVmwareDashboard();
 
+
+        // =====================================================================
+        // 9. High-Resolution Diagram Lightbox Modal
+        // =====================================================================
+        window.openDiagramLightbox = function(src, title, caption) {
+            const modal = document.getElementById('diagramLightboxModal');
+            const img = document.getElementById('diagramLightboxImg');
+            const titleEl = document.getElementById('diagramLightboxTitle');
+            const captionEl = document.getElementById('diagramLightboxCaption');
+
+            if (!modal || !img) return;
+
+            img.src = src;
+            if (titleEl) titleEl.textContent = title || 'High-Resolution Diagram Inspection';
+            if (captionEl) captionEl.textContent = caption || 'Click anywhere outside or press Escape to close.';
+
+            modal.classList.remove('hidden');
+            // Force reflow for smooth opacity transition
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeDiagramLightbox = function() {
+            const modal = document.getElementById('diagramLightboxModal');
+            if (!modal) return;
+
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        };
+
+        window.handleLightboxBackdropClick = function(event) {
+            closeDiagramLightbox();
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeDiagramLightbox();
+            }
+        });
     });
 </script>
+
+    <!-- Global High-Resolution Diagram Lightbox Modal -->
+    <div id="diagramLightboxModal" class="fixed inset-0 z-50 bg-black/92 backdrop-blur-md hidden flex flex-col items-center justify-center p-3 sm:p-6 transition-opacity duration-200 opacity-0" onclick="handleLightboxBackdropClick(event)">
+        <!-- Top Controls Bar -->
+        <div class="w-full max-w-6xl flex items-center justify-between px-2 py-1.5 text-xs font-mono text-slate-300 mb-2">
+            <div class="flex items-center gap-2 truncate">
+                <span class="text-base text-netcom-lime">🔍</span>
+                <span id="diagramLightboxTitle" class="font-bold text-white truncate text-xs sm:text-sm">High-Resolution Diagram Inspection</span>
+            </div>
+            <button type="button" onclick="closeDiagramLightbox()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold transition flex items-center gap-1.5 cursor-pointer shadow border border-white/10">
+                <span>✕</span> Close (Esc)
+            </button>
+        </div>
+
+        <!-- Lightbox Image Wrapper (Stops propagation so clicking image does not close) -->
+        <div class="relative max-w-6xl max-h-[85vh] flex items-center justify-center p-1.5 bg-black/50 rounded-2xl border border-white/20 shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+            <img id="diagramLightboxImg" src="" alt="Expanded Diagram" class="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-xl shadow-inner" />
+        </div>
+
+        <!-- Bottom Caption -->
+        <div id="diagramLightboxCaption" class="mt-2.5 text-center text-slate-300 text-xs font-mono max-w-3xl px-4">
+            Click anywhere outside or press Escape to close.
+        </div>
+    </div>
 </body>
 </html>
