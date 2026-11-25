@@ -2608,15 +2608,15 @@
                 callerEmail: 'l.patel@netcom-demo.org.uk',
                 callerPhone: 'Ext. 240',
                 department: 'Customer Service Hub',
-                shortDesc: "Customer support workstation will not turn on: no fan spin, no LED lights, burning electrical smell",
-                symptomLog: "User states: \"I arrived at my desk, pressed the power button on my PC tower, and absolutely nothing happened. There are no power LEDs, no fan spinning, and I noticed a distinct burning electrical smell near the back of the case.\"",
+                shortDesc: "Customer service desktop abruptly powered off; chassis warm to touch, will not restart and slight sharp odour",
+                symptomLog: "User states: \"I was in the middle of a customer support call when my computer abruptly shut down with a faint popping click. The power button does nothing at all, no lights or fans. When I leaned behind the tower to check if the power cord had wiggled loose, the metal casing felt unusually hot and I caught a faint, sharp chemical smell like hot plastic or scorched electronics. I felt uneasy about a potential fire hazard so I immediately flipped the wall switch off to be safe and am calling from my mobile.\"",
                 state: 'New',
                 ticketType: '',
                 idealTicketType: 'Incident',
                 domain: '',
                 idealDomain: 'Hardware',
                 priority: '',
-                idealPriority: 'P4',
+                idealPriority: 'P2',
                 diagnostics: {
                     activeTool: 'taskmgr',
                     tools: {
@@ -2640,42 +2640,42 @@
                 },
                 steps: [
                     {
-                                        "num": 1,
-                                        "name": "Identify the Problem",
-                                        "prompt": "Inspect power connections, surge strip, and internal chassis.",
-                                        "fieldAction": "Attended desk; confirmed wall outlet active, tested with known-good power cord; zero power LEDs or fan spin; burning odour verified."
+                        "num": 1,
+                        "name": "Identify the Problem",
+                        "prompt": "Apply Health & Safety precautions; verify mains power isolated at wall socket; inspect chassis exterior and interior.",
+                        "fieldAction": "Confirmed wall switch powered off before inspection. Inspected chassis: motherboard components intact; faint sharp chemical odour concentrated inside rear 260W PSU cage. No active smoke or scorched cables."
                     },
                     {
-                                        "num": 2,
-                                        "name": "Establish Theory of Probable Cause",
-                                        "prompt": "Internal ATX Power Supply Unit (PSU) capacitor failure.",
-                                        "fieldAction": "Hypothesised that internal Dell 260W PSU experienced catastrophic component failure."
+                        "num": 2,
+                        "name": "Establish Theory of Probable Cause",
+                        "prompt": "Internal ATX Power Supply Unit (PSU) filter capacitor ruptured under thermal load, tripping circuit protection.",
+                        "fieldAction": "Hypothesised that internal 260W PSU experienced primary capacitor failure, eliminating fire risk once isolated from mains electricity."
                     },
                     {
-                                        "num": 3,
-                                        "name": "Test Theory to Determine Cause",
-                                        "prompt": "Disconnect PSU from motherboard and test with digital PSU tester.",
-                                        "fieldAction": "Connected digital power supply tester to 24-pin ATX lead; tester display remained dead (0V on all rails)."
+                        "num": 3,
+                        "name": "Test Theory to Determine Cause",
+                        "prompt": "Disconnect internal motherboard power harnesses and test PSU rails using digital power supply tester.",
+                        "fieldAction": "Connected digital power supply tester to 24-pin ATX lead; tester display remained dead (0V on all rails), confirming open circuit in PSU."
                     },
                     {
-                                        "num": 4,
-                                        "name": "Plan & Implement Fix",
-                                        "prompt": "Swap failed PSU with replacement unit from IT stores.",
-                                        "fieldAction": "Installed replacement Dell 260W Bronze PSU (DP/N 0524F5); connected motherboard 24-pin and 4-pin CPU rails."
+                        "num": 4,
+                        "name": "Plan & Implement Fix",
+                        "prompt": "Swap failed PSU with replacement 260W unit from IT inventory.",
+                        "fieldAction": "Installed replacement Dell 260W Bronze SFF PSU (DP/N 0524F5); connected motherboard 24-pin and 4-pin CPU rails, routing cables safely."
                     },
                     {
-                                        "num": 5,
-                                        "name": "Verify Full Functionality",
-                                        "prompt": "Power on workstation and run hardware diagnostics.",
-                                        "fieldAction": "Workstation booted normally into Windows 11; ran Dell ePSA diagnostic suite with 100% pass on RAM, CPU, and NVMe drive."
+                        "num": 5,
+                        "name": "Verify Full Functionality",
+                        "prompt": "Connect to surge-protected wall socket, power on workstation, and run hardware diagnostics.",
+                        "fieldAction": "Workstation powered on normally with quiet fan spin and zero odour. Ran Dell ePSA diagnostic suite with 100% pass on all voltage and thermal sensors."
                     },
                     {
-                                        "num": 6,
-                                        "name": "Document Findings",
-                                        "prompt": "Record serial number of replaced PSU and close ticket.",
-                                        "fieldAction": "Documented in KB001920: Replaced blown PSU. Disposed of failed unit according to WEEE regulations."
+                        "num": 6,
+                        "name": "Document Findings",
+                        "prompt": "Record serial number of replaced PSU, confirm electrical safety, and close ticket.",
+                        "fieldAction": "Documented in KB001920: Replaced ruptured PSU. Workstation verified electrically safe with no fire risk. Disposed of failed unit according to WEEE regulations."
                     }
-]
+                ]
             },
             {
                 id: '10485',
@@ -3181,7 +3181,7 @@
                             '<select id="selectPriority" class="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-white focus:border-netcom-lime">' +
                                 '<option value="">-- Select Priority Level --</option>' +
                                 '<option value="P1"' + (inc.priority === 'P1' ? ' selected' : '') + '>P1 - Whole Organisation Down</option>' +
-                                '<option value="P2"' + (inc.priority === 'P2' ? ' selected' : '') + '>P2 - Entire Department Affected</option>' +
+                                '<option value="P2"' + (inc.priority === 'P2' ? ' selected' : '') + '>P2 - Entire Department Down / Health & Safety Risk</option>' +
                                 '<option value="P3"' + (inc.priority === 'P3' ? ' selected' : '') + '>P3 - Team / Shared Resource Down</option>' +
                                 '<option value="P4"' + (inc.priority === 'P4' ? ' selected' : '') + '>P4 - Single User Workstation</option>' +
                                 '<option value="P5"' + (inc.priority === 'P5' ? ' selected' : '') + '>P5 - Standard Request for Service</option>' +
@@ -3418,7 +3418,7 @@
                         '<td class="p-2 font-mono font-bold text-white">#' + inc.id + '</td>' +
                         '<td class="p-2">' + (isTypeCorrect ? '<span class="text-emerald-400">✔ ' + inc.ticketType + '</span>' : '<span class="text-rose-400">✘ ' + inc.ticketType + ' (Should be ' + inc.idealTicketType + ')</span>') + '</td>' +
                         '<td class="p-2">' + (isDomainCorrect ? '<span class="text-emerald-400">✔ ' + inc.domain + '</span>' : '<span class="text-rose-400">✘ ' + inc.domain + ' (Should be ' + inc.idealDomain + ')</span>') + '</td>' +
-                        '<td class="p-2">' + (isPriorityCorrect ? '<span class="text-emerald-400 font-bold">✔ ' + inc.priority + '</span>' : '<span class="text-rose-400 font-bold">✘ ' + inc.priority + ' (Should be ' + inc.idealPriority + ')</span>') + '</td>' +
+                        '<td class="p-2">' + (isPriorityCorrect ? '<span class="text-emerald-400 font-bold">✔ ' + inc.priority + '</span>' : '<span class="text-rose-400 font-bold">✘ ' + inc.priority + ' (Should be ' + inc.idealPriority + ')</span>' + (inc.id === '10487' ? '<div class="text-[9.5px] text-amber-300 font-sans mt-0.5">⚠️ Health &amp; Safety Rule: Potential fire/electrical hazard escalates urgency to P2.</div>' : '')) + '</td>' +
                         '<td class="p-2">' + (isAllCorrect ? '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Passed</span>' : '<span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">Review</span>') + '</td>' +
                     '</tr>';
                 });
