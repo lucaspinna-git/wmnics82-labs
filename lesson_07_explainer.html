@@ -6058,15 +6058,6 @@ function renderPartsDrawer() {
                                 <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⚡</span> <span><b>Spend vs Performance Goal:</b> Both low-spec and very high-spec PCs can achieve top 900–1000 pt (4.5–5.0 ★) scores when engineered for maximum efficiency.</span></li>
                                 <li class="flex items-center gap-1.5"><span class="text-sky-400 font-bold">⭐</span> <span><b>1–1000 Numerical Scale:</b> 200 pts per full star, graded in strict 100-pt half-star increments (e.g. 700 pts = 3.5 ★, 800 pts = 4.0 ★, 900 pts = 4.5 ★, 1000 pts = 5.0 ★).</span></li>
                                 <li class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">⚖️</span> <span><b>Efficiency Discipline:</b> Eliminate bottlenecks, avoid thermal throttling, enable dual-channel RAM, install NVMe storage, and match PSU capacity to your power draw.</span></li>
-                                <li class="pt-2">
-                                    <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[10px] text-amber-200 space-y-1">
-                                        <div class="flex items-center justify-between font-bold">
-                                            <span>🏆 Class Challenge Leaderboard</span>
-                                            <span class="text-amber-400 font-mono">1–1000 Points</span>
-                                        </div>
-                                        <p>Scores are calibrated to your chosen spend tier. Every 100 points unlocks the next half-star grade. Scores below 100 points do not reach the first half star.</p>
-                                    </div>
-                                </li>
                             ` : ''}
                             ${client.mustHave.noDedicatedGpu ? '<li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <span><b>Integrated Graphics Only:</b> Do not install a discrete PCIe graphics card.</span></li>' : ''}
                             ${client.mustHave.requireDedicatedGpu ? `<li class="flex items-center gap-1.5"><span class="text-sky-400">✓</span> <span><b>Dedicated Graphics Accelerator:</b> Dedicated PCIe GPU required (Minimum ${client.mustHave.minVramGb || 4} GB VRAM).</span></li>` : ''}
