@@ -5544,7 +5544,7 @@
 
         // --- 4. Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
-            selectCategory('motherboards');
+            selectCategory('order');
             updateTelemetry();
         });
 
@@ -5573,10 +5573,8 @@
                 elBudget.textContent = client.budget >= 999999 ? "Unlimited (Sandbox)" : `£${client.budget.toFixed(2)}`;
             }
 
-            // If drawer is on order tab, re-render
-            if (workbench.activeCategory === 'order') {
-                renderPartsDrawer();
-            }
+            // Automatically default right drawer to Customer Order
+            selectCategory('order');
 
             updateTelemetry();
             playBeep(950, 40);
