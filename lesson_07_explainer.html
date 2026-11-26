@@ -4216,6 +4216,42 @@
         const HARDWARE_CATALOG = {
             motherboards: [
                 {
+                    id: "mobo-intel-h81m",
+                    name: "ASUS H81M-K (Refurbished)",
+                    brand: "Intel Platform",
+                    socket: "LGA1150",
+                    formFactor: "Micro-ATX",
+                    ramType: "DDR3",
+                    priceGbp: 28.99,
+                    baseWatts: 25,
+                    description: "Ultra-low budget legacy Intel H81 board. Supports 4th-Gen Haswell CPUs, dual-channel DDR3, and PCIe 2.0 x16.",
+                    badge: "LGA1150 • DDR3"
+                },
+                {
+                    id: "mobo-intel-b85m",
+                    name: "GIGABYTE GA-B85M-D3H (Refurbished)",
+                    brand: "Intel Platform",
+                    socket: "LGA1150",
+                    formFactor: "Micro-ATX",
+                    ramType: "DDR3",
+                    priceGbp: 38.99,
+                    baseWatts: 30,
+                    description: "Business B85 board with 4x DDR3 DIMM slots, USB 3.0, Gigabit LAN, and all-solid capacitors.",
+                    badge: "LGA1150 • DDR3"
+                },
+                {
+                    id: "mobo-amd-am3-760g",
+                    name: "ASUS M5A78L-M PLUS/USB3",
+                    brand: "AMD Platform",
+                    socket: "AM3+",
+                    formFactor: "Micro-ATX",
+                    ramType: "DDR3",
+                    priceGbp: 34.99,
+                    baseWatts: 35,
+                    description: "Classic AMD 760G socket AM3+ board. Supports FX and Phenom II processors, dual-channel DDR3, and onboard Radeon graphics.",
+                    badge: "AM3+ • DDR3"
+                },
+                {
                     id: "mobo-intel-h610",
                     name: "ASUS PRIME H610M-E D4",
                     brand: "Intel Platform",
@@ -4397,6 +4433,48 @@
                 }
             ],
             cpus: [
+                {
+                    id: "cpu-intel-i3-4160",
+                    name: "Intel Core i3-4160",
+                    brand: "Intel Platform",
+                    socket: "LGA1150",
+                    cores: "2 Cores / 4 Threads",
+                    clockSpeed: "3.60 GHz",
+                    watts: 54,
+                    priceGbp: 19.99,
+                    hasIgpu: true,
+                    igpuName: "Intel HD Graphics 4400",
+                    description: "4th-Gen Haswell dual-core with Hyper-Threading. Low power draw for ultra-budget office refurbishment.",
+                    badge: "2C/4T • 3.6 GHz • 54W"
+                },
+                {
+                    id: "cpu-intel-i5-4590",
+                    name: "Intel Core i5-4590",
+                    brand: "Intel Platform",
+                    socket: "LGA1150",
+                    cores: "4 Cores / 4 Threads",
+                    clockSpeed: "3.30 GHz (3.70 GHz Turbo)",
+                    watts: 84,
+                    priceGbp: 29.99,
+                    hasIgpu: true,
+                    igpuName: "Intel HD Graphics 4600",
+                    description: "Proven Haswell quad-core workhorse. High single-core speeds and multi-tasking on affordable DDR3 memory.",
+                    badge: "4C/4T • 3.7 GHz • 84W"
+                },
+                {
+                    id: "cpu-amd-fx-6300",
+                    name: "AMD FX-6300 Black Edition",
+                    brand: "AMD Platform",
+                    socket: "AM3+",
+                    cores: "6 Cores / 6 Threads",
+                    clockSpeed: "3.50 GHz (4.10 GHz Turbo)",
+                    watts: 95,
+                    priceGbp: 26.99,
+                    hasIgpu: false,
+                    igpuName: "No Integrated GPU (Discrete Card Required)",
+                    description: "6-core Vishera AM3+ processor. High multi-threaded integer throughput for budget rendering and light gaming.",
+                    badge: "6C/6T • 4.1 GHz • 95W"
+                },
                 {
                     id: "cpu-intel-i3",
                     name: "Intel Core i3-12100",
@@ -4580,6 +4658,39 @@
             ],
             coolers: [
                 {
+                    id: "cooler-intel-lga115x-stock",
+                    name: "Intel Stock LGA115X Aluminum Heatsink",
+                    type: "Air Cooler",
+                    bracket: "LGA1150",
+                    maxTdpWatts: 73,
+                    priceGbp: 6.99,
+                    heightMm: 45,
+                    description: "Original push-pin cooler with copper core slug for 54W–65W Haswell and Sandy Bridge processors.",
+                    badge: "Push-Pin • 73W TDP"
+                },
+                {
+                    id: "cooler-amd-am3-stock",
+                    name: "AMD Stock AM3+ Aluminum Cooler",
+                    type: "Air Cooler",
+                    bracket: "AM3+",
+                    maxTdpWatts: 95,
+                    priceGbp: 7.99,
+                    heightMm: 55,
+                    description: "Dual-clip cam-lever heatsink designed for 95W socket AM3+ and FM2+ processors.",
+                    badge: "Clip-Lever • 95W TDP"
+                },
+                {
+                    id: "cooler-deepcool-ice-edge",
+                    name: "DeepCool Ice Edge Mini FS 2.0",
+                    type: "Air Cooler",
+                    bracket: "Universal",
+                    maxTdpWatts: 100,
+                    priceGbp: 11.99,
+                    heightMm: 112,
+                    description: "Dual sintered copper heatpipes with compact aluminum fins. Effective cooling upgrade for older budget builds.",
+                    badge: "Dual-Heatpipe • 100W TDP"
+                },
+                {
                     id: "cooler-intel-stock",
                     name: "Intel Laminar RM1 Stock Cooler",
                     brand: "Intel Thermal",
@@ -4731,6 +4842,42 @@
                 }
             ],
             memory: [
+                {
+                    id: "ram-ddr3-4gb",
+                    name: "4 GB DDR3-1333 (1x 4 GB Single DIMM)",
+                    type: "DDR3",
+                    capacityGb: 4,
+                    modules: 1,
+                    channels: "Single-Channel",
+                    speedMhz: 1333,
+                    priceGbp: 6.99,
+                    description: "Entry single DDR3 module for ultra-budget office refurbishment and legacy POS terminals.",
+                    badge: "4GB • Single-Channel • DDR3"
+                },
+                {
+                    id: "ram-ddr3-8gb",
+                    name: "8 GB DDR3-1600 Kit (2x 4 GB Dual-Channel)",
+                    type: "DDR3",
+                    capacityGb: 8,
+                    modules: 2,
+                    channels: "Dual-Channel",
+                    speedMhz: 1600,
+                    priceGbp: 11.99,
+                    description: "Standard 2-stick DDR3 dual-channel kit unlocking 128-bit memory bus width for Haswell / AM3+ PCs.",
+                    badge: "8GB (2x4GB) • Dual-Channel • DDR3"
+                },
+                {
+                    id: "ram-ddr3-16gb",
+                    name: "16 GB DDR3-1600 Kit (2x 8 GB Dual-Channel)",
+                    type: "DDR3",
+                    capacityGb: 16,
+                    modules: 2,
+                    channels: "Dual-Channel",
+                    speedMhz: 1600,
+                    priceGbp: 19.99,
+                    description: "High-capacity dual-channel DDR3 kit. Maximises memory capacity for older workstation motherboards.",
+                    badge: "16GB (2x8GB) • Dual-Channel • DDR3"
+                },
                 {
                     id: "ram-ddr4-8gb",
                     name: "8 GB DDR4-3200 (1x 8 GB)",
@@ -4914,6 +5061,36 @@
             ],
             storage: [
                 {
+                    id: "disk-sata-250gb",
+                    name: "250 GB 2.5\" SATA III SSD (Crucial BX500)",
+                    form: "2.5\" SATA SSD",
+                    bus: "SATA III 6Gb/s",
+                    readSpeedMbps: 540,
+                    priceGbp: 17.99,
+                    description: "Affordable SATA SSD for older motherboards lacking M.2 slots. 10x faster seek times than mechanical HDDs.",
+                    badge: "250GB • SATA III • 540 MB/s"
+                },
+                {
+                    id: "disk-hdd-500gb",
+                    name: "500 GB 3.5\" SATA HDD (Seagate Barracuda)",
+                    form: "3.5\" HDD",
+                    bus: "SATA III 6Gb/s",
+                    readSpeedMbps: 130,
+                    priceGbp: 14.99,
+                    description: "Legacy mechanical hard drive. Low-cost mass storage, but suffers from physical head seek latency.",
+                    badge: "500GB • 3.5\" Mechanical HDD"
+                },
+                {
+                    id: "disk-hdd-1tb",
+                    name: "1 TB 3.5\" SATA HDD (WD Blue 7200 RPM)",
+                    form: "3.5\" HDD",
+                    bus: "SATA III 6Gb/s",
+                    readSpeedMbps: 150,
+                    priceGbp: 24.99,
+                    description: "Standard 7200 RPM SATA mechanical hard drive for secondary bulk media storage.",
+                    badge: "1TB • 3.5\" Mechanical HDD"
+                },
+                {
                     id: "disk-sata-500gb",
                     name: "500 GB 2.5\" SATA SSD (Crucial BX500)",
                     brand: "Crucial",
@@ -5096,6 +5273,42 @@
             ],
             gpus: [
                 {
+                    id: "gpu-r7-240",
+                    name: "AMD Radeon R7 240 (2 GB DDR3 Low-Profile)",
+                    brand: "AMD Radeon",
+                    isDedicated: true,
+                    vram: "2 GB DDR3",
+                    watts: 30,
+                    lengthMm: 145,
+                    priceGbp: 34.99,
+                    description: "Entry-level discrete graphics card for video playback and multi-monitor output. PCIe slot powered (30W).",
+                    badge: "2GB • PCIe 3.0 • 30W"
+                },
+                {
+                    id: "gpu-gt710",
+                    name: "NVIDIA GeForce GT 710 (2 GB GDDR5 Passive)",
+                    brand: "NVIDIA GeForce",
+                    isDedicated: true,
+                    vram: "2 GB GDDR5",
+                    watts: 19,
+                    lengthMm: 145,
+                    priceGbp: 39.99,
+                    description: "Zero-noise fanless graphics card. Low 19W draw provides HDMI display output for headless office CPUs.",
+                    badge: "2GB • Fanless • 19W"
+                },
+                {
+                    id: "gpu-gt1030",
+                    name: "NVIDIA GeForce GT 1030 (2 GB GDDR5)",
+                    brand: "NVIDIA GeForce",
+                    isDedicated: true,
+                    vram: "2 GB GDDR5",
+                    watts: 30,
+                    lengthMm: 150,
+                    priceGbp: 59.99,
+                    description: "Compact Pascal GPU capable of 720p/1080p light esports (CS:GO, Rocket League). 30W power draw.",
+                    badge: "2GB GDDR5 • 30W"
+                },
+                {
                     id: "gpu-none",
                     name: "Integrated Graphics (No Dedicated Card)",
                     brand: "Motherboard Display Out",
@@ -5262,6 +5475,39 @@
                 }
             ],
             psus: [
+                {
+                    id: "psu-250w",
+                    name: "250W Standard Micro-ATX Power Supply",
+                    brand: "OEM Power",
+                    capacityWatts: 250,
+                    efficiency: "Standard 80%",
+                    modular: "Non-Modular",
+                    priceGbp: 19.99,
+                    description: "Compact 250W power supply for slimline micro-ATX and basic office desktops. Dual +12V rails.",
+                    badge: "250W • Standard • Fixed Cable"
+                },
+                {
+                    id: "psu-300w",
+                    name: "300W 80 Plus Bronze Power Supply",
+                    brand: "FSP Group",
+                    capacityWatts: 300,
+                    efficiency: "80 Plus Bronze",
+                    modular: "Non-Modular",
+                    priceGbp: 24.99,
+                    description: "Quiet 300W Bronze PSU ideal for low-power DDR3 Haswell builds (65W–140W system draw).",
+                    badge: "300W • 80 Plus Bronze"
+                },
+                {
+                    id: "psu-400w",
+                    name: "400W 80 Plus Standard Power Supply",
+                    brand: "EVGA / Corsair",
+                    capacityWatts: 400,
+                    efficiency: "Standard 80%",
+                    modular: "Non-Modular",
+                    priceGbp: 28.99,
+                    description: "Cost-effective 400W unit with 6-pin PCIe power cable for entry dedicated graphics cards.",
+                    badge: "400W • 80 Plus Standard"
+                },
                 {
                     id: "psu-350w",
                     name: "350W 80 Plus Standard Power Supply",
@@ -5770,7 +6016,8 @@
                                          (mbSocket === 'LGA1851' && brk === 'LGA1700') ||
                                          (mbSocket === 'LGA1700' && brk === 'LGA1851') ||
                                          (mbSocket === 'AM5' && brk === 'AM4') ||
-                                         (mbSocket === 'AM4' && brk === 'AM5');
+                                         (mbSocket === 'AM4' && brk === 'AM5') ||
+                                         (mbSocket === 'LGA1150' && (brk === 'LGA1150' || brk === 'LGA115X'));
                     if (!isCompatible) {
                         showToast("Cooler Bracket Mismatch", `This cooler has an ${brk} mounting bracket. It will not align with the mounting holes of an ${mbSocket} motherboard.`);
                         return;
@@ -5804,11 +6051,12 @@
             if (slotKey === 'cpu' && workbench.cooler && workbench.cooler.bracket !== 'Universal') {
                 const brk = workbench.cooler.bracket;
                 const cpuSock = part.socket;
-                const isCompat = (brk === cpuSock) ||
+                const isCompat = (brk === 'Universal') || (brk === cpuSock) ||
                                  (cpuSock === 'LGA1851' && brk === 'LGA1700') ||
                                  (cpuSock === 'LGA1700' && brk === 'LGA1851') ||
                                  (cpuSock === 'AM5' && brk === 'AM4') ||
-                                 (cpuSock === 'AM4' && brk === 'AM5');
+                                 (cpuSock === 'AM4' && brk === 'AM5') ||
+                                 (cpuSock === 'LGA1150' && (brk === 'LGA1150' || brk === 'LGA115X'));
                 if (!isCompat) workbench.cooler = null;
             }
 
@@ -6516,6 +6764,9 @@
 
             // 1. CPU BASE SCORE TABLE (All 15 CPUs)
             const cpuPoints = {
+                'cpu-intel-i3-4160': 1350,
+                'cpu-intel-i5-4590': 2150,
+                'cpu-amd-fx-6300': 2050,
                 'cpu-intel-i3': 1850,
                 'cpu-amd-r5-4500': 1950,
                 'cpu-amd-r5-5600x': 2750,
@@ -6536,6 +6787,9 @@
 
             // 2. RAM BASE SCORE TABLE (All 15 Memory Kits)
             const ramPoints = {
+                'ram-ddr3-4gb': 380,
+                'ram-ddr3-8gb': 780,
+                'ram-ddr3-16gb': 1100,
                 'ram-ddr4-8gb': 600,
                 'ram-ddr4-16gb': 1200,
                 'ram-ddr4-16gb-3600': 1400,
@@ -6556,6 +6810,9 @@
 
             // 3. GPU BASE SCORE TABLE (All 15 Video Options)
             const gpuPoints = {
+                'gpu-r7-240': 650,
+                'gpu-gt710': 580,
+                'gpu-gt1030': 1100,
                 'gpu-none': 350,
                 'gpu-rx6400': 1450,
                 'gpu-gtx1650': 1850,
@@ -6577,6 +6834,9 @@
             // 4. STORAGE BASE SCORE TABLE (All 15 Drives)
             const storageItem = workbench.storage_m2 || workbench.storage_sata;
             const diskPoints = {
+                'disk-sata-250gb': 420,
+                'disk-hdd-500gb': 110,
+                'disk-hdd-1tb': 130,
                 'disk-hdd-2tb': 150,
                 'disk-hdd-4tb': 180,
                 'disk-sata-500gb': 520,
@@ -7179,7 +7439,7 @@
                 }
             } else if (client.id === 'sandbox') {
                 if (totalStars === 5.0) {
-                    dialogue = `Incredible engineering! You achieved a legendary ${ptsPerPound.toFixed(1)} pts/£1 efficiency ratio with zero system bottlenecks or wasted rails. You have mastered vocational hardware procurement and value optimization!`;
+                    dialogue = `Incredible engineering! You achieved a legendary ${ptsPerPound.toFixed(1)} pts/£1 efficiency ratio with zero system bottlenecks or wasted rails. You have mastered vocational hardware procurement and value optimisation!`;
                 } else if (totalStars === 4.5) {
                     dialogue = `Sensational 4.5-star value engineering (${ptsPerPound.toFixed(1)} pts/£1)! You are right on the verge of the elite 220+ Master Value Architect tier. Eliminate any remaining minor PSU or trace blemish to clinch 5 stars!`;
                 } else if (totalStars >= 3.5) {
