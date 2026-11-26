@@ -5860,7 +5860,147 @@
             playBeep(1200, 40);
         }
 
-        function renderPartsDrawer() {
+                // --- 5.1 Technical Hardware Telemetry & Bus Architecture Helper ---
+        function getPartSpecs(category, part) {
+            const pid = part.id || '';
+            const name = part.name || '';
+            let clock = '';
+            let bus = '';
+            let extra = '';
+
+            if (category === 'motherboards') {
+                const ramType = part.ramType || 'DDR4';
+                if (ramType === 'DDR5') {
+                    clock = "Up to 7200+ MT/s (XMP / EXPO)";
+                    bus = "PCIe 5.0 / 4.0 x16 • Dual DDR5 Bus";
+                    extra = "PCIe 4.0 x4 M.2 NVMe (64 Gb/s Bus)";
+                } else if (ramType === 'DDR4') {
+                    clock = "Up to 3600 MT/s (Dual-Channel)";
+                    bus = "PCIe 4.0 x16 • 128-bit DDR4 Bus";
+                    extra = "PCIe 3.0/4.0 M.2 + SATA 6Gb/s";
+                } else {
+                    clock = "1333 / 1600 MT/s Dual-Channel";
+                    bus = "PCIe 2.0 x16 • 128-bit DDR3 Bus";
+                    extra = "SATA III 6Gb/s (No M.2 Slot)";
+                }
+            } else if (category === 'cpus') {
+                clock = part.clockSpeed || "3.50 GHz";
+                if (pid.includes('i9') || pid.includes('7950')) {
+                    bus = "PCIe 5.0 x16 (64 GB/s) • Dual DDR5 Bus";
+                    extra = `${part.cores} • 36MB–64MB L3 Cache`;
+                } else if (pid.includes('7800x3d')) {
+                    bus = "PCIe 5.0 x16 • Dual-Channel Bus";
+                    extra = "8C / 16T • 96MB 3D V-Cache (Gaming Flagship)";
+                } else if (pid.includes('i7') || pid.includes('7700') || pid.includes('ultra-7')) {
+                    bus = "PCIe 5.0 / 4.0 x16 • Dual-Channel Bus";
+                    extra = `${part.cores} • 30MB–33MB L3 Cache`;
+                } else if (pid.includes('i5') || pid.includes('7600') || pid.includes('5600') || pid.includes('ultra-5') || pid.includes('4590')) {
+                    bus = "PCIe 4.0/3.0 x16 (31.5 GB/s bus width)";
+                    extra = `${part.cores} • Dual Memory Controller`;
+                } else {
+                    bus = "PCIe 3.0/4.0 x16 • 128-bit Memory Bus";
+                    extra = `${part.cores} • Low TDP Thermal Efficiency`;
+                }
+            } else if (category === 'memory') {
+                const spd = part.speedMhz || 3200;
+                const ioClock = Math.round(spd / 2);
+                clock = `${spd} MT/s (${ioClock} MHz I/O Clock)`;
+                if (part.channels === 'Dual-Channel') {
+                    const bw = part.type === 'DDR5' ? Math.round((spd * 16) / 1000) : Math.round((spd * 8 * 2) / 1000);
+                    bus = `Dual-Channel 128-bit (~${bw} GB/s)`;
+                    extra = part.type === 'DDR5' ? "Dual 32-bit Subchannels • On-Die ECC" : "Dual 64-bit Symmetric Bus Width";
+                } else {
+                    const bw = Math.round((spd * 8) / 1000);
+                    bus = `Single-Channel 64-bit (~${bw} GB/s)`;
+                    extra = "⚠️ Half Bandwidth (Memory Choke Risk)";
+                }
+            } else if (category === 'storage') {
+                const readSpd = part.readSpeedMbps || (part.form === 'M.2 NVMe' ? 3500 : (part.form && part.form.includes('SSD') ? 540 : 150));
+                clock = `Read: ${readSpd.toLocaleString()} MB/s`;
+                if (pid.includes('gen5')) {
+                    bus = "PCIe Gen 5.0 x4 (128 Gb/s NVMe)";
+                    extra = "1.5M+ IOPS (DirectStorage Ultra)";
+                } else if (part.form === 'M.2 NVMe') {
+                    bus = "PCIe Gen 4.0 x4 (64 Gb/s NVMe)";
+                    extra = "500K–900K IOPS (Zero Seek Latency)";
+                } else if (part.form && part.form.includes('SSD')) {
+                    bus = "SATA III (6 Gb/s AHCI Bus)";
+                    extra = "95K IOPS • 10x Faster than HDD";
+                } else {
+                    bus = "SATA III 6Gb/s (Mechanical Platters)";
+                    extra = "120 IOPS • High Physical Seek Latency";
+                }
+            } else if (category === 'gpus') {
+                if (pid === 'gpu-none') {
+                    clock = "Integrated Silicon Core Clock";
+                    bus = "Shared System Memory (System RAM Bus)";
+                    extra = "Low Power • Basic Desktop Display";
+                } else {
+                    if (pid.includes('4090')) {
+                        clock = "Boost: 2520 MHz (24GB G6X)";
+                        bus = "384-bit Bus @ 21 Gbps (1,008 GB/s)";
+                        extra = "PCIe 4.0 x16 (31.5 GB/s) • 450W TDP";
+                    } else if (pid.includes('4080')) {
+                        clock = "Boost: 2550 MHz (16GB G6X)";
+                        bus = "256-bit Bus @ 23 Gbps (736 GB/s)";
+                        extra = "PCIe 4.0 x16 (31.5 GB/s) • 320W TDP";
+                    } else if (pid.includes('7800xt') || pid.includes('4070ti')) {
+                        clock = "Boost: 2430–2610 MHz";
+                        bus = "256-bit Bus @ 19.5 Gbps (624 GB/s)";
+                        extra = "PCIe 4.0 x16 • High-Refresh 1440p";
+                    } else if (pid.includes('4070')) {
+                        clock = "Boost: 2475 MHz (12GB G6X)";
+                        bus = "192-bit Bus @ 21 Gbps (504 GB/s)";
+                        extra = "PCIe 4.0 x16 (31.5 GB/s) • 220W TDP";
+                    } else if (pid.includes('6750xt')) {
+                        clock = "Boost: 2600 MHz (12GB GDDR6)";
+                        bus = "192-bit Bus @ 18 Gbps (432 GB/s)";
+                        extra = "PCIe 4.0 x16 (31.5 GB/s) • 250W TDP";
+                    } else if (pid.includes('4060') || pid.includes('7600xt') || pid.includes('6600')) {
+                        clock = "Boost: 2460–2755 MHz";
+                        bus = "128-bit Bus @ 17–18 Gbps (272–288 GB/s)";
+                        extra = "PCIe 4.0 x8 (16 GB/s) • 115W–190W TDP";
+                    } else if (pid.includes('a580')) {
+                        clock = "Engine: 1700 MHz (8GB GDDR6)";
+                        bus = "256-bit Bus @ 16 Gbps (512 GB/s)";
+                        extra = "PCIe 4.0 x16 • Intel Deep Link Ready";
+                    } else {
+                        clock = "Core: 1000–1468 MHz";
+                        bus = "64-bit / 128-bit Bus @ 5–8 Gbps";
+                        extra = "PCIe Slot Powered (19W–75W TDP)";
+                    }
+                }
+            } else if (category === 'coolers') {
+                const tdp = part.maxTdpWatts || 65;
+                if (pid.includes('360')) {
+                    clock = "Pump: 2800 RPM • 3x 120mm PWM Fans";
+                    bus = "Multi-Socket Universal Bracket";
+                    extra = `Rated: ${tdp}W TDP Extreme Thermal Dissipation`;
+                } else if (pid.includes('240')) {
+                    clock = "Pump: 2400 RPM • 2x 120mm PWM Fans";
+                    bus = "Multi-Socket Universal Bracket";
+                    extra = `Rated: ${tdp}W TDP Liquid Cooling Headroom`;
+                } else if (pid.includes('peerless') || pid.includes('d15') || pid.includes('darkrock')) {
+                    clock = "1550 RPM PWM • 66.17 CFM Airflow";
+                    bus = "Dual-Tower Universal Mounting";
+                    extra = `Rated: ${tdp}W TDP Heavy Thermal Capacity`;
+                } else {
+                    clock = "1800–2200 RPM Quiet PWM Fan";
+                    bus = `${part.bracket || 'Universal'} Socket Retention Bracket`;
+                    extra = `Rated: ${tdp}W TDP Thermal Capacity`;
+                }
+            } else if (category === 'psus') {
+                const cap = part.capacityWatts || 350;
+                const amps12v = (cap * 0.95 / 12).toFixed(1);
+                clock = `${cap}W Continuous Power Output`;
+                bus = `Single +12V Rail @ ~${amps12v}A Dedicated`;
+                extra = `${part.efficiency || '80 Plus Bronze'} (${part.modular || 'Non-Modular'})`;
+            }
+
+            return { clock, bus, extra };
+        }
+
+function renderPartsDrawer() {
             const container = document.getElementById('partsContainer');
             if (!container) return;
             container.innerHTML = '';
@@ -5953,6 +6093,8 @@
                     handlePartSelect(workbench.activeCategory, part);
                 });
 
+                const spec = getPartSpecs(workbench.activeCategory, part);
+
                 card.innerHTML = `
                     <div>
                         <div class="flex items-center justify-between gap-2 mb-1.5">
@@ -5967,6 +6109,22 @@
                         </div>
                         <h4 class="text-xs font-bold text-white group-hover:text-netcom-lime transition">${part.name}</h4>
                         <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${part.description}</p>
+
+                        <!-- High-Detail Technical Telemetry & Bus Architecture Strip -->
+                        <div class="mt-2.5 p-2 rounded-lg bg-black/60 border border-slate-800/80 font-mono text-[10px] space-y-1">
+                            <div class="flex items-center justify-between text-slate-300">
+                                <span class="text-slate-500">Clock / Speed:</span>
+                                <span class="text-sky-300 font-bold">${spec.clock}</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-300">
+                                <span class="text-slate-500">BUS Architecture:</span>
+                                <span class="text-netcom-lime font-bold">${spec.bus}</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-300">
+                                <span class="text-slate-500">Spec / Bandwidth:</span>
+                                <span class="text-amber-300">${spec.extra}</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono">
                         <span class="text-slate-500">${part.socket || part.type || part.form || part.bracket || part.brand}</span>
