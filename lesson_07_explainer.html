@@ -1306,6 +1306,252 @@
                 </div>
             </div>
 
+<!-- CPU Types Reference Table & Architecture Comparison (AMD vs Intel) -->
+            <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 font-mono text-xs font-bold uppercase tracking-wider">
+                            Processor Architecture &bull; Deep Dive
+                        </span>
+                        <h3 class="text-xl font-bold text-white mt-1">CPU Types &amp; Specifications: AMD vs Intel Comparison</h3>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">CompTIA Tech+ Objectives 1.3 &amp; 2.1 &bull; Cores, Threads, Clock Speeds &amp; TDP</span>
+                </div>
+
+                <!-- 4 Terminology Explainer Cards (Level 1 Plain English) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-sans">
+                    <!-- 1. Cores -->
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-sky-500/30 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-sky-400 font-mono font-bold text-sm">
+                            <span>🎛️</span>
+                            <span>Physical Cores</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            An independent, physical silicon execution unit inside the CPU. Each core reads, decodes, and executes computational instructions on its own.
+                        </p>
+                        <div class="text-[10px] text-slate-400 font-mono border-t border-white/10 pt-1">
+                            <strong class="text-sky-300">Why it matters:</strong> More cores allow the PC to run multiple heavy applications simultaneously without stuttering.
+                        </div>
+                    </div>
+
+                    <!-- 2. Threads -->
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-purple-500/30 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-purple-400 font-mono font-bold text-sm">
+                            <span>⚡</span>
+                            <span>Logical Threads</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            A virtual execution sequence handled by a core. Simultaneous multithreading (<strong>Intel Hyper-Threading</strong> or <strong>AMD SMT</strong>) splits 1 physical core into 2 logical worker lanes.
+                        </p>
+                        <div class="text-[10px] text-slate-400 font-mono border-t border-white/10 pt-1">
+                            <strong class="text-purple-300">Why it matters:</strong> Doubling thread count keeps execution pipelines fed with data while waiting on system RAM.
+                        </div>
+                    </div>
+
+                    <!-- 3. Clock Speed -->
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-amber-500/30 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-amber-400 font-mono font-bold text-sm">
+                            <span>⏱️</span>
+                            <span>Clock Speed (GHz)</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            The frequency at which the CPU executes cycles, measured in <strong>Gigahertz (GHz)</strong> (billions of electrical cycles per second). Displays both a <strong>Base Clock</strong> and a turbo <strong>Boost Clock</strong>.
+                        </p>
+                        <div class="text-[10px] text-slate-400 font-mono border-t border-white/10 pt-1">
+                            <strong class="text-amber-300">Why it matters:</strong> Higher clock speed delivers snappier performance in single-threaded tasks and gaming.
+                        </div>
+                    </div>
+
+                    <!-- 4. Wattage / TDP -->
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-rose-500/30 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-rose-400 font-mono font-bold text-sm">
+                            <span>🔋</span>
+                            <span>Wattage / TDP</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            <strong>Thermal Design Power (TDP)</strong>, rated in <strong>Watts (W)</strong>. Represents the maximum electrical energy consumed and heat generated that the computer cooling system must dissipate.
+                        </p>
+                        <div class="text-[10px] text-slate-400 font-mono border-t border-white/10 pt-1">
+                            <strong class="text-rose-300">Why it matters:</strong> Determines the minimum cooler capacity and Power Supply Unit (PSU) wattage needed.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comprehensive Comparison Table: AMD vs Intel -->
+                <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/50">
+                    <table class="w-full text-left text-xs text-slate-300 border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-900/90 text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                                <th class="p-3 font-semibold whitespace-nowrap">Tier / Workload</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Brand &amp; Family</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Physical Cores</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Logical Threads</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Clock Speed (Base &bull; Boost)</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Power Draw (TDP)</th>
+                                <th class="p-3 font-semibold whitespace-nowrap">Socket &amp; Architecture</th>
+                                <th class="p-3 font-semibold">Vocational Guidance &amp; Best Fit</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 font-mono text-xs">
+                            <!-- Tier 1: Entry / Office - Intel -->
+                            <tr class="hover:bg-slate-900/50 transition">
+                                <td class="p-3 font-bold text-sky-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 border border-sky-500/30">Tier 1 &bull; Entry</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-sky-400">Intel Core i3</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(i3-13100 / i3-14100)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">4 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(4 Performance)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">8 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">3.4 GHz &ndash; 4.5 GHz</td>
+                                <td class="p-3 text-emerald-400 font-bold whitespace-nowrap">60W &ndash; 65W TDP</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">LGA1700<br/><span class="text-[10px] text-slate-400">(Intel 7 Silicon)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Budget office workstations, word processing, browser tasks, point-of-sale terminals. Integrated Intel UHD 730 graphics.</td>
+                            </tr>
+                            <!-- Tier 1: Entry / Office - AMD -->
+                            <tr class="hover:bg-slate-900/50 transition bg-amber-500/5">
+                                <td class="p-3 font-bold text-amber-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-500/30">Tier 1 &bull; Entry</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-amber-400">AMD Ryzen 5 APU</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(4600G / 8500G)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">6 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(Zen 3 / Zen 4)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">12 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">3.5 GHz &ndash; 5.0 GHz</td>
+                                <td class="p-3 text-emerald-400 font-bold whitespace-nowrap">65W TDP</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">AM4 / AM5<br/><span class="text-[10px] text-slate-400">(TSMC FinFET)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Affordable business desks with integrated Radeon Vega / 740M graphics. Excellent multitasking on a strict budget.</td>
+                            </tr>
+
+                            <!-- Tier 2: Mainstream Business - Intel -->
+                            <tr class="hover:bg-slate-900/50 transition">
+                                <td class="p-3 font-bold text-sky-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 border border-sky-500/30">Tier 2 &bull; Business</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-sky-400">Intel Core i5</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(i5-13400 / i5-14600K)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">10 &ndash; 14 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(6P + 4E / 6P + 8E)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">16 &ndash; 20 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">2.5 GHz &ndash; 5.3 GHz</td>
+                                <td class="p-3 text-amber-400 font-bold whitespace-nowrap">65W &ndash; 125W TDP</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">LGA1700<br/><span class="text-[10px] text-slate-400">(Hybrid Core Arch)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Standard enterprise desktop workhorse. Hybrid P-cores handle active tasks while E-cores run background security scanners and OS services.</td>
+                            </tr>
+                            <!-- Tier 2: Mainstream Business - AMD -->
+                            <tr class="hover:bg-slate-900/50 transition bg-amber-500/5">
+                                <td class="p-3 font-bold text-amber-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-500/30">Tier 2 &bull; Business</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-amber-400">AMD Ryzen 5</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(Ryzen 5 7600 / 9600X)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">6 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(Full Zen 4/5 Cores)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">12 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">3.8 GHz &ndash; 5.4 GHz</td>
+                                <td class="p-3 text-emerald-400 font-bold whitespace-nowrap">65W TDP</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">AM5<br/><span class="text-[10px] text-slate-400">(DDR5 Exclusive)</span></td>
+                                <td class="p-3 font-sans text-slate-400">High energy efficiency, excellent single-core speed. Modern AM5 platform provides long-term upgradeability for vocational fleet upgrades.</td>
+                            </tr>
+
+                            <!-- Tier 3: High Performance - Intel -->
+                            <tr class="hover:bg-slate-900/50 transition">
+                                <td class="p-3 font-bold text-purple-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-purple-950/80 text-purple-300 border border-purple-500/30">Tier 3 &bull; Pro / CAD</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-sky-400">Intel Core i7 / Ultra 7</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(i7-14700K / 265K)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">20 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(8P + 12E)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">28 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">3.4 GHz &ndash; 5.6 GHz</td>
+                                <td class="p-3 text-rose-400 font-bold whitespace-nowrap">125W &ndash; 253W Peak</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">LGA1700 / LGA1851<br/><span class="text-[10px] text-slate-400">(Intel 7 / N3B)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Engineering drafting (AutoCAD, SolidWorks), video compilation, code compiling. Requires high-performance dual-tower or 280mm AIO liquid cooling.</td>
+                            </tr>
+                            <!-- Tier 3: High Performance - AMD -->
+                            <tr class="hover:bg-slate-900/50 transition bg-amber-500/5">
+                                <td class="p-3 font-bold text-purple-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-purple-950/80 text-purple-300 border border-purple-500/30">Tier 3 &bull; Pro / CAD</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-amber-400">AMD Ryzen 7</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(7700X / 7800X3D / 9700X)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">8 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(Unified Zen Cores)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">16 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">4.2 GHz &ndash; 5.5 GHz</td>
+                                <td class="p-3 text-amber-400 font-bold whitespace-nowrap">105W &ndash; 120W TDP</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">AM5<br/><span class="text-[10px] text-slate-400">(3D V-Cache Option)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Industry-leading gaming simulation and 3D frame rates via stacked 96MB 3D V-Cache. High efficiency drawing much less power than comparable Intel chips.</td>
+                            </tr>
+
+                            <!-- Tier 4: Enthusiast / Heavy Compute - Intel -->
+                            <tr class="hover:bg-slate-900/50 transition">
+                                <td class="p-3 font-bold text-rose-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-rose-950/80 text-rose-300 border border-rose-500/30">Tier 4 &bull; Flagship</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-sky-400">Intel Core i9 / Ultra 9</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(i9-14900KS / 285K)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">24 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(8P + 16E)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">32 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">3.2 GHz &ndash; 6.2 GHz</td>
+                                <td class="p-3 text-rose-400 font-bold whitespace-nowrap">150W &ndash; 300W+ Peak</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">LGA1700 / LGA1851<br/><span class="text-[10px] text-slate-400">(Flagship Silicon)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Extreme workstation tasks, heavy video rendering, large database compilations. Mandates 360mm/420mm liquid AIO and a minimum 850W&ndash;1000W 80 Plus PSU.</td>
+                            </tr>
+                            <!-- Tier 4: Enthusiast / Heavy Compute - AMD -->
+                            <tr class="hover:bg-slate-900/50 transition bg-amber-500/5">
+                                <td class="p-3 font-bold text-rose-300 whitespace-nowrap">
+                                    <span class="inline-block px-2 py-0.5 rounded bg-rose-950/80 text-rose-300 border border-rose-500/30">Tier 4 &bull; Flagship</span>
+                                </td>
+                                <td class="p-3 font-bold text-white font-sans whitespace-nowrap">
+                                    <span class="text-amber-400">AMD Ryzen 9</span><br/>
+                                    <span class="text-[10px] text-slate-400 font-mono">(Ryzen 9 7950X / 9950X)</span>
+                                </td>
+                                <td class="p-3 text-white font-bold whitespace-nowrap">16 Cores<br/><span class="text-[10px] text-slate-400 font-normal">(16 Full Zen Cores)</span></td>
+                                <td class="p-3 text-purple-300 font-bold whitespace-nowrap">32 Threads</td>
+                                <td class="p-3 text-amber-300 whitespace-nowrap">4.3 GHz &ndash; 5.7 GHz</td>
+                                <td class="p-3 text-rose-400 font-bold whitespace-nowrap">170W &ndash; 230W Peak</td>
+                                <td class="p-3 text-slate-300 whitespace-nowrap">AM5<br/><span class="text-[10px] text-slate-400">(Dual Core Complex)</span></td>
+                                <td class="p-3 font-sans text-slate-400">Workstation multitasking monster. All 16 cores are full-power architecture, providing consistent high performance across virtual machines, rendering, and scientific computing.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Technician Practical Rules (Level 1 Guidance) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-netcom-lime font-bold">
+                            <span>⚡</span>
+                            <span>Architectural Philosophy: Hybrid vs Homogeneous</span>
+                        </div>
+                        <p class="text-slate-400 font-sans text-[11px] leading-relaxed">
+                            <strong class="text-white">Intel</strong> uses a <em>hybrid design</em> (big Performance P-cores for main tasks + smaller Efficient E-cores for background tasks). <strong class="text-white">AMD</strong> uses <em>homogeneous chiplets</em> where all Zen cores share identical high-performance architectures, often packing massive 3D V-Cache on specialized models.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                        <div class="flex items-center gap-1.5 text-amber-400 font-bold">
+                            <span>🔧</span>
+                            <span>Workshop Rule: Sockets Are Platform-Locked</span>
+                        </div>
+                        <p class="text-slate-400 font-sans text-[11px] leading-relaxed">
+                            You cannot install an AMD CPU into an Intel motherboard, or vice-versa. Intel currently uses <strong>LGA1700 / LGA1851</strong> (pins on the board), while modern AMD uses <strong>AM5</strong> (Land Grid Array pins on the board) and legacy AM4 used PGA (pins on the processor).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Generations of DDR System Memory Reference Table -->
             <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-6">
                 <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
