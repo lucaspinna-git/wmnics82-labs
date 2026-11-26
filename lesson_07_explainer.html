@@ -5843,7 +5843,6 @@
             selectCategory('order');
 
             updateTelemetry();
-            playBeep(950, 40);
         }
 
         function selectCategory(categoryKey) {
@@ -5877,7 +5876,6 @@
             if (header) header.textContent = guidanceMap[categoryKey] || "Select Component";
 
             renderPartsDrawer();
-            playBeep(1200, 40);
         }
 
                 // --- 5.1 Technical Hardware Telemetry & Bus Architecture Helper ---
@@ -6267,8 +6265,6 @@ function renderPartsDrawer() {
             updateChassisVisuals();
             updateTelemetry();
             renderPartsDrawer();
-
-            playBeep(1200, 40);
         }
 
         function removeComponent(slotKey, event) {
@@ -6292,7 +6288,6 @@ function renderPartsDrawer() {
             updateChassisVisuals();
             updateTelemetry();
             renderPartsDrawer();
-            playBeep(600, 50);
         }
 
         function resetWorkbench() {
@@ -6696,7 +6691,6 @@ function renderPartsDrawer() {
             }
 
             resetQleds();
-            playBeep(440, 100);
         }
 
         function resetQleds() {
