@@ -5765,12 +5765,12 @@
                 org: 'SysBench Cost/Performance Lab',
                 role: 'Value Engineering Architect',
                 avatar: '🧪',
-                badge: 'Cost/Performance Challenge',
+                badge: 'Open Budget Efficiency',
                 budget: 999999.00,
-                targetScore: 220,
-                story: "Zero customer restrictions, but a strict architectural challenge: engineer the highest possible Cost/Performance Ratio (Efficiency Index). Can you break into the 220.0+ pts/£1 Master Value Architect tier without triggering bottlenecks or overspending on power rails?",
+                targetScore: 'Tier-Calibrated Efficiency',
+                story: "No customer restrictions and no fixed budget! Build whatever PC you want to build—from an ultra-budget entry machine to a high-spec flagship workstation. Your overall goal is to achieve the highest possible ratio of spend vs performance for your chosen build tier.",
                 mustHave: {},
-                advice: "Every pound matters! Flagship halo parts (RTX 4090, 24-core CPUs, 1000W PSUs) suffer extreme diminishing returns. Search for price-to-performance sweet spots in CPU, dual-channel RAM, correctly sized 450W–550W PSUs, and efficient NVMe drives to achieve the highest possible Efficiency Index (≥ 220.0 pts/£1)!"
+                advice: "Both low-spec and high-spec machines can achieve top scores (900–1000 pts / 5.0 ★)! Maximise your spend-to-performance ratio by matching components cleanly: pair appropriate CPU/GPU tiers, ensure dual-channel RAM, install fast NVMe storage, size your PSU to the 40%–70% efficiency curve, and eliminate thermal throttling."
             }
         };
 
@@ -5836,7 +5836,7 @@
             const elBudget = document.getElementById('lblClientBudget');
             if (elTitle) elTitle.innerHTML = `${client.avatar} ${client.name} &bull; <span class="text-slate-400 font-normal">${client.org}</span>`;
             if (elBudget) {
-                elBudget.textContent = client.budget >= 999999 ? "Target: ≥ 220.0 pts/£1" : `£${client.budget.toFixed(2)}`;
+                elBudget.textContent = client.budget >= 999999 ? "No Fixed Budget" : `£${client.budget.toFixed(2)}`;
             }
 
             // Automatically default right drawer to Customer Order
@@ -6039,7 +6039,7 @@ function renderPartsDrawer() {
                         </div>
                         <div class="text-right font-mono">
                             <div class="text-[10px] text-slate-400 uppercase">Max Budget</div>
-                            <div class="text-emerald-400 font-bold text-sm">${client.budget >= 999999 ? "Unlimited" : "£" + client.budget.toFixed(2)}</div>
+                            <div class="text-emerald-400 font-bold text-sm">${client.budget >= 999999 ? "No Fixed Budget" : "£" + client.budget.toFixed(2)}</div>
                         </div>
                     </div>
 
@@ -6054,19 +6054,17 @@ function renderPartsDrawer() {
                         <span class="text-[10px] font-mono text-netcom-lime uppercase tracking-wider block font-bold">Key Architectural Targets</span>
                         <ul class="space-y-1.5 text-[11px] text-slate-300 font-sans">
                             ${client.id === 'sandbox' ? `
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>1–1000 Numerical Scale:</b> 200 pts per full star, graded in strict 100-pt half-star increments.</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 1 (0–200 pts):</b> 100 pts = 0.5 ★ &bull; 200 pts = 1.0 ★ (Baseline POST & foundational value).</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 2 (200–400 pts):</b> 300 pts = 1.5 ★ &bull; 400 pts = 2.0 ★ (Commercial procurement value).</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 3 (400–600 pts):</b> 500 pts = 2.5 ★ &bull; 600 pts = 3.0 ★ (Architectural balance & synergies).</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 4 (600–800 pts):</b> 700 pts = 3.5 ★ &bull; 800 pts = 4.0 ★ (High-yield sweet-spot price/performance).</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⭐</span> <span><b>Star 5 (800–1000 pts):</b> 900 pts = 4.5 ★ &bull; 1000 pts = 5.0 ★ (Grandmaster Value Architecture).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">🎯</span> <span><b>No Fixed Budget:</b> Build any specification tier you choose—from an entry office machine to a high-spec flagship workstation.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⚡</span> <span><b>Spend vs Performance Goal:</b> Both low-spec and very high-spec PCs can achieve top 900–1000 pt (4.5–5.0 ★) scores when engineered for maximum efficiency.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-sky-400 font-bold">⭐</span> <span><b>1–1000 Numerical Scale:</b> 200 pts per full star, graded in strict 100-pt half-star increments (e.g. 700 pts = 3.5 ★, 800 pts = 4.0 ★, 900 pts = 4.5 ★, 1000 pts = 5.0 ★).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">⚖️</span> <span><b>Efficiency Discipline:</b> Eliminate bottlenecks, avoid thermal throttling, enable dual-channel RAM, install NVMe storage, and match PSU capacity to your power draw.</span></li>
                                 <li class="pt-2">
                                     <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[10px] text-amber-200 space-y-1">
                                         <div class="flex items-center justify-between font-bold">
                                             <span>🏆 Class Challenge Leaderboard</span>
                                             <span class="text-amber-400 font-mono">1–1000 Points</span>
                                         </div>
-                                        <p>Every 100 points unlocks the next half-star grade (e.g. 750 pts = 3.5 stars; 800 pts = 4.0 stars; 900 pts = 4.5 stars). Scores below 100 points do not reach the first half star.</p>
+                                        <p>Scores are calibrated to your chosen spend tier. Every 100 points unlocks the next half-star grade. Scores below 100 points do not reach the first half star.</p>
                                     </div>
                                 </li>
                             ` : ''}
@@ -6595,14 +6593,14 @@ function renderPartsDrawer() {
 
             if (client.budget >= 999999) {
                 if (elBudgetStatus) {
-                    elBudgetStatus.textContent = "Efficiency Challenge";
+                    elBudgetStatus.textContent = "Open Budget Challenge";
                     elBudgetStatus.className = "px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 text-[10px] border border-sky-500/30 font-bold";
                 }
                 if (elBarFill) {
                     elBarFill.style.width = "100%";
                     elBarFill.className = "bg-gradient-to-r from-sky-500 via-indigo-500 to-netcom-lime h-full transition-all duration-300";
                 }
-                if (elTxtRemain) elTxtRemain.textContent = "Target: ≥ 220.0 pts/£1 (Master Value Architect)";
+                if (elTxtRemain) elTxtRemain.textContent = "Goal: Highest Ratio of Spend vs Performance (1–1000 pts)";
             } else {
                 const pct = Math.min(100, Math.max(0, (totalCost / client.budget) * 100));
                 const remaining = client.budget - totalCost;
@@ -7189,14 +7187,19 @@ function renderPartsDrawer() {
                 }
             }
 
-            // 8. Refined Cost/Performance Efficiency Index & 1-1000 Scale Scoring
+            // 8. Universal Spend vs Performance Efficiency Index & 1-1000 Scale Scoring
+            // Open budget model: Evaluates spend-to-performance efficiency across ALL tiers (from budget to halo flagship)
             const ptsPerPound = totalCost > 0 ? Number(((totalScore / totalCost) * 10).toFixed(1)) : 0;
             const costPer1k = totalScore > 0 ? Number(((totalCost / totalScore) * 1000).toFixed(2)) : 0;
 
-            // --- 1 to 1000 VOCATIONAL EFFICIENCY SCORE CALCULATION ---
-            // Normalized base curve from raw efficiency ratio (40.0 pts/£ to 280.0+ pts/£)
-            const normRatio = Math.max(0.0, Math.min(1.0, (ptsPerPound - 40.0) / 240.0));
-            const baseScore1000 = Math.pow(normRatio, 1.15) * 820.0;
+            // Theoretical target peak benchmark score for this spend level (calibrated across all 105 catalog parts)
+            const targetScoreForCost = totalCost > 0 ? (110.0 * Math.pow(totalCost, 0.75)) : 1;
+            const efficiencyRatio = targetScoreForCost > 0 ? (totalScore / targetScoreForCost) : 0;
+            const efficiencyPct = Math.round(efficiencyRatio * 100);
+
+            // Base efficiency points (820 max baseline for 100%+ theoretical tier efficiency)
+            const normEff = Math.max(0.0, Math.min(1.15, efficiencyRatio));
+            const baseScore1000 = Math.pow(normEff, 1.10) * 820.0;
 
             // Synergy Bonus additions (+150 max)
             let synergyBonusTotal = 0;
@@ -7249,7 +7252,7 @@ function renderPartsDrawer() {
             } else if (sandboxScore1000 >= 250) {
                 efficiencyBadge = "⭐⭐ Sub-Optimal / Luxury Spend (250–449 pts)";
                 efficiencyClass = "bg-amber-500/20 border-amber-400 text-amber-300";
-                efficiencyDesc = "Poor economic return. Overspending on halo components or severe bus chokes drag down performance-per-pound.";
+                efficiencyDesc = "Poor economic return. Component mismatch, slow single-channel memory, or unbalanced silicon choices drag down efficiency.";
             } else {
                 efficiencyBadge = "⭐ Severely Bottlenecked / Mismatched (1–249 pts)";
                 efficiencyClass = "bg-rose-500/20 border-rose-400 text-rose-300";
@@ -7267,6 +7270,9 @@ function renderPartsDrawer() {
                 costPer1k: costPer1k,
                 sandboxScore1000: sandboxScore1000,
                 baseScore1000: baseScore1000,
+                targetScoreForCost: targetScoreForCost,
+                efficiencyRatio: efficiencyRatio,
+                efficiencyPct: efficiencyPct,
                 synergyBonusTotal: synergyBonusTotal,
                 bottleneckPenaltyTotal: bottleneckPenaltyTotal,
                 efficiencyBadge: efficiencyBadge,
@@ -7353,7 +7359,9 @@ function renderPartsDrawer() {
             });
 
             const ptsPerPound = benchmarkPtsPerPound !== undefined && benchmarkPtsPerPound > 0 ? benchmarkPtsPerPound : (totalCost > 0 ? Number(((sysbenchScore / totalCost) * 10).toFixed(1)) : 0);
-            const effective1000 = sandboxScore1000 > 0 ? sandboxScore1000 : Math.max(1, Math.min(1000, Math.round(Math.pow(Math.max(0.0, Math.min(1.0, (ptsPerPound - 40.0) / 240.0)), 1.15) * 820.0)));
+            const targetScoreForCost = totalCost > 0 ? (110.0 * Math.pow(totalCost, 0.75)) : 1;
+            const fallbackRatio = targetScoreForCost > 0 ? (sysbenchScore / targetScoreForCost) : 0;
+            const effective1000 = sandboxScore1000 > 0 ? sandboxScore1000 : Math.max(1, Math.min(1000, Math.round(Math.pow(Math.max(0.0, Math.min(1.15, fallbackRatio)), 1.10) * 820.0)));
 
             const cpuWatts = workbench.cpu ? workbench.cpu.watts : 65;
             const gpuWatts = workbench.gpu ? workbench.gpu.watts : 0;
@@ -7404,13 +7412,13 @@ function renderPartsDrawer() {
             if (isSandbox) {
                 if (effective1000 >= 400) {
                     star2 = 1.0;
-                    star2Feedback = `Commercial Procurement Value (≥ 400 pts): Score of ${effective1000}/1000 pts unlocks full Star 2 (400-point threshold).`;
+                    star2Feedback = `Spend vs Performance Baseline (≥ 400 pts): Score of ${effective1000}/1000 pts unlocks full Star 2 (400-point threshold).`;
                 } else if (effective1000 >= 300) {
                     star2 = 0.5;
-                    star2Feedback = `Mainstream Procurement (300–399 pts): Score of ${effective1000}/1000 pts reaches 1.5 total stars (300+ pt increment).`;
+                    star2Feedback = `Mainstream Efficiency (300–399 pts): Score of ${effective1000}/1000 pts reaches 1.5 total stars (300+ pt increment).`;
                 } else {
                     star2 = 0.0;
-                    star2Feedback = `Procurement Inefficiency (< 300 pts): Score of ${effective1000}/1000 pts has not reached the 300-point increment.`;
+                    star2Feedback = `Inefficient Spend/Performance (< 300 pts): Score of ${effective1000}/1000 pts has not reached the 300-point increment.`;
                 }
             } else if (totalCost <= client.budget) {
                 star2 = 1.0;
@@ -7760,7 +7768,7 @@ function renderPartsDrawer() {
                                 <span class="text-[10px] text-slate-400 uppercase">Evaluation:</span>
                                 <div class="flex items-center gap-1">${starsHtml}</div>
                                 <span class="px-2 py-0.5 rounded ${evaluation.totalStars >= 4 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : (evaluation.totalStars >= 2.5 ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40' : 'bg-slate-800 text-slate-400')} font-bold text-xs">${evaluation.totalStars.toFixed(1)} / 5.0 Stars</span>
-                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono font-extrabold text-xs flex items-center gap-1" title="Numerical Cost/Performance Value Score"><span class="text-[10px] text-emerald-400 uppercase font-sans font-semibold">Value Score:</span> ${isSandbox ? `${result.sandboxScore1000} / 1000 pts` : `${result.ptsPerPound.toFixed(1)} <span class="text-[10px] font-normal text-emerald-400">pts/&pound;1</span>`}</span>
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono font-extrabold text-xs flex items-center gap-1" title="Numerical Spend vs Performance Score"><span class="text-[10px] text-emerald-400 uppercase font-sans font-semibold">Value Score:</span> ${isSandbox ? `${result.sandboxScore1000} / 1000 pts` : `${result.ptsPerPound.toFixed(1)} <span class="text-[10px] font-normal text-emerald-400">pts/&pound;1</span>`}</span>
                             </div>
                         </div>
 
@@ -7797,7 +7805,7 @@ function renderPartsDrawer() {
                             <div class="grid grid-cols-4 gap-2 text-center text-[9px] font-mono pt-1 border-t border-slate-800/80 text-slate-400">
                                 <div>SysBench: <span class="text-slate-200 font-bold">${result.total.toLocaleString()} pts</span></div>
                                 <div>Spend: <span class="text-amber-300 font-bold">&pound;${evaluation.totalCost.toFixed(2)}</span></div>
-                                <div>Raw Ratio: <span class="text-emerald-300 font-bold">${result.ptsPerPound.toFixed(1)} pts/&pound;1</span></div>
+                                <div>Spend/Perf: <span class="text-emerald-300 font-bold">${result.efficiencyPct || Math.round((result.total / (110.0 * Math.pow(evaluation.totalCost, 0.75))) * 100)}%</span></div>
                                 <div>Tier: <span class="text-sky-300 font-bold">${result.efficiencyBadge.replace(/⭐|🏆/g, '').trim()}</span></div>
                             </div>
                         </div>
