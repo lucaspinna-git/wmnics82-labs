@@ -2445,6 +2445,88 @@
                                 </div>
                             </div>
 
+                            <!-- Customer Challenge Switcher Bar & Real-Time Budget HUD -->
+                            <div class="mb-4 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 font-mono">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 rounded bg-netcom-lime/20 text-netcom-lime text-[10px] font-bold uppercase tracking-wider">Customer Challenge</span>
+                                        <span class="text-xs text-slate-300 font-bold">Select Client Brief to Grade Build:</span>
+                                    </div>
+                                    <button type="button" onclick="selectCategory('order')" class="text-[11px] text-amber-400 hover:text-amber-300 flex items-center gap-1 transition">
+                                        <span>📋 View Client Brief &amp; Advice &rarr;</span>
+                                    </button>
+                                </div>
+
+                                <!-- 5 Client Pill Buttons -->
+                                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
+                                    <button type="button" id="btnClient-patel" onclick="selectClientScenario('patel')" class="client-pill-btn p-2 rounded-lg bg-netcom-lime text-black font-bold flex flex-col items-start transition shadow ring-1 ring-netcom-lime/50">
+                                        <div class="flex items-center gap-1.5 w-full justify-between">
+                                            <span>🩺 Dr. Patel</span>
+                                            <span class="text-[10px] opacity-80">&pound;375</span>
+                                        </div>
+                                        <span class="text-[9px] font-normal opacity-90 mt-0.5">NHS Clinic Admin</span>
+                                    </button>
+
+                                    <button type="button" id="btnClient-marcus" onclick="selectClientScenario('marcus')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                        <div class="flex items-center gap-1.5 w-full justify-between">
+                                            <span>🎮 Marcus</span>
+                                            <span class="text-[10px] text-netcom-lime">&pound;650</span>
+                                        </div>
+                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Esports / Gaming</span>
+                                    </button>
+
+                                    <button type="button" id="btnClient-elena" onclick="selectClientScenario('elena')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                        <div class="flex items-center gap-1.5 w-full justify-between">
+                                            <span>🎨 Elena</span>
+                                            <span class="text-[10px] text-netcom-lime">&pound;1,100</span>
+                                        </div>
+                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">3D CAD / Video</span>
+                                    </button>
+
+                                    <button type="button" id="btnClient-tariq" onclick="selectClientScenario('tariq')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                        <div class="flex items-center gap-1.5 w-full justify-between">
+                                            <span>🧠 Tariq</span>
+                                            <span class="text-[10px] text-netcom-lime">&pound;1,650</span>
+                                        </div>
+                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">AI / Local LLM</span>
+                                    </button>
+
+                                    <button type="button" id="btnClient-sandbox" onclick="selectClientScenario('sandbox')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition col-span-2 sm:col-span-1">
+                                        <div class="flex items-center gap-1.5 w-full justify-between">
+                                            <span>🧪 Sandbox</span>
+                                            <span class="text-[10px] text-sky-400">&infin;</span>
+                                        </div>
+                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Free Hardware Lab</span>
+                                    </button>
+                                </div>
+
+                                <!-- Active Client Budget Bar & Target HUD -->
+                                <div class="p-2.5 rounded-lg bg-black/50 border border-white/5 space-y-1.5">
+                                    <div class="flex flex-wrap items-center justify-between text-xs">
+                                        <div class="flex items-center gap-2">
+                                            <span id="activeClientTitle" class="text-white font-bold">🩺 Dr. Patel &bull; <span class="text-slate-400 font-normal">NHS Community Health Trust</span></span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-[11px]">
+                                            <span class="text-slate-400">Budget Ceiling:</span>
+                                            <span id="lblClientBudget" class="text-white font-bold">&pound;375.00</span>
+                                            <span class="text-slate-400 ml-1.5">Invoice:</span>
+                                            <span id="lblLiveInvoice" class="text-emerald-400 font-bold">&pound;0.00</span>
+                                            <span id="badgeBudgetStatus" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/80 text-emerald-300 border border-emerald-500/30">Within Budget</span>
+                                        </div>
+                                    </div>
+                                    <!-- Live Spend Progress Bar -->
+                                    <div class="space-y-1">
+                                        <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                            <div id="barBudgetFill" class="h-full bg-emerald-500 transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex items-center justify-between text-[10px] text-slate-400">
+                                            <span id="txtBudgetSpend">&pound;0.00 spent</span>
+                                            <span id="txtBudgetRemaining">&pound;375.00 remaining</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Interactive 2D Chassis Cutaway View (Modeled on Enterprise ATX Motherboard Blueprint) -->
                             <div class="relative bg-slate-950 p-4 rounded-xl border border-slate-800 shadow-inner select-none min-h-[540px]">
                                 <div class="flex items-center justify-between mb-3 text-xs text-slate-400 font-mono">
@@ -2786,14 +2868,15 @@
                             </div>
 
                             <!-- Category Navigation Tabs -->
-                            <div class="grid grid-cols-4 gap-1.5 p-1 bg-slate-950/70 rounded-xl border border-slate-800 text-[10px] font-mono" id="catalogTabs">
-                                <button type="button" onclick="selectCategory('motherboards')" id="tab-motherboards" class="category-tab py-1.5 px-1 rounded-lg text-center font-bold bg-netcom-lime text-black transition">Mobo</button>
+                            <div class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 p-1 bg-slate-950/70 rounded-xl border border-slate-800 text-[10px] font-mono" id="catalogTabs">
+                                <button type="button" onclick="selectCategory('order')" id="tab-order" class="category-tab py-1.5 px-1 rounded-lg text-center font-bold bg-amber-400 text-black transition shadow">📋 Order</button>
+                                <button type="button" onclick="selectCategory('motherboards')" id="tab-motherboards" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">Mobo</button>
                                 <button type="button" onclick="selectCategory('cpus')" id="tab-cpus" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">CPU</button>
                                 <button type="button" onclick="selectCategory('coolers')" id="tab-coolers" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">Cooler</button>
                                 <button type="button" onclick="selectCategory('memory')" id="tab-memory" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">RAM</button>
                                 <button type="button" onclick="selectCategory('storage')" id="tab-storage" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">Disk</button>
                                 <button type="button" onclick="selectCategory('gpus')" id="tab-gpus" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">GPU</button>
-                                <button type="button" onclick="selectCategory('psus')" id="tab-psus" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition col-span-2">Power (PSU)</button>
+                                <button type="button" onclick="selectCategory('psus')" id="tab-psus" class="category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition">PSU</button>
                             </div>
 
                             <!-- Active Category Header & Guidance -->
@@ -5348,7 +5431,105 @@
         };
 
         // --- 3. Workbench State Management ---
+
+        // =========================================================================
+        // CLIENT CHALLENGE SCENARIOS & VOCATIONAL CUSTOMER SPECIFICATIONS
+        // =========================================================================
+        const CLIENT_SCENARIOS = {
+            patel: {
+                id: 'patel',
+                name: 'Dr. Alistair Patel',
+                org: 'St. Jude NHS Health Centre',
+                role: 'GP Practice Senior Partner',
+                avatar: '🏥',
+                badge: 'NHS Clinical Admin',
+                budget: 375.00,
+                targetScore: 3500,
+                story: "Our surgery reception desk needs a compact, ultra-quiet workstation to process patient NHS records and digital appointment bookings all day. We cannot have loud fans disturbing patients, and NHS procurement rules forbid spending public funds on gaming cards or oversized power supplies. The machine must boot Windows in seconds.",
+                mustHave: {
+                    noDedicatedGpu: true,
+                    requireNvme: true,
+                    maxSystemWatts: 165,
+                    noLiquidCooler: true,
+                    minRamGb: 8
+                },
+                advice: "Select a low-power processor with integrated graphics (iGPU) and a compact micro-ATX board. An entry 350W PSU and stock air cooler provide plenty of headroom without wasting NHS budget."
+            },
+            marcus: {
+                id: 'marcus',
+                name: 'Marcus Vance',
+                org: 'West Midlands College',
+                role: 'Esports & Digital Media Student',
+                avatar: '🎮',
+                badge: '1080p Esports & Streaming',
+                budget: 650.00,
+                targetScore: 7500,
+                story: "I compete in college esports tournaments (Valorant, Apex Legends, Rocket League) and stream gameplay on Discord. I need a dedicated graphics card with at least 6GB to 8GB of VRAM, 16GB of dual-channel memory to avoid frame drops, and fast SSD loading times—all strictly within my student savings.",
+                mustHave: {
+                    requireDedicatedGpu: true,
+                    minVramGb: 6,
+                    minRamGb: 16,
+                    dualChannelRam: true,
+                    requireSsd: true
+                },
+                advice: "A discrete graphics card (like the RX 6600 or RTX 3050) is essential. Balance your spend by using a cost-effective air cooler and reliable 500W Bronze PSU so you don't starve the GPU budget."
+            },
+            elena: {
+                id: 'elena',
+                name: 'Elena Rostova',
+                org: 'Apex Architecture Studio',
+                role: 'Lead 3D Architectural Drafter',
+                avatar: '📐',
+                badge: 'Pro CAD & 3D Drafting',
+                budget: 1100.00,
+                targetScore: 14000,
+                story: "I draft complex structural plans in Revit and AutoCAD, and render photorealistic architectural walkthroughs in Blender. My viewport stutters if I don't have at least an 8-core CPU, 32GB of RAM, and a powerful dedicated graphics accelerator with at least 8GB VRAM and NVMe storage.",
+                mustHave: {
+                    minCpuCores: 8,
+                    minRamGb: 32,
+                    requireDedicatedGpu: true,
+                    minVramGb: 8,
+                    requireNvme: true,
+                    minStorageGb: 1000
+                },
+                advice: "Ensure the CPU has at least 8 cores and pair it with 32GB of dual-channel RAM. Don't overspend on an expensive enthusiast motherboard if it forces you to compromise on the graphics card or storage speed."
+            },
+            tariq: {
+                id: 'tariq',
+                name: 'Tariq Al-Mansoor',
+                org: 'Synthetix AI Research Lab',
+                role: 'Machine Learning Engineer',
+                avatar: '🤖',
+                badge: 'Local LLM & Neural Compute',
+                budget: 1650.00,
+                targetScore: 18000,
+                story: "I run and fine-tune local quantized Large Language Models (Qwen 2.5 14B, Llama 3.3). To load 14B model weights entirely into GPU memory, I strictly require a dedicated graphics accelerator with AT LEAST 16GB of VRAM. I also need at least 32GB of system RAM, a high-speed NVMe drive, and a robust 750W+ PSU to absorb sudden tensor compute power spikes.",
+                mustHave: {
+                    requireDedicatedGpu: true,
+                    minVramGb: 16,
+                    minRamGb: 32,
+                    requireNvme: true,
+                    minPsuWatts: 700
+                },
+                advice: "The 16GB VRAM requirement is absolute—selecting an 8GB card will fail local 14B model execution. Allocate budget for a 16GB GPU (like the RX 7800 XT or RTX 4070 Ti Super) and a quality 750W Gold PSU."
+            },
+            sandbox: {
+                id: 'sandbox',
+                name: 'Workshop Free Sandbox',
+                org: 'Netcom Hardware Engineering Bench',
+                role: 'Master Systems Engineer',
+                avatar: '🛠️',
+                badge: 'Unrestricted Sandbox',
+                budget: 999999.00,
+                targetScore: 0,
+                story: "Zero customer restrictions and no budget ceiling. Freely experiment with any combination of flagship silicon, test extreme liquid cooling, diagnose Q-LED fault simulations, and push for the highest possible SysBench 2026 score.",
+                mustHave: {},
+                advice: "Build without constraints. Inspect how high-speed DDR5, Gen 5 NVMe storage, and 24-core CPUs scale the multi-threaded SysBench score."
+            }
+        };
+
         const workbench = {
+            activeClient: 'patel',
             motherboard: null,
             cpu: null,
             cooler: null,
@@ -5358,7 +5539,7 @@
             gpu: null,
             psu: null,
             isPoweredOn: false,
-            activeCategory: 'motherboards'
+            activeCategory: 'order'
         };
 
         // --- 4. Initialization ---
@@ -5368,42 +5549,132 @@
         });
 
         // --- 5. Category Navigation & Drawer Rendering ---
+
+        function selectClientScenario(clientId) {
+            initAudio();
+            if (!CLIENT_SCENARIOS[clientId]) return;
+            workbench.activeClient = clientId;
+            const client = CLIENT_SCENARIOS[clientId];
+
+            // Update client pill buttons
+            document.querySelectorAll('.client-pill-btn').forEach(btn => {
+                btn.className = "client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition";
+            });
+            const activeBtn = document.getElementById(`btnClient-${clientId}`);
+            if (activeBtn) {
+                activeBtn.className = "client-pill-btn p-2 rounded-lg bg-netcom-lime text-black font-bold flex flex-col items-start transition shadow ring-1 ring-netcom-lime/50";
+            }
+
+            // Update title and budget in HUD
+            const elTitle = document.getElementById('activeClientTitle');
+            const elBudget = document.getElementById('lblClientBudget');
+            if (elTitle) elTitle.innerHTML = `${client.avatar} ${client.name} &bull; <span class="text-slate-400 font-normal">${client.org}</span>`;
+            if (elBudget) {
+                elBudget.textContent = client.budget >= 999999 ? "Unlimited (Sandbox)" : `£${client.budget.toFixed(2)}`;
+            }
+
+            // If drawer is on order tab, re-render
+            if (workbench.activeCategory === 'order') {
+                renderPartsDrawer();
+            }
+
+            updateTelemetry();
+            playBeep(950, 40);
+        }
+
         function selectCategory(categoryKey) {
             workbench.activeCategory = categoryKey;
             
             // Highlight active tab
             document.querySelectorAll('.category-tab').forEach(tab => {
-                tab.classList.remove('bg-netcom-lime', 'text-black', 'font-bold');
-                tab.classList.add('text-slate-400');
+                tab.className = "category-tab py-1.5 px-1 rounded-lg text-center text-slate-400 hover:text-white transition";
             });
             const activeTab = document.getElementById(`tab-${categoryKey}`);
             if (activeTab) {
-                activeTab.classList.add('bg-netcom-lime', 'text-black', 'font-bold');
-                activeTab.classList.remove('text-slate-400');
+                if (categoryKey === 'order') {
+                    activeTab.className = "category-tab py-1.5 px-1 rounded-lg text-center font-bold bg-amber-400 text-black transition shadow";
+                } else {
+                    activeTab.className = "category-tab py-1.5 px-1 rounded-lg text-center font-bold bg-netcom-lime text-black transition shadow";
+                }
             }
 
-            // Update category guidance
+            // Update guidance header
             const header = document.getElementById('categoryHeader');
-            const titles = {
-                motherboards: "Step 1: Select Motherboard Backbone",
-                cpus: "Step 2: Choose Central Processing Unit (CPU)",
-                coolers: "Step 3: Attach CPU Heatsink & Cooling Fan",
-                memory: "Step 4: Insert Dual-Channel RAM Memory",
-                storage: "Step 5: Install Storage (M.2 NVMe or SATA SSD)",
-                gpus: "Step 6: Choose Video Output (Integrated vs Dedicated GPU)",
-                psus: "Step 7: Connect Power Supply Unit (PSU)"
+            const guidanceMap = {
+                'order': "Review Active Client Brief & Procurement Constraints",
+                'motherboards': "Select Motherboard Foundation (Chipset, Socket & DDR Gen)",
+                'cpus': "Mount Central Processing Unit (Socket Matching Required)",
+                'coolers': "Install CPU Thermal Solution (TDP Headroom Check)",
+                'memory': "Slot RAM Memory (Dual-Channel Performance Bonus)",
+                'storage': "Connect Storage Drive (High-Speed NVMe vs SATA SSD)",
+                'gpus': "Install Graphics Card (Monitor Output & VRAM Capacity)",
+                'psus': "Wire Power Supply Unit (Calculate System Peak Wattage)"
             };
-            if (header) {
-                header.textContent = titles[categoryKey] || "Select Component";
-            }
+            if (header) header.textContent = guidanceMap[categoryKey] || "Select Component";
 
             renderPartsDrawer();
+            playBeep(1200, 40);
         }
 
         function renderPartsDrawer() {
             const container = document.getElementById('partsContainer');
             if (!container) return;
             container.innerHTML = '';
+
+            // Handle Customer Order tab
+            if (workbench.activeCategory === 'order') {
+                const client = CLIENT_SCENARIOS[workbench.activeClient] || CLIENT_SCENARIOS.patel;
+                const orderCard = document.createElement('div');
+                orderCard.className = "p-4 rounded-xl bg-slate-950/80 border border-amber-500/30 space-y-3 font-sans text-xs";
+                orderCard.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl">${client.avatar}</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">${client.name}</h4>
+                                <div class="text-[11px] text-amber-300 font-mono">${client.role} &bull; ${client.org}</div>
+                            </div>
+                        </div>
+                        <div class="text-right font-mono">
+                            <div class="text-[10px] text-slate-400 uppercase">Max Budget</div>
+                            <div class="text-emerald-400 font-bold text-sm">${client.budget >= 999999 ? "Unlimited" : "£" + client.budget.toFixed(2)}</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">Workplace Mission Brief</span>
+                        <p class="text-slate-300 text-[11px] leading-relaxed italic bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+                            "${client.story}"
+                        </p>
+                    </div>
+
+                    <div class="space-y-2 border-t border-white/10 pt-2.5">
+                        <span class="text-[10px] font-mono text-netcom-lime uppercase tracking-wider block font-bold">Key Client Requirements</span>
+                        <ul class="space-y-1.5 text-[11px] text-slate-300 font-sans">
+                            ${client.mustHave.noDedicatedGpu ? '<li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <span><b>Integrated Graphics Only:</b> Do not install a discrete PCIe graphics card.</span></li>' : ''}
+                            ${client.mustHave.requireDedicatedGpu ? `<li class="flex items-center gap-1.5"><span class="text-sky-400">✓</span> <span><b>Dedicated Graphics Accelerator:</b> Dedicated PCIe GPU required (Minimum ${client.mustHave.minVramGb || 4} GB VRAM).</span></li>` : ''}
+                            ${client.mustHave.requireNvme ? '<li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> <span><b>High-Speed Boot Storage:</b> M.2 NVMe PCIe SSD required for instantaneous OS loading.</span></li>' : ''}
+                            ${client.mustHave.minCpuCores ? `<li class="flex items-center gap-1.5"><span class="text-amber-400">✓</span> <span><b>Multicore Processing:</b> Minimum ${client.mustHave.minCpuCores} physical CPU cores required for CAD rendering.</span></li>` : ''}
+                            ${client.mustHave.minRamGb ? `<li class="flex items-center gap-1.5"><span class="text-sky-400">✓</span> <span><b>System Memory Capacity:</b> Minimum ${client.mustHave.minRamGb} GB system RAM required.</span></li>` : ''}
+                            ${client.mustHave.dualChannelRam ? '<li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <span><b>Dual-Channel Memory:</b> 2-stick memory kit required to unlock 128-bit memory bus width.</span></li>' : ''}
+                            ${client.mustHave.noLiquidCooler ? '<li class="flex items-center gap-1.5"><span class="text-amber-400">✓</span> <span><b>Reliable Air Cooling:</b> Silent, low-maintenance air cooler required (liquid cooling forbidden).</span></li>' : ''}
+                            ${client.mustHave.minPsuWatts ? `<li class="flex items-center gap-1.5"><span class="text-rose-400">✓</span> <span><b>Power Delivery:</b> Minimum ${client.mustHave.minPsuWatts}W PSU capacity to absorb tensor compute transients.</span></li>` : ''}
+                        </ul>
+                    </div>
+
+                    <div class="p-2.5 rounded-lg bg-sky-950/40 border border-sky-500/30 text-[11px] text-sky-200">
+                        <strong class="text-sky-300 font-mono">Vocational Engineering Advice:</strong>
+                        <p class="mt-0.5 leading-relaxed">${client.advice}</p>
+                    </div>
+
+                    <div class="p-2 rounded bg-amber-950/30 border border-amber-500/30 text-[10px] text-amber-300 font-mono flex items-center justify-between">
+                        <span>⚠️ Avoid Bottlenecks &amp; Over-Provisioning!</span>
+                        <span class="text-slate-400">Evaluated upon POST</span>
+                    </div>
+                `;
+                container.appendChild(orderCard);
+                return;
+            }
 
             const parts = HARDWARE_CATALOG[workbench.activeCategory] || [];
             
@@ -5873,6 +6144,64 @@
             const lblCost = document.getElementById('lblTotalCost');
             if (lblCost) {
                 lblCost.textContent = totalCost.toFixed(2);
+            }
+
+            // Sync Customer Challenge HUD Budget Bar
+            const client = CLIENT_SCENARIOS[workbench.activeClient] || CLIENT_SCENARIOS.patel;
+            const elLiveInvoice = document.getElementById('lblLiveInvoice');
+            const elBudgetStatus = document.getElementById('badgeBudgetStatus');
+            const elBarFill = document.getElementById('barBudgetFill');
+            const elTxtSpend = document.getElementById('txtBudgetSpend');
+            const elTxtRemain = document.getElementById('txtBudgetRemaining');
+
+            if (elLiveInvoice) elLiveInvoice.textContent = `£${totalCost.toFixed(2)}`;
+            if (elTxtSpend) elTxtSpend.textContent = `£${totalCost.toFixed(2)} spent`;
+
+            if (client.budget >= 999999) {
+                if (elBudgetStatus) {
+                    elBudgetStatus.textContent = "Unlimited Budget";
+                    elBudgetStatus.className = "px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 text-[10px] border border-sky-500/30";
+                }
+                if (elBarFill) {
+                    elBarFill.style.width = "35%";
+                    elBarFill.className = "bg-sky-400 h-full transition-all duration-300";
+                }
+                if (elTxtRemain) elTxtRemain.textContent = "Sandbox Mode";
+            } else {
+                const pct = Math.min(100, Math.max(0, (totalCost / client.budget) * 100));
+                const remaining = client.budget - totalCost;
+
+                if (elBarFill) {
+                    elBarFill.style.width = `${pct}%`;
+                    if (totalCost > client.budget) {
+                        elBarFill.className = "bg-rose-500 h-full transition-all duration-300";
+                    } else if (pct > 88) {
+                        elBarFill.className = "bg-amber-400 h-full transition-all duration-300";
+                    } else {
+                        elBarFill.className = "bg-netcom-lime h-full transition-all duration-300";
+                    }
+                }
+
+                if (elBudgetStatus) {
+                    if (totalCost > client.budget) {
+                        elBudgetStatus.textContent = `Over Budget (+£${(totalCost - client.budget).toFixed(2)})`;
+                        elBudgetStatus.className = "px-2 py-0.5 rounded bg-rose-950/80 text-rose-300 text-[10px] border border-rose-500/30 font-bold animate-pulse";
+                    } else if (pct > 88) {
+                        elBudgetStatus.textContent = `Near Limit (£${remaining.toFixed(2)} left)`;
+                        elBudgetStatus.className = "px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 text-[10px] border border-amber-500/30 font-bold";
+                    } else {
+                        elBudgetStatus.textContent = `Within Budget (£${remaining.toFixed(2)} left)`;
+                        elBudgetStatus.className = "px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 text-[10px] border border-emerald-500/30";
+                    }
+                }
+
+                if (elTxtRemain) {
+                    if (remaining >= 0) {
+                        elTxtRemain.textContent = `£${remaining.toFixed(2)} remaining headroom`;
+                    } else {
+                        elTxtRemain.textContent = `£${Math.abs(remaining).toFixed(2)} over client ceiling`;
+                    }
+                }
             }
         }
 
@@ -6451,120 +6780,375 @@
             }, 1750);
         }
 
-        function renderBenchmarkResults() {
+        // =========================================================================
+        // 5-STAR CUSTOMER EVALUATION, BOTTLENECK AUDITOR & CLIENT DIALOGUE
+        // =========================================================================
+        function evaluateCustomerBuild(sysbenchScore) {
+            const client = CLIENT_SCENARIOS[workbench.activeClient] || CLIENT_SCENARIOS.patel;
+            const isSandbox = client.id === 'sandbox';
+
+            // 1. Calculate Costs & Watts
+            let totalCost = 0;
+            ['motherboard', 'cpu', 'cooler', 'ram', 'storage_m2', 'storage_sata', 'gpu', 'psu'].forEach(slot => {
+                const part = workbench[slot];
+                if (part && part.priceGbp) totalCost += part.priceGbp;
+            });
+
+            const cpuWatts = workbench.cpu ? workbench.cpu.watts : 65;
+            const gpuWatts = workbench.gpu ? workbench.gpu.watts : 0;
+            const moboWatts = workbench.motherboard ? workbench.motherboard.baseWatts : 50;
+            const systemDraw = cpuWatts + gpuWatts + moboWatts;
+            const psuCapacity = workbench.psu ? workbench.psu.capacityWatts : 350;
+            const psuHeadroomPct = ((psuCapacity - systemDraw) / systemDraw) * 100;
+
+            // --- STAR 1: System Integrity & POST ---
+            const hasCore = workbench.motherboard && workbench.cpu && workbench.cooler && 
+                            workbench.ram && workbench.psu && (workbench.storage_m2 || workbench.storage_sata);
+            const star1 = Boolean(hasCore);
+            const star1Feedback = star1 
+                ? "Physical silicon, memory, and thermal architecture mounted correctly; cleanly passed POST sequence."
+                : "Incomplete system: Missing essential physical hardware required for autonomous booting.";
+
+            // --- STAR 2: Budget Discipline ---
+            const diffBudget = client.budget - totalCost;
+            const star2 = isSandbox || (totalCost <= client.budget);
+            let star2Feedback = "";
+            if (isSandbox) {
+                star2Feedback = `Sandbox Mode: Total hardware spend £${totalCost.toFixed(2)} (No procurement ceiling).`;
+            } else if (star2) {
+                star2Feedback = `Procurement Approved: Invoiced at £${totalCost.toFixed(2)} (£${diffBudget.toFixed(2)} saved under the £${client.budget.toFixed(2)} ceiling).`;
+            } else {
+                star2Feedback = `Procurement Denied: Invoiced at £${totalCost.toFixed(2)}, exceeding client's £${client.budget.toFixed(2)} ceiling by £${Math.abs(diffBudget).toFixed(2)}.`;
+            }
+
+            // --- STAR 3: Client Specific Requirements ---
+            let reqsPassed = true;
+            const unmetList = [];
+            const must = client.mustHave || {};
+
+            if (must.noDedicatedGpu && workbench.gpu && workbench.gpu.isDedicated) {
+                reqsPassed = false;
+                unmetList.push("Client explicitly forbade dedicated graphics; dedicated GPU wastes power and surgery budget.");
+            }
+            if (must.requireDedicatedGpu && (!workbench.gpu || !workbench.gpu.isDedicated)) {
+                reqsPassed = false;
+                unmetList.push("Client requires a discrete PCIe graphics card for visual/3D workloads.");
+            }
+            if (must.requireNvme && !workbench.storage_m2) {
+                reqsPassed = false;
+                unmetList.push("Client requires an M.2 NVMe SSD for fast OS and application access.");
+            }
+            if (must.noLiquidCooler && workbench.cooler && workbench.cooler.id.includes('liquid')) {
+                reqsPassed = false;
+                unmetList.push("Client forbids liquid cooling; quiet, low-maintenance air cooling is required.");
+            }
+            if (must.minCpuCores) {
+                const cores = workbench.cpu ? parseInt(workbench.cpu.cores) || 4 : 0;
+                if (cores < must.minCpuCores) {
+                    reqsPassed = false;
+                    unmetList.push(`Client requires at least ${must.minCpuCores} CPU cores for heavy CAD rendering (installed: ${cores} cores).`);
+                }
+            }
+            if (must.minRamGb) {
+                let ramGb = 8;
+                if (workbench.ram) {
+                    if (workbench.ram.name.includes('64 GB') || workbench.ram.badge.includes('64GB')) ramGb = 64;
+                    else if (workbench.ram.name.includes('48 GB') || workbench.ram.badge.includes('48GB')) ramGb = 48;
+                    else if (workbench.ram.name.includes('32 GB') || workbench.ram.badge.includes('32GB')) ramGb = 32;
+                    else if (workbench.ram.name.includes('16 GB') || workbench.ram.badge.includes('16GB')) ramGb = 16;
+                }
+                if (ramGb < must.minRamGb) {
+                    reqsPassed = false;
+                    unmetList.push(`Client requires at least ${must.minRamGb} GB RAM (installed: ${ramGb} GB).`);
+                }
+            }
+            if (must.dualChannelRam) {
+                if (!workbench.ram || workbench.ram.channels !== 'Dual-Channel') {
+                    reqsPassed = false;
+                    unmetList.push("Client requires a dual-channel memory kit (2 sticks) to unlock full 128-bit memory bus bandwidth.");
+                }
+            }
+            if (must.minVramGb) {
+                let vramGb = 0;
+                if (workbench.gpu && workbench.gpu.isDedicated) {
+                    if (workbench.gpu.vram.includes('24 GB')) vramGb = 24;
+                    else if (workbench.gpu.vram.includes('16 GB')) vramGb = 16;
+                    else if (workbench.gpu.vram.includes('12 GB')) vramGb = 12;
+                    else if (workbench.gpu.vram.includes('8 GB')) vramGb = 8;
+                    else if (workbench.gpu.vram.includes('6 GB')) vramGb = 6;
+                    else if (workbench.gpu.vram.includes('4 GB')) vramGb = 4;
+                }
+                if (vramGb < must.minVramGb) {
+                    reqsPassed = false;
+                    unmetList.push(`Client requires at least ${must.minVramGb} GB GPU VRAM (installed: ${vramGb} GB).`);
+                }
+            }
+            if (must.minPsuWatts && psuCapacity < must.minPsuWatts) {
+                reqsPassed = false;
+                unmetList.push(`Client requires at least a ${must.minPsuWatts}W PSU capacity (installed: ${psuCapacity}W).`);
+            }
+
+            const star3 = isSandbox || (reqsPassed && star1);
+            const star3Feedback = isSandbox
+                ? "Sandbox Mode: All custom hardware combinations valid."
+                : (star3 ? "All customer-mandated hardware criteria, form factors, and specifications fulfilled." : `Unmet client specifications: ${unmetList.join('; ')}`);
+
+            // --- STAR 4: SysBench Performance Target ---
+            const targetScore = client.targetScore || 0;
+            const star4 = isSandbox || (sysbenchScore >= targetScore);
+            const star4Feedback = isSandbox
+                ? `SysBench 2026 score: ${sysbenchScore.toLocaleString()} pts.`
+                : (star4 
+                    ? `Workload Throughput Achieved: SysBench scored ${sysbenchScore.toLocaleString()} pts (Target: ${targetScore.toLocaleString()} pts).`
+                    : `Underperforming: SysBench scored ${sysbenchScore.toLocaleString()} pts, falling short of the required ${targetScore.toLocaleString()} pts for this workload.`);
+
+            // --- STAR 5: Power & Cost Optimisation / Bottleneck Detection ---
+            const bottlenecks = [];
+
+            // 1. PSU Over-Provisioning / Wattage Waste
+            if (psuCapacity > systemDraw * 2.3 && psuCapacity >= 750 && systemDraw < 280) {
+                const wasteDiff = workbench.psu.priceGbp - 41.99;
+                bottlenecks.push(`Wattage Over-Provisioning: You installed a ${psuCapacity}W PSU for a system drawing only ${systemDraw}W (${psuHeadroomPct.toFixed(0)}% headroom). A 450W Bronze PSU would deliver ideal 25%+ safety headroom and save £${wasteDiff.toFixed(2)}.`);
+            }
+
+            // 2. Motherboard Bus Speed vs RAM Mismatch
+            if (workbench.motherboard && workbench.ram) {
+                const moboId = workbench.motherboard.id;
+                const isOverclockMobo = moboId.includes('z790') || moboId.includes('x670');
+                const isSlowRam = workbench.ram.type === 'DDR4' || workbench.ram.name.includes('4800') || workbench.ram.channels === 'Single-Channel';
+                if (isOverclockMobo && isSlowRam) {
+                    bottlenecks.push(`Bus Speed Bottleneck: You selected a premium enthusiast motherboard (${workbench.motherboard.name}) designed for extreme clock speeds, but paired it with basic memory (${workbench.ram.name}). The high-cost motherboard VRMs and bus traces are completely wasted.`);
+                }
+            }
+
+            // 3. Storage I/O Bottleneck
+            if (['marcus', 'elena', 'tariq'].includes(client.id) && !workbench.storage_m2 && workbench.storage_sata && workbench.storage_sata.id.includes('hdd')) {
+                bottlenecks.push("Storage I/O Bottleneck: A mechanical 3.5-inch HDD as the primary drive creates crippling seek latency. NVMe SSD is essential for high-throughput vocational workloads.");
+            }
+
+            // 4. Memory Bus Width Bottleneck
+            if (['marcus', 'elena', 'tariq'].includes(client.id) && workbench.ram && workbench.ram.channels === 'Single-Channel') {
+                bottlenecks.push("Memory Bus Bottleneck: Single-channel RAM restricts system memory bus to 64-bit width. Dual-channel memory (2 matched sticks) is required to double memory bandwidth.");
+            }
+
+            // 5. CPU / GPU Tier Imbalance
+            if (workbench.cpu && workbench.gpu && workbench.gpu.isDedicated) {
+                const cpuPrice = workbench.cpu.priceGbp;
+                const gpuPrice = workbench.gpu.priceGbp;
+                if (gpuPrice >= 450 && cpuPrice <= 90) {
+                    bottlenecks.push(`Severe CPU Bottleneck: Pairing a £${gpuPrice.toFixed(0)} high-tier GPU with an entry-level £${cpuPrice.toFixed(0)} CPU (${workbench.cpu.name}) will cause severe processor frame drops, starving the GPU of data.`);
+                }
+            }
+
+            const psuHeadroomOk = (psuHeadroomPct >= 20 && psuHeadroomPct <= 65);
+            const star5 = isSandbox || (bottlenecks.length === 0 && psuHeadroomOk && star2);
+            let star5Feedback = "";
+            if (isSandbox) {
+                star5Feedback = "Sandbox Mode: Component pairing evaluated without commercial cost penalties.";
+            } else if (star5) {
+                star5Feedback = `Exemplary Engineering: Zero bottlenecks, balanced component pairing, and optimal ${psuHeadroomPct.toFixed(0)}% PSU safety headroom.`;
+            } else {
+                const reasons = bottlenecks.length > 0 ? bottlenecks : [`PSU safety headroom (${psuHeadroomPct.toFixed(0)}%) outside optimal 20%–65% efficiency envelope or invoice over budget.`];
+                star5Feedback = `Engineering & Bottleneck Gaps: ${reasons.join(' ')}`;
+            }
+
+            const totalStars = isSandbox ? 5 : [star1, star2, star3, star4, star5].filter(Boolean).length;
+
+            // --- GENERATE IN-CHARACTER CLIENT REACTION DIALOGUE ---
+            let dialogue = "";
+            if (client.id === 'patel') {
+                if (totalStars === 5) {
+                    dialogue = "Splendid work! The reception PC boots into the NHS patient register instantaneously, the air cooler is whisper-quiet, and you saved £" + diffBudget.toFixed(2) + " of public funds. A textbook vocational build!";
+                } else if (!star2) {
+                    dialogue = "I cannot approve this procurement invoice! You have gone £" + Math.abs(diffBudget).toFixed(2) + " over our NHS practice budget. Review the components and remove any unnecessary gaming hardware.";
+                } else if (bottlenecks.some(b => b.includes('Wattage Over-Provisioning'))) {
+                    dialogue = "The computer functions, but why did you install such an expensive, oversized power supply? That is public health budget wasted on electricity capacity we will never draw!";
+                } else if (!star3) {
+                    dialogue = "This doesn't match our clinical needs. " + unmetList[0] + " Please rectify this before deployment.";
+                } else {
+                    dialogue = "The PC operates, but it falls short of our surgery standards. Review your component balance and try again.";
+                }
+            } else if (client.id === 'marcus') {
+                if (totalStars === 5) {
+                    dialogue = "Absolute perfection! Zero frame drops in Valorant, 1080p streaming is butter-smooth on Discord, and it stayed right under my £650 student savings. Top-tier engineering!";
+                } else if (!star2) {
+                    dialogue = "Mate, my card just got declined! You're £" + Math.abs(diffBudget).toFixed(2) + " over my £650 limit. Swap out some parts so I can actually afford this rig.";
+                } else if (bottlenecks.some(b => b.includes('Memory Bus Bottleneck'))) {
+                    dialogue = "I'm getting massive micro-stutter in team fights! You gave me single-channel RAM, which cuts my memory bandwidth in half. I need a dual-channel 2-stick kit!";
+                } else if (!star3) {
+                    dialogue = "Wait, this isn't what I asked for! " + unmetList[0];
+                } else {
+                    dialogue = "It runs, but the performance per pound isn't quite there for competitive play. Check where we lost stars.";
+                }
+            } else if (client.id === 'elena') {
+                if (totalStars === 5) {
+                    dialogue = "Outstanding architectural workstation! The 8+ core processor handles multi-story Revit BIM compiles effortlessly, 32GB RAM keeps Blender responsive, and you stayed inside our studio budget!";
+                } else if (!star2) {
+                    dialogue = "Our accounting partner rejected this purchase order! You exceeded our studio cap by £" + Math.abs(diffBudget).toFixed(2) + ". Balance your component tiers to get under £1,100.";
+                } else if (bottlenecks.some(b => b.includes('Bus Speed Bottleneck'))) {
+                    dialogue = "Why did you spec an ultra-expensive enthusiast motherboard, but paired it with slow memory? That money should have gone into higher VRAM or faster NVMe storage!";
+                } else if (!star3) {
+                    dialogue = "This rig will bottleneck our client presentations! " + unmetList[0];
+                } else {
+                    dialogue = "The drafting benchmark is below studio standards. We need higher sustained multi-core throughput.";
+                }
+            } else if (client.id === 'tariq') {
+                if (totalStars === 5) {
+                    dialogue = "Sensational AI workstation! The 16GB VRAM loads my Qwen 2.5 14B quantized model weights entirely into GPU memory with zero CPU offloading, and the 750W+ PSU handles tensor compute spikes cleanly!";
+                } else if (!star2) {
+                    dialogue = "Grant procurement rejected! You went £" + Math.abs(diffBudget).toFixed(2) + " over our research grant ceiling. Trim non-essential extras while protecting the 16GB VRAM requirement.";
+                } else if (unmetList.some(u => u.includes('VRAM'))) {
+                    dialogue = "Fatal AI bottleneck! You slotted a GPU with less than 16GB VRAM. My 14B model parameters literally will not fit into GPU memory, causing out-of-memory crashes on the first tensor pass!";
+                } else if (bottlenecks.some(b => b.includes('Wattage Over-Provisioning'))) {
+                    dialogue = "The compute passes, but you overspent on a colossal titanium power supply when a 750W/850W Gold unit would have provided perfect headroom.";
+                } else {
+                    dialogue = "The AI inferencing benchmark failed our latency threshold. Review the memory bandwidth and GPU allocation.";
+                }
+            } else {
+                dialogue = "Open sandbox benchmark completed! Inspect your SysBench 2026 score telemetry and test further component combinations.";
+            }
+
+            return {
+                totalStars,
+                star1, star2, star3, star4, star5,
+                star1Feedback, star2Feedback, star3Feedback, star4Feedback, star5Feedback,
+                dialogue,
+                bottlenecks,
+                totalCost,
+                systemDraw,
+                psuHeadroomPct,
+                client
+            };
+        }
+
+function renderBenchmarkResults() {
             const result = calculateBenchmarkScore();
             const monitor = document.getElementById('monitorContent');
             const topScoreEl = document.getElementById('lblBenchmarkTop');
             if (topScoreEl) topScoreEl.textContent = `${result.total.toLocaleString()} pts`;
 
+            // Evaluate against Active Client Scenario
+            const evaluation = evaluateCustomerBuild(result.total);
+            const client = evaluation.client;
+
             // Audio celebration chirp
             playBeep(880, 100, 0);
-            playBeep(1174, 100, 100);
-            playBeep(1760, 200, 200);
+            playBeep(1100, 100, 120);
+            playBeep(1320, 200, 240);
 
-            let tierName = "";
-            let tierBadge = "";
-            if (result.total < 6000) {
-                tierName = "Tier 1: Entry Office & Web Administration";
-                tierBadge = "bg-sky-500/20 border-sky-400/40 text-sky-300";
-            } else if (result.total < 14000) {
-                tierName = "Tier 2: Mainstream 1080p Gaming & Multi-Tasking";
-                tierBadge = "bg-emerald-500/20 border-emerald-400/40 text-emerald-300";
-            } else if (result.total < 25000) {
-                tierName = "Tier 3: 1440p High-Refresh & Content Creation";
-                tierBadge = "bg-amber-500/20 border-amber-400/40 text-amber-300";
-            } else {
-                tierName = "Tier 4: Enterprise 4K Ultra & Workstation Compute";
-                tierBadge = "bg-purple-500/20 border-purple-400/40 text-purple-300";
-            }
-
-            const headroomColor = result.headroomPct >= 20 ? 'text-emerald-400' : (result.headroomPct >= 10 ? 'text-amber-400' : 'text-rose-400');
-            const headroomMsg = result.headroomPct >= 20 ? 'Safe Electrical Headroom (Optimal PSU Efficiency)' : 'Tight PSU Headroom Margin';
-
-            // Active diagnostics alerts HTML
-            let alertsHtml = '';
-            if (result.bonuses.length > 0) {
-                result.bonuses.forEach(b => {
-                    alertsHtml += `
-                        <div class="px-2 py-1 rounded bg-emerald-950/40 border border-emerald-500/40 text-[10px] text-emerald-300 flex items-center gap-1.5">
-                            <span>🌟</span>
-                            <span><strong>${b.name}:</strong> ${b.desc}</span>
-                        </div>
-                    `;
-                });
-            }
-            if (result.penalties.length > 0) {
-                result.penalties.forEach(p => {
-                    alertsHtml += `
-                        <div class="px-2 py-1 rounded bg-rose-950/40 border border-rose-500/40 text-[10px] text-rose-300 flex items-center gap-1.5">
-                            <span>⚠️</span>
-                            <span><strong>${p.name}:</strong> ${p.desc}</span>
-                        </div>
-                    `;
-                });
-            }
+            // Generate Star Badges HTML
+            const starsHtml = Array.from({ length: 5 }, (_, i) => {
+                const isEarned = i < evaluation.totalStars;
+                return isEarned 
+                    ? '<span class="text-amber-400 text-lg drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]">★</span>' 
+                    : '<span class="text-slate-700 text-lg">☆</span>';
+            }).join(' ');
 
             if (monitor) {
                 monitor.innerHTML = `
-                    <div class="flex items-center justify-between border-b border-white/10 pb-1.5 mb-2">
-                        <span class="text-xs font-bold text-netcom-lime font-mono flex items-center gap-1.5">
-                            <span>📊</span>
-                            <span>NETCOM SYSBENCH 2026 RESULTS</span>
-                        </span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono border ${tierBadge}">
-                            ${tierName}
-                        </span>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-                        <!-- Total Score Hero -->
-                        <div class="sm:col-span-5 bg-slate-900/90 p-2.5 rounded-lg border border-slate-700/80 text-center">
-                            <div class="text-[10px] text-slate-400 uppercase tracking-wider font-mono">Overall System Score</div>
-                            <div class="text-2xl font-black text-white font-mono tracking-tight mt-0.5 text-netcom-lime">
-                                ${result.total.toLocaleString()} <span class="text-xs font-normal text-slate-400">pts</span>
+                    <div class="space-y-3 font-mono text-xs">
+                        <!-- Top Header: Customer Delivery Report & Star Rating -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-netcom-lime text-black font-extrabold text-[10px] uppercase tracking-wider">Customer Delivery Certificate</span>
+                                <span class="text-slate-300 font-bold">${client.avatar} ${client.name}</span>
                             </div>
-                            <div class="mt-1 flex items-center justify-center gap-2 text-[10px] font-mono">
-                                <span class="text-amber-400 font-bold">&pound;${result.costPer1k.toFixed(2)} / 1k pts</span>
-                                <span class="text-slate-500">•</span>
-                                <span class="text-emerald-400 font-bold">${result.ptsPerPound.toFixed(1)} pts / &pound;1</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] text-slate-400 uppercase">Evaluation:</span>
+                                <div class="flex items-center gap-1">${starsHtml}</div>
+                                <span class="px-2 py-0.5 rounded ${evaluation.totalStars >= 4 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-slate-800 text-slate-400'} font-bold text-xs">${evaluation.totalStars} / 5 Stars</span>
                             </div>
                         </div>
 
-                        <!-- Subsystem Performance Breakdown -->
-                        <div class="sm:col-span-7 grid grid-cols-2 gap-1.5 text-[10px] font-mono">
-                            <div class="p-1.5 rounded bg-slate-900/70 border border-slate-800 flex justify-between">
-                                <span class="text-slate-400">CPU Compute:</span>
-                                <span class="text-sky-300 font-bold">${result.cpu.toLocaleString()}</span>
+                        <!-- In-Character Client Reaction Dialogue -->
+                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+                            <div class="flex items-center justify-between text-[10px] text-slate-400 uppercase tracking-wider">
+                                <span>Client Feedback &bull; ${client.role}</span>
+                                <span class="text-netcom-lime">${client.org}</span>
                             </div>
-                            <div class="p-1.5 rounded bg-slate-900/70 border border-slate-800 flex justify-between">
-                                <span class="text-slate-400">RAM Memory:</span>
-                                <span class="text-emerald-300 font-bold">${result.ram.toLocaleString()}</span>
+                            <p class="text-slate-200 text-[11px] font-sans italic leading-relaxed">
+                                "${evaluation.dialogue}"
+                            </p>
+                        </div>
+
+                        <!-- 5-Star Pillar Category Breakdown -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px]">
+                            <!-- Star 1 -->
+                            <div class="p-2 rounded-lg bg-black/40 border ${evaluation.star1 ? 'border-emerald-500/30' : 'border-rose-500/30'} space-y-0.5">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span class="text-white">⭐ 1. Hardware Integrity &amp; POST</span>
+                                    <span class="${evaluation.star1 ? 'text-emerald-400' : 'text-rose-400'}">${evaluation.star1 ? '[PASSED ★]' : '[MISSED ☆]'}</span>
+                                </div>
+                                <p class="text-slate-400 text-[9px] leading-tight font-sans">${evaluation.star1Feedback}</p>
                             </div>
-                            <div class="p-1.5 rounded bg-slate-900/70 border border-slate-800 flex justify-between">
-                                <span class="text-slate-400">3D Graphics:</span>
-                                <span class="text-amber-300 font-bold">${result.gpu.toLocaleString()}</span>
+
+                            <!-- Star 2 -->
+                            <div class="p-2 rounded-lg bg-black/40 border ${evaluation.star2 ? 'border-emerald-500/30' : 'border-rose-500/30'} space-y-0.5">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span class="text-white">⭐ 2. Budget Discipline</span>
+                                    <span class="${evaluation.star2 ? 'text-emerald-400' : 'text-rose-400'}">${evaluation.star2 ? '[PASSED ★]' : '[MISSED ☆]'}</span>
+                                </div>
+                                <p class="text-slate-400 text-[9px] leading-tight font-sans">${evaluation.star2Feedback}</p>
                             </div>
-                            <div class="p-1.5 rounded bg-slate-900/70 border border-slate-800 flex justify-between">
-                                <span class="text-slate-400">Storage IOPS:</span>
-                                <span class="text-purple-300 font-bold">${result.disk.toLocaleString()}</span>
+
+                            <!-- Star 3 -->
+                            <div class="p-2 rounded-lg bg-black/40 border ${evaluation.star3 ? 'border-emerald-500/30' : 'border-rose-500/30'} space-y-0.5">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span class="text-white">⭐ 3. Customer Specifications</span>
+                                    <span class="${evaluation.star3 ? 'text-emerald-400' : 'text-rose-400'}">${evaluation.star3 ? '[PASSED ★]' : '[MISSED ☆]'}</span>
+                                </div>
+                                <p class="text-slate-400 text-[9px] leading-tight font-sans">${evaluation.star3Feedback}</p>
+                            </div>
+
+                            <!-- Star 4 -->
+                            <div class="p-2 rounded-lg bg-black/40 border ${evaluation.star4 ? 'border-emerald-500/30' : 'border-rose-500/30'} space-y-0.5">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span class="text-white">⭐ 4. SysBench Workload Target</span>
+                                    <span class="${evaluation.star4 ? 'text-emerald-400' : 'text-rose-400'}">${evaluation.star4 ? '[PASSED ★]' : '[MISSED ☆]'}</span>
+                                </div>
+                                <p class="text-slate-400 text-[9px] leading-tight font-sans">${evaluation.star4Feedback}</p>
+                            </div>
+
+                            <!-- Star 5 (Full Width) -->
+                            <div class="p-2 rounded-lg bg-black/40 border ${evaluation.star5 ? 'border-emerald-500/30' : 'border-rose-500/30'} space-y-0.5 sm:col-span-2">
+                                <div class="flex items-center justify-between font-bold">
+                                    <span class="text-white">⭐ 5. Power &amp; Cost Optimisation / Bottleneck Audit</span>
+                                    <span class="${evaluation.star5 ? 'text-emerald-400' : 'text-rose-400'}">${evaluation.star5 ? '[PASSED ★]' : '[MISSED ☆]'}</span>
+                                </div>
+                                <p class="text-slate-400 text-[9px] leading-tight font-sans">${evaluation.star5Feedback}</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Value Rating Badge -->
-                    <div class="mt-2 p-1.5 rounded-lg border ${result.efficiencyClass} text-center font-mono">
-                        <div class="text-xs font-bold">${result.efficiencyBadge}</div>
-                        <div class="text-[10px] opacity-90 mt-0.5">${result.efficiencyDesc}</div>
-                    </div>
+                        <!-- Technical Telemetry Strip -->
+                        <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between text-[10px] text-slate-300">
+                            <div>Score: <strong class="text-netcom-lime">${result.total.toLocaleString()} pts</strong> (${result.tierName})</div>
+                            <div>Power Draw: <strong class="text-amber-300">${evaluation.systemDraw}W</strong> / <strong class="text-slate-400">${workbench.psu ? workbench.psu.capacityWatts : 350}W</strong> (${evaluation.psuHeadroomPct.toFixed(0)}% margin)</div>
+                            <div>Invoice: <strong class="text-emerald-400">£${evaluation.totalCost.toFixed(2)}</strong></div>
+                        </div>
 
-                    <!-- Active Diagnostics / Bottlenecks / Synergy Alerts -->
-                    ${alertsHtml ? `<div class="mt-2 space-y-1 font-mono">${alertsHtml}</div>` : ''}
-
-                    <div class="mt-2 pt-1.5 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                        <span>Power Load: ${result.totalEstimatedWatts}W / ${workbench.psu.capacityWatts}W (<span class="${headroomColor} font-bold">${result.headroomPct}% Headroom</span> - ${headroomMsg})</span>
-                        <button onclick="runBenchmarkSequence()" class="text-sky-400 hover:text-white underline">↺ Re-run Benchmark</button>
+                        <!-- Mandatory Vocational Logbook Instruction -->
+                        <div class="p-2.5 rounded-lg bg-amber-950/40 border border-amber-500/40 text-[10px] text-amber-200 flex items-start justify-between gap-3 font-sans">
+                            <div class="flex items-start gap-1.5">
+                                <span class="text-sm">📋</span>
+                                <div>
+                                    <strong class="text-amber-300 font-mono">INSTRUCTOR &amp; PORTFOLIO NOTE:</strong>
+                                    <span>Record your installed parts list, total invoice (£${evaluation.totalCost.toFixed(2)}), and ${evaluation.totalStars}-Star rating in your vocational training logbook before clearing the chassis for your next client attempt!</span>
+                                </div>
+                            </div>
+                            <button type="button" onclick="confirmResetChassis()" class="shrink-0 px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-mono font-bold text-xs transition shadow">
+                                ↺ Clear Chassis
+                            </button>
+                        </div>
                     </div>
                 `;
+            }
+
+            showToast("Build Evaluated", `${client.name} awarded ${evaluation.totalStars}/5 Stars!`);
+        }
+
+        function confirmResetChassis() {
+            if (confirm("Have you noted down your components and star score in your logbook?\n\nClick OK to clear the workbench for your next customer build.")) {
+                resetWorkbench();
             }
         }
 
@@ -6613,6 +7197,25 @@
                 toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
             }
         }
+
+        // Global Window Bindings for Inline HTML Event Handlers
+        window.CLIENT_SCENARIOS = CLIENT_SCENARIOS;
+        window.workbench = workbench;
+        window.HARDWARE_CATALOG = HARDWARE_CATALOG;
+        window.selectClientScenario = selectClientScenario;
+        window.selectCategory = selectCategory;
+        window.handlePartSelect = handlePartSelect;
+        window.removeComponent = removeComponent;
+        window.handlePowerSwitch = handlePowerSwitch;
+        window.turnPowerOff = turnPowerOff;
+        window.runBenchmarkSequence = runBenchmarkSequence;
+        window.calculateBenchmarkScore = calculateBenchmarkScore;
+        window.evaluateCustomerBuild = evaluateCustomerBuild;
+        window.confirmResetChassis = confirmResetChassis;
+        window.resetWorkbench = resetWorkbench;
+        window.toggleManual = toggleManual;
+        window.showToast = showToast;
+        window.dismissToast = dismissToast;
 
 
         
