@@ -6056,18 +6056,19 @@ function renderPartsDrawer() {
                         <span class="text-[10px] font-mono text-netcom-lime uppercase tracking-wider block font-bold">Key Architectural Targets</span>
                         <ul class="space-y-1.5 text-[11px] text-slate-300 font-sans">
                             ${client.id === 'sandbox' ? `
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 1: System Integrity:</b> Assemble all required hardware and pass boot POST.</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 2: Economic Viability:</b> Cost/Performance Ratio &ge; 90.0 pts/&pound;1.</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 3: Architectural Synergy:</b> Dual-channel RAM, NVMe boot drive, zero thermal throttle.</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 4: High-Yield Value:</b> Sweet-spot efficiency ratio &ge; 160.0 pts/&pound;1.</span></li>
-                                <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⭐</span> <span><b>Star 5: Master Value Architect:</b> Ratio &ge; 220.0 pts/&pound;1 with ZERO bottlenecks or over-provisioned rails!</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>1–1000 Numerical Scale:</b> 200 pts per full star, graded in strict 100-pt half-star increments.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 1 (0–200 pts):</b> 100 pts = 0.5 ★ &bull; 200 pts = 1.0 ★ (Baseline POST & foundational value).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 2 (200–400 pts):</b> 300 pts = 1.5 ★ &bull; 400 pts = 2.0 ★ (Commercial procurement value).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 3 (400–600 pts):</b> 500 pts = 2.5 ★ &bull; 600 pts = 3.0 ★ (Architectural balance & synergies).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 4 (600–800 pts):</b> 700 pts = 3.5 ★ &bull; 800 pts = 4.0 ★ (High-yield sweet-spot price/performance).</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⭐</span> <span><b>Star 5 (800–1000 pts):</b> 900 pts = 4.5 ★ &bull; 1000 pts = 5.0 ★ (Grandmaster Value Architecture).</span></li>
                                 <li class="pt-2">
                                     <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[10px] text-amber-200 space-y-1">
                                         <div class="flex items-center justify-between font-bold">
-                                            <span>🏆 Class Challenge Metric</span>
-                                            <span class="text-amber-400 font-mono">Numerical Ratio</span>
+                                            <span>🏆 Class Challenge Leaderboard</span>
+                                            <span class="text-amber-400 font-mono">1–1000 Points</span>
                                         </div>
-                                        <p>Beyond star tiers, your exact <strong>Cost/Performance Ratio (pts / &pound;1)</strong> will be ranked on the vocational leaderboard. Balance every component's price against its SysBench output to achieve the highest score in the cohort!</p>
+                                        <p>Every 100 points unlocks the next half-star grade (e.g. 750 pts = 3.5 stars; 800 pts = 4.0 stars; 900 pts = 4.5 stars). Scores below 100 points do not reach the first half star.</p>
                                     </div>
                                 </li>
                             ` : ''}
@@ -7375,7 +7376,18 @@ function renderPartsDrawer() {
 
             let star1 = 0.0;
             let star1Feedback = "";
-            if (hasCore && hasStorage && isThermalSafe) {
+            if (isSandbox) {
+                if (effective1000 >= 200) {
+                    star1 = 1.0;
+                    star1Feedback = `POST & Foundational Value (≥ 200 pts): Score of ${effective1000}/1000 pts clears the full Star 1 threshold (200 pts per star).`;
+                } else if (effective1000 >= 100) {
+                    star1 = 0.5;
+                    star1Feedback = `Partial Foundation (100–199 pts): Score of ${effective1000}/1000 pts reaches half a star (100+ pt increment).`;
+                } else {
+                    star1 = 0.0;
+                    star1Feedback = `Sub-Baseline (< 100 pts): Score of ${effective1000}/1000 pts did not reach the 100-point threshold for half a star.`;
+                }
+            } else if (hasCore && hasStorage && isThermalSafe) {
                 star1 = 1.0;
                 star1Feedback = "Physical silicon, memory, and thermal architecture mounted correctly; cleanly passed POST sequence.";
             } else if (hasCore && (!hasStorage || !isThermalSafe)) {
@@ -7396,15 +7408,15 @@ function renderPartsDrawer() {
             let star2Feedback = "";
 
             if (isSandbox) {
-                if (effective1000 >= 300 || ptsPerPound >= 90.0) {
+                if (effective1000 >= 400) {
                     star2 = 1.0;
-                    star2Feedback = `Baseline Value Achieved: Sandbox score of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) clears the vocational baseline.`;
-                } else if (effective1000 >= 200 || ptsPerPound >= 70.0) {
+                    star2Feedback = `Commercial Procurement Value (≥ 400 pts): Score of ${effective1000}/1000 pts unlocks full Star 2 (400-point threshold).`;
+                } else if (effective1000 >= 300) {
                     star2 = 0.5;
-                    star2Feedback = `Marginal Value (200–299 pts): Score of ${effective1000}/1000 pts shows basic functionality, but lacks procurement cost efficiency.`;
+                    star2Feedback = `Mainstream Procurement (300–399 pts): Score of ${effective1000}/1000 pts reaches 1.5 total stars (300+ pt increment).`;
                 } else {
                     star2 = 0.0;
-                    star2Feedback = `Economic Inefficiency: Score of ${effective1000}/1000 pts (< 200 pts) falls below baseline. Avoid luxury halo parts or uncooled hardware chokes.`;
+                    star2Feedback = `Procurement Inefficiency (< 300 pts): Score of ${effective1000}/1000 pts has not reached the 300-point increment.`;
                 }
             } else if (totalCost <= client.budget) {
                 star2 = 1.0;
@@ -7477,17 +7489,15 @@ function renderPartsDrawer() {
             let star3 = 0.0;
             let star3Feedback = "";
             if (isSandbox) {
-                const isDual = workbench.ram && workbench.ram.channels === 'Dual-Channel';
-                const isNvme = Boolean(workbench.storage_m2);
-                if (isDual && isNvme && isThermalSafe) {
+                if (effective1000 >= 600) {
                     star3 = 1.0;
-                    star3Feedback = "Architectural Synergy Unlocked: Dual-channel memory bandwidth, high-speed NVMe storage, and adequate cooling verified.";
-                } else if (isDual || isNvme) {
+                    star3Feedback = `Architectural Synergy (≥ 600 pts): Score of ${effective1000}/1000 pts unlocks full Star 3 (600-point threshold).`;
+                } else if (effective1000 >= 500) {
                     star3 = 0.5;
-                    star3Feedback = "Partial Architectural Balance: Missing either dual-channel memory (128-bit bus) or high-speed NVMe storage.";
+                    star3Feedback = `Partial Platform Balance (500–599 pts): Score of ${effective1000}/1000 pts reaches 2.5 total stars (500+ pt increment).`;
                 } else {
                     star3 = 0.0;
-                    star3Feedback = "Architectural Choke Detected: Missing dual-channel RAM and lacking NVMe storage.";
+                    star3Feedback = `Architectural Drag (< 500 pts): Score of ${effective1000}/1000 pts has not reached the 500-point increment.`;
                 }
             } else if (unmetList.length === 0 && star1 >= 0.5) {
                 star3 = 1.0;
@@ -7504,15 +7514,15 @@ function renderPartsDrawer() {
             let star4 = 0.0;
             let star4Feedback = "";
             if (isSandbox) {
-                if (effective1000 >= 600 || ptsPerPound >= 160.0) {
+                if (effective1000 >= 800) {
                     star4 = 1.0;
-                    star4Feedback = `High-Yield Value Engineering: Exceptional efficiency score of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) achieved (Target: ≥ 600 pts).`;
-                } else if (effective1000 >= 450 || ptsPerPound >= 120.0) {
+                    star4Feedback = `High-Yield Value Engineering (≥ 800 pts): Score of ${effective1000}/1000 pts unlocks full Star 4 (800-point threshold).`;
+                } else if (effective1000 >= 700) {
                     star4 = 0.5;
-                    star4Feedback = `Mainstream Value Tier (450–599 pts): Score of ${effective1000}/1000 pts achieved. Look for tighter price-to-performance sweet spots in CPU and GPU selection.`;
+                    star4Feedback = `Upper Mainstream Sweet-Spot (700–799 pts): Score of ${effective1000}/1000 pts reaches 3.5 total stars (700+ pt increment).`;
                 } else {
                     star4 = 0.0;
-                    star4Feedback = `Sub-Optimal Efficiency: Score of ${effective1000}/1000 pts is below the value tier (< 450 pts).`;
+                    star4Feedback = `High-Yield Target Missed (< 700 pts): Score of ${effective1000}/1000 pts has not reached the 700-point increment.`;
                 }
             } else {
                 const targetScore = client.targetScore || 0;
@@ -7569,18 +7579,15 @@ function renderPartsDrawer() {
             let star5 = 0.0;
             let star5Feedback = "";
             if (isSandbox) {
-                if (star1 >= 0.5 && effective1000 >= 900 && bottlenecks.length === 0) {
+                if (effective1000 >= 1000) {
                     star5 = 1.0;
-                    star5Feedback = `⭐ Grandmaster Value Architect: Elite efficiency rating of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) with ZERO system bottlenecks or over-provisioned rails! Perfect vocational engineering.`;
-                } else if (star1 >= 0.5 && (effective1000 >= 750 || (effective1000 >= 900 && bottlenecks.length === 1))) {
+                    star5Feedback = `🏆 Flawless Grandmaster Architect (1000/1000 pts): Absolute maximum score! Pristine 5.0 stars with zero bottlenecks.`;
+                } else if (effective1000 >= 900) {
                     star5 = 0.5;
-                    star5Feedback = `Near-Master Efficiency: Score of ${effective1000}/1000 pts achieved. Eliminate remaining power supply over-provisioning or bus trace mismatches to unlock full Master rating!`;
-                } else if (bottlenecks.length > 0) {
-                    star5 = 0.0;
-                    star5Feedback = `Master Tier Missed: Active hardware bottlenecks detected (${bottlenecks.join('; ')}).`;
+                    star5Feedback = `⭐ Grandmaster Value Architect (900–999 pts): Elite vocational engineering reaching 4.5 total stars (900+ pt increment).`;
                 } else {
                     star5 = 0.0;
-                    star5Feedback = `Master Tier Missed: Score of ${effective1000}/1000 pts falls short of the elite 900+ pts Master Architect benchmark.`;
+                    star5Feedback = `Grandmaster Tier Missed (< 900 pts): Score of ${effective1000}/1000 pts has not reached the 900-point increment.`;
                 }
             } else if (star1 >= 0.5 && bottlenecks.length === 0 && psuHeadroomPct >= 20) {
                 star5 = 1.0;
@@ -7596,7 +7603,9 @@ function renderPartsDrawer() {
             }
 
             // Total Stars (0.0 to 5.0 in 0.5 steps)
-            const totalStars = Math.round((star1 + star2 + star3 + star4 + star5) * 2) / 2;
+            const totalStars = isSandbox 
+                ? Math.max(0.0, Math.min(5.0, Math.floor(effective1000 / 100) * 0.5))
+                : (Math.round((star1 + star2 + star3 + star4 + star5) * 2) / 2);
 
             // --- IN-CHARACTER CLIENT REACTION DIALOGUE (Tuned to Half-Stars) ---
             let dialogue = "";
@@ -7666,15 +7675,27 @@ function renderPartsDrawer() {
                 }
             } else if (client.id === 'sandbox') {
                 if (totalStars === 5.0) {
-                    dialogue = `Incredible engineering! You achieved a legendary ${ptsPerPound.toFixed(1)} pts/£1 efficiency ratio with zero system bottlenecks or wasted rails. You have mastered vocational hardware procurement and value optimisation!`;
+                    dialogue = `🏆 Flawless Grandmaster Achievement! Perfect 1000/1000 points and a pristine 5.0-star rating. Maximum possible performance extracted per pound spent (${ptsPerPound.toFixed(1)} pts/£1) with zero wasted power rails or bottlenecks!`;
                 } else if (totalStars === 4.5) {
-                    dialogue = `Sensational 4.5-star value engineering (${ptsPerPound.toFixed(1)} pts/£1)! You are right on the verge of the elite 220+ Master Value Architect tier. Eliminate any remaining minor PSU or trace blemish to clinch 5 stars!`;
-                } else if (totalStars >= 3.5) {
-                    dialogue = `Solid 3.5-star value build (${ptsPerPound.toFixed(1)} pts/£1). Good core component matching, but look closely at your motherboard tier, power supply wattage, and dual-channel memory to unlock full efficiency!`;
-                } else if (totalStars >= 2.5) {
-                    dialogue = `A 2.5-star attempt (${ptsPerPound.toFixed(1)} pts/£1). The machine functions, but you're losing marks to over-expensive components that don't add benchmark score.`;
+                    dialogue = `⭐ Elite 4.5-Star Grandmaster Value Architect (${effective1000}/1000 pts • ${ptsPerPound.toFixed(1)} pts/£1)! Incredible price-to-performance optimisation. You are within a whisper of absolute 1000-point perfection!`;
+                } else if (totalStars === 4.0) {
+                    dialogue = `⭐⭐⭐⭐ Master Value Engineer (${effective1000}/1000 pts • 4.0 stars • ${ptsPerPound.toFixed(1)} pts/£1). Superb sweet-spot build! Core compute and graphics subsystems operate with outstanding economic efficiency.`;
+                } else if (totalStars === 3.5) {
+                    dialogue = `⭐⭐⭐½ High-Yield Integration (${effective1000}/1000 pts • 3.5 stars • ${ptsPerPound.toFixed(1)} pts/£1). Strong system balance and great value, with only minor power headroom or platform synergies remaining to tune.`;
+                } else if (totalStars === 3.0) {
+                    dialogue = `⭐⭐⭐ Professional System Integrator (${effective1000}/1000 pts • 3.0 stars • ${ptsPerPound.toFixed(1)} pts/£1). Solid mainstream capability, but look closely at component price tiers to push higher on the leaderboard.`;
+                } else if (totalStars === 2.5) {
+                    dialogue = `⭐⭐½ Competent Technician Build (${effective1000}/1000 pts • 2.5 stars • ${ptsPerPound.toFixed(1)} pts/£1). Functional build, but budget spent on luxury cooling or excess wattage does not yield proportional benchmark points.`;
+                } else if (totalStars === 2.0) {
+                    dialogue = `⭐⭐ Sub-Optimal Build (${effective1000}/1000 pts • 2.0 stars • ${ptsPerPound.toFixed(1)} pts/£1). Diminishing returns on investment. Halo hardware or mismatched bus speeds are holding back your ratio.`;
+                } else if (totalStars === 1.5) {
+                    dialogue = `⭐½ High Inefficiency (${effective1000}/1000 pts • 1.5 stars • ${ptsPerPound.toFixed(1)} pts/£1). Noticeable hardware drag. Check for single-channel memory or power supply over-provisioning.`;
+                } else if (totalStars === 1.0) {
+                    dialogue = `⭐ Severe Bottleneck / Overspend (${effective1000}/1000 pts • 1.0 star • ${ptsPerPound.toFixed(1)} pts/£1). Serious economic imbalance. Rebalance your CPU and GPU tiers to eliminate wasted expenditure.`;
+                } else if (totalStars === 0.5) {
+                    dialogue = `½ Critical Architecture Drag (${effective1000}/1000 pts • 0.5 stars • ${ptsPerPound.toFixed(1)} pts/£1). Severe hardware chokes, spinning HDD boot latency, or thermal downclocking detected.`;
                 } else {
-                    dialogue = `Severe economic inefficiency detected (${ptsPerPound.toFixed(1)} pts/£1). Expensive halo hardware or crippling bottlenecks are heavily dragging down your benchmark output per pound. Strip back luxury parts and target high-yield sweet spots!`;
+                    dialogue = `Sub-Baseline (< 100 pts • 0.0 stars • ${ptsPerPound.toFixed(1)} pts/£1). Did not reach the 100-point threshold for half a star. Address critical bottlenecks, thermal throttling, and component mismatches!`;
                 }
             } else {
                 dialogue = "Open sandbox benchmark completed! Inspect your SysBench 2026 score telemetry and test further component combinations.";
