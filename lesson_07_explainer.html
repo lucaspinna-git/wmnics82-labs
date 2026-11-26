@@ -2494,9 +2494,9 @@
                                     <button type="button" id="btnClient-sandbox" onclick="selectClientScenario('sandbox')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition col-span-2 sm:col-span-1">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
                                             <span>🧪 Sandbox</span>
-                                            <span class="text-[10px] text-sky-400">&infin;</span>
+                                            <span class="text-[10px] text-netcom-lime">Value ROI</span>
                                         </div>
-                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Free Hardware Lab</span>
+                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Cost/Perf Ratio</span>
                                     </button>
                                 </div>
 
@@ -5515,16 +5515,16 @@
             },
             sandbox: {
                 id: 'sandbox',
-                name: 'Workshop Free Sandbox',
-                org: 'Netcom Hardware Engineering Bench',
-                role: 'Master Systems Engineer',
-                avatar: '🛠️',
-                badge: 'Unrestricted Sandbox',
+                name: 'Vocational Value Challenge',
+                org: 'SysBench Cost/Performance Lab',
+                role: 'Value Engineering Architect',
+                avatar: '🧪',
+                badge: 'Cost/Performance Challenge',
                 budget: 999999.00,
-                targetScore: 0,
-                story: "Zero customer restrictions and no budget ceiling. Freely experiment with any combination of flagship silicon, test extreme liquid cooling, diagnose Q-LED fault simulations, and push for the highest possible SysBench 2026 score.",
+                targetScore: 220,
+                story: "Zero customer restrictions, but a strict architectural challenge: engineer the highest possible Cost/Performance Ratio (Efficiency Index). Can you break into the 220.0+ pts/£1 Master Value Architect tier without triggering bottlenecks or overspending on power rails?",
                 mustHave: {},
-                advice: "Build without constraints. Inspect how high-speed DDR5, Gen 5 NVMe storage, and 24-core CPUs scale the multi-threaded SysBench score."
+                advice: "Every pound matters! Flagship halo parts (RTX 4090, 24-core CPUs, 1000W PSUs) suffer extreme diminishing returns. Search for price-to-performance sweet spots in CPU, dual-channel RAM, correctly sized 450W–550W PSUs, and efficient NVMe drives to achieve the highest possible Efficiency Index (≥ 220.0 pts/£1)!"
             }
         };
 
@@ -5570,7 +5570,7 @@
             const elBudget = document.getElementById('lblClientBudget');
             if (elTitle) elTitle.innerHTML = `${client.avatar} ${client.name} &bull; <span class="text-slate-400 font-normal">${client.org}</span>`;
             if (elBudget) {
-                elBudget.textContent = client.budget >= 999999 ? "Unlimited (Sandbox)" : `£${client.budget.toFixed(2)}`;
+                elBudget.textContent = client.budget >= 999999 ? "Target: ≥ 220.0 pts/£1" : `£${client.budget.toFixed(2)}`;
             }
 
             // Automatically default right drawer to Customer Order
@@ -5647,8 +5647,15 @@
                     </div>
 
                     <div class="space-y-2 border-t border-white/10 pt-2.5">
-                        <span class="text-[10px] font-mono text-netcom-lime uppercase tracking-wider block font-bold">Key Client Requirements</span>
+                        <span class="text-[10px] font-mono text-netcom-lime uppercase tracking-wider block font-bold">Key Architectural Targets</span>
                         <ul class="space-y-1.5 text-[11px] text-slate-300 font-sans">
+                            ${client.id === 'sandbox' ? `
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 1: System Integrity:</b> Assemble all required hardware and pass boot POST.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 2: Economic Viability:</b> Cost/Performance Ratio &ge; 90.0 pts/&pound;1.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 3: Architectural Synergy:</b> Dual-channel RAM, NVMe boot drive, zero thermal throttle.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 4: High-Yield Value:</b> Sweet-spot efficiency ratio &ge; 160.0 pts/&pound;1.</span></li>
+                                <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⭐</span> <span><b>Star 5: Master Value Architect:</b> Ratio &ge; 220.0 pts/&pound;1 with ZERO bottlenecks or over-provisioned rails!</span></li>
+                            ` : ''}
                             ${client.mustHave.noDedicatedGpu ? '<li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <span><b>Integrated Graphics Only:</b> Do not install a discrete PCIe graphics card.</span></li>' : ''}
                             ${client.mustHave.requireDedicatedGpu ? `<li class="flex items-center gap-1.5"><span class="text-sky-400">✓</span> <span><b>Dedicated Graphics Accelerator:</b> Dedicated PCIe GPU required (Minimum ${client.mustHave.minVramGb || 4} GB VRAM).</span></li>` : ''}
                             ${client.mustHave.requireNvme ? '<li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> <span><b>High-Speed Boot Storage:</b> M.2 NVMe PCIe SSD required for instantaneous OS loading.</span></li>' : ''}
@@ -6157,14 +6164,14 @@
 
             if (client.budget >= 999999) {
                 if (elBudgetStatus) {
-                    elBudgetStatus.textContent = "Unlimited Budget";
-                    elBudgetStatus.className = "px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 text-[10px] border border-sky-500/30";
+                    elBudgetStatus.textContent = "Efficiency Challenge";
+                    elBudgetStatus.className = "px-2 py-0.5 rounded bg-sky-950/80 text-sky-300 text-[10px] border border-sky-500/30 font-bold";
                 }
                 if (elBarFill) {
-                    elBarFill.style.width = "35%";
-                    elBarFill.className = "bg-sky-400 h-full transition-all duration-300";
+                    elBarFill.style.width = "100%";
+                    elBarFill.className = "bg-gradient-to-r from-sky-500 via-indigo-500 to-netcom-lime h-full transition-all duration-300";
                 }
-                if (elTxtRemain) elTxtRemain.textContent = "Sandbox Mode";
+                if (elTxtRemain) elTxtRemain.textContent = "Target: ≥ 220.0 pts/£1 (Master Value Architect)";
             } else {
                 const pct = Math.min(100, Math.max(0, (totalCost / client.budget) * 100));
                 const remaining = client.budget - totalCost;
@@ -6674,30 +6681,58 @@
             ];
             components.forEach(item => { if (item && item.priceGbp) totalCost += item.priceGbp; });
 
-            const ptsPerPound = totalCost > 0 ? (totalScore / totalCost) : 0;
-            const costPer1k = totalScore > 0 ? ((totalCost / totalScore) * 1000) : 0;
+            // 7. PSU Operating Efficiency Curve & Load Alignment
+            const psuCapacityWatts = workbench.psu ? workbench.psu.capacityWatts : 350;
+            const psuLoadRatio = psuCapacityWatts > 0 ? (totalEstimatedWatts / psuCapacityWatts) : 0;
 
-            // Efficiency Rating Badge
+            if (workbench.psu) {
+                if (psuLoadRatio >= 0.40 && psuLoadRatio <= 0.70) {
+                    bonuses.push({
+                        type: 'psu_curve',
+                        name: 'Optimal PSU Efficiency Curve (+5% Eco-Synergy)',
+                        desc: `System power draw (${totalEstimatedWatts}W) operates in the optimal 80 Plus electrical conversion curve (40%–70% load of ${psuCapacityWatts}W).`
+                    });
+                    totalScore = Math.round(totalScore * 1.05);
+                } else if (psuLoadRatio < 0.25 && psuCapacityWatts >= 750) {
+                    penalties.push({
+                        type: 'psu_drag',
+                        name: 'Gross Wattage Over-Provisioning (-8% Efficiency Drag)',
+                        desc: `A ${psuCapacityWatts}W PSU running at only ${(psuLoadRatio * 100).toFixed(0)}% load (${totalEstimatedWatts}W draw) suffers poor low-load conversion efficiency.`
+                    });
+                    totalScore = Math.round(totalScore * 0.92);
+                }
+            }
+
+            // 8. Refined Cost/Performance Efficiency Index (10x dynamic multiplier)
+            // Expanded dynamic range: ~40.0 pts/£1 (crippled/overpriced) to 260.0+ pts/£1 (master value)
+            const ptsPerPound = totalCost > 0 ? Number(((totalScore / totalCost) * 10).toFixed(1)) : 0;
+            const costPer1k = totalScore > 0 ? Number(((totalCost / totalScore) * 1000).toFixed(2)) : 0;
+
+            // Efficiency Rating Badge across expanded range
             let efficiencyBadge = "";
             let efficiencyClass = "";
             let efficiencyDesc = "";
 
-            if (ptsPerPound >= 17.5) {
-                efficiencyBadge = "⭐⭐⭐ Master Value Architect (Elite Efficiency)";
+            if (ptsPerPound >= 240.0) {
+                efficiencyBadge = "⭐⭐⭐⭐⭐ Master Value Architect (Elite: 240+ pts/£)";
                 efficiencyClass = "bg-emerald-500/20 border-emerald-400 text-emerald-300";
-                efficiencyDesc = "Outstanding procurement! Maximum computational throughput achieved for every pound spent.";
-            } else if (ptsPerPound >= 13.5) {
-                efficiencyBadge = "⭐⭐ Well-Balanced Build (High Value)";
+                efficiencyDesc = "Legendary cost-to-performance optimisation! Maximum benchmark throughput extracted from every pound spent with zero wasted power rails.";
+            } else if (ptsPerPound >= 190.0) {
+                efficiencyBadge = "⭐⭐⭐⭐ High-Yield Sweet-Spot Build (High: 190–239 pts/£)";
+                efficiencyClass = "bg-netcom-lime/20 border-netcom-lime text-netcom-lime";
+                efficiencyDesc = "Superb value engineering. Core subsystems are operating at peak efficiency without unnecessary hardware bloat.";
+            } else if (ptsPerPound >= 140.0) {
+                efficiencyBadge = "⭐⭐⭐ Balanced Mainstream Build (Fair: 140–189 pts/£)";
                 efficiencyClass = "bg-sky-500/20 border-sky-400 text-sky-300";
-                efficiencyDesc = "Great value-to-performance ratio across all primary subsystems.";
-            } else if (ptsPerPound >= 10.0) {
-                efficiencyBadge = "⭐ Mainstream Build (Fair Value)";
+                efficiencyDesc = "Solid, capable PC build. However, certain components (motherboard, cooler, or PSU) are slightly over-specified for the workload.";
+            } else if (ptsPerPound >= 90.0) {
+                efficiencyBadge = "⭐⭐ Diminishing Returns / Luxury Overspend (Low: 90–139 pts/£)";
                 efficiencyClass = "bg-amber-500/20 border-amber-400 text-amber-300";
-                efficiencyDesc = "Solid performance, but some premium parts are experiencing diminishing returns on investment.";
+                efficiencyDesc = "Sub-optimal efficiency. Premium halo components (flagship GPUs/CPUs) or oversized PSUs are suffering steep diminishing returns on investment.";
             } else {
-                efficiencyBadge = "⚠️ Diminishing Returns / Overpriced Components";
+                efficiencyBadge = "⚠️ Severe Inefficiency / Choked Architecture (Critical Waste: < 90 pts/£)";
                 efficiencyClass = "bg-rose-500/20 border-rose-400 text-rose-300";
-                efficiencyDesc = "Poor cost efficiency. Flagship luxury parts or mismatched components heavily degrade price-to-performance.";
+                efficiencyDesc = "Crippling cost inefficiency. Hardware bottlenecks, single-channel RAM, or gross over-spending on motherboard/PSU have heavily undermined the build.";
             }
 
             return {
@@ -6781,7 +6816,7 @@
         // =========================================================================
         // 5-STAR CUSTOMER EVALUATION, BOTTLENECK AUDITOR & CLIENT DIALOGUE
         // =========================================================================
-        function evaluateCustomerBuild(sysbenchScore) {
+        function evaluateCustomerBuild(sysbenchScore, benchmarkPtsPerPound) {
             const client = CLIENT_SCENARIOS[workbench.activeClient] || CLIENT_SCENARIOS.patel;
             const isSandbox = client.id === 'sandbox';
 
@@ -6791,6 +6826,8 @@
                 const part = workbench[slot];
                 if (part && part.priceGbp) totalCost += part.priceGbp;
             });
+
+            const ptsPerPound = benchmarkPtsPerPound !== undefined ? benchmarkPtsPerPound : (totalCost > 0 ? Number(((sysbenchScore / totalCost) * 10).toFixed(1)) : 0);
 
             const cpuWatts = workbench.cpu ? workbench.cpu.watts : 65;
             const gpuWatts = workbench.gpu ? workbench.gpu.watts : 0;
@@ -6807,19 +6844,25 @@
                 ? "Physical silicon, memory, and thermal architecture mounted correctly; cleanly passed POST sequence."
                 : "Incomplete system: Missing essential physical hardware required for autonomous booting.";
 
-            // --- STAR 2: Budget Discipline ---
+            // --- STAR 2: Budget Discipline (or Baseline Efficiency in Sandbox) ---
             const diffBudget = client.budget - totalCost;
-            const star2 = isSandbox || (totalCost <= client.budget);
+            let star2 = false;
             let star2Feedback = "";
+
             if (isSandbox) {
-                star2Feedback = `Sandbox Mode: Total hardware spend £${totalCost.toFixed(2)} (No procurement ceiling).`;
-            } else if (star2) {
+                star2 = star1 && (ptsPerPound >= 90.0);
+                star2Feedback = star2
+                    ? `Baseline Value Achieved: Cost/performance ratio of ${ptsPerPound.toFixed(1)} pts/£1 clears the economic baseline (≥ 90.0 pts/£1).`
+                    : `Economic Inefficiency: Cost/performance ratio of ${ptsPerPound.toFixed(1)} pts/£1 falls below baseline (< 90.0 pts/£1). Avoid luxury halo parts or uncooled hardware chokes.`;
+            } else if (totalCost <= client.budget) {
+                star2 = true;
                 star2Feedback = `Procurement Approved: Invoiced at £${totalCost.toFixed(2)} (£${diffBudget.toFixed(2)} saved under the £${client.budget.toFixed(2)} ceiling).`;
             } else {
+                star2 = false;
                 star2Feedback = `Procurement Denied: Invoiced at £${totalCost.toFixed(2)}, exceeding client's £${client.budget.toFixed(2)} ceiling by £${Math.abs(diffBudget).toFixed(2)}.`;
             }
 
-            // --- STAR 3: Client Specific Requirements ---
+            // --- STAR 3: Client Specific Requirements (or Architectural Balance in Sandbox) ---
             let reqsPassed = true;
             const unmetList = [];
             const must = client.mustHave || {};
@@ -6886,19 +6929,38 @@
                 unmetList.push(`Client requires at least a ${must.minPsuWatts}W PSU capacity (installed: ${psuCapacity}W).`);
             }
 
-            const star3 = isSandbox || (reqsPassed && star1);
-            const star3Feedback = isSandbox
-                ? "Sandbox Mode: All custom hardware combinations valid."
-                : (star3 ? "All customer-mandated hardware criteria, form factors, and specifications fulfilled." : `Unmet client specifications: ${unmetList.join('; ')}`);
+            let star3 = false;
+            let star3Feedback = "";
+            if (isSandbox) {
+                const isDual = workbench.ram && workbench.ram.channels === 'Dual-Channel';
+                const isNvme = Boolean(workbench.storage_m2);
+                const isAdequateCooler = workbench.cooler && workbench.cpu && (workbench.cooler.maxTdpWatts >= workbench.cpu.watts);
+                star3 = Boolean(hasCore && isDual && isNvme && isAdequateCooler);
+                star3Feedback = star3
+                    ? "Architectural Synergy Unlocked: Dual-channel memory bandwidth, high-speed NVMe storage, and adequate cooling verified."
+                    : "Architectural Choke Detected: Missing dual-channel RAM, lacking NVMe storage, or suffering thermal throttling.";
+            } else {
+                star3 = Boolean(reqsPassed && star1);
+                star3Feedback = star3 
+                    ? "All customer-mandated hardware criteria, form factors, and specifications fulfilled." 
+                    : `Unmet client specifications: ${unmetList.join('; ')}`;
+            }
 
-            // --- STAR 4: SysBench Performance Target ---
-            const targetScore = client.targetScore || 0;
-            const star4 = isSandbox || (sysbenchScore >= targetScore);
-            const star4Feedback = isSandbox
-                ? `SysBench 2026 score: ${sysbenchScore.toLocaleString()} pts.`
-                : (star4 
+            // --- STAR 4: SysBench Workload Target (or High-Yield Value in Sandbox) ---
+            let star4 = false;
+            let star4Feedback = "";
+            if (isSandbox) {
+                star4 = Boolean(star1 && (ptsPerPound >= 160.0));
+                star4Feedback = star4
+                    ? `High-Yield Value Engineering: Exceptional efficiency of ${ptsPerPound.toFixed(1)} pts/£1 achieved (Target: ≥ 160.0 pts/£1).`
+                    : `Mainstream Value Tier: Ratio of ${ptsPerPound.toFixed(1)} pts/£1 falls short of high-yield target (≥ 160.0 pts/£1). Search for price-to-performance sweet spots in CPU and GPU selection.`;
+            } else {
+                const targetScore = client.targetScore || 0;
+                star4 = Boolean(sysbenchScore >= targetScore);
+                star4Feedback = star4 
                     ? `Workload Throughput Achieved: SysBench scored ${sysbenchScore.toLocaleString()} pts (Target: ${targetScore.toLocaleString()} pts).`
-                    : `Underperforming: SysBench scored ${sysbenchScore.toLocaleString()} pts, falling short of the required ${targetScore.toLocaleString()} pts for this workload.`);
+                    : `Underperforming: SysBench scored ${sysbenchScore.toLocaleString()} pts, falling short of the required ${targetScore.toLocaleString()} pts for this workload.`;
+            }
 
             // --- STAR 5: Power & Cost Optimisation / Bottleneck Detection ---
             const bottlenecks = [];
@@ -6920,39 +6982,45 @@
             }
 
             // 3. Storage I/O Bottleneck
-            if (['marcus', 'elena', 'tariq'].includes(client.id) && !workbench.storage_m2 && workbench.storage_sata && workbench.storage_sata.id.includes('hdd')) {
-                bottlenecks.push("Storage I/O Bottleneck: A mechanical 3.5-inch HDD as the primary drive creates crippling seek latency. NVMe SSD is essential for high-throughput vocational workloads.");
+            if (!workbench.storage_m2 && workbench.storage_sata && workbench.storage_sata.id.includes('hdd')) {
+                bottlenecks.push("Storage I/O Bottleneck: A mechanical 3.5-inch HDD as the primary drive creates crippling seek latency. NVMe SSD is essential for high-throughput performance.");
             }
 
-            // 4. Memory Bus Width Bottleneck
-            if (['marcus', 'elena', 'tariq'].includes(client.id) && workbench.ram && workbench.ram.channels === 'Single-Channel') {
-                bottlenecks.push("Memory Bus Bottleneck: Single-channel RAM restricts system memory bus to 64-bit width. Dual-channel memory (2 matched sticks) is required to double memory bandwidth.");
+            // 4. Memory Bus Bottleneck
+            if (workbench.ram && workbench.ram.channels === 'Single-Channel' && workbench.gpu && workbench.gpu.isDedicated) {
+                bottlenecks.push("Memory Bus Bottleneck: Single-channel RAM cuts memory bandwidth by 50%, starving the dedicated GPU during texture streaming.");
             }
 
-            // 5. CPU / GPU Tier Imbalance
+            // 5. Extreme CPU/GPU Imbalance
             if (workbench.cpu && workbench.gpu && workbench.gpu.isDedicated) {
-                const cpuPrice = workbench.cpu.priceGbp;
                 const gpuPrice = workbench.gpu.priceGbp;
+                const cpuPrice = workbench.cpu.priceGbp;
                 if (gpuPrice >= 450 && cpuPrice <= 90) {
-                    bottlenecks.push(`Severe CPU Bottleneck: Pairing a £${gpuPrice.toFixed(0)} high-tier GPU with an entry-level £${cpuPrice.toFixed(0)} CPU (${workbench.cpu.name}) will cause severe processor frame drops, starving the GPU of data.`);
+                    bottlenecks.push(`CPU Bottleneck: Pairing an entry-level CPU (${workbench.cpu.name}) with a high-end graphics card (${workbench.gpu.name}) causes draw call starvation. The GPU cannot run at full utilization.`);
                 }
             }
 
-            const psuHeadroomOk = (psuHeadroomPct >= 20 && psuHeadroomPct <= 65);
-            const star5 = isSandbox || (bottlenecks.length === 0 && psuHeadroomOk && star2);
+            let star5 = false;
             let star5Feedback = "";
             if (isSandbox) {
-                star5Feedback = "Sandbox Mode: Component pairing evaluated without commercial cost penalties.";
-            } else if (star5) {
-                star5Feedback = `Exemplary Engineering: Zero bottlenecks, balanced component pairing, and optimal ${psuHeadroomPct.toFixed(0)}% PSU safety headroom.`;
+                star5 = Boolean(star1 && (ptsPerPound >= 220.0) && (bottlenecks.length === 0));
+                if (star5) {
+                    star5Feedback = `⭐ Master Value Architect: Elite efficiency rating of ${ptsPerPound.toFixed(1)} pts/£1 with ZERO system bottlenecks or over-provisioned rails! Perfect vocational engineering.`;
+                } else if (bottlenecks.length > 0) {
+                    star5Feedback = `Master Tier Missed: Active hardware bottlenecks or over-provisioned rails detected (${bottlenecks.join('; ')}).`;
+                } else {
+                    star5Feedback = `Master Tier Missed: Efficiency of ${ptsPerPound.toFixed(1)} pts/£1 falls short of the elite 220.0+ pts/£1 Master Architect benchmark.`;
+                }
             } else {
-                const reasons = bottlenecks.length > 0 ? bottlenecks : [`PSU safety headroom (${psuHeadroomPct.toFixed(0)}%) outside optimal 20%–65% efficiency envelope or invoice over budget.`];
-                star5Feedback = `Engineering & Bottleneck Gaps: ${reasons.join(' ')}`;
+                star5 = Boolean(star1 && (bottlenecks.length === 0));
+                star5Feedback = star5
+                    ? "System architecture optimally matched. Zero component bottlenecks, thermal throttling, or power over-provisioning detected."
+                    : `Hardware Inefficiencies / Bottlenecks Detected: ${bottlenecks.join('; ')}`;
             }
 
-            const totalStars = isSandbox ? 5 : [star1, star2, star3, star4, star5].filter(Boolean).length;
+            const totalStars = [star1, star2, star3, star4, star5].filter(Boolean).length;
 
-            // --- GENERATE IN-CHARACTER CLIENT REACTION DIALOGUE ---
+            // --- IN-CHARACTER CLIENT REACTION DIALOGUE ---
             let dialogue = "";
             if (client.id === 'patel') {
                 if (totalStars === 5) {
@@ -7002,31 +7070,42 @@
                 } else {
                     dialogue = "The AI inferencing benchmark failed our latency threshold. Review the memory bandwidth and GPU allocation.";
                 }
+            } else if (client.id === 'sandbox') {
+                if (totalStars === 5) {
+                    dialogue = `Incredible engineering! You achieved a legendary ${ptsPerPound.toFixed(1)} pts/£1 efficiency ratio with zero system bottlenecks or wasted rails. You have mastered vocational hardware procurement and value optimization!`;
+                } else if (totalStars >= 3) {
+                    dialogue = `Solid value build (${ptsPerPound.toFixed(1)} pts/£1), but you haven't yet reached the 5-star Master tier (≥ 220.0 pts/£1). Look closely at your motherboard tier, power supply wattage, and dual-channel memory to unlock full efficiency!`;
+                } else {
+                    dialogue = `Severe economic inefficiency detected (${ptsPerPound.toFixed(1)} pts/£1). Expensive halo hardware or crippling bottlenecks are heavily dragging down your benchmark output per pound. Strip back luxury parts and target high-yield sweet spots!`;
+                }
             } else {
                 dialogue = "Open sandbox benchmark completed! Inspect your SysBench 2026 score telemetry and test further component combinations.";
             }
 
             return {
                 totalStars,
-                star1, star2, star3, star4, star5,
-                star1Feedback, star2Feedback, star3Feedback, star4Feedback, star5Feedback,
+                star1, star1Feedback,
+                star2, star2Feedback,
+                star3, star3Feedback,
+                star4, star4Feedback,
+                star5, star5Feedback,
                 dialogue,
-                bottlenecks,
                 totalCost,
+                ptsPerPound,
                 systemDraw,
                 psuHeadroomPct,
                 client
             };
         }
 
-function renderBenchmarkResults() {
+        function renderBenchmarkResults() {
             const result = calculateBenchmarkScore();
             const monitor = document.getElementById('monitorContent');
             const topScoreEl = document.getElementById('lblBenchmarkTop');
             if (topScoreEl) topScoreEl.textContent = `${result.total.toLocaleString()} pts`;
 
             // Evaluate against Active Client Scenario
-            const evaluation = evaluateCustomerBuild(result.total);
+            const evaluation = evaluateCustomerBuild(result.total, result.ptsPerPound);
             const client = evaluation.client;
 
             // Audio celebration chirp
@@ -7120,7 +7199,8 @@ function renderBenchmarkResults() {
                         <!-- Technical Telemetry Strip -->
                         <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between text-[10px] text-slate-300">
                             <div>Score: <strong class="text-netcom-lime">${result.total.toLocaleString()} pts</strong> (${result.tierName})</div>
-                            <div>Power Draw: <strong class="text-amber-300">${evaluation.systemDraw}W</strong> / <strong class="text-slate-400">${workbench.psu ? workbench.psu.capacityWatts : 350}W</strong> (${evaluation.psuHeadroomPct.toFixed(0)}% margin)</div>
+                            <div>Ratio: <strong class="text-amber-300 font-bold">${result.ptsPerPound.toFixed(1)} pts / £1</strong></div>
+                            <div>Power Draw: <strong class="text-slate-300">${evaluation.systemDraw}W</strong> / <strong class="text-slate-400">${workbench.psu ? workbench.psu.capacityWatts : 350}W</strong> (${evaluation.psuHeadroomPct.toFixed(0)}% margin)</div>
                             <div>Invoice: <strong class="text-emerald-400">£${evaluation.totalCost.toFixed(2)}</strong></div>
                         </div>
 
