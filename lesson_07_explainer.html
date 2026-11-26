@@ -4127,7 +4127,180 @@
         };
     
 
-        
+        // --- MODULE 8.5: Windows Device Manager Diagnostics Logic ---
+        let isDriverInstalled = false;
+        let isUsbEnabled = false;
+        let isWifiRolledBack = false;
+        let isHwidIdentified = false;
+        let isHwidInstalled = false;
+
+        window.selectDevNode = function(nodeId) {
+            const title = document.getElementById('devSelectedTitle');
+            const tag = document.getElementById('devSelectedTag');
+            const statusText = document.getElementById('devSelectedStatusText');
+            const hwId = document.getElementById('devHardwareId');
+            const actions = document.getElementById('devActionButtons');
+            if (!title || !tag || !statusText || !hwId || !actions) return;
+
+            if (nodeId === 'gpu') {
+                tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                tag.textContent = 'Device Working Properly';
+                title.textContent = 'NVIDIA GeForce RTX 4060';
+                statusText.textContent = 'This device is working properly. WHQL Driver Version: 560.94 (Certified).';
+                statusText.className = 'text-emerald-300 leading-relaxed';
+                hwId.textContent = 'PCI\\VEN_10DE&DEV_2882&SUBSYS_5128';
+                actions.innerHTML = '<span class="text-slate-500 font-mono text-[11px]">Hardware operational. No actions required.</span>';
+            } else if (nodeId === 'nic') {
+                tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                tag.textContent = 'Device Working Properly';
+                title.textContent = 'Realtek PCIe GbE Family Controller';
+                statusText.textContent = 'This device is working properly. Speed: 1000 Mbps Full-Duplex.';
+                statusText.className = 'text-emerald-300 leading-relaxed';
+                hwId.textContent = 'PCI\\VEN_10EC&DEV_8168&SUBSYS_0123';
+                actions.innerHTML = '<span class="text-slate-500 font-mono text-[11px]">Hardware operational. No actions required.</span>';
+            } else if (nodeId === 'missing_driver') {
+                if (!isDriverInstalled) {
+                    tag.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 28: Missing Driver';
+                    title.textContent = 'PCI Simple Communications Controller';
+                    statusText.textContent = 'The drivers for this device are not installed. (Code 28). There are no compatible drivers in the local driver store.';
+                    statusText.className = 'text-amber-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_8086&DEV_7A60&SUBSYS_1462';
+                    actions.innerHTML = '<button onclick="actionUpdateDriver()" class="px-3 py-1.5 rounded-lg bg-netcom-lime hover:bg-netcom-lime-hover text-black font-mono font-bold text-xs transition">📥 Update Driver (Install OEM Package)</button>';
+                } else {
+                    tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 0: Working';
+                    title.textContent = 'Intel(R) Management Engine Interface #1';
+                    statusText.textContent = 'This device is working properly. Official Intel OEM Driver package installed and verified.';
+                    statusText.className = 'text-emerald-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_8086&DEV_7A60&SUBSYS_1462';
+                    actions.innerHTML = '<span class="text-emerald-400 font-mono font-bold text-xs">✔ Driver successfully installed and device verified!</span>';
+                }
+            } else if (nodeId === 'disabled_usb') {
+                if (!isUsbEnabled) {
+                    tag.className = 'px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 22: Disabled';
+                    title.textContent = 'USB Composite Device (Storage Access)';
+                    statusText.textContent = 'This device is disabled. (Code 22). It has been manually turned off in Windows.';
+                    statusText.className = 'text-slate-300 leading-relaxed';
+                    hwId.textContent = 'USB\\VID_0781&PID_5581';
+                    actions.innerHTML = '<button onclick="actionEnableDevice()" class="px-3 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-black font-mono font-bold text-xs transition">🔌 Enable Device</button>';
+                } else {
+                    tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 0: Working';
+                    title.textContent = 'USB Composite Device (Storage Access)';
+                    statusText.textContent = 'This device is enabled and functioning normally. Flash drive storage accessible.';
+                    statusText.className = 'text-emerald-300 leading-relaxed';
+                    hwId.textContent = 'USB\\VID_0781&PID_5581';
+                    actions.innerHTML = '<span class="text-emerald-400 font-mono font-bold text-xs">✔ Device successfully re-enabled!</span>';
+                }
+            } else if (nodeId === 'rollback_wifi') {
+                if (!isWifiRolledBack) {
+                    tag.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 43: Device Error';
+                    title.textContent = 'Intel(R) Wi-Fi 6 AX201 160MHz';
+                    statusText.textContent = 'Windows has stopped this device because it has reported problems. (Code 43). This fault started immediately after recent driver update v23.40.';
+                    statusText.className = 'text-amber-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_8086&DEV_43F0&SUBSYS_0074';
+                    actions.innerHTML = '<button onclick="actionRollBackDriver()" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-mono font-bold text-xs transition flex items-center gap-1.5"><span>⏪</span><span>Roll Back Driver (Restore Previous v22.90)</span></button>';
+                } else {
+                    tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 0: Working';
+                    title.textContent = 'Intel(R) Wi-Fi 6 AX201 160MHz';
+                    statusText.textContent = 'This device is working properly. Restored to stable certified driver v22.90. Wi-Fi networks detected.';
+                    statusText.className = 'text-emerald-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_8086&DEV_43F0&SUBSYS_0074';
+                    actions.innerHTML = '<span class="text-emerald-400 font-mono font-bold text-xs">✔ Driver successfully rolled back! Device operational.</span>';
+                }
+            } else if (nodeId === 'hwid_device') {
+                if (!isHwidIdentified) {
+                    tag.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 28: Unknown Device';
+                    title.textContent = 'Unknown PCI Network Device';
+                    statusText.textContent = 'The drivers for this device are not installed. (Code 28). The operating system cannot detect the manufacturer name. Inspect Hardware ID to identify the chipset.';
+                    statusText.className = 'text-amber-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_10EC&DEV_8125&SUBSYS_0123';
+                    actions.innerHTML = '<button onclick="actionLookupHwid()" class="px-3 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-black font-mono font-bold text-xs transition flex items-center gap-1.5"><span>🔍</span><span>Perform Hardware ID Lookup (VEN &amp; DEV)</span></button>';
+                } else if (!isHwidInstalled) {
+                    tag.className = 'px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Identified: Realtek 2.5GbE';
+                    title.textContent = 'Realtek RTL8125 2.5GbE Gaming Ethernet';
+                    statusText.textContent = 'Hardware ID Matched: VEN_10EC (Realtek Semiconductor) & DEV_8125 (RTL8125 2.5 Gigabit Ethernet). Exact OEM driver found in deployment repository.';
+                    statusText.className = 'text-sky-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_10EC&DEV_8125&SUBSYS_0123';
+                    actions.innerHTML = '<button onclick="actionInstallHwidDriver()" class="px-3 py-1.5 rounded-lg bg-netcom-lime hover:bg-netcom-lime-hover text-black font-mono font-bold text-xs transition flex items-center gap-1.5"><span>📥</span><span>Install Realtek 2.5GbE Driver</span></button>';
+                } else {
+                    tag.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold';
+                    tag.textContent = 'Code 0: Working';
+                    title.textContent = 'Realtek RTL8125 2.5GbE Gaming Ethernet';
+                    statusText.textContent = 'This device is working properly. High-speed 2.5 Gbps Ethernet link established.';
+                    statusText.className = 'text-emerald-300 leading-relaxed';
+                    hwId.textContent = 'PCI\\VEN_10EC&DEV_8125&SUBSYS_0123';
+                    actions.innerHTML = '<span class="text-emerald-400 font-mono font-bold text-xs">✔ OEM Driver installed via HWID identification!</span>';
+                }
+            }
+        };
+
+        window.actionUpdateDriver = function() {
+            isDriverInstalled = true;
+            document.getElementById('label_missing_driver').textContent = 'Intel(R) Management Engine Interface #1';
+            document.getElementById('status_missing_driver').textContent = 'Working';
+            document.getElementById('status_missing_driver').className = 'text-[10px] text-emerald-400 font-bold';
+            document.getElementById('node_missing_driver').className = 'cursor-pointer py-1 px-3 rounded bg-emerald-500/10 border border-emerald-500/30 transition flex items-center justify-between';
+            selectDevNode('missing_driver');
+        };
+
+        window.actionEnableDevice = function() {
+            isUsbEnabled = true;
+            document.getElementById('icon_disabled_usb').textContent = '💾';
+            document.getElementById('status_disabled_usb').textContent = 'Working';
+            document.getElementById('status_disabled_usb').className = 'text-[10px] text-emerald-400 font-bold';
+            selectDevNode('disabled_usb');
+        };
+
+        window.actionRollBackDriver = function() {
+            isWifiRolledBack = true;
+            const icon = document.getElementById('icon_rollback_wifi');
+            const status = document.getElementById('status_rollback_wifi');
+            const node = document.getElementById('node_rollback_wifi');
+            if (icon) icon.textContent = '📶';
+            if (status) {
+                status.textContent = 'Working (v22.90)';
+                status.className = 'text-[10px] text-emerald-400 font-bold';
+            }
+            if (node) {
+                node.className = 'cursor-pointer py-1 px-3 rounded bg-emerald-500/10 border border-emerald-500/30 transition flex items-center justify-between';
+            }
+            selectDevNode('rollback_wifi');
+        };
+
+        window.actionLookupHwid = function() {
+            isHwidIdentified = true;
+            const label = document.getElementById('label_hwid_device');
+            const status = document.getElementById('status_hwid_device');
+            if (label) label.textContent = 'Realtek RTL8125 2.5GbE Gaming Ethernet';
+            if (status) {
+                status.textContent = 'Identified (VEN_10EC)';
+                status.className = 'text-[10px] text-sky-400 font-bold';
+            }
+            selectDevNode('hwid_device');
+        };
+
+        window.actionInstallHwidDriver = function() {
+            isHwidInstalled = true;
+            const icon = document.getElementById('icon_hwid_device');
+            const status = document.getElementById('status_hwid_device');
+            const node = document.getElementById('node_hwid_device');
+            if (icon) icon.textContent = '🌐';
+            if (status) {
+                status.textContent = 'Working (2.5 Gbps)';
+                status.className = 'text-[10px] text-emerald-400 font-bold';
+            }
+            if (node) {
+                node.className = 'cursor-pointer py-1 px-3 rounded bg-emerald-500/10 border border-emerald-500/30 transition flex items-center justify-between';
+            }
+            selectDevNode('hwid_device');
+        };
 
         // =========================================================================
         // TOPIC 7.2.2: AUTHENTIC 2D VOCATIONAL PC BUILDER & DIAGNOSTIC LAB ENGINE
