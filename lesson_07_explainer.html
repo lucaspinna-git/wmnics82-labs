@@ -7194,36 +7194,71 @@ function renderPartsDrawer() {
                 }
             }
 
-            // 8. Refined Cost/Performance Efficiency Index (10x dynamic multiplier)
-            // Expanded dynamic range: ~40.0 pts/£1 (crippled/overpriced) to 260.0+ pts/£1 (master value)
+            // 8. Refined Cost/Performance Efficiency Index & 1-1000 Scale Scoring
             const ptsPerPound = totalCost > 0 ? Number(((totalScore / totalCost) * 10).toFixed(1)) : 0;
             const costPer1k = totalScore > 0 ? Number(((totalCost / totalScore) * 1000).toFixed(2)) : 0;
 
-            // Efficiency Rating Badge across expanded range
+            // --- 1 to 1000 VOCATIONAL EFFICIENCY SCORE CALCULATION ---
+            // Normalized base curve from raw efficiency ratio (40.0 pts/£ to 280.0+ pts/£)
+            const normRatio = Math.max(0.0, Math.min(1.0, (ptsPerPound - 40.0) / 240.0));
+            const baseScore1000 = Math.pow(normRatio, 1.15) * 820.0;
+
+            // Synergy Bonus additions (+150 max)
+            let synergyBonusTotal = 0;
+            bonuses.forEach(b => {
+                if (b.type === 'amd_sam' || b.type === 'intel_deeplink') synergyBonusTotal += 40;
+                else if (b.type === 'tier_match') synergyBonusTotal += 30;
+                else if (b.type === 'psu_curve') synergyBonusTotal += 25;
+                else if (b.name && b.name.includes('Balanced Architecture')) synergyBonusTotal += 35;
+                else synergyBonusTotal += 20;
+            });
+            synergyBonusTotal = Math.min(150, synergyBonusTotal);
+
+            // Hardware Bottleneck & Waste Penalties (-280 max)
+            let bottleneckPenaltyTotal = 0;
+            penalties.forEach(p => {
+                if (p.type === 'thermal') bottleneckPenaltyTotal += 85;
+                else if (p.type === 'bottleneck') bottleneckPenaltyTotal += 65;
+                else if (p.type === 'storage') bottleneckPenaltyTotal += 55;
+                else if (p.type === 'memory') bottleneckPenaltyTotal += 45;
+                else if (p.type === 'psu_drag') bottleneckPenaltyTotal += 45;
+                else bottleneckPenaltyTotal += 30;
+            });
+            bottleneckPenaltyTotal = Math.min(280, bottleneckPenaltyTotal);
+
+            // Final Composite 1-1000 Score
+            const raw1000 = Math.round(baseScore1000 + synergyBonusTotal - bottleneckPenaltyTotal);
+            const sandboxScore1000 = Math.max(1, Math.min(1000, raw1000));
+
+            // Dynamic Efficiency Tier Designation across 1-1000 range
             let efficiencyBadge = "";
             let efficiencyClass = "";
             let efficiencyDesc = "";
 
-            if (ptsPerPound >= 240.0) {
-                efficiencyBadge = "⭐⭐⭐⭐⭐ Master Value Architect (Elite: 240+ pts/£)";
-                efficiencyClass = "bg-emerald-500/20 border-emerald-400 text-emerald-300";
-                efficiencyDesc = "Legendary cost-to-performance optimisation! Maximum benchmark throughput extracted from every pound spent with zero wasted power rails.";
-            } else if (ptsPerPound >= 190.0) {
-                efficiencyBadge = "⭐⭐⭐⭐ High-Yield Sweet-Spot Build (High: 190–239 pts/£)";
-                efficiencyClass = "bg-netcom-lime/20 border-netcom-lime text-netcom-lime";
-                efficiencyDesc = "Superb value engineering. Core subsystems are operating at peak efficiency without unnecessary hardware bloat.";
-            } else if (ptsPerPound >= 140.0) {
-                efficiencyBadge = "⭐⭐⭐ Balanced Mainstream Build (Fair: 140–189 pts/£)";
-                efficiencyClass = "bg-sky-500/20 border-sky-400 text-sky-300";
-                efficiencyDesc = "Solid, capable PC build. However, certain components (motherboard, cooler, or PSU) are slightly over-specified for the workload.";
-            } else if (ptsPerPound >= 90.0) {
-                efficiencyBadge = "⭐⭐ Diminishing Returns / Luxury Overspend (Low: 90–139 pts/£)";
+            if (sandboxScore1000 >= 900) {
+                efficiencyBadge = "🏆 Grandmaster Value Architect (900–1000 pts)";
                 efficiencyClass = "bg-amber-500/20 border-amber-400 text-amber-300";
-                efficiencyDesc = "Sub-optimal efficiency. Premium halo components (flagship GPUs/CPUs) or oversized PSUs are suffering steep diminishing returns on investment.";
+                efficiencyDesc = "Elite top-tier procurement! Flawless synergy, maximum possible benchmark throughput per pound, and zero component bottlenecks.";
+            } else if (sandboxScore1000 >= 750) {
+                efficiencyBadge = "⭐⭐⭐⭐⭐ Master Value Engineer (750–899 pts)";
+                efficiencyClass = "bg-emerald-500/20 border-emerald-400 text-emerald-300";
+                efficiencyDesc = "Exceptional sweet-spot build! Excellent price-to-performance ratio with matched silicon tiers and healthy electrical efficiency.";
+            } else if (sandboxScore1000 >= 600) {
+                efficiencyBadge = "⭐⭐⭐⭐ Professional System Integrator (600–749 pts)";
+                efficiencyClass = "bg-sky-500/20 border-sky-400 text-sky-300";
+                efficiencyDesc = "Solid commercial architecture. Strong real-world capability, though minor PSU or platform synergies remain untapped.";
+            } else if (sandboxScore1000 >= 450) {
+                efficiencyBadge = "⭐⭐⭐ Competent Technician Build (450–599 pts)";
+                efficiencyClass = "bg-blue-500/20 border-blue-400 text-blue-300";
+                efficiencyDesc = "Functional but slightly cost-inefficient. Money spent on luxury cooling or excess wattage does not translate into proportional benchmark output.";
+            } else if (sandboxScore1000 >= 250) {
+                efficiencyBadge = "⭐⭐ Sub-Optimal / Luxury Spend (250–449 pts)";
+                efficiencyClass = "bg-amber-500/20 border-amber-400 text-amber-300";
+                efficiencyDesc = "Poor economic return. Overspending on halo components or severe bus chokes drag down performance-per-pound.";
             } else {
-                efficiencyBadge = "⚠️ Severe Inefficiency / Choked Architecture (Critical Waste: < 90 pts/£)";
+                efficiencyBadge = "⭐ Severely Bottlenecked / Mismatched (1–249 pts)";
                 efficiencyClass = "bg-rose-500/20 border-rose-400 text-rose-300";
-                efficiencyDesc = "Crippling cost inefficiency. Hardware bottlenecks, single-channel RAM, or gross over-spending on motherboard/PSU have heavily undermined the build.";
+                efficiencyDesc = "Crippling system balance. Active thermal throttling, spinning HDD OS latency, or extreme wattage over-provisioning heavily degrades efficiency.";
             }
 
             return {
@@ -7235,6 +7270,10 @@ function renderPartsDrawer() {
                 totalCost: totalCost,
                 ptsPerPound: ptsPerPound,
                 costPer1k: costPer1k,
+                sandboxScore1000: sandboxScore1000,
+                baseScore1000: baseScore1000,
+                synergyBonusTotal: synergyBonusTotal,
+                bottleneckPenaltyTotal: bottleneckPenaltyTotal,
                 efficiencyBadge: efficiencyBadge,
                 efficiencyClass: efficiencyClass,
                 efficiencyDesc: efficiencyDesc,
@@ -7307,7 +7346,7 @@ function renderPartsDrawer() {
         // =========================================================================
         // 5-STAR CUSTOMER EVALUATION, BOTTLENECK AUDITOR & CLIENT DIALOGUE
         // =========================================================================
-        function evaluateCustomerBuild(sysbenchScore, benchmarkPtsPerPound) {
+        function evaluateCustomerBuild(sysbenchScore, benchmarkPtsPerPound = 0, sandboxScore1000 = 0) {
             const client = CLIENT_SCENARIOS[workbench.activeClient] || CLIENT_SCENARIOS.patel;
             const isSandbox = client.id === 'sandbox';
 
@@ -7318,7 +7357,8 @@ function renderPartsDrawer() {
                 if (part && part.priceGbp) totalCost += part.priceGbp;
             });
 
-            const ptsPerPound = benchmarkPtsPerPound !== undefined ? benchmarkPtsPerPound : (totalCost > 0 ? Number(((sysbenchScore / totalCost) * 10).toFixed(1)) : 0);
+            const ptsPerPound = benchmarkPtsPerPound !== undefined && benchmarkPtsPerPound > 0 ? benchmarkPtsPerPound : (totalCost > 0 ? Number(((sysbenchScore / totalCost) * 10).toFixed(1)) : 0);
+            const effective1000 = sandboxScore1000 > 0 ? sandboxScore1000 : Math.max(1, Math.min(1000, Math.round(Math.pow(Math.max(0.0, Math.min(1.0, (ptsPerPound - 40.0) / 240.0)), 1.15) * 820.0)));
 
             const cpuWatts = workbench.cpu ? workbench.cpu.watts : 65;
             const gpuWatts = workbench.gpu ? workbench.gpu.watts : 0;
@@ -7356,15 +7396,15 @@ function renderPartsDrawer() {
             let star2Feedback = "";
 
             if (isSandbox) {
-                if (ptsPerPound >= 90.0) {
+                if (effective1000 >= 300 || ptsPerPound >= 90.0) {
                     star2 = 1.0;
-                    star2Feedback = `Baseline Value Achieved: Cost/performance ratio of ${ptsPerPound.toFixed(1)} pts/£1 clears the economic baseline (≥ 90.0 pts/£1).`;
-                } else if (ptsPerPound >= 70.0) {
+                    star2Feedback = `Baseline Value Achieved: Sandbox score of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) clears the vocational baseline.`;
+                } else if (effective1000 >= 200 || ptsPerPound >= 70.0) {
                     star2 = 0.5;
-                    star2Feedback = `Marginal Value (70.0–89.9 pts/£1): Ratio of ${ptsPerPound.toFixed(1)} pts/£1 shows functional performance, but lacks procurement cost efficiency.`;
+                    star2Feedback = `Marginal Value (200–299 pts): Score of ${effective1000}/1000 pts shows basic functionality, but lacks procurement cost efficiency.`;
                 } else {
                     star2 = 0.0;
-                    star2Feedback = `Economic Inefficiency: Cost/performance ratio of ${ptsPerPound.toFixed(1)} pts/£1 falls below baseline (< 70.0 pts/£1). Avoid luxury halo parts or uncooled hardware chokes.`;
+                    star2Feedback = `Economic Inefficiency: Score of ${effective1000}/1000 pts (< 200 pts) falls below baseline. Avoid luxury halo parts or uncooled hardware chokes.`;
                 }
             } else if (totalCost <= client.budget) {
                 star2 = 1.0;
@@ -7464,15 +7504,15 @@ function renderPartsDrawer() {
             let star4 = 0.0;
             let star4Feedback = "";
             if (isSandbox) {
-                if (ptsPerPound >= 160.0) {
+                if (effective1000 >= 600 || ptsPerPound >= 160.0) {
                     star4 = 1.0;
-                    star4Feedback = `High-Yield Value Engineering: Exceptional efficiency of ${ptsPerPound.toFixed(1)} pts/£1 achieved (Target: ≥ 160.0 pts/£1).`;
-                } else if (ptsPerPound >= 120.0) {
+                    star4Feedback = `High-Yield Value Engineering: Exceptional efficiency score of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) achieved (Target: ≥ 600 pts).`;
+                } else if (effective1000 >= 450 || ptsPerPound >= 120.0) {
                     star4 = 0.5;
-                    star4Feedback = `Mainstream Value Tier (120.0–159.9 pts/£1): Ratio of ${ptsPerPound.toFixed(1)} pts/£1 achieved. Look for tighter price-to-performance sweet spots in CPU and GPU selection.`;
+                    star4Feedback = `Mainstream Value Tier (450–599 pts): Score of ${effective1000}/1000 pts achieved. Look for tighter price-to-performance sweet spots in CPU and GPU selection.`;
                 } else {
                     star4 = 0.0;
-                    star4Feedback = `Sub-Optimal Efficiency: Efficiency of ${ptsPerPound.toFixed(1)} pts/£1 is below the value tier (< 120.0 pts/£1).`;
+                    star4Feedback = `Sub-Optimal Efficiency: Score of ${effective1000}/1000 pts is below the value tier (< 450 pts).`;
                 }
             } else {
                 const targetScore = client.targetScore || 0;
@@ -7529,18 +7569,18 @@ function renderPartsDrawer() {
             let star5 = 0.0;
             let star5Feedback = "";
             if (isSandbox) {
-                if (star1 >= 0.5 && ptsPerPound >= 220.0 && bottlenecks.length === 0) {
+                if (star1 >= 0.5 && effective1000 >= 900 && bottlenecks.length === 0) {
                     star5 = 1.0;
-                    star5Feedback = `⭐ Master Value Architect: Elite efficiency rating of ${ptsPerPound.toFixed(1)} pts/£1 with ZERO system bottlenecks or over-provisioned rails! Perfect vocational engineering.`;
-                } else if (star1 >= 0.5 && (ptsPerPound >= 190.0 || (ptsPerPound >= 220.0 && bottlenecks.length === 1))) {
+                    star5Feedback = `⭐ Grandmaster Value Architect: Elite efficiency rating of ${effective1000}/1000 pts (${ptsPerPound.toFixed(1)} pts/£1) with ZERO system bottlenecks or over-provisioned rails! Perfect vocational engineering.`;
+                } else if (star1 >= 0.5 && (effective1000 >= 750 || (effective1000 >= 900 && bottlenecks.length === 1))) {
                     star5 = 0.5;
-                    star5Feedback = `Near-Master Efficiency: Ratio of ${ptsPerPound.toFixed(1)} pts/£1 achieved. Eliminate remaining power supply over-provisioning or bus trace mismatches to unlock full Master rating!`;
+                    star5Feedback = `Near-Master Efficiency: Score of ${effective1000}/1000 pts achieved. Eliminate remaining power supply over-provisioning or bus trace mismatches to unlock full Master rating!`;
                 } else if (bottlenecks.length > 0) {
                     star5 = 0.0;
                     star5Feedback = `Master Tier Missed: Active hardware bottlenecks detected (${bottlenecks.join('; ')}).`;
                 } else {
                     star5 = 0.0;
-                    star5Feedback = `Master Tier Missed: Efficiency of ${ptsPerPound.toFixed(1)} pts/£1 falls short of the elite 220.0+ pts/£1 Master Architect benchmark.`;
+                    star5Feedback = `Master Tier Missed: Score of ${effective1000}/1000 pts falls short of the elite 900+ pts Master Architect benchmark.`;
                 }
             } else if (star1 >= 0.5 && bottlenecks.length === 0 && psuHeadroomPct >= 20) {
                 star5 = 1.0;
@@ -7663,7 +7703,7 @@ function renderPartsDrawer() {
             if (topScoreEl) topScoreEl.textContent = `${result.total.toLocaleString()} pts`;
 
             // Evaluate against Active Client Scenario
-            const evaluation = evaluateCustomerBuild(result.total, result.ptsPerPound);
+            const evaluation = evaluateCustomerBuild(result.total, result.ptsPerPound, result.sandboxScore1000);
             const client = evaluation.client;
             const isSandbox = client.id === 'sandbox';
 
@@ -7705,39 +7745,45 @@ function renderPartsDrawer() {
                                 <span class="text-[10px] text-slate-400 uppercase">Evaluation:</span>
                                 <div class="flex items-center gap-1">${starsHtml}</div>
                                 <span class="px-2 py-0.5 rounded ${evaluation.totalStars >= 4 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : (evaluation.totalStars >= 2.5 ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40' : 'bg-slate-800 text-slate-400')} font-bold text-xs">${evaluation.totalStars.toFixed(1)} / 5.0 Stars</span>
-                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono font-extrabold text-xs flex items-center gap-1" title="Numerical Cost/Performance Value Score"><span class="text-[10px] text-emerald-400 uppercase font-sans font-semibold">Value Score:</span> ${result.ptsPerPound.toFixed(1)} <span class="text-[10px] font-normal text-emerald-400">pts/&pound;1</span></span>
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono font-extrabold text-xs flex items-center gap-1" title="Numerical Cost/Performance Value Score"><span class="text-[10px] text-emerald-400 uppercase font-sans font-semibold">Value Score:</span> ${isSandbox ? `${result.sandboxScore1000} / 1000 pts` : `${result.ptsPerPound.toFixed(1)} <span class="text-[10px] font-normal text-emerald-400">pts/&pound;1</span>`}</span>
                             </div>
                         </div>
 
                         ${isSandbox ? `
-                        <!-- Vocational Value Leaderboard Numerical Score Showcase -->
+                        <!-- Vocational Value Leaderboard Numerical Score Showcase (1-1000 Scale) -->
                         <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/70 via-slate-900 to-emerald-950/70 border-2 border-amber-500/50 shadow-xl space-y-2">
                             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2">
                                 <div class="flex items-center gap-2">
                                     <span class="text-xl">🏆</span>
                                     <div>
                                         <span class="text-xs font-extrabold text-white uppercase tracking-wider block">Vocational Efficiency Score &bull; Class Leaderboard Metric</span>
-                                        <span class="text-[10px] text-slate-300">Exact numerical score measuring SysBench performance output against component spend</span>
+                                        <span class="text-[10px] text-slate-300">Standardised 1–1000 composite score balancing raw throughput, hardware synergies, and component economy</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <span class="text-[10px] text-slate-400 uppercase font-mono">Leaderboard Ratio:</span>
-                                    <span class="px-3 py-1 rounded-lg bg-amber-500 text-black font-black font-mono text-sm shadow-md">${result.ptsPerPound.toFixed(1)} pts / &pound;1</span>
+                                    <span class="text-[10px] text-slate-400 uppercase font-mono">Leaderboard Score:</span>
+                                    <span class="px-3.5 py-1 rounded-lg bg-gradient-to-r from-amber-400 to-emerald-400 text-slate-950 font-black font-mono text-base shadow-lg tracking-tight">${result.sandboxScore1000} <span class="text-xs font-bold text-slate-900">/ 1000 pts</span></span>
                                 </div>
                             </div>
                             <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono pt-1">
                                 <div class="p-1.5 rounded bg-black/40 border border-slate-800">
-                                    <span class="text-slate-400 block text-[9px] uppercase">SysBench Output</span>
-                                    <span class="text-netcom-lime font-bold text-xs">${result.total.toLocaleString()} pts</span>
+                                    <span class="text-slate-400 block text-[9px] uppercase">Base Efficiency Curve</span>
+                                    <span class="text-sky-300 font-bold text-xs">${Math.round(result.baseScore1000)} pts</span>
                                 </div>
                                 <div class="p-1.5 rounded bg-black/40 border border-slate-800">
-                                    <span class="text-slate-400 block text-[9px] uppercase">Component Spend</span>
-                                    <span class="text-amber-300 font-bold text-xs">&pound;${evaluation.totalCost.toFixed(2)}</span>
+                                    <span class="text-slate-400 block text-[9px] uppercase">Synergy Bonuses</span>
+                                    <span class="text-emerald-400 font-bold text-xs">+${result.synergyBonusTotal} pts</span>
                                 </div>
                                 <div class="p-1.5 rounded bg-black/40 border border-slate-800">
-                                    <span class="text-slate-400 block text-[9px] uppercase">Efficiency Tier</span>
-                                    <span class="text-emerald-400 font-bold text-xs">${result.efficiencyBadge.replace(/⭐/g, '').trim()}</span>
+                                    <span class="text-slate-400 block text-[9px] uppercase">Bottleneck Penalties</span>
+                                    <span class="text-rose-400 font-bold text-xs">-${result.bottleneckPenaltyTotal} pts</span>
                                 </div>
+                            </div>
+                            <div class="grid grid-cols-4 gap-2 text-center text-[9px] font-mono pt-1 border-t border-slate-800/80 text-slate-400">
+                                <div>SysBench: <span class="text-slate-200 font-bold">${result.total.toLocaleString()} pts</span></div>
+                                <div>Spend: <span class="text-amber-300 font-bold">&pound;${evaluation.totalCost.toFixed(2)}</span></div>
+                                <div>Raw Ratio: <span class="text-emerald-300 font-bold">${result.ptsPerPound.toFixed(1)} pts/&pound;1</span></div>
+                                <div>Tier: <span class="text-sky-300 font-bold">${result.efficiencyBadge.replace(/⭐|🏆/g, '').trim()}</span></div>
                             </div>
                         </div>
                         ` : ''}
