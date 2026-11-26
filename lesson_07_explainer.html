@@ -2459,44 +2459,44 @@
 
                                 <!-- 5 Client Pill Buttons -->
                                 <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
-                                    <button type="button" id="btnClient-patel" onclick="selectClientScenario('patel')" class="client-pill-btn p-2 rounded-lg bg-netcom-lime text-black font-bold flex flex-col items-start transition shadow ring-1 ring-netcom-lime/50">
+                                    <button type="button" id="btnClient-patel" onclick="selectClientScenario('patel')" class="client-pill-btn p-2 rounded-lg bg-emerald-950/80 text-white font-bold flex flex-col items-start border-2 border-emerald-400 ring-2 ring-emerald-500/30 transition shadow-lg shadow-emerald-950/50">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
-                                            <span>🩺 Dr. Patel</span>
-                                            <span class="text-[10px] opacity-80">&pound;375</span>
+                                            <span class="client-name text-white font-bold">🩺 Dr. Patel</span>
+                                            <span class="client-budget text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/25 text-emerald-300 font-mono font-bold border border-emerald-400/50">&pound;375</span>
                                         </div>
-                                        <span class="text-[9px] font-normal opacity-90 mt-0.5">NHS Clinic Admin</span>
+                                        <span class="client-role text-[9px] font-medium text-emerald-200 mt-0.5">NHS Clinic Admin</span>
                                     </button>
 
-                                    <button type="button" id="btnClient-marcus" onclick="selectClientScenario('marcus')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                    <button type="button" id="btnClient-marcus" onclick="selectClientScenario('marcus')" class="client-pill-btn p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
-                                            <span>🎮 Marcus</span>
-                                            <span class="text-[10px] text-netcom-lime">&pound;650</span>
+                                            <span class="client-name text-slate-200">🎮 Marcus</span>
+                                            <span class="client-budget text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 font-mono font-bold border border-slate-700/60">&pound;650</span>
                                         </div>
-                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Esports / Gaming</span>
+                                        <span class="client-role text-[9px] font-normal text-slate-400 mt-0.5">Esports / Gaming</span>
                                     </button>
 
-                                    <button type="button" id="btnClient-elena" onclick="selectClientScenario('elena')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                    <button type="button" id="btnClient-elena" onclick="selectClientScenario('elena')" class="client-pill-btn p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
-                                            <span>🎨 Elena</span>
-                                            <span class="text-[10px] text-netcom-lime">&pound;1,100</span>
+                                            <span class="client-name text-slate-200">🎨 Elena</span>
+                                            <span class="client-budget text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 font-mono font-bold border border-slate-700/60">&pound;1,100</span>
                                         </div>
-                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">3D CAD / Video</span>
+                                        <span class="client-role text-[9px] font-normal text-slate-400 mt-0.5">3D CAD / Video</span>
                                     </button>
 
-                                    <button type="button" id="btnClient-tariq" onclick="selectClientScenario('tariq')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
+                                    <button type="button" id="btnClient-tariq" onclick="selectClientScenario('tariq')" class="client-pill-btn p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
-                                            <span>🧠 Tariq</span>
-                                            <span class="text-[10px] text-netcom-lime">&pound;1,650</span>
+                                            <span class="client-name text-slate-200">🧠 Tariq</span>
+                                            <span class="client-budget text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 font-mono font-bold border border-slate-700/60">&pound;1,650</span>
                                         </div>
-                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">AI / Local LLM</span>
+                                        <span class="client-role text-[9px] font-normal text-slate-400 mt-0.5">AI / Local LLM</span>
                                     </button>
 
-                                    <button type="button" id="btnClient-sandbox" onclick="selectClientScenario('sandbox')" class="client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition col-span-2 sm:col-span-1">
+                                    <button type="button" id="btnClient-sandbox" onclick="selectClientScenario('sandbox')" class="client-pill-btn p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition col-span-2 sm:col-span-1">
                                         <div class="flex items-center gap-1.5 w-full justify-between">
-                                            <span>🧪 Sandbox</span>
-                                            <span class="text-[10px] text-netcom-lime">Value ROI</span>
+                                            <span class="client-name text-slate-200">🧪 Sandbox</span>
+                                            <span class="client-budget text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 font-mono font-bold border border-slate-700/60">Value ROI</span>
                                         </div>
-                                        <span class="text-[9px] font-normal text-slate-400 mt-0.5">Cost/Perf Ratio</span>
+                                        <span class="client-role text-[9px] font-normal text-slate-400 mt-0.5">Cost/Perf Ratio</span>
                                     </button>
                                 </div>
 
@@ -5804,11 +5804,31 @@
 
             // Update client pill buttons
             document.querySelectorAll('.client-pill-btn').forEach(btn => {
-                btn.className = "client-pill-btn p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition";
+                const isSandbox = btn.id === 'btnClient-sandbox';
+                const spanClass = isSandbox ? " col-span-2 sm:col-span-1" : "";
+                btn.className = "client-pill-btn p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 text-slate-300 font-bold flex flex-col items-start border border-slate-800 transition" + spanClass;
+                if (typeof btn.querySelector === 'function') {
+                    const bTag = btn.querySelector('.client-budget');
+                    if (bTag) bTag.className = "client-budget text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 font-mono font-bold border border-slate-700/60";
+                    const rTag = btn.querySelector('.client-role');
+                    if (rTag) rTag.className = "client-role text-[9px] font-normal text-slate-400 mt-0.5";
+                    const nTag = btn.querySelector('.client-name');
+                    if (nTag) nTag.className = "client-name text-slate-200";
+                }
             });
             const activeBtn = document.getElementById(`btnClient-${clientId}`);
             if (activeBtn) {
-                activeBtn.className = "client-pill-btn p-2 rounded-lg bg-netcom-lime text-black font-bold flex flex-col items-start transition shadow ring-1 ring-netcom-lime/50";
+                const isSandbox = activeBtn.id === 'btnClient-sandbox';
+                const spanClass = isSandbox ? " col-span-2 sm:col-span-1" : "";
+                activeBtn.className = "client-pill-btn p-2 rounded-lg bg-emerald-950/80 text-white font-bold flex flex-col items-start border-2 border-emerald-400 ring-2 ring-emerald-500/30 transition shadow-lg shadow-emerald-950/50" + spanClass;
+                if (typeof activeBtn.querySelector === 'function') {
+                    const bTag = activeBtn.querySelector('.client-budget');
+                    if (bTag) bTag.className = "client-budget text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/25 text-emerald-300 font-mono font-bold border border-emerald-400/50";
+                    const rTag = activeBtn.querySelector('.client-role');
+                    if (rTag) rTag.className = "client-role text-[9px] font-medium text-emerald-200 mt-0.5";
+                    const nTag = activeBtn.querySelector('.client-name');
+                    if (nTag) nTag.className = "client-name text-white font-bold";
+                }
             }
 
             // Update title and budget in HUD
