@@ -6061,6 +6061,15 @@ function renderPartsDrawer() {
                                 <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 3: Architectural Synergy:</b> Dual-channel RAM, NVMe boot drive, zero thermal throttle.</span></li>
                                 <li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">⭐</span> <span><b>Star 4: High-Yield Value:</b> Sweet-spot efficiency ratio &ge; 160.0 pts/&pound;1.</span></li>
                                 <li class="flex items-center gap-1.5"><span class="text-netcom-lime font-bold">⭐</span> <span><b>Star 5: Master Value Architect:</b> Ratio &ge; 220.0 pts/&pound;1 with ZERO bottlenecks or over-provisioned rails!</span></li>
+                                <li class="pt-2">
+                                    <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[10px] text-amber-200 space-y-1">
+                                        <div class="flex items-center justify-between font-bold">
+                                            <span>🏆 Class Challenge Metric</span>
+                                            <span class="text-amber-400 font-mono">Numerical Ratio</span>
+                                        </div>
+                                        <p>Beyond star tiers, your exact <strong>Cost/Performance Ratio (pts / &pound;1)</strong> will be ranked on the vocational leaderboard. Balance every component's price against its SysBench output to achieve the highest score in the cohort!</p>
+                                    </div>
+                                </li>
                             ` : ''}
                             ${client.mustHave.noDedicatedGpu ? '<li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <span><b>Integrated Graphics Only:</b> Do not install a discrete PCIe graphics card.</span></li>' : ''}
                             ${client.mustHave.requireDedicatedGpu ? `<li class="flex items-center gap-1.5"><span class="text-sky-400">✓</span> <span><b>Dedicated Graphics Accelerator:</b> Dedicated PCIe GPU required (Minimum ${client.mustHave.minVramGb || 4} GB VRAM).</span></li>` : ''}
@@ -7656,6 +7665,7 @@ function renderPartsDrawer() {
             // Evaluate against Active Client Scenario
             const evaluation = evaluateCustomerBuild(result.total, result.ptsPerPound);
             const client = evaluation.client;
+            const isSandbox = client.id === 'sandbox';
 
             // Audio celebration chirp
             playBeep(880, 100, 0);
@@ -7691,12 +7701,46 @@ function renderPartsDrawer() {
                                 <span class="px-2 py-0.5 rounded bg-netcom-lime text-black font-extrabold text-[10px] uppercase tracking-wider">Customer Delivery Certificate</span>
                                 <span class="text-slate-300 font-bold">${client.avatar} ${client.name}</span>
                             </div>
-                            <div class="flex items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <span class="text-[10px] text-slate-400 uppercase">Evaluation:</span>
                                 <div class="flex items-center gap-1">${starsHtml}</div>
-                                <span class="px-2 py-0.5 rounded ${evaluation.totalStars >= 4 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : (evaluation.totalStars >= 2.5 ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40' : 'bg-slate-800 text-slate-400')} font-bold text-xs">${evaluation.totalStars.toFixed(1)} / 5 Stars</span>
+                                <span class="px-2 py-0.5 rounded ${evaluation.totalStars >= 4 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : (evaluation.totalStars >= 2.5 ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40' : 'bg-slate-800 text-slate-400')} font-bold text-xs">${evaluation.totalStars.toFixed(1)} / 5.0 Stars</span>
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono font-extrabold text-xs flex items-center gap-1" title="Numerical Cost/Performance Value Score"><span class="text-[10px] text-emerald-400 uppercase font-sans font-semibold">Value Score:</span> ${result.ptsPerPound.toFixed(1)} <span class="text-[10px] font-normal text-emerald-400">pts/&pound;1</span></span>
                             </div>
                         </div>
+
+                        ${isSandbox ? `
+                        <!-- Vocational Value Leaderboard Numerical Score Showcase -->
+                        <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/70 via-slate-900 to-emerald-950/70 border-2 border-amber-500/50 shadow-xl space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">🏆</span>
+                                    <div>
+                                        <span class="text-xs font-extrabold text-white uppercase tracking-wider block">Vocational Efficiency Score &bull; Class Leaderboard Metric</span>
+                                        <span class="text-[10px] text-slate-300">Exact numerical score measuring SysBench performance output against component spend</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] text-slate-400 uppercase font-mono">Leaderboard Ratio:</span>
+                                    <span class="px-3 py-1 rounded-lg bg-amber-500 text-black font-black font-mono text-sm shadow-md">${result.ptsPerPound.toFixed(1)} pts / &pound;1</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono pt-1">
+                                <div class="p-1.5 rounded bg-black/40 border border-slate-800">
+                                    <span class="text-slate-400 block text-[9px] uppercase">SysBench Output</span>
+                                    <span class="text-netcom-lime font-bold text-xs">${result.total.toLocaleString()} pts</span>
+                                </div>
+                                <div class="p-1.5 rounded bg-black/40 border border-slate-800">
+                                    <span class="text-slate-400 block text-[9px] uppercase">Component Spend</span>
+                                    <span class="text-amber-300 font-bold text-xs">&pound;${evaluation.totalCost.toFixed(2)}</span>
+                                </div>
+                                <div class="p-1.5 rounded bg-black/40 border border-slate-800">
+                                    <span class="text-slate-400 block text-[9px] uppercase">Efficiency Tier</span>
+                                    <span class="text-emerald-400 font-bold text-xs">${result.efficiencyBadge.replace(/⭐/g, '').trim()}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
 
                         <!-- In-Character Client Reaction Dialogue -->
                         <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
