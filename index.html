@@ -211,6 +211,31 @@
             margin-bottom: 18px;
         }
 
+        .lesson-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .lesson-list li {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.45;
+        }
+
+        .lesson-list li::before {
+            content: "\25B8";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--netcom-lime);
+            font-weight: 800;
+        }
+
         .lab-meta {
             display: flex;
             align-items: center;
@@ -317,7 +342,13 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 1 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 01 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Use Technology Effectively, Explore the Computing Cycle, Recognise Computing Devices, Understand Your Data, and Data Privacy.</p>
+                        <ul class="lesson-list">
+                            <li>Use Technology Effectively</li>
+                            <li>Explore the Computing Cycle</li>
+                            <li>Recognise Computing Devices</li>
+                            <li>Understand Your Data</li>
+                            <li>Data Privacy</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Live Explainer Available</span>
@@ -330,7 +361,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 2 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 02 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Passwords and Encryption, Identify Internet Basics, Using a Web Browser, and Internet Service Providers.</p>
+                        <ul class="lesson-list">
+                            <li>Passwords and Encryption</li>
+                            <li>Identify Internet Basics</li>
+                            <li>Using a Web Browser</li>
+                            <li>Internet Service Providers</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Live Explainer Available</span>
@@ -343,7 +379,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 3 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 03 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Basic Security Concepts, Identify Common Security Threats, Security Tools and Software, and Binary &amp; Other Numbering Systems.</p>
+                        <ul class="lesson-list">
+                            <li>Basic Security Concepts</li>
+                            <li>Identify Common Security Threats</li>
+                            <li>Security Tools and Software</li>
+                            <li>Binary and Other Numbering Systems</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Live Explainer Available</span>
@@ -356,7 +397,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 4 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 04 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Basic Networking Concepts, How Networks Work, Small Wireless Network Specifications, and Virtualisation on the Network.</p>
+                        <ul class="lesson-list">
+                            <li>Basic Networking Concepts</li>
+                            <li>How Networks Work</li>
+                            <li>Small Wireless Network Specifications</li>
+                            <li>Virtualisation on the Network</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Live Explainer Available</span>
@@ -369,7 +415,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 5 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 05 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Common Applications, Productivity Software, Safely Managing Software, and The CompTIA Troubleshooting Methodology.</p>
+                        <ul class="lesson-list">
+                            <li>Common Applications</li>
+                            <li>Productivity Software</li>
+                            <li>Safely Managing Software</li>
+                            <li>The CompTIA Troubleshooting Methodology</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Complete &amp; Available</span>
@@ -382,7 +433,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 6 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 06 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: What is an Operating System, What Does an Operating System Do?, File Management, and Data Backup.</p>
+                        <ul class="lesson-list">
+                            <li>What is an Operating System</li>
+                            <li>What Does an Operating System Do?</li>
+                            <li>File Management</li>
+                            <li>Data Backup</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Complete &amp; Available</span>
@@ -395,7 +451,13 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 7 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 07 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Units of Speed and Capacity, What's Inside a Computer?, Storage Types, Connected Devices, and Installing Connected Devices.</p>
+                        <ul class="lesson-list">
+                            <li>Units of Speed and Capacity</li>
+                            <li>What's Inside a Computer?</li>
+                            <li>Storage Types</li>
+                            <li>What Can I Connect to My Device?</li>
+                            <li>Installing Connected Devices</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status">&bull; Complete &amp; Available</span>
@@ -408,7 +470,11 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag" style="background: rgba(115, 245, 74, 0.2); color: #73f54a; border-color: rgba(115, 245, 74, 0.5);">Unit 1: Day 8 &bull; CompTIA Tech+ &bull; Today's Active Lesson</div>
                         <h3 class="lab-title" style="color: #ffffff;">Lesson 08 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: Database Basics, Types of Databases, and Relational Databases.</p>
+                        <ul class="lesson-list">
+                            <li>Database Basics</li>
+                            <li>Types of Databases</li>
+                            <li>Relational Databases</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span class="lab-status" style="color: #73f54a; font-weight: 700;">&bull; Today's Active Explainer</span>
@@ -421,7 +487,12 @@
                     <div class="lab-header">
                         <div class="lab-unit-tag">Unit 1: Day 9 &bull; CompTIA Tech+</div>
                         <h3 class="lab-title">Lesson 09 Interactive Explainer</h3>
-                        <p class="lab-desc">Key Learning Outcomes: What is Coding?, Planning a Coding Project, Variables and Data Types, and Coding Principles.</p>
+                        <ul class="lesson-list">
+                            <li>What is Coding?</li>
+                            <li>Planning a Coding Project</li>
+                            <li>Variables and Data Types</li>
+                            <li>Coding Principles</li>
+                        </ul>
                     </div>
                     <div class="lab-meta">
                         <span style="color: #94a3b8; font-size: 12px;">Scheduled for Day 9 &bull; Coming Soon</span>
