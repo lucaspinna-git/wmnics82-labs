@@ -2164,15 +2164,15 @@
                                 <span>Tables (3)</span>
                             </div>
                             <div class="pl-2 space-y-0.5">
-                                <button type="button" onclick="switchAccessTable('tbl_inventory')" id="navTableInventory" class="w-full text-left px-2 py-1.5 rounded bg-[#a4373a]/20 border-l-2 border-[#a4373a] text-white font-medium flex items-center gap-2 text-xs transition">
+                                <button type="button" onclick="switchAccessTable('tbl_inventory')" id="navTableInventory" class="w-full text-left px-2 py-1.5 rounded bg-[#a4373a]/20 border-l-2 border-[#a4373a] text-white font-medium flex items-center gap-2 text-xs transition cursor-pointer">
                                     <span class="text-[#f56565]">📋</span>
                                     <span>tbl_inventory</span>
                                 </button>
-                                <button type="button" onclick="switchAccessTable('tbl_customers')" id="navTableCustomers" class="w-full text-left px-2 py-1.5 rounded hover:bg-slate-900 text-slate-300 flex items-center gap-2 text-xs transition">
+                                <button type="button" onclick="switchAccessTable('tbl_customers')" id="navTableCustomers" class="w-full text-left px-2 py-1.5 rounded hover:bg-slate-900 text-slate-300 flex items-center gap-2 text-xs transition cursor-pointer">
                                     <span class="text-slate-500">📋</span>
                                     <span>tbl_customers</span>
                                 </button>
-                                <button type="button" onclick="switchAccessTable('tbl_orders')" id="navTableOrders" class="w-full text-left px-2 py-1.5 rounded hover:bg-slate-900 text-slate-300 flex items-center gap-2 text-xs transition">
+                                <button type="button" onclick="switchAccessTable('tbl_orders')" id="navTableOrders" class="w-full text-left px-2 py-1.5 rounded hover:bg-slate-900 text-slate-300 flex items-center gap-2 text-xs transition cursor-pointer">
                                     <span class="text-slate-500">📋</span>
                                     <span>tbl_orders</span>
                                 </button>
@@ -3822,25 +3822,56 @@ function setAccessView(viewMode) {
         }
 
         function switchAccessTable(tableName) {
-            playClickSound();
+            if (typeof playClickSound === 'function') playClickSound();
             if (!ACCESS_DATABASE[tableName]) return;
             activeAccessTable = tableName;
+            window.activeAccessTable = tableName;
 
-            // Update sidebar buttons
-            document.querySelectorAll('.access-nav-btn').forEach(btn => {
-                btn.className = "access-nav-btn w-full px-2.5 py-1.5 rounded-lg text-left text-xs font-medium flex items-center gap-2 hover:bg-slate-800 text-slate-300 transition";
+            // Reset all table nav buttons
+            const navMap = {
+                tbl_inventory: 'navTableInventory',
+                tbl_customers: 'navTableCustomers',
+                tbl_orders: 'navTableOrders'
+            };
+
+            Object.values(navMap).forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.className = "w-full text-left px-2 py-1.5 rounded hover:bg-slate-900 text-slate-300 flex items-center gap-2 text-xs transition cursor-pointer";
+                    const icon = btn.querySelector('span:first-child');
+                    if (icon) icon.className = "text-slate-500";
+                }
             });
-            const activeBtn = document.getElementById(`sideNav-${tableName}`);
+
+            // Highlight active button
+            const activeBtnId = navMap[tableName];
+            const activeBtn = document.getElementById(activeBtnId);
             if (activeBtn) {
-                activeBtn.className = "access-nav-btn w-full px-2.5 py-1.5 rounded-lg text-left text-xs font-medium flex items-center gap-2 bg-[#a4373a]/20 text-rose-300 border border-rose-500/40 transition";
+                activeBtn.className = "w-full text-left px-2 py-1.5 rounded bg-[#a4373a]/20 border-l-2 border-[#a4373a] text-white font-medium flex items-center gap-2 text-xs transition cursor-pointer";
+                const icon = activeBtn.querySelector('span:first-child');
+                if (icon) icon.className = "text-[#f56565]";
             }
 
-            const badge = document.getElementById('accessActiveTableBadge');
-            if (badge) badge.innerText = `Table: ${tableName}`;
+            // Update Tab Title
+            const tabTitle = document.getElementById('accessActiveTableTabTitle');
+            if (tabTitle) tabTitle.innerText = tableName;
 
-            if (activeAccessView === 'datasheet') {
+            // Update Category Filter in Ribbon (hide for non-inventory tables)
+            const catFilter = document.getElementById('accessCategoryFilter');
+            if (catFilter) {
+                if (tableName === 'tbl_inventory') {
+                    catFilter.classList.remove('hidden');
+                } else {
+                    catFilter.classList.add('hidden');
+                }
+            }
+
+            // If in SQL view and the user clicks a table, switch view to datasheet
+            if (activeAccessView === 'sql') {
+                setAccessView('datasheet');
+            } else if (activeAccessView === 'datasheet') {
                 renderAccessGrid();
-            } else {
+            } else if (activeAccessView === 'design') {
                 renderAccessDesignView();
             }
         }
@@ -3854,9 +3885,9 @@ function setAccessView(viewMode) {
 
         function renderAccessGrid() {
             const table = ACCESS_DATABASE[activeAccessTable];
-            const head = document.getElementById('accessGridHead');
+            const headRow = document.getElementById('accessGridHeadRow');
             const body = document.getElementById('accessGridBody');
-            if (!table || !head || !body) return;
+            if (!table || !headRow || !body) return;
 
             const searchVal = (document.getElementById('accessSearchInput')?.value || '').toLowerCase();
             const catVal = document.getElementById('accessCategoryFilter')?.value || 'all';
@@ -3873,10 +3904,8 @@ function setAccessView(viewMode) {
                 return true;
             });
 
-            // Update row count badges
-            const countLbl = document.getElementById('accessRowCountLbl');
+            // Update footer total
             const footerTotal = document.getElementById('accessFooterTotal');
-            if (countLbl) countLbl.innerText = `${rows.length} Rows`;
             if (footerTotal) footerTotal.innerText = `of ${rows.length}`;
 
             // Build Live Generated SQL trace
@@ -3886,41 +3915,39 @@ function setAccessView(viewMode) {
                 conditions.push(`category = '${catVal}'`);
             }
             if (searchVal) {
-                conditions.push(`(part_name LIKE '%${searchVal}%' OR category LIKE '%${searchVal}%')`);
+                conditions.push(`(search_fields LIKE '%${searchVal}%')`);
             }
             if (conditions.length > 0) {
                 generatedSql += ' WHERE ' + conditions.join(' AND ');
             }
             generatedSql += ` ORDER BY ${Object.keys(table[0])[0]} ASC;`;
-            updateAccessGeneratedSql(generatedSql, catVal !== 'all' ? `Filter category = '${catVal}'` : (searchVal ? `Search keyword '${searchVal}'` : `Query all from ${activeAccessTable}`));
+            updateAccessGeneratedSql(generatedSql, catVal !== 'all' ? `Filter category = '${catVal}'` : (searchVal ? `Search keyword '${searchVal}'` : `Query all records from ${activeAccessTable}`));
 
             // Render Header
             const keys = Object.keys(table[0]);
-            head.innerHTML = `
-                <tr>
-                    <th style="width: 32px;" class="text-center">&bull;</th>
-                    ${keys.map(k => `<th>${k.replace('_', ' ')}</th>`).join('')}
-                </tr>
+            headRow.innerHTML = `
+                <th style="width: 36px;" class="p-2 text-center text-slate-500">&bull;</th>
+                ${keys.map(k => `<th class="p-2 font-mono text-[11px] uppercase tracking-wider text-slate-400">${k.replace(/_/g, ' ')}</th>`).join('')}
             `;
 
             // Render Body
             body.innerHTML = rows.map((r, idx) => `
-                <tr class="hover:bg-slate-800/60 transition cursor-pointer">
-                    <td class="text-center text-slate-500 font-mono text-[10px] bg-slate-950/40">${idx === 0 ? '▶' : ''}</td>
+                <tr class="hover:bg-slate-800/60 transition cursor-pointer border-b border-slate-800/50">
+                    <td class="p-2 text-center text-slate-500 font-mono text-[10px] bg-slate-950/40">${idx === 0 ? '▶' : ''}</td>
                     ${keys.map(k => {
                         let val = r[k];
-                        if (k.includes('price') || k.includes('amount') || k.includes('balance')) {
-                            val = `&pound;${parseFloat(val).toFixed(2)}`;
+                        if (k.includes('price') || k.includes('amount') || k.includes('balance') || k === 'unit_price' || k === 'total_amount') {
+                            val = `£${Number(val).toFixed(2)}`;
                         }
-                        if (k === 'in_stock') {
-                            val = r[k] === 'In Stock' 
-                                ? `<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">In Stock</span>`
-                                : `<span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">Backorder</span>`;
+                        if (k === 'in_stock' || k === 'order_status') {
+                            const isGreen = val === 'In Stock' || val === 'Delivered';
+                            const badgeColor = isGreen ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300';
+                            return `<td class="p-2"><span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${badgeColor}">${val}</span></td>`;
                         }
                         if (k.includes('_id')) {
-                            return `<td class="font-bold text-netcom-teal">${val}</td>`;
+                            return `<td class="p-2 font-bold text-amber-400 font-mono">${val}</td>`;
                         }
-                        return `<td>${val}</td>`;
+                        return `<td class="p-2 text-slate-300 font-sans">${val}</td>`;
                     }).join('')}
                 </tr>
             `).join('');
@@ -3928,8 +3955,8 @@ function setAccessView(viewMode) {
             // Access new row placeholder at bottom
             body.innerHTML += `
                 <tr class="bg-slate-950/40 text-slate-500 italic">
-                    <td class="text-center text-amber-400 font-bold font-mono">*</td>
-                    <td colspan="${keys.length}" class="p-2 text-[11px]">Click &ldquo;+ Add Record&rdquo; on ribbon to insert new row...</td>
+                    <td class="p-2 text-center text-amber-400 font-bold font-mono">*</td>
+                    <td colspan="${keys.length}" class="p-2 text-[11px]">Click &ldquo;+ Add Record&rdquo; on ribbon to insert new record...</td>
                 </tr>
             `;
         }
@@ -3943,9 +3970,12 @@ function setAccessView(viewMode) {
         }
 
         function renderAccessDesignView() {
-            const body = document.getElementById('accessDesignBody');
+            const body = document.getElementById('accessDesignGridBody');
             if (!body) return;
-            const ddlSql = `-- Access Engine Schema Definition Query:\nSELECT column_name, data_type, is_nullable, is_primary_key\nFROM information_schema.columns\nWHERE table_name = '${activeAccessTable}';`;
+            const ddlSql = `-- Access Engine Schema Definition Query:
+SELECT column_name, data_type, is_nullable, is_primary_key
+FROM information_schema.columns
+WHERE table_name = '${activeAccessTable}';`;
             updateAccessGeneratedSql(ddlSql, `Design View schema inspection for ${activeAccessTable}`);
 
             const designSpecs = {
@@ -3977,19 +4007,26 @@ function setAccessView(viewMode) {
 
             const fields = designSpecs[activeAccessTable] || [];
             body.innerHTML = fields.map(f => `
-                <tr class="hover:bg-slate-800/40">
-                    <td class="font-bold flex items-center gap-2">
-                        ${f.pk ? '<span class="text-amber-400 font-bold" title="Primary Key">🔑 PK</span>' : '<span class="text-slate-600">&bull;</span>'}
-                        <span class="${f.pk ? 'text-amber-300' : 'text-slate-200'}">${f.name}</span>
-                    </td>
-                    <td class="text-netcom-teal font-medium">${f.type}</td>
-                    <td class="text-slate-400 font-sans text-[11px]">${f.desc}</td>
+                <tr class="hover:bg-slate-800/40 border-b border-slate-800/50">
+                    <td class="p-2 text-center">${f.pk ? '<span class="text-amber-400 font-bold" title="Primary Key">🔑</span>' : ''}</td>
+                    <td class="p-2 font-bold ${f.pk ? 'text-amber-300' : 'text-slate-200'}">${f.name}</td>
+                    <td class="p-2 text-netcom-teal font-medium font-mono text-[11px]">${f.type}</td>
+                    <td class="p-2 text-slate-400 font-sans text-[11px]">${f.desc}</td>
                 </tr>
             `).join('');
+
+            // Update Field Properties Inspector subtitle
+            const propSub = document.querySelector('#accessDesignWrapper .text-slate-500.font-mono');
+            if (propSub && fields.length > 0) {
+                propSub.innerText = `Table: ${activeAccessTable} • Selected: ${fields[0].name} (${fields[0].type})`;
+            }
         }
 
         function openAddRecordModal() {
-            playClickSound();
+            if (typeof playClickSound === 'function') playClickSound();
+            if (activeAccessTable !== 'tbl_inventory') {
+                switchAccessTable('tbl_inventory');
+            }
             const modal = document.getElementById('addRecordModal');
             const partIdField = document.getElementById('modalPartId');
             if (partIdField) {
@@ -4000,7 +4037,7 @@ function setAccessView(viewMode) {
         }
 
         function closeAddRecordModal() {
-            playClickSound();
+            if (typeof playClickSound === 'function') playClickSound();
             const modal = document.getElementById('addRecordModal');
             if (modal) modal.classList.add('hidden');
         }
