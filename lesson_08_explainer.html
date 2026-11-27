@@ -689,7 +689,7 @@
                             <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">RDBMS</span>
                         </div>
                         <p class="text-xs text-slate-300 leading-relaxed">
-                            Data that conforms to a <strong class="text-white">rigid, pre-defined schema</strong>. Organised strictly into two-dimensional tables with designated rows and columns. Every cell adheres strictly to its declared data type.
+                            Data that conforms to a <strong class="text-white">rigid, pre-defined schema</strong>. Organised strictly into two-dimensional tables with designated fields and records. Every field adheres strictly to its declared data type.
                         </p>
                         <div class="p-2.5 rounded-lg bg-black/40 border border-white/5 space-y-1 text-[11px] font-mono">
                             <span class="text-emerald-400 font-bold block">Vocational Examples:</span>
@@ -846,7 +846,7 @@
                             </span>
                             <span id="badge-count-structured" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300">0 Items</span>
                         </div>
-                        <p class="text-[11px] text-slate-400 leading-tight">Organised in rigid tables with strictly defined rows and columns. Easily queried with SQL.</p>
+                        <p class="text-[11px] text-slate-400 leading-tight">Organised in rigid tables with strictly defined fields and records. Easily queried with SQL.</p>
                         <div id="list-structured" class="flex-1 space-y-2 min-h-[120px] p-2 rounded-lg bg-black/30"></div>
                         <button type="button" onclick="quickMoveSelected('structured')" class="w-full py-1 text-[11px] text-center rounded bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800/50 transition">
                             + Move Selected Here
@@ -909,7 +909,7 @@
                         <tbody class="divide-y divide-white/5 text-slate-300 font-sans">
                             <tr class="hover:bg-white/5 transition">
                                 <td class="p-3.5 font-bold text-white font-mono">Data Model</td>
-                                <td class="p-3.5 text-sky-300">Rigid tables with pre-defined schema, rows, and columns.</td>
+                                <td class="p-3.5 text-sky-300">Rigid tables with pre-defined schema, fields, and records.</td>
                                 <td class="p-3.5 text-amber-300">Dynamic documents (JSON), key-value pairs, or graphs.</td>
                                 <td class="p-3.5 text-slate-400 text-[11px]">RDBMS for strict accounting; NoSQL for variable catalog specs.</td>
                             </tr>
@@ -1363,7 +1363,7 @@
                             <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">Unique &bull; Non-Null</span>
                         </div>
                         <p class="text-xs text-slate-300 leading-relaxed">
-                            A field (or set of fields) that <strong class="text-white">uniquely identifies every individual row</strong> in a table. No two rows can share the same Primary Key.
+                            A field (or set of fields) that <strong class="text-white">uniquely identifies every individual record</strong> in a table. No two records can share the same Primary Key.
                         </p>
                         <div class="p-3 rounded-lg bg-black/40 border border-white/5 space-y-1.5 text-xs">
                             <span class="text-emerald-400 font-bold block font-mono text-[11px]">3 Strict Primary Key Rules:</span>
@@ -1401,7 +1401,7 @@
                             <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px] font-mono font-bold">Relational Glue</span>
                         </div>
                         <p class="text-xs text-slate-300 leading-relaxed">
-                            A column in a child table that refers directly to the <strong class="text-white">Primary Key of another parent table</strong>, creating a formal relational link between records.
+                            A field in a child table that refers directly to the <strong class="text-white">Primary Key of another parent table</strong>, creating a formal relational link between records.
                         </p>
                         <div class="p-3 rounded-lg bg-black/40 border border-white/5 space-y-1.5 text-xs">
                             <span class="text-sky-300 font-bold block font-mono text-[11px]">Referential Integrity Protection:</span>
@@ -1510,7 +1510,7 @@
                         <div class="p-3 rounded-lg bg-slate-900 border border-sky-500/20 space-y-1">
                             <span class="text-sky-400 font-bold font-mono text-[11px] block">2. The Foreign Key Invariant</span>
                             <p class="text-[11px] text-slate-300 leading-relaxed font-sans">
-                                Any value stored in a child Foreign Key column MUST already exist as a Primary Key in the parent table. Entering an unknown ID triggers an instant constraint rejection.
+                                Any value stored in a child Foreign Key field MUST already exist as a Primary Key in the parent table. Entering an unknown ID triggers an instant constraint rejection.
                             </p>
                         </div>
                         <div class="p-3 rounded-lg bg-slate-900 border border-amber-500/20 space-y-1">
@@ -2728,7 +2728,7 @@
                     </div>
                     <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
                         <span class="text-amber-300 font-bold block">3. Primary &amp; Foreign Keys:</span>
-                        <p>A Primary Key uniquely identifies a single row. A Foreign Key points to a Primary Key in another table, enforcing referential integrity and eliminating orphaned records.</p>
+                        <p>A Primary Key uniquely identifies a single record. A Foreign Key points to a Primary Key in another table, enforcing referential integrity and eliminating orphaned records.</p>
                     </div>
                     <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
                         <span class="text-emerald-300 font-bold block">4. Practical SQL Commands:</span>
@@ -3517,7 +3517,7 @@
                 playSuccessSound();
                 banner.className = "p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/50 text-xs text-emerald-200";
                 banner.innerHTML = `
-                    🎉 <strong>Outstanding! 12 / 12 Perfect Score:</strong> You accurately distinguished between Structured (tables/rows/columns), Semi-Structured (JSON/XML/tags), and Unstructured (raw media/audio/video) digital data!
+                    🎉 <strong>Outstanding! 12 / 12 Perfect Score:</strong> You accurately distinguished between Structured (tables/fields/records), Semi-Structured (JSON/XML/tags), and Unstructured (raw media/audio/video) digital data!
                 `;
             } else {
                 playErrorSound();
@@ -4623,7 +4623,7 @@ function setAccessView(viewMode) {
                 `;
                 note.innerHTML = `
                     <span class="text-sky-400 font-bold block font-mono">The Relational Schema Problem:</span>
-                    <span>In an RDBMS, every table row must have the exact same columns. In a diverse retail inventory (e-commerce), a single <code>Products</code> table suffers from dozens of empty <code class="text-rose-400 font-bold">NULL</code> cells per row, creating severe wasted storage, indexing bloat, and rigid maintenance headaches.</span>
+                    <span>In an RDBMS, every table record must have the exact same fields. In a diverse retail inventory (e-commerce), a single <code>Products</code> table suffers from dozens of empty <code class="text-rose-400 font-bold">NULL</code> cells per record, creating severe wasted storage, indexing bloat, and rigid maintenance headaches.</span>
                 `;
             }
         }
